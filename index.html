@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이재민 게임 기획 포트폴리오</title>
+<meta name="description" content="플레이어가 자기만의 해법을 찾는 전투를 기획합니다.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%23111111'/><circle cx='8' cy='8' r='4.5' fill='%23ffffff'/></svg>">
+<style>
+/* v42 · 여러 권 공용 서식. 한 권 = 한 프로젝트 = 기획력 하나. 기본은 어둡게, 밝게로 바꿀 수 있음 */
+@font-face{font-family:SUIT;src:url('assets/7a1971b4e54d6d797f105f2d.woff2') format('woff2');font-weight:400 500;font-display:swap}
+@font-face{font-family:SUIT;src:url('assets/044e7df5d44e38ea371e9d80.woff2') format('woff2');font-weight:600 700;font-display:swap}
+@font-face{font-family:SUIT;src:url('assets/a48987d6336e253c148243fd.woff2') format('woff2');font-weight:800 900;font-display:swap}
+@font-face{font-family:Arrows;src:local('Segoe UI'),local('Segoe UI Symbol'),local('Apple SD Gothic Neo'),local('Malgun Gothic');unicode-range:U+2190-21FF}
+
+:root,[data-theme="dark"]{
+  --bg:#0b0b0c;--bg2:#111113;--card:#18181b;--card2:#202024;
+  --ink:#f4f3ef;--ink-2:#c9c8c2;--ink-3:#93928c;--line:rgba(255,255,255,.14);--line-soft:rgba(255,255,255,.07);
+  --shade:linear-gradient(180deg,rgba(11,11,12,.15) 0%,rgba(11,11,12,.55) 55%,#0b0b0c 100%);
+  --c-darkest:#c98500;--a-darkest:#e0a54a;--c-kendo:#3987e5;--a-kendo:#7db3f7;--c-auction:#0ca30c;--a-auction:#5fc458;
+  --c-nayeon:#d55181;--a-nayeon:#f08cad;--c-dungeon:#9085e9;--a-dungeon:#aea7f0;--c-overwatch:#d95926;--a-overwatch:#f29068;--c-whostail:#199e70;--a-whostail:#52b188;
+  --pc:#f4f3ef;--accent:#f4f3ef;--on-pc:#0b0b0c;--shadow:0 18px 40px -24px rgba(0,0,0,.8);
+}
+[data-theme="light"]{
+  --bg:#fbfaf7;--bg2:#f2f0ea;--card:#ffffff;--card2:#f6f4ef;
+  --ink:#141413;--ink-2:#45443f;--ink-3:#6c6b65;--line:rgba(0,0,0,.14);--line-soft:rgba(0,0,0,.07);
+  --shade:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.45) 60%,rgba(0,0,0,.78) 100%);
+  --c-darkest:#eda100;--a-darkest:#9f5b00;--c-kendo:#2a78d6;--a-kendo:#236cc4;--c-auction:#008300;--a-auction:#097d07;
+  --c-nayeon:#e87ba4;--a-nayeon:#ad4b72;--c-dungeon:#6250d6;--a-dungeon:#6253d1;--c-overwatch:#eb6834;--a-overwatch:#bd450a;--c-whostail:#1baf7a;--a-whostail:#007c4d;
+  --pc:#141413;--accent:#141413;--on-pc:#fff;--shadow:0 18px 40px -26px rgba(0,0,0,.35);
+}
+[data-p="darkest"]{--pc:var(--c-darkest);--accent:var(--a-darkest)}
+[data-p="kendo"]{--pc:var(--c-kendo);--accent:var(--a-kendo)}
+[data-p="auction"]{--pc:var(--c-auction);--accent:var(--a-auction)}
+[data-p="nayeon"]{--pc:var(--c-nayeon);--accent:var(--a-nayeon)}
+[data-p="dungeon"]{--pc:var(--c-dungeon);--accent:var(--a-dungeon)}
+[data-p="overwatch"]{--pc:var(--c-overwatch);--accent:var(--a-overwatch)}
+[data-p="whostail"]{--pc:var(--c-whostail);--accent:var(--a-whostail)}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-color:color-mix(in srgb,var(--ink) 28%,transparent) transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.75 Arrows,SUIT,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--pc) 70%,transparent)}
+::selection{background:color-mix(in srgb,var(--pc) 40%,transparent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* 위 띠 */
+.v-top{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;gap:14px;height:56px;padding:0 clamp(16px,4vw,40px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.v-top .home{font:800 15px/1 Arrows,SUIT,sans-serif;text-decoration:none;letter-spacing:-.01em}
+.v-top .home b{color:var(--pc)}
+.v-top .now{font-size:13px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.v-top button,.v-top a.btn{appearance:none;font:700 13px/1 Arrows,SUIT,sans-serif;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 13px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.v-top button:hover,.v-top a.btn:hover{border-color:var(--ink-3)}
+.v-prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--pc)}
+
+/* 표지 */
+.v-hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;padding:120px clamp(16px,6vw,72px) clamp(40px,7vh,80px);
+  background:var(--shade),var(--bg-img,none) center/cover no-repeat;color:#f6f5f1;isolation:isolate}
+.v-hero .in{max-width:1080px;width:100%}
+.v-hero .kind{display:inline-flex;gap:10px;align-items:center;font:700 13px/1 Arrows,SUIT,sans-serif;color:#e9e8e3;margin:0 0 22px}
+.v-hero .kind i{width:28px;height:3px;background:var(--pc);display:inline-block}
+.v-hero h1{font:900 clamp(34px,6.4vw,84px)/1.08 Arrows,SUIT,sans-serif;letter-spacing:-.04em;margin:0 0 22px;max-width:16em;text-wrap:balance}
+.v-hero .lead{font-size:clamp(16px,1.6vw,20px);line-height:1.7;max-width:40em;color:#dedcd5;margin:0 0 34px}
+.v-facts{display:flex;flex-wrap:wrap;gap:12px 36px;margin:0;padding:22px 0 0;border-top:1px solid rgba(255,255,255,.22)}
+.v-facts div{min-width:0}
+.v-facts dt{font-size:12.5px;color:#b9b8b2;margin:0 0 4px}
+.v-facts dd{margin:0;font:800 17px/1.35 Arrows,SUIT,sans-serif;color:#fff}
+
+/* 본문: 왼쪽 논지 줄 + 오른쪽 장면 */
+.v-wrap{display:grid;grid-template-columns:270px minmax(0,1fr);gap:clamp(24px,4vw,64px);max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.v-spine{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;padding:40px 0 24px}
+.v-spine p{font:800 12.5px/1.4 Arrows,SUIT,sans-serif;color:var(--ink-3);margin:0 0 14px}
+.v-spine ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.v-spine li a{display:block;padding:9px 0 9px 16px;margin-left:-1px;border-left:2px solid transparent;text-decoration:none;color:var(--ink-3);transition:color .2s,border-color .2s}
+.v-spine li a span{display:block;font:800 11.5px/1.3 Arrows,SUIT,sans-serif;letter-spacing:.02em;color:var(--accent);margin-bottom:3px}
+.v-spine li a b{display:block;font:700 13.5px/1.45 Arrows,SUIT,sans-serif}
+.v-spine li a:hover{color:var(--ink)}
+.v-spine li a[aria-current]{color:var(--ink);border-left-color:var(--pc)}
+.v-main{min-width:0}
+
+.v-beat{padding:clamp(56px,9vh,104px) 0;border-top:1px solid var(--line-soft);scroll-margin-top:60px}
+.v-beat:first-child{border-top:0}
+.v-step{display:none}
+.v-beat h2{font:900 clamp(26px,3.4vw,44px)/1.22 Arrows,SUIT,sans-serif;letter-spacing:-.035em;margin:0 0 14px;max-width:22em;text-wrap:balance}
+.v-beat h2 em{font-style:normal;color:var(--accent)}
+.v-sub{font-size:17px;line-height:1.75;color:var(--ink-2);max-width:42em;margin:0 0 30px}
+.v-vis{margin:0 0 18px}
+.v-vis>img,.v-vis>video,.v-shot{width:100%;border-radius:14px;box-shadow:var(--shadow);background:var(--card)}
+.v-cap{font-size:13px;line-height:1.6;color:var(--ink-3);margin:10px 0 0}
+.v-crop{max-height:min(68vh,540px);object-fit:cover;object-position:top}
+img.zoom{cursor:zoom-in}
+.v-lb{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.88);cursor:zoom-out}
+.v-lb.on{display:flex}
+.v-lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.v-note{font-size:13px;color:var(--ink-3);line-height:1.65;margin:12px 0 0}
+
+/* 더 보기 · 근거 */
+.v-more{margin:18px 0 0;border-top:1px solid var(--line-soft)}
+.v-more summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center;padding:14px 0;font:700 14px/1.4 Arrows,SUIT,sans-serif;color:var(--ink-2)}
+.v-more summary::-webkit-details-marker{display:none}
+.v-more summary::before{content:"";width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg);transition:transform .2s}
+.v-more[open] summary::before{transform:rotate(45deg)}
+.v-more .in{padding:0 0 18px;color:var(--ink-2);font-size:15px}
+.v-more .in p{margin:0 0 10px}
+
+/* 장면 부품 */
+.v-two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.v-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.v-panel{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow)}
+.v-panel h3{font:800 15px/1.4 Arrows,SUIT,sans-serif;margin:0 0 12px;color:var(--ink-2)}
+.v-quote{margin:0;padding:6px 0 6px 0;font:700 clamp(18px,2vw,23px)/1.6 Arrows,SUIT,sans-serif;letter-spacing:-.015em}
+.v-quote footer{font:500 13px/1.5 Arrows,SUIT,sans-serif;color:var(--ink-3);margin-top:12px}
+.v-flow{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:0;counter-reset:f}
+.v-flow>div{position:relative;padding:18px 22px 18px 0}
+.v-flow>div::before{counter-increment:f;content:counter(f);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--pc);color:var(--on-pc);font:800 13px/1 Arrows,SUIT,sans-serif;margin-bottom:12px}
+.v-flow>div:not(:last-child)::after{content:"";position:absolute;top:32px;left:36px;right:8px;height:1px;background:var(--line)}
+.v-flow b{display:block;font:800 16px/1.4 Arrows,SUIT,sans-serif;margin-bottom:4px}
+.v-flow span{font-size:13.5px;color:var(--ink-3);line-height:1.55;display:block}
+.v-chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.v-chips li{padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font:700 14.5px/1.3 Arrows,SUIT,sans-serif}
+.v-chips li.on{background:var(--pc);color:var(--on-pc);border-color:transparent}
+
+/* 토글: <div class="v-seg" data-for="id"><button data-v="a">…</button></div> → #id[data-v="a"] */
+.v-seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--card2);border:1px solid var(--line-soft);margin:0 0 16px}
+.v-seg button{appearance:none;border:0;background:transparent;color:var(--ink-2);font:700 13.5px/1 Arrows,SUIT,sans-serif;padding:10px 16px;border-radius:999px;cursor:pointer}
+.v-seg button[aria-pressed="true"]{background:var(--pc);color:var(--on-pc)}
+[data-v] [data-show]{display:none}
+[data-v="a"] [data-show~="a"],[data-v="b"] [data-show~="b"],[data-v="c"] [data-show~="c"],[data-v="d"] [data-show~="d"]{display:revert}
+
+/* 막대: <div class="v-bars"><div class="r"><span class="l">이름</span><span class="t"><i style="--a:60%;--b:40%"></i></span><b>값</b></div></div> */
+.v-bars .r{display:grid;grid-template-columns:minmax(90px,170px) minmax(0,1fr) auto;gap:14px;align-items:center;margin:10px 0}
+.v-bars .l{font-size:14px;color:var(--ink-2);line-height:1.4}
+.v-bars .t{height:30px;border-radius:6px;background:var(--card2);overflow:hidden;display:flex;gap:2px}
+.v-bars .t i{display:flex;align-items:center;height:100%;width:var(--a,0%);background:var(--pc);border-radius:5px;font:800 12.5px/1 Arrows,SUIT,sans-serif;color:var(--on-pc);padding:0 10px;white-space:nowrap;overflow:hidden;transition:width .8s cubic-bezier(.16,1,.3,1)}
+.v-bars .t i.dim{background:color-mix(in srgb,var(--ink) 22%,var(--card2));color:var(--ink)}
+[data-v="b"] .v-bars .t i{width:var(--b,var(--a,0%))}
+[data-v="c"] .v-bars .t i{width:var(--c,var(--a,0%))}
+.v-bars b{font:900 16px/1 Arrows,SUIT,sans-serif;font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+.v-big{font:900 clamp(48px,8vw,96px)/1 Arrows,SUIT,sans-serif;letter-spacing:-.04em;color:var(--accent);margin:4px 0 6px;font-variant-numeric:tabular-nums}
+
+/* 댓글 · 대화 */
+.v-thread{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.v-thread li{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:16px 20px}
+.v-thread li.me{background:color-mix(in srgb,var(--pc) 13%,var(--card))}
+.v-thread .who{display:flex;gap:10px;align-items:baseline;font:800 13.5px/1.3 Arrows,SUIT,sans-serif;margin-bottom:6px}
+.v-thread .who em{font-style:normal;font-weight:700;color:var(--accent)}
+.v-thread .who time{font-weight:500;color:var(--ink-3);font-size:12.5px;margin-left:auto}
+.v-thread p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.7}
+
+/* 마무리 · 면접 질문 */
+.v-qa{padding:clamp(56px,9vh,104px) 0;border-top:1px solid var(--line-soft)}
+.v-qa h2{font:900 clamp(22px,2.6vw,32px)/1.3 Arrows,SUIT,sans-serif;letter-spacing:-.03em;margin:0 0 8px}
+.v-qa ol{margin:24px 0 0;padding:0;list-style:none;counter-reset:q;display:grid;gap:2px}
+.v-qa li{counter-increment:q;display:grid;grid-template-columns:44px 1fr;gap:8px;padding:14px 0;border-top:1px solid var(--line-soft);font:700 16px/1.6 Arrows,SUIT,sans-serif}
+.v-qa li::before{content:"Q" counter(q);color:var(--accent);font:800 13px/1.9 Arrows,SUIT,sans-serif}
+.v-foot{max-width:1280px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 80px;display:flex;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line-soft)}
+.v-foot a{display:inline-flex;flex-direction:column;gap:2px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;text-decoration:none;min-width:200px;flex:1}
+.v-foot a small{font-size:12px;color:var(--ink-3)}
+.v-foot a b{font:800 15px/1.4 Arrows,SUIT,sans-serif}
+.v-foot a:hover{border-color:var(--pc)}
+
+@media (max-width:1040px){
+  .v-wrap{grid-template-columns:minmax(0,1fr)}
+  .v-spine{position:sticky;top:56px;z-index:20;max-height:none;padding:10px 0;margin:0 calc(-1*clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px);
+    background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft);overflow-x:auto}
+  .v-spine p{display:none}
+  .v-spine ol{display:flex;gap:6px;border:0;width:max-content}
+  .v-spine li a{border:1px solid var(--line);border-radius:999px;padding:7px 12px;margin:0}
+  .v-spine li a b{display:none}
+  .v-spine li a span{margin:0;color:inherit}
+  .v-spine li a[aria-current]{background:var(--pc);color:var(--on-pc);border-color:transparent}
+  .v-two,.v-three{grid-template-columns:minmax(0,1fr)}
+  .v-flow{grid-template-columns:minmax(0,1fr)}
+  .v-flow>div{padding:12px 0 12px 44px}
+  .v-flow>div::before{position:absolute;left:0;top:12px}
+  .v-flow>div:not(:last-child)::after{left:13px;top:44px;bottom:-12px;right:auto;width:1px;height:auto}
+}
+@media (max-width:560px){
+  .v-bars .r{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}
+  .v-bars .l{grid-column:1/-1}
+  .v-top .now{display:none}
+  .v-hero{min-height:88vh}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* v43 · 본인용 면접 준비(제출본에는 없음) */
+.v-qa.own li{display:block;padding:0}
+.v-qa.own li::before{display:none}
+.v-qa.own details{border-top:1px solid var(--line-soft)}
+.v-qa.own summary{cursor:pointer;list-style:none;padding:16px 0;font:700 16px/1.6 Arrows,SUIT,sans-serif}
+.v-qa.own summary::-webkit-details-marker{display:none}
+.v-qa.own summary::before{content:'Q';color:var(--accent);font-weight:900;margin-right:10px}
+.v-qa.own .a{padding:0 0 18px 22px;color:var(--ink-2);font-size:15px;line-height:1.7}
+.v-qa.own .a ul{margin:0;padding-left:18px}.v-qa.own .a li.sub{margin-left:18px}
+.v-qa.own .a p{margin:0 0 8px}.v-qa.own code{font-size:.85em;color:var(--ink-3)}
+.v-qa.own .a,.v-qa.own summary{overflow-wrap:anywhere;min-width:0}.v-qa.own code{word-break:break-all}
+
+.h-main{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px) 72px}
+.h-hero{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:48px;align-items:center;padding:104px 0 44px}
+.h-hero h1{font:850 clamp(30px,4.3vw,54px)/1.18 SUIT,sans-serif;letter-spacing:-.035em;margin:0 0 20px;max-width:17em;text-wrap:balance}
+.h-lead{max-width:40em;color:var(--ink-2);font-size:16px;line-height:1.8;margin:0 0 20px}
+.h-photo{margin:0;align-self:start}.h-photo img{width:180px;aspect-ratio:4/5;object-fit:cover;border-radius:12px}
+.h-cv{margin:0;display:grid;gap:8px}.h-cv>div{display:grid;grid-template-columns:44px 1fr;gap:12px;font-size:14px;line-height:1.6}.h-cv dt{color:var(--ink-3)}.h-cv dd{margin:0;color:var(--ink-2)}
+.h-jump{display:flex;flex-wrap:wrap;gap:24px;margin:20px 0 0}.h-jump a{padding:10px 0;min-height:44px;text-underline-offset:6px;font-size:14px;font-weight:750}
+.h-chapter{border-top:1px solid var(--line);scroll-margin-top:72px}.h-chapter:last-child{border-bottom:1px solid var(--line)}
+.h-chapter>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 0;min-height:110px}
+.h-chapter>summary::-webkit-details-marker{display:none}.h-chapter>summary h2{font:850 clamp(26px,3vw,36px)/1.2 SUIT,sans-serif;letter-spacing:-.03em;margin:0 0 8px}.chapter-desc{font-size:15px;color:var(--ink-2)}
+.chapter-action{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-3);white-space:nowrap}.chapter-action svg{transition:transform .2s}.when-open{display:none}.h-chapter[open]>summary .when-open{display:inline}.h-chapter[open]>summary .when-closed{display:none}.h-chapter[open]>summary svg{transform:rotate(180deg)}
+.chapter-body{padding:0 0 44px}.h-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.h-card{grid-column:span 2;position:relative;display:flex;align-items:flex-end;min-height:360px;border-radius:12px;overflow:hidden;text-decoration:none;color:#f6f5f1;background:#111;isolation:isolate}
+.h-card .h-img{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#0001 15%,#000e 100%),var(--bg-img) center/cover no-repeat;transition:transform .5s cubic-bezier(.16,1,.3,1)}.h-card:hover .h-img,.h-card:focus-visible .h-img{transform:scale(1.035)}
+.h-b{display:flex;flex-direction:column;gap:8px;padding:26px}.h-b b{font:850 27px/1.2 SUIT,sans-serif;letter-spacing:-.025em}.h-b span{font-size:15px;line-height:1.6;color:#f1efea}.h-b small{font-size:12px;line-height:1.5;color:#e0ddd7}.h-b em{font-style:normal;font-size:12px;color:#d3d1ca}.h-grid>.h-card:nth-child(n+4){grid-column:span 3;min-height:260px}.h-grid>.h-card:nth-child(n+4) .h-b{max-width:30em}
+.h-extra{margin-top:44px}.h-extra>h3{font-size:23px;letter-spacing:-.025em;margin:0 0 8px}.h-extra>p{margin:0 0 22px;color:var(--ink-2);font-size:15px}.h-extra-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.h-extra-grid>.h-card{grid-column:auto;min-height:250px}.h-extra-grid .h-b b{font-size:24px}.h-archive{display:inline-block;margin-top:24px;padding:12px 0;font-size:14px;color:var(--ink-2)}
+.h-essay{max-width:720px;margin:8px auto 20px}.h-essay h3{font-size:clamp(25px,3vw,36px);line-height:1.4;letter-spacing:-.025em;margin:0 0 24px}.h-essay p{font-size:17px;line-height:1.95;color:var(--ink-2);margin:0 0 28px}.h-essay h4{font-size:18px;margin:32px 0 12px}.h-essay>a{display:inline-block;margin-top:12px;padding:10px 0;font-weight:750}
+@media(max-width:900px){.h-hero{grid-template-columns:minmax(0,1fr) 140px;gap:24px}.h-photo img{width:140px}.h-card,.h-grid>.h-card:nth-child(n+4){grid-column:span 3;min-height:300px}.h-grid>.h-card:last-child{grid-column:1/-1;min-height:220px}.h-b{padding:22px}.h-b b{font-size:24px}}
+@media(max-width:600px){.h-hero{padding-top:88px;gap:20px;grid-template-columns:minmax(0,1fr) 84px;align-items:start}.h-photo img{width:84px}.h-who{display:contents}.h-who>h1{grid-column:1;grid-row:1;font-size:29px;margin:0}.h-photo{grid-column:2;grid-row:1}.h-who>.h-lead,.h-who>.h-cv,.h-who>.h-jump{grid-column:1/-1}.h-lead{margin:0;font-size:15px}.h-jump{margin:0}.h-grid,.h-extra-grid{grid-template-columns:1fr}.h-card,.h-grid>.h-card:nth-child(n+4),.h-grid>.h-card:last-child{grid-column:auto;min-height:280px}.h-chapter>summary{gap:12px;padding:24px 0}.chapter-desc{font-size:14px}.chapter-action{font-size:12px;gap:4px}.h-chapter>summary h2{font-size:28px}.h-essay p{font-size:16px}.chapter-body{padding-bottom:30px}}
+@media(prefers-reduced-motion:reduce){.h-card .h-img,.chapter-action svg{transition:none}}
+
+/* v45 · 팀 프로젝트 회고 */
+.h-retro{padding:clamp(56px,9vh,96px) 0;border-bottom:1px solid var(--line-soft)}
+.h-retro h2{font:900 clamp(24px,3vw,38px)/1.2 Arrows,SUIT,sans-serif;letter-spacing:-.035em;margin:0 0 10px}
+.h-rt{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:rt}
+.h-rt li{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:clamp(18px,3vw,36px);padding:26px 0;border-top:1px solid var(--line-soft);align-items:start}
+.h-rt li:first-child{border-top:2px solid var(--ink)}
+.h-rt img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;background:var(--card)}
+.h-rt .when{margin:0 0 6px;font:700 13px/1.5 Arrows,SUIT,sans-serif;color:var(--ink-3)}
+.h-rt .when em{font-style:normal;color:var(--ink);font-weight:800}
+.h-rt b{display:block;font:900 clamp(18px,2vw,23px)/1.4 Arrows,SUIT,sans-serif;letter-spacing:-.02em;margin:0 0 8px}
+.h-rt span{display:block;font-size:15px;line-height:1.7;color:var(--ink-2)}
+.h-rt q{display:block;margin:14px 0 4px;padding:12px 16px;border-radius:10px;background:var(--card);font-size:15px;line-height:1.65;color:var(--ink)}
+.h-rt small{display:block;font-size:12.5px;color:var(--ink-3)}
+.h-rt a{display:inline-block;margin-top:12px;font-weight:800;font-size:14px;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){.h-rt li{grid-template-columns:minmax(0,1fr)}.h-rt img{max-width:420px}}
+
+/* v46: 요지를 먼저, 원문은 열어서 읽습니다. */
+.h-retro{scroll-margin-top:84px}
+.h-retro>.h-sub{max-width:48em}
+.h-rt>li{grid-template-columns:minmax(0,280px) minmax(0,1fr);padding:30px 0;gap:clamp(22px,4vw,48px)}
+.h-rt figure{margin:0}
+.h-rt figure>figcaption{font-size:12px;line-height:1.6;color:var(--ink-3);margin-top:8px}
+.h-rt h3{font:850 clamp(21px,2.3vw,29px)/1.35 Arrows,SUIT,sans-serif;letter-spacing:-.035em;margin:4px 0 12px}
+.h-rt .rt-lesson{font-size:16px;line-height:1.75;color:var(--ink-2);max-width:42em;margin:0 0 16px;word-break:keep-all;overflow-wrap:break-word}
+.rt-evidence{border-top:1px solid var(--line-soft);margin:0 0 6px}
+.rt-evidence>summary{cursor:pointer;font-size:14px;font-weight:750;padding:14px 24px 14px 0;color:var(--ink);min-height:46px}
+.rt-evidence>div{padding:0 0 18px;max-width:44em;font-size:15px;line-height:1.75;color:var(--ink-2)}
+.rt-evidence blockquote{margin:14px 0;padding:3px 0 3px 18px;border-left:3px solid var(--accent,var(--ink));font-weight:700;color:var(--ink)}
+.h-rt .rt-page{aspect-ratio:auto;object-fit:contain;max-width:420px;border:1px solid var(--line);border-radius:4px}
+.rt-source{font-size:12px;color:var(--ink-3)}
+.h-rt a.rt-work{margin-top:6px}
+.h-jump{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 0}
+.h-jump a{font-size:14px;font-weight:750;color:var(--ink);text-underline-offset:5px;padding:8px 0}
+.h-jump a+a{margin-left:14px}
+@media(max-width:760px){.h-rt>li{grid-template-columns:minmax(0,1fr);gap:18px}.h-rt>li>figure{max-width:400px}.h-rt h3{font-size:23px}.h-rt .rt-lesson{font-size:15px}.h-rt .rt-page{width:100%}.h-jump{margin-top:14px}}
+
+.h-rt>li:first-child{border-top:0}.rt-evidence blockquote{border-left-width:1px}.h-jump a+a{margin-left:0}
+
+.rt-follow{margin-top:24px;border-left:3px solid var(--a-whostail);padding:4px 0 4px 20px}.rt-follow>span{font-size:12px;color:var(--a-whostail);font-weight:700}.rt-follow h4{font-size:19px;margin:8px 0;line-height:1.5}.rt-follow p{font-size:14px;color:var(--ink-2);line-height:1.8}
+/* v49: 짧은 소개와 이력, 대표작, 회고, 자기소개서 */
+.h-hero{display:block;padding:100px 0 32px}
+.h-hero h1{font-size:clamp(32px,4.4vw,55px);max-width:21em;margin-bottom:18px;line-height:1.2;text-wrap:pretty;word-break:keep-all}
+.h-hero .h-lead{max-width:none;margin:0;font-size:17px}
+.h-resume{display:grid;grid-template-columns:minmax(180px,.85fr) minmax(330px,1.7fr) 132px;gap:32px;align-items:start;border-top:1px solid var(--line);padding:28px 0 12px}
+.h-identity h2{font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-.03em}
+.h-identity p{font-size:16px;line-height:1.7;margin:0 0 14px}.h-identity p span{font-size:14px;color:var(--ink-2)}
+.h-identity>a{font-size:14px;text-underline-offset:4px;overflow-wrap:anywhere}
+.h-resume .h-cv{gap:15px}.h-resume .h-cv>div{grid-template-columns:64px 1fr;gap:12px;line-height:1.5}
+.h-cv strong{font-size:15px;font-weight:700;color:var(--ink);display:block}.h-cv dd>span{display:block;font-size:13px;color:var(--ink-3);margin-top:3px}
+.h-resume .h-photo img{width:132px;border-radius:8px}
+.h-jump{margin:14px 0 28px;gap:28px}.h-jump a{font-size:15px}
+.h-group-title{font-size:22px;margin:4px 0 18px;letter-spacing:-.02em}.h-secondary-title{margin-top:44px}
+.h-featured{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.h-feature{display:flex;flex-direction:column;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);transition:border-color .2s}
+.h-feature:hover,.h-feature:focus-visible{border-color:var(--ink-3)}
+.h-feature .feature-image{display:block;aspect-ratio:1.52;background:var(--bg-img) center/cover no-repeat;position:relative;border-bottom:1px solid var(--line)}
+.h-feature .feature-image::after{content:'↗';position:absolute;right:12px;bottom:12px;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;background:#151515cc;color:#fff;font-size:19px}
+.feature-body{display:flex;flex-direction:column;flex:1;padding:23px;gap:13px}.feature-body>small{font-size:12px;color:var(--ink-3);line-height:1.5}
+.feature-body>b{font-size:27px;line-height:1.15;letter-spacing:-.025em}.feature-point{font-size:17px;font-weight:700;line-height:1.55;word-break:keep-all}.feature-proof{font-size:13px;line-height:1.65;color:var(--ink-2);border-top:1px solid var(--line);padding-top:14px;margin-top:auto}
+.h-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.h-grid>.h-card,.h-grid>.h-card:nth-child(n+4),.h-grid>.h-card:last-child{grid-column:auto;min-height:250px}.h-grid .h-b{padding:24px}.h-grid .h-b b{font-size:25px}
+.h-essay h4{font-size:21px;margin-top:38px}.h-essay p{font-size:16px;line-height:1.9;margin-bottom:21px}.h-essay h3{font-size:30px}
+.h-rt a.rt-full{font-size:15px;margin-top:6px}
+@media(max-width:980px){.h-resume{grid-template-columns:1fr 1.7fr 110px;gap:22px}.h-resume .h-photo img{width:110px}.feature-body{padding:18px}.feature-body>b{font-size:24px}.feature-point{font-size:16px}}
+@media(max-width:760px){.h-hero{padding-top:90px}.h-resume{grid-template-columns:minmax(0,1fr) 108px;gap:24px}.h-identity{grid-column:1;grid-row:1}.h-resume .h-photo{grid-column:2;grid-row:1}.h-resume .h-cv{grid-column:1/-1;grid-row:2}.h-featured{grid-template-columns:1fr}.h-feature{display:grid;grid-template-columns:1fr 1.2fr}.h-feature .feature-image{aspect-ratio:auto;min-height:230px;border-bottom:0}.feature-body>b{font-size:26px}.h-hero h1{font-size:36px}.h-grid{gap:14px}.h-grid .h-b b{font-size:23px}}
+@media(max-width:520px){.h-hero h1{font-size:32px}.h-hero .h-lead{font-size:15px;line-height:1.75}.h-resume .h-photo img{width:108px}.h-feature{display:flex}.h-feature .feature-image{aspect-ratio:1.7;min-height:0}.feature-body{padding:22px}.feature-body>b{font-size:27px}.feature-proof{margin-top:6px}.h-grid{grid-template-columns:1fr}.h-grid>.h-card,.h-grid>.h-card:nth-child(n+4),.h-grid>.h-card:last-child{min-height:240px}.h-essay h3{font-size:25px}.h-identity>a{font-size:13px}.h-resume .h-cv>div{font-size:13px}.h-cv strong{font-size:14px}.h-jump{margin-bottom:22px}.h-hero{padding-bottom:24px}}
+@media(prefers-reduced-motion:reduce){.h-feature{transition:none}}
+
+.h-feature[data-p="darkest"] .feature-image{background-position:center top}
+
+</style>
+</head>
+<body data-p="" class="hub">
+<header class="v-top"><a class="home" href="index.html">이재민<b>.</b></a><span class="now">게임 기획 포트폴리오</span>
+  <a class="btn" href="%EC%9E%90%EB%A3%8C%EC%8B%A4_%EC%A0%84%EC%B2%B4%ED%8C%90.html">자료실</a><button type="button" data-theme-toggle>밝게</button></header>
+<main class="h-main"><section class="h-hero">
+  <h1>만들고 싶은 재미를 정하고,<br>AI와 함께 플레이로 만듭니다</h1>
+  <p class="h-lead">규칙과 판단 기준은 제가 정합니다. AI에 구현을 맡기고, 실제로 플레이하며 의도와 다른 결과를 고칩니다.</p>
+</section>
+<section class="h-resume" id="resume" aria-label="이재민 이력">
+  <div class="h-identity"><h2>이재민</h2><p>게임 기획<br><span>게임 기획, AI 협업, 프로토타입 제작</span></p></div>
+  <dl class="h-cv">
+    <div><dt>교육</dt><dd><strong>경일게임아카데미 게임기획 38기</strong><span>2026.03–12, 수료 예정</span></dd></div>
+    <div><dt>경력</dt><dd><strong>에듀플렉스 공덕2점, 코칭매니저</strong><span>2024.10–2026.02, 학습 계획, 상담, 진도 관리</span></dd></div>
+    <div><dt>학력</dt><dd><strong>광운대학교, 문화교류전공</strong><span>동북아문화산업학부, 2020.08 학사 졸업</span></dd></div>
+    <div><dt>해외 경험</dt><dd><strong>정주경공업대학교, 교환학생</strong><span>2017.08–2018.07</span></dd></div>
+  </dl>
+  <figure class="h-photo"><img src="assets/d88ea6d5272cf5008a1da60f.webp" alt="이재민 프로필 사진"></figure>
+</section>
+<nav class="h-jump" aria-label="첫 화면 바로 가기"><a href="#projects">프로젝트</a><a href="#retrospective">회고</a><a href="#about">자기소개서</a></nav>
+<details class="h-chapter" id="projects" open><summary><span><h2>프로젝트</h2><span class="chapter-desc">혼자 만든 전투, 공개한 모드, 팀으로 완성한 게임</span></span><span class="chapter-action" aria-hidden="true"><span class="when-closed">펼치기</span><span class="when-open">접기</span><svg viewBox="0 0 24 24" width="24" height="24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></summary><div class="chapter-body"><h3 class="h-group-title">대표작</h3><div class="h-featured"><a class="h-feature" data-p="darkest" href="p/darkest.html" style="--bg-img:url('assets/a3b81aba8a78d367dfd5fba8.webp')"><span class="feature-image" aria-hidden="true"></span><span class="feature-body"><small>개인, 운영 중</small><b>Darkest Refined</b><span class="feature-point">채택할 수치를 정하고,<br>이용자 반응으로 다시 고칩니다.</span><span class="feature-proof">영웅 20명 리밸런스, 창작마당 공개<br>본인 판단과 AI 구현 범위 공개</span></span></a><a class="h-feature" data-p="whostail" href="p/whostail.html" style="--bg-img:url('assets/52c7119fd8b842e0407cf489.webp')"><span class="feature-image" aria-hidden="true"></span><span class="feature-body"><small>메인 프로젝트, 5인 팀</small><b>Who's Tail</b><span class="feature-point">의도가 구현까지 이어지도록<br>UI와 아이템을 설계합니다.</span><span class="feature-proof">메인 UI, 전투, 이벤트 기획<br>실제 빌드와 수정, 인계 문서</span></span></a><a class="h-feature" data-p="kendo" href="p/kendo.html" style="--bg-img:url('assets/b385e0f3ef298d2e375af648.webp')"><span class="feature-image" aria-hidden="true"></span><span class="feature-body"><small>개인, 13일</small><b>Samurai Kendo</b><span class="feature-point">규칙은 제가 정하고,<br>구현은 AI와 완성했습니다.</span><span class="feature-proof">13일 제작, Unity 프로토타입<br>실제 입력 재생 영상과 오류 수정 기록</span></span></a></div><h3 class="h-group-title h-secondary-title">팀 제작과 콘텐츠, 시스템 기획</h3><div class="h-grid"><a class="h-card" data-p="auction" href="p/auction.html" style="--bg-img:url('assets/d2d80dc73053bbbb86e1733f.webp')"><span class="h-img"></span><span class="h-b"><small>3인 팀, 해커톤</small><b>미지의 경매장</b><span>한 길이 다른 길을 지우지 않게, 보상과 정보의 구조를 계산으로 고치는 경제 설계</span><em>2026.07 – 08, NHN NAN 2026 사전과제</em></span></a><a class="h-card" data-p="nayeon" href="p/nayeon.html" style="--bg-img:url('assets/b3d597aa6499a8c44f7b9775.webp')"><span class="h-img"></span><span class="h-b"><small>개인, AI 캐릭터 대화 게임, 진행 중</small><b>강나연 스토리챗</b><span>칭찬보다 알아봐 준 말에 마음이 열리게, 관계를 규칙과 수치로 설계</span><em>2026.06 –, 12월 말 완성 예정</em></span></a><a class="h-card" data-p="dungeon" href="p/dungeon.html" style="--bg-img:url('assets/f59e1f0802bba8975560161e.webp')"><span class="h-img"></span><span class="h-b"><small>아카데미 평가 과제, 개인, 기획서</small><b>쿠크세이튼의 랜덤 박스</b><span>외운 절차를 틀리지 않는 부담을, 역할을 스스로 판단하는 재미로 바꾸는 협동 콘텐츠 설계</span><em>2026.06 – 07, 경일게임아카데미</em></span></a><a class="h-card" data-p="overwatch" href="p/overwatch.html" style="--bg-img:url('assets/f2fb1e80d56d3681d2eec552.webp')"><span class="h-img"></span><span class="h-b"><small>기획 제안, 개인, 제안서 두 편</small><b>오버워치 설계 제안</b><span>탱커의 정보 부담은 UI로, 후방 호위는 공격 영웅으로 나누는 설계</span><em>2026.03 – 05</em></span></a></div><div class="h-extra"><h3>그 밖의 작업과 AI 프로젝트</h3><p>분석과 서사 기획, 반복 작업을 돕는 도구도 만들었습니다.</p><div class="h-extra-grid"><a class="h-card" data-p="other" href="p/other.html" style="--bg-img:url('assets/4d13da6d29c73eee1829a3b5.webp')"><span class="h-img"></span><span class="h-b"><small>분석, 서사, 팀 작업</small><b>분석과 서사 기획</b><span>규칙을 읽히게, 이야기를 플레이와 이어지게</span><em>원문과 실제 결과물로 보기</em></span></a><a class="h-card" data-p="ai" href="p/ai.html" style="--bg-img:url('assets/58ab4c6b6619d4a830638c56.webp')"><span class="h-img"></span><span class="h-b"><small>개인 도구, 팀 제작 사례</small><b>AI와 만든 작업 도구</b><span>반복 작업은 맡기고, 판단의 기준을 남기는 설계</span><em>원문과 실제 결과물로 보기</em></span></a></div><a class="h-archive" href="자료실_전체판.html">프로젝트 원문과 근거를 자료실에서 보기 →</a></div></div></details><details class="h-chapter" id="retrospective" ><summary><span><h2>회고</h2><span class="chapter-desc">팀이 완주하도록, 제 역할도 바꿔 왔습니다</span></span><span class="chapter-action" aria-hidden="true"><span class="when-closed">펼치기</span><span class="when-open">접기</span><svg viewBox="0 0 24 24" width="24" height="24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></summary><div class="chapter-body"><ol class="h-rt">
+      <li id="retro-vn">
+        <figure><img class="zoom" src="assets/4d13da6d29c73eee1829a3b5.webp" alt="교수님 좋아하게 돼버렸어 Unity 빌드의 타이틀 화면"><figcaption>첫 팀 게임 제작, Unity 빌드</figcaption></figure>
+        <div>
+          <p class="when">2026.04 / 비주얼 노벨 / 팀장</p>
+          <h3>만들고 싶은 것보다,<br>기한 안에 완성할 것을 정합니다</h3>
+          <p class="rt-lesson">일주일에 너무 많은 설정을 담으려 했습니다. 기획의 욕심과 구현 시간을 함께 보고, 덜어낼 선을 정하는 것도 팀장의 일임을 배웠습니다.</p>
+          <details class="rt-evidence"><summary>회고록에서 이 판단이 나온 대목</summary><div>
+            <blockquote>나 스스로 일주일 프로젝트에서 담을 수 없는 기획을 설계한 것.</blockquote>
+            <p>회고록은 “프로젝트 규모에 걸맞지 않은 기획”을 핵심 오류로 적었습니다. 후반부에 수정할 시간을 남기려면 최소 결과물을 먼저 만들고, 이후 완성도를 높여야 한다고 정리했습니다.</p>
+            <img class="zoom rt-page" src="assets/bacd153d2a60c0c09beb833e.webp" alt="비주얼 노벨 개인 회고록 7쪽, 일주일에 담을 수 없는 기획을 설계했다는 원문">
+            <p class="rt-source">개인 회고록 7쪽, 2026.06.22 제출본</p>
+            <a href="docs/vn-retrospective-full.pdf" download>PDF 받기 ↓</a><p class="rt-source">2026.06.22 제출본 전체입니다. 다른 팀원의 성명만 가렸습니다.</p>
+          </div></details>
+          <a class="rt-full" href="docs/vn-retrospective.html">개인 회고록 전문, 8쪽 →</a>
+        </div>
+      </li>
+      <li id="retro-sos">
+        <figure><img class="zoom" src="assets/35cb35ba098eb384b5c38ec8.webp" alt="적들의 시간을 빼앗아 살아남는 로그라이트 RPG, SOS 팀 기획서 표지"><figcaption>SOS, 팀 기획서</figcaption></figure>
+        <div>
+          <p class="when">2026.05–06 / SOS / 시나리오, 세계관 → PM</p>
+          <h3>제 안을 밀기보다,<br>팀의 작업이 이어지게 했습니다</h3>
+          <p class="rt-lesson">제 시나리오가 기존 작업과 충돌해 사과하고 철회했습니다. 이후 회의 진행, 문서의 충돌 정리, 일정 공유를 맡아 팀원들의 적극성이 결과물로 이어지도록 도왔습니다.</p>
+          <details class="rt-evidence"><summary>PM으로 역할을 바꾼 실제 작업 일지</summary><div>
+            <blockquote>각자의 작업물을 계속 읽으며 이해되지 않는 부분 기존 문서와 충돌하는 부분을 댓글로 달아서 회의 때 합의 및 해결하려고 노력했다.</blockquote>
+            <p>5월 31일에는 PM으로 역할을 바꿨다고, 6월 1~8일에는 의제 추출, 회의 주관, 충돌 부분 표시, 마일스톤 공유를 했다고 기록했습니다.</p>
+            <img class="zoom rt-page" src="assets/c02afbab2bd59aa2b36cb746.webp" alt="SOS 작업 일지 3쪽, PM 전환과 회의록, 충돌 표시, 마일스톤 공유 기록">
+            <p class="rt-source">회고록 및 작업 일지 3–4쪽, 2026.05.31–06.08</p>
+            <a href="docs/%ED%9A%8C%EA%B3%A0_SOS_3-4%EC%AA%BD_%EB%B0%9C%EC%B7%8C.pdf">작업 일지와 회고 읽기 ↗</a>
+          </div></details>
+          
+        </div>
+      </li>
+      <li id="retro-auction">
+        <figure><img class="zoom" src="assets/d2d80dc73053bbbb86e1733f.webp" alt="미지의 경매장 최종 빌드의 경매 화면"><figcaption>미지의 경매장, 최종 빌드</figcaption></figure>
+        <div>
+          <p class="when">2026.07–08 / 미지의 경매장 / 3인 팀 기획</p>
+          <h3>서로 다른 재미를 존중하고,<br>대화로 중간점을 찾습니다</h3>
+          <p class="rt-lesson">재미의 취향에는 정답이 없습니다. 제가 옳다는 설명만으로는 팀이 움직이지 않았고, 서로의 생각을 듣고 실제 합의를 만드는 과정이 필요했습니다.</p>
+          
+          
+        </div>
+      </li>
+      <li id="retro-whostail">
+        <figure><img class="zoom" src="assets/52c7119fd8b842e0407cf489.webp" alt="Who's Tail 2026년 11월 16일 빌드의 게임 화면"><figcaption>Who’s Tail, 11월 16일 빌드</figcaption></figure>
+        <div>
+          <p class="when">2026.09–11 / Who’s Tail / 메인 UI, 전투, 이벤트 기획</p>
+          <h3>방향을 이끄는 책임과 함께,<br>맡은 몫을 완성하는 법을 배웠습니다</h3>
+          <p class="rt-lesson">SOS 팀원들과 다시 모였습니다. 이번에는 팀원으로서 맡은 UI와 전투, 이벤트 기획을 수행하고, 콘셉트와 방향에는 조언을 더했습니다.</p>
+          <details class="rt-evidence"><summary>팀 회고록에 남은 역할 분담</summary><div>
+            <blockquote>이재민 — 메인 UI 기획, 전투 및 이벤트 요소 기획</blockquote>
+            <p>팀의 컨셉 회고록은 최종 기획 결정과 프로젝트 관리를 팀장에게, 메인 UI와 전투, 이벤트 요소 기획을 제게 배분했습니다. 위의 배운 점은 이번 포트폴리오를 정리하며 돌아본 내용입니다.</p>
+            <img class="zoom rt-page" src="assets/61cf29cc58c7451a94dddd22.webp" alt="낭만원정대 컨셉 회고록 2쪽, 이재민의 메인 UI, 전투 및 이벤트 역할이 표시된 표. 다른 구성원 성명은 가렸습니다.">
+            <p class="rt-source">낭만원정대 컨셉 회고록, Ideation 단계 2쪽. 팀 회고 자료, 다른 구성원 성명 가림.</p>
+            <a href="docs/%ED%9A%8C%EA%B3%A0_%EB%82%AD%EB%A7%8C_%EC%97%AD%ED%95%A0%EB%B6%84%EB%8B%B4_%EB%B0%9C%EC%B7%8C.pdf">역할 분담 원문 읽기 ↗</a>
+          </div></details>
+          
+        </div>
+      </li>
+    </ol></div></details><details class="h-chapter" id="about" ><summary><span><h2>자기소개서</h2><span class="chapter-desc">제가 좋아하는 재미와 일하는 방식</span></span><span class="chapter-action" aria-hidden="true"><span class="when-closed">펼치기</span><span class="when-open">접기</span><svg viewBox="0 0 24 24" width="24" height="24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></summary><div class="chapter-body"><article class="h-essay">
+<h3>잘해지는 데 천장이 없고,<br>정해진 답도 없는 게임을 좋아합니다</h3>
+<p>철권에서 재미있었던 것은 같은 상황을 사람마다 다르게 해석한다는 점이었습니다. 상대가 왜 그 선택을 했는지, 다음에는 어떻게 이길 수 있을지 떠오르면 노트에 적었습니다. 집에 와서 연습 모드로 확인하고, 다시 그 상대를 만나 제 생각을 시험하는 과정이 즐거웠습니다.</p>
+<p>이제는 그런 재미를 만드는 쪽에서 일하고 싶습니다. 플레이어가 규칙을 이해할수록 새로운 선택을 발견하고, 자기만의 방법을 만들어 갈 수 있는 전투가 제가 만들고 싶은 게임입니다.</p>
+<h4>만족할 때까지 고치는 일이 즐겁습니다</h4>
+<p>대학 시절 글쓰기 수업에서 한두 페이지짜리 과제를 몇백 번씩 고쳐 쓰며 밤을 새웠습니다. 남들과 다른 생각을 논리적으로 담아내고 싶었습니다. 누가 시킨 일이 아니어도 제 기준을 채우기 위해 자발적으로 했던 일이고, 그 과정 자체가 즐거웠습니다. 한 문장씩 고쳐 쓰던 경험을 통해, 새로운 생각을 직접 형태로 만드는 일이 제 열정의 근원임을 알게 되었습니다.</p>
+<h4>생각을, 다른 사람이 쓸 수 있는 형태로</h4>
+<p>생각과 아이디어를 메모하는 습관이 있습니다. 왜 그런지 스스로 납득할 때까지 파고들고, 어려운 개념을 일상적인 말로 풀어 설명하는 일을 좋아합니다. 다만 제 안에서 논리가 완성되는 것과 상대에게 전달되는 것은 별개의 일이라는 점도 배웠습니다.</p>
+<p>코칭매니저로 일할 때는 기출 문항과 교재 단계를 대조해 목표 점수에 필요한 공부량을 역산했습니다. 그 계획을 학생 책상에 붙이는 일정표로 만들고, 매일의 점검과 학부모 보고에도 같은 기준을 썼습니다. 학생이 오늘 할 일과 밀린 분량을 스스로 볼 수 있게 하는 데 집중했습니다.</p>
+<h4>AI가 고쳤다고 해도, 직접 플레이합니다</h4>
+<p>Samurai Kendo에서는 전투 규칙과 수치를 제가 정하고 Unity 구현 코드는 AI에 맡겼습니다. 검사 결과가 통과해도 직접 플레이하니 게임 장면에 옛 값이 남아 있었습니다. 이후에는 코드 수정뿐 아니라 게임이 실제로 어떤 값으로 돌아가는지까지 확인했습니다. AI가 할 일을 나누는 것만큼, 결과를 받아들일 기준을 정하는 일이 중요했습니다.</p><h4>넷마블네오에서 만들고 싶은 것</h4><p>기획과 구현을 오가며 작은 게임 하나를 끝까지 완성하는 경험을 더 쌓고 싶습니다. 재미의 목표를 행동과 수치, 판정 조건으로 나누고, AI와 만든 결과를 동료와 플레이하며 고치겠습니다. 제가 맡은 범위를 분명히 설명하고, 다른 사람이 이어서 작업할 수 있는 기록을 남기겠습니다.</p>
+<p class="rt-source">작성 범위: 각 프로젝트의 본인, 팀, AI 역할을 해당 페이지에 표시했습니다. 이 포트폴리오의 구성, 문장 편집과 웹 구현에도 AI 도움을 받았습니다.</p></article></div></details></main>
+
+<script>
+/* v42 공용: 테마, 진행 막대, 논지 줄(왼쪽), 토글, 화면에 들어온 영상만 재생 */
+(function(){
+  var root=document.documentElement, KEY='jaemin-portfolio-theme';
+  var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
+  root.setAttribute('data-theme', saved==='light'?'light':'dark');
+  var tb=document.querySelector('[data-theme-toggle]');
+  var label=function(){if(tb) tb.textContent=root.getAttribute('data-theme')==='dark'?'밝게':'어둡게';};
+  label();
+  if(tb) tb.addEventListener('click',function(){
+    var next=root.getAttribute('data-theme')==='dark'?'light':'dark'; root.setAttribute('data-theme',next); label();
+    try{localStorage.setItem(KEY,next);}catch(e){}
+  });
+
+  /* 진행 막대 */
+  var bar=document.querySelector('.v-prog'), tick=false;
+  if(bar){
+    var upd=function(){tick=false; var h=document.documentElement, p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1); bar.style.transform='scaleX('+Math.max(0,Math.min(1,p))+')';};
+    window.addEventListener('scroll',function(){if(!tick){tick=true; requestAnimationFrame(upd);}},{passive:true}); upd();
+  }
+
+  /* 논지 줄: 각 장면의 단계와 제목만 이어 놓는다. 이것만 읽어도 논리가 보이게 */
+  var spine=document.querySelector('.v-spine ol'), beats=[].slice.call(document.querySelectorAll('.v-beat[data-step]'));
+  if(spine&&beats.length){
+    beats.forEach(function(s,i){
+      if(!s.id) s.id='b'+(i+1);
+      var h=s.querySelector('h2'), li=document.createElement('li'), a=document.createElement('a');
+      a.href='#'+s.id; a.innerHTML='<span>'+s.getAttribute('data-step')+'</span><b></b>';
+      a.querySelector('b').textContent=(s.getAttribute('data-short')||(h?h.textContent:'')).trim();
+      li.appendChild(a); spine.appendChild(li);
+    });
+    var links=[].slice.call(spine.querySelectorAll('a'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+        links.forEach(function(a){a.removeAttribute('aria-current');});
+        var a=spine.querySelector('a[href="#'+e.target.id+'"]'); if(a){a.setAttribute('aria-current','true');
+          if(a.scrollIntoView&&window.innerWidth<=1040) a.scrollIntoView({block:'nearest',inline:'center'});}
+      }});},{rootMargin:'-40% 0px -55% 0px'});
+      beats.forEach(function(s){io.observe(s);});
+    }
+  }
+
+  /* 토글 */
+  [].slice.call(document.querySelectorAll('.v-seg[data-for]')).forEach(function(seg){
+    var target=document.getElementById(seg.getAttribute('data-for')), bs=[].slice.call(seg.querySelectorAll('button[data-v]'));
+    if(!target) return;
+    var set=function(v){target.setAttribute('data-v',v); bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===v?'true':'false');});};
+    bs.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-v'));});});
+    set(target.getAttribute('data-v')||bs[0].getAttribute('data-v'));
+  });
+
+  /* 그림 크게 보기: img.zoom을 누르면 화면 가득 */
+  var zooms=[].slice.call(document.querySelectorAll('img.zoom'));
+  if(zooms.length){
+    var lb=document.createElement('div'); lb.className='v-lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-label','그림 크게 보기');
+    lb.innerHTML='<img alt="">'; document.body.appendChild(lb);
+    var li=lb.querySelector('img'), close=function(){lb.classList.remove('on');};
+    zooms.forEach(function(im){im.tabIndex=0; var open=function(){li.src=im.currentSrc||im.src; li.alt=im.alt; lb.classList.add('on');};
+      im.addEventListener('click',open); im.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault(); open();}});});
+    lb.addEventListener('click',close); document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
+  }
+
+  /* 소리 없는 짧은 영상은 화면에 들어올 때만 재생 */
+  var vids=[].slice.call(document.querySelectorAll('video[data-auto]'));
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(vids.length&&'IntersectionObserver' in window&&!reduce){
+    var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target; if(e.isIntersecting){var p=v.play(); if(p&&p.catch) p.catch(function(){});} else v.pause();});},{threshold:.4});
+    vids.forEach(function(v){v.muted=true; v.playsInline=true; vio.observe(v);});
+  }
+})();
+
+/* Native disclosure navigation: a deep link opens its chapter and source fold. */
+(()=>{function reveal(hash){let id;try{id=decodeURIComponent((hash||'').replace(/^#/,''));}catch(e){return;}const target=document.getElementById(id);if(!target)return;let el=target;while(el){if(el.tagName==='DETAILS')el.open=true;el=el.parentElement;}target.scrollIntoView({block:'start',behavior:'instant'});}
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{if(!document.getElementById(a.hash.slice(1)))return;e.preventDefault();history.replaceState(null,'',a.hash);reveal(a.hash);}));
+window.addEventListener('hashchange',()=>reveal(location.hash));if(location.hash)reveal(location.hash);
+})();
+
+</script>
+</body>
+</html>

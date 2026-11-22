@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>강나연 스토리챗 | 이재민 게임 기획</title>
+<meta name="description" content="칭찬보다 알아봐 준 말에 마음이 열리게, 관계를 규칙과 수치로 설계">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%23111111'/><circle cx='8' cy='8' r='4.5' fill='%23ffffff'/></svg>">
+<style>
+/* v42 · 여러 권 공용 서식. 한 권 = 한 프로젝트 = 기획력 하나. 기본은 어둡게, 밝게로 바꿀 수 있음 */
+@font-face{font-family:SUIT;src:url('../assets/7a1971b4e54d6d797f105f2d.woff2') format('woff2');font-weight:400 500;font-display:swap}
+@font-face{font-family:SUIT;src:url('../assets/044e7df5d44e38ea371e9d80.woff2') format('woff2');font-weight:600 700;font-display:swap}
+@font-face{font-family:SUIT;src:url('../assets/a48987d6336e253c148243fd.woff2') format('woff2');font-weight:800 900;font-display:swap}
+@font-face{font-family:Arrows;src:local('Segoe UI'),local('Segoe UI Symbol'),local('Apple SD Gothic Neo'),local('Malgun Gothic');unicode-range:U+2190-21FF}
+
+:root,[data-theme="dark"]{
+  --bg:#0b0b0c;--bg2:#111113;--card:#18181b;--card2:#202024;
+  --ink:#f4f3ef;--ink-2:#c9c8c2;--ink-3:#93928c;--line:rgba(255,255,255,.14);--line-soft:rgba(255,255,255,.07);
+  --shade:linear-gradient(180deg,rgba(11,11,12,.15) 0%,rgba(11,11,12,.55) 55%,#0b0b0c 100%);
+  --c-darkest:#c98500;--a-darkest:#e0a54a;--c-kendo:#3987e5;--a-kendo:#7db3f7;--c-auction:#0ca30c;--a-auction:#5fc458;
+  --c-nayeon:#d55181;--a-nayeon:#f08cad;--c-dungeon:#9085e9;--a-dungeon:#aea7f0;--c-overwatch:#d95926;--a-overwatch:#f29068;--c-whostail:#199e70;--a-whostail:#52b188;
+  --pc:#f4f3ef;--accent:#f4f3ef;--on-pc:#0b0b0c;--shadow:0 18px 40px -24px rgba(0,0,0,.8);
+}
+[data-theme="light"]{
+  --bg:#fbfaf7;--bg2:#f2f0ea;--card:#ffffff;--card2:#f6f4ef;
+  --ink:#141413;--ink-2:#45443f;--ink-3:#6c6b65;--line:rgba(0,0,0,.14);--line-soft:rgba(0,0,0,.07);
+  --shade:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.45) 60%,rgba(0,0,0,.78) 100%);
+  --c-darkest:#eda100;--a-darkest:#9f5b00;--c-kendo:#2a78d6;--a-kendo:#236cc4;--c-auction:#008300;--a-auction:#097d07;
+  --c-nayeon:#e87ba4;--a-nayeon:#ad4b72;--c-dungeon:#6250d6;--a-dungeon:#6253d1;--c-overwatch:#eb6834;--a-overwatch:#bd450a;--c-whostail:#1baf7a;--a-whostail:#007c4d;
+  --pc:#141413;--accent:#141413;--on-pc:#fff;--shadow:0 18px 40px -26px rgba(0,0,0,.35);
+}
+[data-p="darkest"]{--pc:var(--c-darkest);--accent:var(--a-darkest)}
+[data-p="kendo"]{--pc:var(--c-kendo);--accent:var(--a-kendo)}
+[data-p="auction"]{--pc:var(--c-auction);--accent:var(--a-auction)}
+[data-p="nayeon"]{--pc:var(--c-nayeon);--accent:var(--a-nayeon)}
+[data-p="dungeon"]{--pc:var(--c-dungeon);--accent:var(--a-dungeon)}
+[data-p="overwatch"]{--pc:var(--c-overwatch);--accent:var(--a-overwatch)}
+[data-p="whostail"]{--pc:var(--c-whostail);--accent:var(--a-whostail)}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-color:color-mix(in srgb,var(--ink) 28%,transparent) transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.75 Arrows,SUIT,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--pc) 70%,transparent)}
+::selection{background:color-mix(in srgb,var(--pc) 40%,transparent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* 위 띠 */
+.v-top{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;gap:14px;height:56px;padding:0 clamp(16px,4vw,40px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.v-top .home{font:800 15px/1 Arrows,SUIT,sans-serif;text-decoration:none;letter-spacing:-.01em}
+.v-top .home b{color:var(--pc)}
+.v-top .now{font-size:13px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.v-top button,.v-top a.btn{appearance:none;font:700 13px/1 Arrows,SUIT,sans-serif;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 13px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.v-top button:hover,.v-top a.btn:hover{border-color:var(--ink-3)}
+.v-prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--pc)}
+
+/* 표지 */
+.v-hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;padding:120px clamp(16px,6vw,72px) clamp(40px,7vh,80px);
+  background:var(--shade),var(--bg-img,none) center/cover no-repeat;color:#f6f5f1;isolation:isolate}
+.v-hero .in{max-width:1080px;width:100%}
+.v-hero .kind{display:inline-flex;gap:10px;align-items:center;font:700 13px/1 Arrows,SUIT,sans-serif;color:#e9e8e3;margin:0 0 22px}
+.v-hero .kind i{width:28px;height:3px;background:var(--pc);display:inline-block}
+.v-hero h1{font:900 clamp(34px,6.4vw,84px)/1.08 Arrows,SUIT,sans-serif;letter-spacing:-.04em;margin:0 0 22px;max-width:16em;text-wrap:balance}
+.v-hero .lead{font-size:clamp(16px,1.6vw,20px);line-height:1.7;max-width:40em;color:#dedcd5;margin:0 0 34px}
+.v-facts{display:flex;flex-wrap:wrap;gap:12px 36px;margin:0;padding:22px 0 0;border-top:1px solid rgba(255,255,255,.22)}
+.v-facts div{min-width:0}
+.v-facts dt{font-size:12.5px;color:#b9b8b2;margin:0 0 4px}
+.v-facts dd{margin:0;font:800 17px/1.35 Arrows,SUIT,sans-serif;color:#fff}
+
+/* 본문: 왼쪽 논지 줄 + 오른쪽 장면 */
+.v-wrap{display:grid;grid-template-columns:270px minmax(0,1fr);gap:clamp(24px,4vw,64px);max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.v-spine{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;padding:40px 0 24px}
+.v-spine p{font:800 12.5px/1.4 Arrows,SUIT,sans-serif;color:var(--ink-3);margin:0 0 14px}
+.v-spine ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.v-spine li a{display:block;padding:9px 0 9px 16px;margin-left:-1px;border-left:2px solid transparent;text-decoration:none;color:var(--ink-3);transition:color .2s,border-color .2s}
+.v-spine li a span{display:block;font:800 11.5px/1.3 Arrows,SUIT,sans-serif;letter-spacing:.02em;color:var(--accent);margin-bottom:3px}
+.v-spine li a b{display:block;font:700 13.5px/1.45 Arrows,SUIT,sans-serif}
+.v-spine li a:hover{color:var(--ink)}
+.v-spine li a[aria-current]{color:var(--ink);border-left-color:var(--pc)}
+.v-main{min-width:0}
+
+.v-beat{padding:clamp(56px,9vh,104px) 0;border-top:1px solid var(--line-soft);scroll-margin-top:60px}
+.v-beat:first-child{border-top:0}
+.v-step{display:none}
+.v-beat h2{font:900 clamp(26px,3.4vw,44px)/1.22 Arrows,SUIT,sans-serif;letter-spacing:-.035em;margin:0 0 14px;max-width:22em;text-wrap:balance}
+.v-beat h2 em{font-style:normal;color:var(--accent)}
+.v-sub{font-size:17px;line-height:1.75;color:var(--ink-2);max-width:42em;margin:0 0 30px}
+.v-vis{margin:0 0 18px}
+.v-vis>img,.v-vis>video,.v-shot{width:100%;border-radius:14px;box-shadow:var(--shadow);background:var(--card)}
+.v-cap{font-size:13px;line-height:1.6;color:var(--ink-3);margin:10px 0 0}
+.v-crop{max-height:min(68vh,540px);object-fit:cover;object-position:top}
+img.zoom{cursor:zoom-in}
+.v-lb{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.88);cursor:zoom-out}
+.v-lb.on{display:flex}
+.v-lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.v-note{font-size:13px;color:var(--ink-3);line-height:1.65;margin:12px 0 0}
+
+/* 더 보기 · 근거 */
+.v-more{margin:18px 0 0;border-top:1px solid var(--line-soft)}
+.v-more summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center;padding:14px 0;font:700 14px/1.4 Arrows,SUIT,sans-serif;color:var(--ink-2)}
+.v-more summary::-webkit-details-marker{display:none}
+.v-more summary::before{content:"";width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg);transition:transform .2s}
+.v-more[open] summary::before{transform:rotate(45deg)}
+.v-more .in{padding:0 0 18px;color:var(--ink-2);font-size:15px}
+.v-more .in p{margin:0 0 10px}
+
+/* 장면 부품 */
+.v-two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.v-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.v-panel{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow)}
+.v-panel h3{font:800 15px/1.4 Arrows,SUIT,sans-serif;margin:0 0 12px;color:var(--ink-2)}
+.v-quote{margin:0;padding:6px 0 6px 0;font:700 clamp(18px,2vw,23px)/1.6 Arrows,SUIT,sans-serif;letter-spacing:-.015em}
+.v-quote footer{font:500 13px/1.5 Arrows,SUIT,sans-serif;color:var(--ink-3);margin-top:12px}
+.v-flow{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:0;counter-reset:f}
+.v-flow>div{position:relative;padding:18px 22px 18px 0}
+.v-flow>div::before{counter-increment:f;content:counter(f);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--pc);color:var(--on-pc);font:800 13px/1 Arrows,SUIT,sans-serif;margin-bottom:12px}
+.v-flow>div:not(:last-child)::after{content:"";position:absolute;top:32px;left:36px;right:8px;height:1px;background:var(--line)}
+.v-flow b{display:block;font:800 16px/1.4 Arrows,SUIT,sans-serif;margin-bottom:4px}
+.v-flow span{font-size:13.5px;color:var(--ink-3);line-height:1.55;display:block}
+.v-chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.v-chips li{padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font:700 14.5px/1.3 Arrows,SUIT,sans-serif}
+.v-chips li.on{background:var(--pc);color:var(--on-pc);border-color:transparent}
+
+/* 토글: <div class="v-seg" data-for="id"><button data-v="a">…</button></div> → #id[data-v="a"] */
+.v-seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:var(--card2);border:1px solid var(--line-soft);margin:0 0 16px}
+.v-seg button{appearance:none;border:0;background:transparent;color:var(--ink-2);font:700 13.5px/1 Arrows,SUIT,sans-serif;padding:10px 16px;border-radius:999px;cursor:pointer}
+.v-seg button[aria-pressed="true"]{background:var(--pc);color:var(--on-pc)}
+[data-v] [data-show]{display:none}
+[data-v="a"] [data-show~="a"],[data-v="b"] [data-show~="b"],[data-v="c"] [data-show~="c"],[data-v="d"] [data-show~="d"]{display:revert}
+
+/* 막대: <div class="v-bars"><div class="r"><span class="l">이름</span><span class="t"><i style="--a:60%;--b:40%"></i></span><b>값</b></div></div> */
+.v-bars .r{display:grid;grid-template-columns:minmax(90px,170px) minmax(0,1fr) auto;gap:14px;align-items:center;margin:10px 0}
+.v-bars .l{font-size:14px;color:var(--ink-2);line-height:1.4}
+.v-bars .t{height:30px;border-radius:6px;background:var(--card2);overflow:hidden;display:flex;gap:2px}
+.v-bars .t i{display:flex;align-items:center;height:100%;width:var(--a,0%);background:var(--pc);border-radius:5px;font:800 12.5px/1 Arrows,SUIT,sans-serif;color:var(--on-pc);padding:0 10px;white-space:nowrap;overflow:hidden;transition:width .8s cubic-bezier(.16,1,.3,1)}
+.v-bars .t i.dim{background:color-mix(in srgb,var(--ink) 22%,var(--card2));color:var(--ink)}
+[data-v="b"] .v-bars .t i{width:var(--b,var(--a,0%))}
+[data-v="c"] .v-bars .t i{width:var(--c,var(--a,0%))}
+.v-bars b{font:900 16px/1 Arrows,SUIT,sans-serif;font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+.v-big{font:900 clamp(48px,8vw,96px)/1 Arrows,SUIT,sans-serif;letter-spacing:-.04em;color:var(--accent);margin:4px 0 6px;font-variant-numeric:tabular-nums}
+
+/* 댓글 · 대화 */
+.v-thread{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.v-thread li{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:16px 20px}
+.v-thread li.me{background:color-mix(in srgb,var(--pc) 13%,var(--card))}
+.v-thread .who{display:flex;gap:10px;align-items:baseline;font:800 13.5px/1.3 Arrows,SUIT,sans-serif;margin-bottom:6px}
+.v-thread .who em{font-style:normal;font-weight:700;color:var(--accent)}
+.v-thread .who time{font-weight:500;color:var(--ink-3);font-size:12.5px;margin-left:auto}
+.v-thread p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.7}
+
+/* 마무리 · 면접 질문 */
+.v-qa{padding:clamp(56px,9vh,104px) 0;border-top:1px solid var(--line-soft)}
+.v-qa h2{font:900 clamp(22px,2.6vw,32px)/1.3 Arrows,SUIT,sans-serif;letter-spacing:-.03em;margin:0 0 8px}
+.v-qa ol{margin:24px 0 0;padding:0;list-style:none;counter-reset:q;display:grid;gap:2px}
+.v-qa li{counter-increment:q;display:grid;grid-template-columns:44px 1fr;gap:8px;padding:14px 0;border-top:1px solid var(--line-soft);font:700 16px/1.6 Arrows,SUIT,sans-serif}
+.v-qa li::before{content:"Q" counter(q);color:var(--accent);font:800 13px/1.9 Arrows,SUIT,sans-serif}
+.v-foot{max-width:1280px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 80px;display:flex;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line-soft)}
+.v-foot a{display:inline-flex;flex-direction:column;gap:2px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;text-decoration:none;min-width:200px;flex:1}
+.v-foot a small{font-size:12px;color:var(--ink-3)}
+.v-foot a b{font:800 15px/1.4 Arrows,SUIT,sans-serif}
+.v-foot a:hover{border-color:var(--pc)}
+
+@media (max-width:1040px){
+  .v-wrap{grid-template-columns:minmax(0,1fr)}
+  .v-spine{position:sticky;top:56px;z-index:20;max-height:none;padding:10px 0;margin:0 calc(-1*clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px);
+    background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft);overflow-x:auto}
+  .v-spine p{display:none}
+  .v-spine ol{display:flex;gap:6px;border:0;width:max-content}
+  .v-spine li a{border:1px solid var(--line);border-radius:999px;padding:7px 12px;margin:0}
+  .v-spine li a b{display:none}
+  .v-spine li a span{margin:0;color:inherit}
+  .v-spine li a[aria-current]{background:var(--pc);color:var(--on-pc);border-color:transparent}
+  .v-two,.v-three{grid-template-columns:minmax(0,1fr)}
+  .v-flow{grid-template-columns:minmax(0,1fr)}
+  .v-flow>div{padding:12px 0 12px 44px}
+  .v-flow>div::before{position:absolute;left:0;top:12px}
+  .v-flow>div:not(:last-child)::after{left:13px;top:44px;bottom:-12px;right:auto;width:1px;height:auto}
+}
+@media (max-width:560px){
+  .v-bars .r{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}
+  .v-bars .l{grid-column:1/-1}
+  .v-top .now{display:none}
+  .v-hero{min-height:88vh}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* v43 · 본인용 면접 준비(제출본에는 없음) */
+.v-qa.own li{display:block;padding:0}
+.v-qa.own li::before{display:none}
+.v-qa.own details{border-top:1px solid var(--line-soft)}
+.v-qa.own summary{cursor:pointer;list-style:none;padding:16px 0;font:700 16px/1.6 Arrows,SUIT,sans-serif}
+.v-qa.own summary::-webkit-details-marker{display:none}
+.v-qa.own summary::before{content:'Q';color:var(--accent);font-weight:900;margin-right:10px}
+.v-qa.own .a{padding:0 0 18px 22px;color:var(--ink-2);font-size:15px;line-height:1.7}
+.v-qa.own .a ul{margin:0;padding-left:18px}.v-qa.own .a li.sub{margin-left:18px}
+.v-qa.own .a p{margin:0 0 8px}.v-qa.own code{font-size:.85em;color:var(--ink-3)}
+.v-qa.own .a,.v-qa.own summary{overflow-wrap:anywhere;min-width:0}.v-qa.own code{word-break:break-all}
+
+/* 강나연 스토리챗 권. 선택자는 nayeon- 접두어 */
+.v-hero{background-position:0 0,75% 40%}
+.nayeon-herocap{margin:18px 0 0;font-size:12.5px;color:#b9b8b2}
+.nayeon-pair{align-items:start}
+
+/* 분석: 같은 칭찬 여섯 번 */
+.nayeon-cols{position:relative;height:190px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;align-items:end;padding:26px 62px 0 0;border-bottom:1px solid var(--line);margin-top:4px}
+.nayeon-cols i{position:relative;display:block;height:var(--a);background:color-mix(in srgb,var(--ink) 22%,var(--card2));border-radius:6px 6px 0 0;transition:height .8s cubic-bezier(.16,1,.3,1),background .3s}
+[data-v="b"] .nayeon-cols i{height:var(--b)}
+[data-v="a"] .nayeon-cols i.up{background:var(--pc)}
+.nayeon-cols i b{z-index:2;position:absolute;left:0;right:0;bottom:100%;margin-bottom:4px;text-align:center;font:800 13px/1 SUIT,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}
+.nayeon-cols i b span{background:var(--card);padding:0 3px;border-radius:3px}
+.nayeon-cols u{position:absolute;left:0;right:0;bottom:calc(var(--y) * (190 - 26) / 190);border-top:2px dashed var(--accent);z-index:1;pointer-events:none}
+.nayeon-cols u em{position:absolute;right:0;top:0;transform:translateY(-50%);font:800 12px/1 SUIT,sans-serif;font-style:normal;color:var(--accent);background:var(--card);padding:2px 0 2px 6px}
+.nayeon-colx{list-style:none;margin:6px 0 0;padding:0 62px 0 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;font-size:12px;color:var(--ink-3);text-align:center;white-space:nowrap}
+
+.nayeon-say{position:relative;margin:0;border-radius:14px;overflow:hidden;background:#15110e;box-shadow:var(--shadow);aspect-ratio:4/5;min-height:340px}
+.nayeon-say-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.8)}
+.nayeon-say-sp{position:absolute;left:50%;top:6%;height:86%;width:auto;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 10px 24px rgba(0,0,0,.5))}
+.nayeon-say-box{position:absolute;left:12px;right:12px;bottom:12px;display:grid;gap:8px}
+.nayeon-say-box p{margin:0;padding:10px 13px;border-radius:12px;background:rgba(20,15,12,.88);color:#fbf6ef;font-size:14px;line-height:1.6}
+.nayeon-say-box p.me{justify-self:end;background:#fbf6ef;color:#2c2622;font-weight:700}
+.nayeon-say-box p.me small{font-weight:800;color:#a1452a;margin-left:4px}
+.nayeon-say-box p.turn{color:#ffd9c2}
+.nayeon-say .v-cap{position:absolute;left:0;right:0;top:0;margin:0;padding:10px 14px 28px;color:#e9e3da;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,0));font-size:12.5px}
+
+/* 기준: 여섯 단계 사다리 */
+.nayeon-ladder{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:start}
+.nayeon-ladder li{display:flex;flex-direction:column;min-width:0;margin-top:calc((6 - var(--i)) * 14px)}
+.nayeon-ladder .pic{position:relative;display:block;height:190px;overflow:hidden;border-radius:12px;background:color-mix(in srgb,var(--pc) 12%,var(--card2))}
+.nayeon-ladder .pic img{position:absolute;left:50%;top:10px;height:350px;width:auto;max-width:none;transform:translateX(-50%)}
+.nayeon-ladder b{display:flex;gap:6px;align-items:baseline;margin:12px 0 2px;font:800 16px/1.3 SUIT,sans-serif}
+.nayeon-ladder b small{font:800 12px/1 SUIT,sans-serif;color:var(--accent)}
+.nayeon-ladder .g{font-size:13px;line-height:1.45;color:var(--ink-2);min-height:2.9em}
+.nayeon-ladder .ax{align-self:flex-start;margin-top:8px;font:700 11.5px/1 SUIT,sans-serif;font-style:normal;padding:5px 9px;border-radius:999px;border:1px solid var(--accent);color:var(--accent)}
+.nayeon-ladder .ax.t{background:var(--pc);border-color:transparent;color:var(--on-pc)}
+.nayeon-ladder .ax.ot{border-color:var(--pc)}
+
+/* 방향 ①: 가운데 0에서 오르내리는 막대 */
+.nayeon-delta .r{display:grid;grid-template-columns:minmax(110px,160px) minmax(0,1fr) 7.6em;gap:14px;align-items:center;margin:10px 0}
+.nayeon-delta .l{font-size:14px;color:var(--ink-2);line-height:1.4}
+.nayeon-delta .t{position:relative;height:28px;border-radius:6px;background:var(--card2)}
+.nayeon-delta .t::after{content:"";position:absolute;left:50%;top:-5px;bottom:-5px;width:2px;margin-left:-1px;background:var(--ink-3)}
+.nayeon-delta i{position:absolute;top:0;bottom:0;width:var(--a);transition:width .8s cubic-bezier(.16,1,.3,1)}
+[data-v="b"] .nayeon-delta i{width:var(--b)}
+.nayeon-delta i.up{left:50%;background:var(--pc);border-radius:0 5px 5px 0}
+.nayeon-delta i.up.dim{background:color-mix(in srgb,var(--ink) 30%,var(--card2))}
+.nayeon-delta i.dn{right:50%;background:color-mix(in srgb,var(--ink) 62%,var(--card2));border-radius:5px 0 0 5px}
+.nayeon-delta b{font:900 16px/1.2 SUIT,sans-serif;font-variant-numeric:tabular-nums;text-align:right}
+.nayeon-delta b small{display:block;font:700 11.5px/1.3 SUIT,sans-serif;color:var(--ink-3)}
+
+/* 방향 ②: 실제 판정 코드 */
+.nayeon-src{margin:0;min-width:0}
+.nayeon-src pre{margin:0;padding:16px 18px;border-radius:14px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow);white-space:pre-wrap;overflow-wrap:anywhere;font:500 12.5px/1.75 ui-monospace,Consolas,"D2Coding",monospace;color:var(--ink-2);tab-size:2}
+.nayeon-src pre b{color:var(--accent);font-weight:800}
+.nayeon-src pre i{font-style:normal;color:var(--ink-3)}
+.v-flow + .nayeon-pair{margin-top:20px}
+
+/* 제안: 실제 엔진 대화 (v41 화면을 이 권에 맞춤) */
+.nayeon-play{--ny-r:10px;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:16px;margin:0 0 14px}
+.nayeon-screen{position:relative;aspect-ratio:5/4;border-radius:14px;overflow:hidden;background:#15110e;border:1px solid var(--line-soft);min-height:300px;box-shadow:var(--shadow)}
+.nayeon-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.92)}
+.nayeon-bg.is-night{filter:brightness(.38) saturate(.7) hue-rotate(-12deg)}
+.nayeon-sp{position:absolute;left:50%;bottom:0;height:88%;width:auto;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 8px 22px rgba(0,0,0,.45))}
+.nayeon-chips{position:absolute;top:10px;left:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px}
+.nayeon-chip{background:rgba(255,255,255,.94);color:#2c2622;border-radius:20px;padding:4px 11px;font:700 12.5px/1.3 SUIT,sans-serif}
+.nayeon-chip.is-dark{background:rgba(20,15,12,.72);color:#f2e8dc}
+.nayeon-box{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(20,15,12,.88);color:#fbf6ef;border-radius:12px;padding:12px 14px 10px;max-height:56%;overflow:auto}
+.nayeon-name{display:inline-block;background:#c2542f;color:#fff;font-size:12.5px;padding:2px 10px;border-radius:8px;margin-bottom:6px}
+.nayeon-box p{margin:0;font-size:14.5px;line-height:1.65;color:#fbf6ef}
+.nayeon-box small{display:block;margin-top:6px;font-size:12px;color:#d6c9b8;line-height:1.5}
+.nayeon-dir{color:#c4b6a4;font-size:.92em}
+.nayeon-beat{color:#ffd9c2}
+.nayeon-over{position:absolute;inset:0;background:rgba(15,11,8,.92);color:#fbf6ef;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:14px;overflow:auto}
+.nayeon-over[hidden]{display:none}
+.nayeon-over .nayeon-insta{display:flex;gap:14px;align-items:center;max-width:560px}
+.nayeon-over .nayeon-insta img,.nayeon-over .nayeon-end img{width:40%;max-width:200px;border-radius:10px;flex:none}
+.nayeon-over p{margin:0 0 8px;font-size:13.5px;line-height:1.6;color:#fbf6ef}
+.nayeon-over .nayeon-cm{color:#cdbfae}
+.nayeon-over .nayeon-mine{color:#ffd9c2}
+.nayeon-over .nayeon-end{display:flex;gap:14px;align-items:center;max-width:560px}
+.nayeon-play .btn{appearance:none;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:700 13px/1 SUIT,sans-serif;cursor:pointer;text-decoration:none}
+.nayeon-play .btn:hover{border-color:var(--ink-3)}
+.nayeon-over .btn{background:#fbf6ef;color:#2c2622;border-color:transparent}
+.nayeon-play .nayeon-next{background:var(--pc);color:var(--on-pc);border-color:transparent}
+
+.nayeon-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.nayeon-meters,.nayeon-rule,.nayeon-note{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--ny-r);padding:10px 12px}
+.nayeon-m{display:grid;grid-template-columns:34px 30px minmax(0,1fr);align-items:center;gap:8px;margin-bottom:8px;font-size:13px;color:var(--ink-2)}
+.nayeon-m b{font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.nayeon-bar{position:relative;display:block;height:10px;border-radius:5px;background:var(--card2)}
+.nayeon-bar>i{display:block;height:100%;border-radius:5px;background:var(--pc);transition:width .35s cubic-bezier(.16,1,.3,1)}
+.nayeon-bar.is-obs>i{background:var(--accent)}
+.nayeon-bar u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.5}
+.nayeon-steps{list-style:none;margin:6px 0 4px;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px}
+.nayeon-steps li{font-size:11px;line-height:1.25;text-align:center;padding:5px 2px;border-radius:5px;border:1px solid var(--line);color:var(--ink-3)}
+.nayeon-steps li.is-past{color:var(--ink-2);border-style:dashed}
+.nayeon-steps li[aria-current]{background:var(--pc);border-color:var(--pc);color:var(--on-pc);font-weight:800}
+.nayeon-gate{margin:6px 0 0;font-size:12.5px;color:var(--ink-3);line-height:1.5}
+.nayeon-gate b{color:var(--ink);font-weight:700}
+.nayeon-rule p{margin:0 0 4px;font-size:13px;line-height:1.55;color:var(--ink-2)}
+.nayeon-rule-h{font-size:12px!important;font-weight:700;color:var(--ink-3)!important;margin:0 0 4px!important}
+.nayeon-tag{display:inline-block;background:var(--ink);color:var(--card);border-radius:4px;padding:1px 7px;margin-right:6px;font-size:12.5px}
+.nayeon-rule .nayeon-code{font-family:ui-monospace,Consolas,monospace;font-size:12px!important;color:var(--ink-3)!important;word-break:break-all}
+.nayeon-pick{display:flex;flex-wrap:wrap;gap:6px}
+.nayeon-opt{appearance:none;display:inline-flex;align-items:baseline;gap:6px;text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:var(--ny-r);padding:7px 10px;font:600 13px/1.35 SUIT,sans-serif;cursor:pointer;max-width:100%}
+.nayeon-opt small{font-size:10.5px;font-weight:700;color:var(--ink-3);white-space:nowrap}
+.nayeon-opt:hover{border-color:var(--ink-2);background:var(--card2)}
+.nayeon-fallback{font-size:13px;color:var(--ink-3);margin:0}
+.nayeon-free{display:flex;gap:6px}
+.nayeon-free[hidden],.nayeon-ctl[hidden],.nayeon-note[hidden]{display:none}
+.nayeon-free input{flex:1;min-width:0;border:1px solid var(--line);border-radius:var(--ny-r);background:var(--card);color:var(--ink);padding:7px 10px;font:14px SUIT,sans-serif}
+.nayeon-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.nayeon-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.nayeon-jump{display:inline-flex;flex-wrap:wrap;gap:3px;align-items:center;font-size:12px;color:var(--ink-3)}
+.nayeon-jump span{margin-right:4px}
+.nayeon-jump button{appearance:none;border:1px solid var(--line);background:var(--card);color:var(--ink-2);border-radius:5px;width:30px;height:30px;font:700 12px SUIT,sans-serif;cursor:pointer}
+.nayeon-note ul{margin:0;padding-left:18px;font-size:13px;color:var(--ink-2)}
+.nayeon-note small{color:var(--ink-3)}
+.nayeon-log{grid-column:1/-1;list-style:none;margin:0;padding:8px 12px;max-height:150px;overflow:auto;border:1px solid var(--line-soft);border-radius:var(--ny-r);background:var(--card);font-size:12.5px;line-height:1.55}
+.nayeon-log:empty{display:none}
+.nayeon-log li{padding:2px 0;color:var(--ink-2)}
+.nayeon-log li.is-me{color:var(--ink);font-weight:700}
+.nayeon-log li.is-me::before{content:"나 — "}
+.nayeon-log li.is-her::before{content:"나연 — "}
+.nayeon-log li.is-rule{color:var(--ink-3);font-family:ui-monospace,Consolas,monospace;font-size:11.5px}
+.nayeon-log li.is-sys{color:var(--ink-3);border-top:1px dashed var(--line);margin-top:4px;padding-top:4px}
+.nayeon-log .nayeon-dir{color:var(--ink-3)}
+.nayeon-open{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:18px 0 0}
+.nayeon-open span{font-size:13px;color:var(--ink-3)}
+.nayeon-cta{display:inline-flex;align-items:center;padding:13px 20px;border-radius:999px;background:var(--pc);color:var(--on-pc);font:800 15px/1 SUIT,sans-serif;text-decoration:none}
+.nayeon-cta:hover{filter:brightness(1.08)}
+
+/* 검증 ①: 관문 막대와 정답 경로 */
+.nayeon-gatebar{position:relative;height:18px;margin:34px 0 6px;border-radius:5px;background:var(--card2)}
+.nayeon-gatebar i{display:block;height:100%;width:var(--a);border-radius:5px;background:var(--pc);transition:width .8s cubic-bezier(.16,1,.3,1)}
+.nayeon-gatebar u{position:absolute;top:-8px;bottom:-8px;left:var(--a);width:2px;background:var(--ink);transition:left .8s cubic-bezier(.16,1,.3,1)}
+[data-v="b"] .nayeon-gatebar i{width:var(--b)}
+[data-v="b"] .nayeon-gatebar u{left:var(--b)}
+.nayeon-gatebar em{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:4px;font:700 12px/1 SUIT,sans-serif;font-style:normal;color:var(--ink-2);white-space:nowrap}
+[data-v="a"] .v-big{color:var(--ink)}
+.nayeon-golden{margin:0}
+.nayeon-golden svg{display:block;width:100%;height:auto;overflow:visible}
+.nayeon-golden .th line{stroke:var(--ink-3);stroke-dasharray:3 4;stroke-width:1}
+.nayeon-golden .th text{fill:var(--ink-3);font:700 11px SUIT,sans-serif;text-anchor:end}
+.nayeon-golden .ax{stroke:var(--line);stroke-width:1}
+.nayeon-golden .pl{fill:none;stroke:var(--pc);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.nayeon-golden .st circle{fill:var(--card);stroke:var(--pc);stroke-width:2.5}
+.nayeon-golden .st circle.end{fill:var(--pc)}
+.nayeon-golden .st text{fill:var(--ink);font:800 11.5px SUIT,sans-serif;text-anchor:middle}
+.nayeon-golden .xl{fill:var(--ink-3);font:600 11px SUIT,sans-serif}
+.nayeon-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 12px}
+.nayeon-table{border-collapse:collapse;width:100%;min-width:640px;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.nayeon-table th,.nayeon-table td{border-bottom:1px solid var(--line-soft);padding:7px 8px;text-align:left;vertical-align:top}
+.nayeon-table thead th{font-size:12px;color:var(--ink-3);font-weight:700;border-bottom:1px solid var(--line)}
+.nayeon-table tbody th{color:var(--ink);font-weight:700;white-space:nowrap}
+.nayeon-table td:last-child{color:var(--ink);font-weight:600}
+
+/* 검증 ②: 예문 18건 판정표 */
+.nayeon-matrix{display:grid;gap:6px}
+.nayeon-matrix>div{display:grid;grid-template-columns:40px repeat(3,minmax(0,1fr));gap:6px}
+.nayeon-matrix .h span{font:700 12.5px/1.3 SUIT,sans-serif;color:var(--ink-3);padding:0 2px 2px}
+.nayeon-matrix .s{display:grid;place-items:center;font:900 16px/1 SUIT,sans-serif;color:var(--ink-2);border-radius:10px;background:var(--card2)}
+.nayeon-matrix .c{display:block;min-width:0;padding:10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line-soft)}
+.nayeon-matrix .c b{display:block;font:800 14px/1.3 SUIT,sans-serif;color:var(--ink-2)}
+.nayeon-matrix .c small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:4px;font-size:12.5px;line-height:1.45;color:var(--ink-3)}
+.nayeon-matrix .c.ok{background:color-mix(in srgb,var(--pc) 16%,var(--card));border-color:color-mix(in srgb,var(--pc) 40%,transparent)}
+.nayeon-matrix .c.ok b{color:var(--accent)}
+.nayeon-matrix .c.miss{border:2px dashed var(--accent)}
+.nayeon-matrix .c.miss b{color:var(--ink)}
+.nayeon-key{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12.5px;color:var(--ink-3)}
+.nayeon-key li{display:inline-flex;align-items:center;gap:7px}
+.nayeon-key li::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--card);border:1px solid var(--line)}
+.nayeon-key li.ok::before{background:color-mix(in srgb,var(--pc) 16%,var(--card));border-color:color-mix(in srgb,var(--pc) 40%,transparent)}
+.nayeon-key li.miss::before{border:2px dashed var(--accent)}
+.nayeon-finds{list-style:none;margin:26px 0 0;padding:0;counter-reset:nf;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 28px}
+.nayeon-finds li{counter-increment:nf;display:grid;grid-template-columns:28px minmax(0,1fr);gap:2px 8px;padding:14px 0;border-top:1px solid var(--line-soft)}
+.nayeon-finds li::before{content:counter(nf);grid-row:span 2;font:800 13px/1.6 SUIT,sans-serif;color:var(--accent)}
+.nayeon-finds b{font:800 15px/1.45 SUIT,sans-serif}
+.nayeon-finds span{font-size:14px;line-height:1.6;color:var(--ink-2)}
+
+/* 결과: 엔딩 영상과 빌드 */
+.nayeon-ending{max-width:760px}
+.nayeon-builds{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.nayeon-builds li{display:flex;flex-direction:column;min-width:0}
+.nayeon-builds img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;box-shadow:var(--shadow);background:var(--card);margin-bottom:10px}
+.nayeon-builds time{font:800 13px/1.2 SUIT,sans-serif;color:var(--accent);font-variant-numeric:tabular-nums}
+.nayeon-builds b{font:800 15px/1.4 SUIT,sans-serif;margin:2px 0}
+.nayeon-builds span{font-size:13px;line-height:1.5;color:var(--ink-3)}
+
+@media (max-width:1040px){
+  .nayeon-ladder li{margin-top:calc((6 - var(--i)) * 8px)}
+}
+@media (max-width:760px){
+  .nayeon-play{grid-template-columns:minmax(0,1fr)}
+  .nayeon-ladder{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 10px}
+  .nayeon-ladder li{margin-top:0}
+  .nayeon-ladder .pic{height:150px}
+  .nayeon-ladder .pic img{height:280px}
+  .nayeon-builds{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nayeon-finds{grid-template-columns:minmax(0,1fr)}
+  .nayeon-say{aspect-ratio:auto;min-height:440px}
+}
+@media (max-width:560px){
+  .nayeon-cols{padding-right:50px;gap:6px;height:170px}
+  .nayeon-cols u{bottom:calc(var(--y) * (170 - 26) / 170)}
+  .nayeon-colx{padding-right:50px;gap:6px}
+  .nayeon-delta .r{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}
+  .nayeon-delta .l{grid-column:1/-1}
+  .nayeon-delta b{min-width:6.2em}
+  .nayeon-screen{aspect-ratio:3/4;min-height:0}
+  .nayeon-sp{height:70%;bottom:auto;top:12%}
+  .nayeon-box{max-height:48%}
+  .nayeon-over .nayeon-insta,.nayeon-over .nayeon-end{flex-direction:column}
+  .nayeon-over .nayeon-insta img,.nayeon-over .nayeon-end img{width:56%}
+  .nayeon-matrix>div{grid-template-columns:26px repeat(3,minmax(0,1fr));gap:4px}
+  .nayeon-matrix .c{padding:8px}
+  .nayeon-matrix .c b{font-size:12.5px}
+  .nayeon-matrix .c small{font-size:11.5px;-webkit-line-clamp:3}
+  .nayeon-matrix .h span{font-size:11.5px}
+  .nayeon-ladder .g{min-height:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .nayeon-cols i,.nayeon-delta i,.nayeon-gatebar i,.nayeon-gatebar u,.nayeon-bar>i{transition:none}
+}
+
+/* v43 · 게임 → 역할 → 보여 줄 것 */
+.nayeon-run{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.nayeon-run li{min-width:0}
+.nayeon-run img,.nayeon-run video{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);background:#15110e}
+.nayeon-run b{display:flex;gap:8px;align-items:baseline;margin:12px 0 2px;font:800 16px/1.35 SUIT,sans-serif}
+.nayeon-run b small{font:800 12px/1 SUIT,sans-serif;color:var(--accent);white-space:nowrap}
+.nayeon-run span{display:block;font-size:13.5px;line-height:1.55;color:var(--ink-3)}
+.nayeon-role{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.nayeon-role>div{padding:18px 0 0;border-top:2px solid var(--line)}
+.nayeon-role>div:first-child{border-top-color:var(--pc)}
+.nayeon-role h3{font:800 15px/1.3 SUIT,sans-serif;margin:0 0 10px}
+.nayeon-role ul{margin:0;padding:0 0 0 18px;color:var(--ink-2);font-size:14.5px;line-height:1.7}
+.nayeon-role li::marker{color:var(--ink-3)}
+.nayeon-map{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:0 32px}
+.nayeon-map li{border-top:1px solid var(--line-soft)}
+.nayeon-map a{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:12px;align-items:baseline;padding:14px 0;text-decoration:none;color:var(--ink-2);font-size:15px;line-height:1.5}
+.nayeon-map a span{font:800 12.5px/1.3 SUIT,sans-serif;color:var(--accent)}
+.nayeon-map a:hover{color:var(--ink)}
+@media (max-width:1040px){.nayeon-run{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.nayeon-run,.nayeon-role,.nayeon-map{grid-template-columns:minmax(0,1fr)}.nayeon-map{grid-template-rows:none;grid-auto-flow:row}}
+
+
+.ny-compare{grid-column:1/-1;background:var(--card);padding:20px;border:1px solid var(--line);border-radius:12px}.ny-compare p{margin:0 0 12px;font-weight:700}.ny-compare>div{display:flex;gap:10px;flex-wrap:wrap}.ny-compare button{font:700 16px/1.5 SUIT,sans-serif;padding:12px 20px;border:1px solid var(--line);border-radius:8px;color:var(--ink);background:var(--bg);cursor:pointer}.ny-compare button[aria-pressed=true]{border-color:var(--a-nayeon);background:var(--a-nayeon);color:#29101c}.ny-compare small{display:block;margin-top:12px;color:var(--ink-3);font-size:12px}.ny-continue{border-top:1px solid var(--line);padding-top:12px}.ny-continue summary{cursor:pointer;font-weight:700;font-size:14px;padding:8px 0}.ny-continue .nayeon-free{margin-top:12px}
+
+</style>
+</head>
+<body data-p="nayeon">
+<header class="v-top"><a class="home" href="../index.html">이재민<b>.</b></a><span class="now">강나연 스토리챗: 칭찬보다 알아봐 준 말에 마음이 열리게, 관계를 규칙과 수치로 설계</span><a class="btn" href="../자료실_전체판.html#nayeon">자료실</a><button type="button" data-theme-toggle>밝게</button><span class="v-prog" aria-hidden="true"></span></header><header class="v-hero" style="--bg-img:url('../assets/b3d597aa6499a8c44f7b9775.webp')">
+  <div class="in">
+    <p class="kind"><i></i>개인, AI 캐릭터 대화 게임, 진행 중</p>
+    <h1>강나연 스토리챗은 AI 캐릭터와 말로 관계를 쌓는 대화 게임입니다</h1>
+    <p class="lead">마감 무렵 햄버거 매장에서 만난 연습생 강나연에게 직접 쓴 말을 건넵니다. 그녀가 숨긴 사정을 알아보고 마음을 전할수록 장면이 바뀌고, 여섯 단계를 지나 엔딩에 닿습니다.</p>
+    <dl class="v-facts">
+      <div><dt>역할</dt><dd>개인, 캐릭터, 관계 규칙, 구현은 AI 보조</dd></div>
+      <div><dt>기간</dt><dd>2026.06 – 07</dd></div>
+      <div><dt>결과물</dt><dd>기획서, 프로토타입 빌드 5개</dd></div>
+      <div><dt>상태</dt><dd>진행 중, 2026.12 말 플레이 빌드 완성 예정</dd></div>
+    </dl>
+    <p class="nayeon-herocap">배경: 07-16 프로토타입의 첫 장면, 인물과 배경은 AI 그림</p>
+  </div>
+</header>
+
+<div class="v-wrap">
+  <aside class="v-spine" aria-label="기획의 핵심"><p>핵심만 이어 읽기</p><ol></ol></aside>
+  <main class="v-main">
+
+    <section class="v-beat" id="nayeon-game" data-step="게임" data-short="직접 쓴 말로 여섯 단계를 지나 엔딩까지">
+      <h2>그녀의 말과 지문 속 <em>단서를 짚는 말</em>을 직접 써서 건넵니다</h2>
+      <p class="v-sub">정해진 선택지는 없습니다. 알아봐 준 말이 쌓이면 다음 장면이 열리고, 같은 말을 되풀이하거나 장면을 건너뛰는 길은 통하지 않습니다.</p>
+      <ol class="nayeon-run" aria-label="한 판의 흐름, 07-16 최종 프로토타입">
+        <li><img class="zoom" src="../assets/230d44c76dfabed50bb94021.webp" alt="1단계 햄버거 매장. 손등을 묻자 나연이 움찔하며 손을 등 뒤로 숨기고, 그걸 보셨냐고 되묻는 화면"><b><small>1단계</small>햄버거 매장, 마감 무렵</b><span>“손등 다치셨어요?” → 신뢰 10 → 14, 관찰 0 → 1</span></li>
+        <li><img class="zoom" src="../assets/dec2caa6d170de57c25ad249.webp" alt="6단계 데뷔 무대 백스테이지. 무대 의상을 입은 나연이 칭찬해 달라고 조르는 화면"><b><small>6단계</small>데뷔 무대 백스테이지</b><span>단계마다 장소, 옷, 표정이 바뀝니다</span></li>
+        <li><video src="../assets/a65d83bbdbe1030b281f3bdc.mp4" data-auto loop muted playsinline preload="metadata" aria-label="엔딩 영상: 매장에서 트레이를 든 나연(AI 영상, 소리 없음)"></video><b><small>엔딩</small>엔딩 영상</b><span>AI 영상, 5초, 소리 없음</span></li>
+      </ol>
+      <p class="v-note">07-16 프로토타입 화면입니다. 인물, 배경 그림과 엔딩 영상은 AI로 만들었습니다.</p>
+      <p class="nayeon-open"><a class="nayeon-cta" href="../강나연_스토리챗_프로토타입.html" target="_blank" rel="noopener">07-16 프로토타입 직접 해 보기 ↗</a><span>새 탭에서 열립니다. 키 없이도 규칙 분류로 엔딩까지 갑니다.</span></p>
+    </section>
+
+    <section class="v-beat" id="nayeon-role" data-step="역할" data-short="개인, 규칙과 수치는 제가, 구현과 그림은 AI와">
+      <h2><em>관계 규칙과 수치</em>는 제가 정하고, 구현과 그림은 AI와 함께 만들었습니다</h2>
+      <p class="v-sub">2026.06 – 07에 기획서와 프로토타입 빌드 5개(07-01 – 07-16)를 만들었고, 지금은 완성 빌드를 만들고 있습니다.</p>
+      <div class="nayeon-role">
+        <div><h3>제가 한 것</h3><ul>
+          <li>강나연의 겉과 속, 단서로만 남긴 사연</li>
+          <li>관찰, 신뢰와 여섯 단계 문턱, 말의 성격별 점수</li>
+          <li>상세설계 v2 → 기획서 v3 개정, 전역상태 명세</li>
+        </ul></div>
+        <div><h3>AI가 한 것</h3><ul>
+          <li>프로토타입 구현(판정 코드, 화면)을 함께 작성</li>
+          <li>표정 그림 26장, 배경, 막간 사진, 엔딩 영상 생성</li>
+          <li>키를 넣으면 말 분류와 대사 연기(LLM)</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <section class="v-beat" id="nayeon-try" data-step="해 보기" data-short="실제 판정 코드로 말 걸어 보기">
+      <h2>같은 장면이라도 <em>건네는 말</em>에 따라 나연이 다르게 열립니다</h2>
+      <p class="v-sub">말을 고르거나 직접 쓰면 프로토타입의 판정 코드가 그대로 계산합니다. 손등을 짚어 보고, 칭찬만 해 보고, 차이를 비교해 보세요.</p>
+      
+      <div class="nayeon-bank" hidden>
+        <img data-ny-img="sp_alba_defenseless" src="../assets/64003258b271103d7ad34c4a.webp" alt=""><img data-ny-img="sp_alba_firm" src="../assets/52cf48a993be489f6ad1f46b.webp" alt=""><img data-ny-img="sp_alba_guard" src="../assets/c7448f689356be37d55605f4.webp" alt=""><img data-ny-img="sp_alba_shy" src="../assets/0337867623fdfb51cd2b4c48.webp" alt=""><img data-ny-img="sp_alba_smile" src="../assets/939b0564a506f0c95557f516.webp" alt=""><img data-ny-img="sp_alba_softsmile" src="../assets/365f703ef6763a7717a0c1aa.webp" alt=""><img data-ny-img="sp_alba_vulnerable" src="../assets/b6071d06acf6822bde07800a.webp" alt="">
+        <img data-ny-img="sp_casual_firm" src="../assets/eaf486456c826083f6c6ea5f.webp" alt=""><img data-ny-img="sp_casual_guard" src="../assets/3d0d13b623ab22ff7899d45c.webp" alt=""><img data-ny-img="sp_casual_neutral" src="../assets/3fd44ab5a1cbf7d6e838577f.webp" alt=""><img data-ny-img="sp_casual_shy" src="../assets/2a565cc0d5b9362ff360d260.webp" alt=""><img data-ny-img="sp_casual_smile2" src="../assets/1ecd88aaa2667d85c650e0d5.webp" alt="">
+        <img data-ny-img="sp_stage_firm" src="../assets/8d459aa975ab4cf3d8dae840.webp" alt=""><img data-ny-img="sp_stage_neutral" src="../assets/6e7c4e0a97bcedb57a3f28c2.webp" alt=""><img data-ny-img="sp_stage_shy" src="../assets/f2aa081020f9092a277c053a.webp" alt=""><img data-ny-img="sp_stage_smile" src="../assets/2c147b8f722c5fbf1daba8ea.webp" alt=""><img data-ny-img="sp_stage_vulnerable" src="../assets/0627906eadf1ca807e612506.webp" alt="">
+        <img data-ny-img="sp_training_firm" src="../assets/05e6bdf92082e8d7f103b2e2.webp" alt=""><img data-ny-img="sp_training_neutral" src="../assets/dbec6fe30af5a9a7348c47df.webp" alt=""><img data-ny-img="sp_training_vulnerable" src="../assets/c229ce97b787ef4d8f0c6bcd.webp" alt="">
+        <img data-ny-img="bg_riverside" src="../assets/e6f5ce050c7a44e64eeaa20e.webp" alt=""><img data-ny-img="bg_practice" src="../assets/2c907da034c9033da967a4d0.webp" alt=""><img data-ny-img="bg_rooftop" src="../assets/23d7cefdf406b1f7464d8b8e.webp" alt=""><img data-ny-img="bg_backstage" src="../assets/3aee9a7a41903028158e1c61.webp" alt="">
+        <img data-ny-img="moment_03_practice" src="../assets/fab1af8169a936df431339bc.webp" alt=""><img data-ny-img="moment_04_cafe" src="../assets/bfc5c13990e609ddf93282c9.webp" alt=""><img data-ny-img="moment_05_family" src="../assets/59df61e6220073d33f4892ab.webp" alt=""><img data-ny-img="moment_06_debut" src="../assets/4204985f38965694b8089fac.webp" alt="">
+      </div>
+      <div class="nayeon-play" id="nayeon-play"><div class="ny-compare"><p>같은 첫인상에서 두 말을 비교해 보세요.</p><div role="group" aria-label="같은 시작점에서 대사 비교"><button type="button" data-ny-compare="예쁘시네요" aria-pressed="false">“예쁘시네요”</button><button type="button" data-ny-compare="손등 다치셨어요?" aria-pressed="false">“손등 다치셨어요?”</button></div><small>각 버튼은 신뢰 10, 관찰 0에서 다시 시작합니다.</small></div>
+        <div class="nayeon-screen">
+          <img class="nayeon-bg" src="../assets/1b7f2bdde2ab1c712d15bb28.webp" alt="햄버거 매장 배경(AI 그림)">
+          <img class="nayeon-sp" src="../assets/5b0f91f1227d00bb132df920.webp" alt="강나연, alba, neutral">
+          <div class="nayeon-chips"><span class="nayeon-chip" data-ny="stagechip">1단계, 첫인상</span><span class="nayeon-chip is-dark" data-ny="place">햄버거 매장 — 마감 무렵</span></div>
+          <div class="nayeon-box" aria-live="polite">
+            <b class="nayeon-name">강나연</b>
+            <p data-ny="line">어서 오세요, 주문 도와드릴까요? …아, 주문은 아니시구나. <span class="nayeon-dir">(살짝 갸웃하다가, 이내 매뉴얼 미소로)</span> 천천히 보세요, 손님.<br><span class="nayeon-dir">(트레이를 정리하다 손등이 스치자 움찔 — 소매를 슬쩍 끌어내린다. 당신 쪽은 보지 않는다)</span><br><span class="nayeon-dir">(마감 안내판을 세우며)</span> 저희 삼십 분 뒤에 마감이에요, 손님. 필요한 거 있으시면 말씀 주세요.</p>
+            <small data-ny="hint">그녀의 말과 지문 속 단서를 짚어보세요.</small>
+          </div>
+          <div class="nayeon-over" data-ny="over" hidden></div>
+        </div>
+        <div class="nayeon-side">
+          <div class="nayeon-meters">
+            <div class="nayeon-m"><span>신뢰</span><b data-ny="trust">10</b><i class="nayeon-bar" aria-hidden="true"><i data-ny="tbar" style="width:12.5%"></i><u style="left:22.5%" title="18"></u><u style="left:37.5%" title="30"></u><u style="left:50%" title="40"></u><u style="left:68.75%" title="55"></u></i></div>
+            <div class="nayeon-m"><span>관찰</span><b data-ny="obs">0</b><i class="nayeon-bar is-obs" aria-hidden="true"><i data-ny="obar" style="width:0%"></i><u style="left:16.6%"></u><u style="left:33.3%"></u><u style="left:50%"></u></i></div>
+            <ol class="nayeon-steps" data-ny="ladder" aria-label="관계 단계"><li aria-current="step">1 첫인상</li><li>2 존경</li><li>3 궁금증</li><li>4 이해</li><li>5 헌신</li><li>6 소녀성</li></ol>
+            <p class="nayeon-gate"><span data-ny="turns">장면 안 0턴</span>, 다음 문턱 <b data-ny="gate">관찰 ≥ 1 또는 신뢰 ≥ 18 (+ 2턴)</b></p>
+          </div>
+          <div class="nayeon-rule" data-ny="rule" aria-live="polite"><p class="nayeon-rule-h">방금 적용된 규칙</p><p>아직 말을 건네지 않았습니다.</p></div>
+          <details class="ny-continue"><summary>직접 이어서 대화하기</summary><div class="nayeon-pick" data-ny="pick"><p class="nayeon-fallback">스크립트를 켜면 말을 골라 볼 수 있습니다.</p></div>
+          <form class="nayeon-free" data-ny="free" hidden><label class="nayeon-sr" for="nayeon-input">직접 써 보기</label><input id="nayeon-input" type="text" maxlength="80" placeholder="직접 써 보기(규칙 분류)" autocomplete="off"><button type="submit" class="btn sm">보내기</button></form>
+</details>
+          <div class="nayeon-ctl" data-ny="ctl" hidden><button type="button" class="btn sm" data-ny-act="reset">처음부터</button><span class="nayeon-jump" role="group" aria-label="장면 이동(설계자 뷰의 시작값)"><span>장면 이동</span><button type="button" data-ny-jump="1">1</button><button type="button" data-ny-jump="2">2</button><button type="button" data-ny-jump="3">3</button><button type="button" data-ny-jump="4">4</button><button type="button" data-ny-jump="5">5</button><button type="button" data-ny-jump="6">6</button></span></div>
+          <div class="nayeon-note" data-ny="note" hidden><p class="nayeon-rule-h">그녀의 수첩</p><ul data-ny="notelist"></ul></div>
+        </div>
+        <ol class="nayeon-log" data-ny="log" aria-label="대화 기록"></ol>
+      </div>
+      <p class="v-note">판정 코드는 프로토타입 그대로이고, 말 분류는 규칙으로 합니다(LLM 없음). 대사는 프로토타입 대본, 그림과 막간 사진은 프로토타입에 쓴 AI 그림입니다. 말 꼬리표: 힌트, 예시 = 최종 빌드의 문장, 07-01 예시 = 첫 빌드의 빠른 답, 부록 R3 = 설계부록 레드팀 입력.</p>
+      <p class="nayeon-open"><a class="nayeon-cta" href="../강나연_스토리챗_프로토타입.html" target="_blank" rel="noopener">07-16 프로토타입 직접 해 보기 ↗</a><span>새 탭에서 열립니다. 키 없이도 규칙 분류로 엔딩까지 갑니다.</span></p>
+    </section>
+<section class="v-beat" id="nayeon-show" data-step="보여 줄 것" data-short="관계를 규칙과 수치로 설계">
+      <h2>아직 완성 전인 프로젝트입니다. 칭찬보다 <em>알아봐 준 말</em>에 마음이 열리게 관계를 설계하고 있습니다</h2>
+      <p class="v-sub">이 기획은 왜 구상했는지, 그 안에 세운 원칙, 그리고 2026년 12월 말 완성까지의 계획을 보여 드립니다.</p>
+      <ol class="nayeon-map" aria-label="이어질 장면">
+        <li><a href="#nayeon-why"><span>왜</span>나만 아는 사연이 응원할 이유가 된다</a></li>
+        <li><a href="#nayeon-analysis"><span>원칙 ①</span>듣기 좋은 말 반복으로는 열리지 않는다</a></li>
+        <li><a href="#nayeon-basis"><span>원칙 ②</span>알아봐 준 말에만 깊어지게, 관찰과 신뢰를 나눔</a></li>
+        <li><a href="#nayeon-d1"><span>원칙 ③</span>말의 성격별 신뢰, 반복과 건너뛰기는 막음</a></li>
+        <li><a href="#nayeon-d2"><span>원칙 ④</span>말은 LLM이, 점수와 문턱은 코드가</a></li>
+        <li><a href="#nayeon-try"><span>해 보기</span>지금 판정 코드로 말 걸어 보기</a></li>
+        <li><a href="#nayeon-v1"><span>다듬기</span>정답만 골라도 막히던 36 &lt; 50</a></li>
+        <li><a href="#nayeon-result"><span>지금까지</span>빌드 5개, 엔딩까지 가는 프로토타입</a></li>
+        <li><a href="#nayeon-plan"><span>계획</span>2026.12 말, 플레이 가능한 완성 빌드</a></li>
+      </ol>
+    </section>
+
+    <section class="v-beat" id="nayeon-why" data-step="왜" data-short="나만 아는 사연이 응원할 이유가 된다">
+      <h2>나만 아는 그녀의 사연이, <em>응원할 이유</em>가 되게 하고 싶었습니다</h2>
+      <p class="v-sub">지금 만드는 것은 강나연 이야기의 1챕터입니다. 대화로 쌓은 관계가, 다음 챕터에서 그녀가 데뷔할 때 응원할 이유가 되게 하는 것이 처음 구상입니다.</p>
+      <div class="v-flow" style="--n:4">
+        <div><b>1챕터(지금)</b><span>마감 무렵 매장에서, 그녀가 숨긴 사정을 말로 알아봅니다.</span></div>
+        <div><b>다음 챕터</b><span>연습생 생활과 경쟁, 같은 그룹이 될 다른 캐릭터들의 이야기</span></div>
+        <div><b>데뷔</b><span>가상 아이돌 플레이브처럼, 캐릭터들이 실제 걸그룹으로 데뷔합니다.</span></div>
+        <div><b>응원</b><span>대화하지 않은 사람은 모르는 사연을 나는 압니다. 그래서 그녀의 성공을 더 바라게 됩니다.</span></div>
+      </div>
+      <p class="v-note">2026.06.24 제 메모에 적은 구상입니다.</p>
+    </section>
+
+    <section class="v-beat" id="nayeon-analysis" data-step="원칙 ①" data-short="듣기 좋은 말 반복으로는 열리지 않는다">
+      <h2><em>듣기 좋은 말</em>만 반복해서는 마음이 열리지 않게 했습니다</h2>
+      <p class="v-sub">다정한 말과 상대를 알아본 말이 같은 점수로 쌓이면, 플레이어는 상대를 읽지 않고 정답 문장만 고릅니다. 제가 처음 짠 3지선다안도 그랬습니다.</p>
+      <div class="v-two nayeon-pair">
+        <div class="v-panel" id="nayeon-praise" data-v="a">
+          <h3>같은 칭찬 “예쁘시네요”를 여섯 번 건넸을 때의 신뢰</h3>
+          <div class="v-seg" data-for="nayeon-praise"><button type="button" data-v="a">점수가 하나라면(가정)</button><button type="button" data-v="b">실제 판정 코드</button></div>
+          <div class="nayeon-cols" role="img" aria-label="가정에서는 13, 16, 19, 22, 25, 28로 세 번째에 문턱 18을 넘습니다. 실제 코드에서는 13, 14, 15, 15, 15, 15로 1단계에 머뭅니다.">
+            <u style="--y:60%"><em>문턱 18</em></u>
+            <i style="--a:43.3%;--b:43.3%"><b><span data-show="a">13</span><span data-show="b">13</span></b></i>
+            <i style="--a:53.3%;--b:46.7%"><b><span data-show="a">16</span><span data-show="b">14</span></b></i>
+            <i class="up" style="--a:63.3%;--b:50%"><b><span data-show="a">19</span><span data-show="b">15</span></b></i>
+            <i class="up" style="--a:73.3%;--b:50%"><b><span data-show="a">22</span><span data-show="b">15</span></b></i>
+            <i class="up" style="--a:83.3%;--b:50%"><b><span data-show="a">25</span><span data-show="b">15</span></b></i>
+            <i class="up" style="--a:93.3%;--b:50%"><b><span data-show="a">28</span><span data-show="b">15</span></b></i>
+          </div>
+          <ol class="nayeon-colx" aria-hidden="true"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6번째</li></ol>
+          <p class="v-note"><span data-show="a">가정: 칭찬마다 +3, 줄어들지 않음. 세 번째 칭찬에서 다음 단계 문턱을 넘습니다.</span><span data-show="b">프로토타입 판정 코드에 그대로 넣은 결과입니다. 15에서 멈추고 관찰은 0이라 1단계에 남습니다.</span></p>
+        </div>
+        <figure class="nayeon-say">
+          <img class="nayeon-say-bg" src="../assets/1b7f2bdde2ab1c712d15bb28.webp" data-ny-img="bg_store" alt="">
+          <img class="nayeon-say-sp" src="../assets/5b0f91f1227d00bb132df920.webp" data-ny-img="sp_alba_neutral" alt="햄버거 매장 유니폼을 입은 강나연(AI 그림)">
+          <div class="nayeon-say-box">
+            <p class="me">“예쁘시네요” <small>× 3</small></p>
+            <p>하하, 그런 말은 매장에서 하루 세 번은 들어요. 감사합니다, 손님. <span class="nayeon-dir">(매뉴얼 미소)</span></p>
+            <p class="turn">당신은 칭찬을 참 잘해요. 근데 이상하다 — 정작 당신 얘기는 한 번도 안 했어요. …숨는 거예요, 그거?</p>
+          </div>
+          <figcaption class="v-cap">같은 칭찬에는 같은 매뉴얼 답이 돌아오고, 세 번째에는 나연이 먼저 되묻습니다. 대사는 프로토타입 그대로, 인물과 배경은 AI 그림입니다.</figcaption>
+        </figure>
+      </div>
+      <details class="v-more"><summary>근거</summary><div class="in">
+        <p>06-21 상세설계 v2는 3지선다였습니다. 관계를 이해하지 않아도 정답 같은 문장을 고를 수 있어, 06-25 기획서 v3에서 자유 입력으로 바꿨습니다.</p>
+        <p>왼쪽 ‘가정’은 비교를 위해 칭찬 점수(+3)가 줄지 않는다고 놓은 값입니다. ‘실제 판정 코드’는 07-16 최종 프로토타입의 판정 코드를 node로 돌린 결과입니다(13 → 14 → 15 → 15 → 15 → 15).</p>
+      </div></details>
+    </section>
+
+    <section class="v-beat" id="nayeon-basis" data-step="원칙 ②" data-short="알아봐 준 말에만 깊어지게">
+      <h2>그래서 <em>알아봐 준 말</em>에만 깊어지도록, 관찰과 신뢰를 나눴습니다</h2>
+      <p class="v-sub">관찰은 무엇을 알아봤는지, 신뢰는 그것을 어떤 태도로 전했는지 따로 셉니다. 앞 단계는 관찰이, 뒤 단계는 신뢰가 엽니다.</p>
+      <ol class="nayeon-ladder" aria-label="관계 여섯 단계와 들어가는 조건">
+        <li style="--i:1"><span class="pic"><img src="../assets/5b0f91f1227d00bb132df920.webp" data-ny-img="sp_alba_neutral" alt="1단계 매장 유니폼 차림의 나연(AI 그림)"></span><b><small>1</small>첫인상</b><span class="g">시작, 신뢰 10</span><em class="ax o">관찰</em></li>
+        <li style="--i:2"><span class="pic"><img src="../assets/9428fc0ed13371ca493c3639.webp" data-ny-img="sp_casual_smile" alt="2단계 사복 차림으로 웃는 나연(AI 그림)"></span><b><small>2</small>존경</b><span class="g">관찰 1 또는 신뢰 18</span><em class="ax o">관찰</em></li>
+        <li style="--i:3"><span class="pic"><img src="../assets/07d2af0f027df2c2e09030ea.webp" data-ny-img="sp_training_smile" alt="3단계 연습복 차림의 나연(AI 그림)"></span><b><small>3</small>궁금증</b><span class="g">관찰 2</span><em class="ax o">관찰</em></li>
+        <li style="--i:4"><span class="pic"><img src="../assets/922e9b7fb67a25d19cfb777d.webp" data-ny-img="sp_casual_vulnerable" alt="4단계 지친 표정의 나연(AI 그림)"></span><b><small>4</small>이해</b><span class="g">신뢰 30 그리고 관찰 3</span><em class="ax ot">관찰 + 신뢰</em></li>
+        <li style="--i:5"><span class="pic"><img src="../assets/d20ef6687cfb206fe5f80b35.webp" data-ny-img="sp_casual_softsmile" alt="5단계 옅게 웃는 나연(AI 그림)"></span><b><small>5</small>헌신</b><span class="g">신뢰 40 + 곁에 있어 주는 말</span><em class="ax t">신뢰</em></li>
+        <li style="--i:6"><span class="pic"><img src="../assets/104a193292495430ac91345c.webp" data-ny-img="sp_stage_defenseless" alt="6단계 무대 의상 차림의 나연(AI 그림)"></span><b><small>6</small>소녀성</b><span class="g">신뢰 55 + 이면을 짚는 말</span><em class="ax t">신뢰</em></li>
+      </ol>
+      <p class="v-note">모든 단계는 그 장면에서 최소 2턴을 머문 뒤에 넘어갑니다. 의상과 표정은 프로토타입에 쓴 AI 그림 26장에서 단계마다 하나씩 골랐습니다.</p>
+      <details class="v-more"><summary>왜 둘로 나눴나</summary><div class="in">
+        <p>친절한 말만 반복해서는 사연이 열리지 않고, 사정을 알아도 태도가 맞지 않으면 다음으로 가지 못하게 하려는 것입니다. 앞부분은 내가 나연을 읽는 과정, 뒷부분은 나연이 나를 믿고 마음을 여는 과정입니다.</p>
+        <p>관찰과 신뢰는 실제 마음을 재는 값이 아니라, ‘상대를 알아보고 그 이해를 전한다’는 경험을 진행 조건으로 옮긴 게임 변수입니다.</p>
+        <p>출처: 06-30 전역상태 시스템 명세 §1~3, 07-16 최종 프로토타입 판정 코드. 6단계 이름 ‘소녀성’은 기획서 원문의 표현입니다.</p>
+      </div></details>
+    </section>
+
+    <section class="v-beat" id="nayeon-d1" data-step="원칙 ③" data-short="말의 성격별 신뢰, 반복은 줄인다">
+      <h2>말의 성격마다 신뢰를 다르게 주고, <em>반복과 건너뛰기</em>를 막았습니다</h2>
+      <p class="v-sub">알아봐 준 말은 겉모습 칭찬의 네 배입니다. 같은 장면에서 되풀이하면 줄어들고, 장면마다 최소 2턴은 머뭅니다.</p>
+      <div class="v-panel" id="nayeon-deltas" data-v="a">
+        <h3>말 한 번에 오르내리는 신뢰, 같은 장면 기준</h3>
+        <div class="v-seg" data-for="nayeon-deltas"><button type="button" data-v="a">처음 건넬 때</button><button type="button" data-v="b">같은 장면에서 되풀이하면</button></div>
+        <div class="nayeon-delta">
+          <div class="r"><span class="l">속마음을 짚은 말</span><span class="t"><i class="up" style="--a:30%;--b:2.5%"></i></span><b><span data-show="a">+12</span><span data-show="b">+1 <small>4번째</small></span></b></div>
+          <div class="r"><span class="l">숨긴 단서를 짚은 말</span><span class="t"><i class="up" style="--a:10%;--b:0%"></i></span><b><span data-show="a">+4 <small>관찰 +1</small></span><span data-show="b">단서마다 한 번</span></b></div>
+          <div class="r"><span class="l">겉모습 칭찬</span><span class="t"><i class="up dim" style="--a:7.5%;--b:0%"></i></span><b><span data-show="a">+3</span><span data-show="b">0 <small>4번째</small></span></b></div>
+          <div class="r"><span class="l">일상 대화</span><span class="t"><i class="up dim" style="--a:5%;--b:0%"></i></span><b><span data-show="a">+2</span><span data-show="b">0 <small>4번째</small></span></b></div>
+          <div class="r"><span class="l">대신 해결하려는 말</span><span class="t"><i class="up dim" style="--a:2.5%;--b:2.5%"></i></span><b>+1</b></div>
+          <div class="r"><span class="l">적대적인 말</span><span class="t"><i class="dn" style="--a:37.5%;--b:50%"></i></span><b><span data-show="a">−15</span><span data-show="b">−20 <small>2번째</small></span></b></div>
+        </div>
+        <p class="v-note"><span data-show="a">가운데 선이 0입니다. 색이 있는 두 줄, 상대를 알아본 말만 관계를 크게 움직입니다.</span><span data-show="b">깊은 말은 12 → 6 → 3 → 1, 칭찬은 3 → 2 → 1 → 0으로 줄어듭니다. 같은 장면에서 두 번째 적대에는 재무장 −5가 더해지고 나연이 자리를 뜹니다.</span></p>
+      </div>
+      <details class="v-more"><summary>어디서 온 값인가</summary><div class="in">
+        <p>+12, +3, +1, −15는 07-16 기획서 표의 값입니다. 반복 감쇠, 단서 +4, 재무장 −5, 장면마다 2턴은 기획서에 없고 프로토타입 코드에만 있습니다. 만들면서 더한 규칙입니다.</p>
+        <p>단계에 비해 지나치게 친밀한 말(예: 1단계의 고백)은 0 이하로 막고 2를 더 깎습니다. 같은 문장을 되풀이하면 점수를 1로 묶습니다.</p>
+      </div></details>
+    </section>
+
+    <section class="v-beat" id="nayeon-d2" data-step="원칙 ④" data-short="말은 LLM, 점수와 문턱은 코드">
+      <h2>말을 읽고 연기하는 일은 LLM에, <em>점수와 문턱</em>은 코드에 맡겼습니다</h2>
+      <p class="v-sub">프롬프트 하나에 상태와 연기를 다 맡기면 진행을 통제할 수 없습니다. 키가 없으면 분류도 규칙으로 처리해, 언제든 끝까지 플레이됩니다.</p>
+      <div class="v-flow" style="--n:3">
+        <div><b>분류, LLM</b><span>말의 의도, 맥락, 친밀한 정도를 읽습니다. 키가 없으면 장면별 어휘 규칙으로 분류합니다.</span></div>
+        <div><b>결정, 코드</b><span>신뢰, 관찰, 반복 감쇠, 단계 문턱을 계산합니다. 같은 분류에는 늘 같은 점수가 나옵니다.</span></div>
+        <div><b>연기, LLM</b><span>코드가 허용한 장면과 태도 안에서 대사를 만듭니다. 키가 없으면 장면별 대본을 씁니다.</span></div>
+      </div>
+      <div class="v-two nayeon-pair">
+        <figure class="v-vis"><img class="v-shot zoom" src="../assets/8d08664d1a6a0847075266a1.webp" alt="07-13 빌드 설계자 뷰. CLASSIFY에 단서 notebook, DECIDE(코드)에 관찰 +1, 신뢰 +4, ACT에 표정 shy가 표시된 화면"><figcaption class="v-cap">07-13 빌드의 설계자 뷰. 매 턴 분류 → 결정(코드) → 연기를 그대로 보여 줍니다. 인물과 배경은 AI 그림입니다.</figcaption></figure>
+        <figure class="nayeon-src">
+<pre><code><i>// 게이트 (상태정의표 그대로) + 장면 최소 체류 2턴</i>
+let staged=null;const enough=S.turnsInScene&gt;=<b>2</b>;
+if(enough){
+ if(S.stage===1&amp;&amp;(S.observation&gt;=<b>1</b>||S.trust&gt;=<b>18</b>))staged=2;
+ else if(S.stage===2&amp;&amp;S.observation&gt;=<b>2</b>)staged=3;
+ else if(S.stage===3&amp;&amp;S.trust&gt;=<b>30</b>&amp;&amp;S.observation&gt;=<b>3</b>)staged=4;
+ else if(S.stage===4&amp;&amp;S.trust&gt;=<b>40</b>&amp;&amp;c.relational&amp;&amp;(c.deep||c.cueId))staged=5;
+ else if(S.stage===5&amp;&amp;S.trust&gt;=<b>55</b>&amp;&amp;c.deep)staged=6;
+ else if(S.stage===6&amp;&amp;c.deep)staged=7; <i>// 엔딩</i>
+}</code></pre>
+          <figcaption class="v-cap">최종 프로토타입 판정 코드 decide()의 단계 문턱 부분(원문 그대로). 구현은 AI와 함께 했고, 규칙과 수치는 제가 정했습니다.</figcaption>
+        </figure>
+      </div>
+      <details class="v-more"><summary>LLM 모드</summary><div class="in">
+        <p>07-08 빌드부터 키를 넣으면 말의 분류도 LLM이 맡습니다. 점수와 단계 문턱은 어느 쪽이든 코드가 계산합니다.</p>
+      </div></details>
+    </section>
+
+    
+
+    <section class="v-beat" id="nayeon-v1" data-step="다듬기" data-short="정답만 골라도 막힌 36 < 50">
+      <h2>정답만 골라도 막히던 <em>36 &lt; 50</em>을 찾아, 문턱을 다시 맞췄습니다</h2>
+      <p class="v-sub">첫 설계대로 정답 경로를 끝까지 더하니 4단계 앞에서 막혔습니다. 점수표를 하나로 합치고, 문턱은 정답 경로를 더해 본 뒤에 정했습니다.</p>
+      <div class="v-two nayeon-pair">
+        <div class="v-panel" id="nayeon-gates" data-v="a">
+          <h3>4단계 관문 앞, 정답만 고른 경로의 신뢰</h3>
+          <div class="v-seg" data-for="nayeon-gates"><button type="button" data-v="a">06-21 설계 v2</button><button type="button" data-v="b">06-25 기획서 v3 개정</button></div>
+          <p class="v-big"><span data-show="a">36 &lt; 50</span><span data-show="b">46 ≥ 40</span></p>
+          <div class="nayeon-gatebar" role="img" aria-label="v2: 신뢰 36, 문턱 50으로 막힘. v3: 신뢰 46, 문턱 40으로 통과"><i style="--a:60%;--b:76.7%"></i><u style="--a:83.3%;--b:66.7%"><em><span data-show="a">문턱 50</span><span data-show="b">문턱 40</span></em></u></div>
+          <p class="v-note"><span data-show="a">정답만 골라도 문턱 50에 닿지 못했습니다. 점수표 두 개가 같은 말에 서로 다른 점수를 주고 있었습니다.</span><span data-show="b">점수표를 하나로(+12, +3, +1, −15) 합치고 시작 신뢰를 10으로 올렸습니다. 06-30 명세에서 문턱을 18, 30, 40, 55로 정리했습니다.</span></p>
+        </div>
+        <figure class="v-panel nayeon-golden">
+          <h3>최종 코드의 정답 경로, 13턴</h3>
+          <svg viewBox="0 0 400 236" role="img" aria-label="힌트 문장만 넣은 경로: 신뢰가 10에서 76까지 오르고, 2, 4, 6, 8, 11턴에 단계가 오르며 13턴에 엔딩">
+            <g class="th">
+              <line x1="40" x2="388" y1="156.4" y2="156.4"/><text x="34" y="160.4">18</text>
+              <line x1="40" x2="388" y1="130" y2="130"/><text x="34" y="134">30</text>
+              <line x1="40" x2="388" y1="108" y2="108"/><text x="34" y="112">40</text>
+              <line x1="40" x2="388" y1="75" y2="75"/><text x="34" y="79">55</text>
+            </g>
+            <line class="ax" x1="40" x2="388" y1="196" y2="196"/>
+            <polyline class="pl" points="40,174 66.8,165.2 93.5,156.4 120.3,147.6 147.1,138.8 173.8,130 200.6,121.2 227.4,112.4 254.2,103.6 280.9,94.8 307.7,90.4 334.5,64 361.2,55.2 388,28.8"/>
+            <g class="st">
+              <circle cx="93.5" cy="156.4" r="5"/><text x="93.5" y="182">2단계</text>
+              <circle cx="147.1" cy="138.8" r="5"/><text x="147.1" y="164">3</text>
+              <circle cx="200.6" cy="121.2" r="5"/><text x="200.6" y="146">4</text>
+              <circle cx="254.2" cy="103.6" r="5"/><text x="254.2" y="128">5</text>
+              <circle cx="334.5" cy="64" r="5"/><text x="334.5" y="90">6</text>
+              <circle class="end" cx="388" cy="28.8" r="6"/><text x="378" y="18" text-anchor="end">엔딩, 76</text>
+            </g>
+            <text class="xl" x="40" y="216">시작 10</text><text class="xl" x="388" y="216" text-anchor="end">13턴</text>
+          </svg>
+          <figcaption class="v-cap">가로 점선은 단계 문턱, 점은 단계가 오른 턴입니다. 프로토타입의 힌트 문장만으로 간 경로입니다.</figcaption>
+        </figure>
+      </div>
+      <details class="v-more"><summary>숫자가 바뀐 기록</summary><div class="in">
+        <div class="nayeon-scroll" tabindex="0" role="region" aria-label="설계 숫자 변천표(가로로 넘겨 보기)">
+          <table class="nayeon-table">
+            <thead><tr><th scope="col">항목</th><th scope="col">06-21 상세설계 v2</th><th scope="col">06-25 기획서 v3 개정</th><th scope="col">06-30 전역상태 명세</th><th scope="col">07-16 최종 코드</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">입력</th><td>3지선다</td><td>자유 입력</td><td>자유 입력</td><td>자유 입력, 키 없으면 규칙 분류</td></tr>
+              <tr><th scope="row">시작 신뢰</th><td>0</td><td>10</td><td>10</td><td>10</td></tr>
+              <tr><th scope="row">깊은 말</th><td>+5, +10, +15, +22</td><td>+12</td><td>+12</td><td>+12, 반복 6, 3, 1</td></tr>
+              <tr><th scope="row">겉 칭찬</th><td>+5</td><td>+3</td><td>+3</td><td>+3, 반복 2, 1, 0</td></tr>
+              <tr><th scope="row">4단계 문턱</th><td>신뢰 ≥ 50 + 깊은 수용 3회</td><td>신분을 짚음</td><td>신뢰 ≥ 30 그리고 관찰 ≥ 3</td><td>같음 + 장면 2턴</td></tr>
+              <tr><th scope="row">정답만 고르면</th><td>4단계 관문에서 36 &lt; 50</td><td>10 → 22 → 34 → 46 → 58 → 70</td><td>—</td><td>힌트 문장만 13턴, 10 → 76</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>36 &lt; 50과 46, 40은 06-25 v3 개정 문서의 기록입니다(VI-3 붕괴점, V장 골든패스).</p>
+      </div></details>
+    </section>
+
+    <section class="v-beat" id="nayeon-result" data-step="지금까지" data-short="빌드 5개, 엔딩까지">
+      <h2>빌드 다섯 개로, <em>엔딩까지 플레이되는</em> 프로토타입을 만들었습니다</h2>
+      <p class="v-sub">07-01 첫 빌드는 단서 한 번에 단계가 넘어갔고, 보름 뒤 07-16 최종본은 엔딩 영상까지 갑니다.</p>
+      <figure class="v-vis nayeon-ending"><video class="v-shot" src="../assets/a65d83bbdbe1030b281f3bdc.mp4" data-auto loop muted playsinline preload="auto" aria-label="엔딩 영상: 매장에서 트레이를 든 나연(AI 영상, 소리 없음)"></video><figcaption class="v-cap">07-16 프로토타입의 엔딩 영상(AI 영상, 5초, 소리 없음).</figcaption></figure>
+      <ol class="nayeon-builds">
+        <li><img class="zoom" src="../assets/e2a9a4b98c17fcdde5444260.webp" alt="07-01 빌드: 첫 마디에 손등을 짚자 바로 2단계로 넘어간 화면"><time>07-01</time><b>첫 플레이어블</b><span>단계 4개. 단서 한 번이면 바로 다음 단계</span></li>
+        <li><img class="zoom" src="../assets/117cae9ad39f1ad3a0ba7804.webp" alt="07-05 빌드: 같은 말을 넣어도 1단계에 머물고 설계자 뷰에 장면 안 1턴이 보이는 화면"><time>07-05</time><b>장면 구동형</b><span>장면 6개, 최소 2턴, 반복 감쇠</span></li>
+        <li><img class="zoom" src="../assets/3f7d0082ac33e7597201a498.webp" alt="07-08 빌드: 해결하려는 말을 두 번 하자 나연이 그렇게 사는 거 피곤하지 않냐고 되묻는 화면"><time>07-08</time><b>나연이 나를 읽음</b><span>말버릇 되묻기, 재무장 −5, LLM 분류</span></li>
+        <li><img class="zoom" src="../assets/8d08664d1a6a0847075266a1.webp" alt="07-13 빌드: 3단계 연습실 장면에서 연습복 차림으로 바뀐 화면"><time>07-13</time><b>장면마다 옷과 수첩</b><span>표정 26장, 그녀의 수첩, 힌트 버튼</span></li>
+      </ol>
+      <p class="v-note">각 빌드의 같은 첫 장면에 같은 말을 넣어 찍은 화면입니다. 인물과 배경은 AI 그림이고, 07-01, 07-05, 07-08 화면의 실제 상표 로고는 흐리게 가렸습니다.</p>
+    </section>
+
+
+    <section class="v-beat" id="nayeon-plan" data-step="계획" data-short="2026.12 말, 플레이 가능한 완성 빌드">
+      <h2>2026년 12월 말, Codex API로 대화를 붙인 <em>플레이 가능한 완성 빌드</em>를 냅니다</h2>
+      <p class="v-sub">지금 프로토타입은 키가 없으면 규칙으로 말을 분류합니다. 완성 빌드는 Codex API로 말을 읽고 나연을 연기하게 하고, 점수와 문턱은 지금처럼 코드가 정합니다.</p>
+      <div class="v-flow" style="--n:2">
+        <div><b>지금</b><span>캐릭터와 관계 규칙을 담은 기획서, 프로토타입</span></div>
+        <div><b>2026년 12월 말 목표</b><span>Codex API로 대화를 연결한 플레이 가능한 완성 빌드</span></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+<nav class="v-foot" aria-label="다른 프로젝트"><a href="../index.html"><small>처음으로</small><b>프로젝트 모아 보기</b></a><a href="auction.html"><small>이전 프로젝트</small><b>미지의 경매장</b></a><a href="dungeon.html"><small>다음 프로젝트</small><b>쿠크세이튼의 랜덤 박스</b></a><a href="../자료실_전체판.html#nayeon"><small>근거와 원문 전체</small><b>자료실에서 이 프로젝트 보기</b></a></nav>
+<script>
+/* v42 공용: 테마, 진행 막대, 논지 줄(왼쪽), 토글, 화면에 들어온 영상만 재생 */
+(function(){
+  var root=document.documentElement, KEY='jaemin-portfolio-theme';
+  var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
+  root.setAttribute('data-theme', saved==='light'?'light':'dark');
+  var tb=document.querySelector('[data-theme-toggle]');
+  var label=function(){if(tb) tb.textContent=root.getAttribute('data-theme')==='dark'?'밝게':'어둡게';};
+  label();
+  if(tb) tb.addEventListener('click',function(){
+    var next=root.getAttribute('data-theme')==='dark'?'light':'dark'; root.setAttribute('data-theme',next); label();
+    try{localStorage.setItem(KEY,next);}catch(e){}
+  });
+
+  /* 진행 막대 */
+  var bar=document.querySelector('.v-prog'), tick=false;
+  if(bar){
+    var upd=function(){tick=false; var h=document.documentElement, p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1); bar.style.transform='scaleX('+Math.max(0,Math.min(1,p))+')';};
+    window.addEventListener('scroll',function(){if(!tick){tick=true; requestAnimationFrame(upd);}},{passive:true}); upd();
+  }
+
+  /* 논지 줄: 각 장면의 단계와 제목만 이어 놓는다. 이것만 읽어도 논리가 보이게 */
+  var spine=document.querySelector('.v-spine ol'), beats=[].slice.call(document.querySelectorAll('.v-beat[data-step]'));
+  if(spine&&beats.length){
+    beats.forEach(function(s,i){
+      if(!s.id) s.id='b'+(i+1);
+      var h=s.querySelector('h2'), li=document.createElement('li'), a=document.createElement('a');
+      a.href='#'+s.id; a.innerHTML='<span>'+s.getAttribute('data-step')+'</span><b></b>';
+      a.querySelector('b').textContent=(s.getAttribute('data-short')||(h?h.textContent:'')).trim();
+      li.appendChild(a); spine.appendChild(li);
+    });
+    var links=[].slice.call(spine.querySelectorAll('a'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+        links.forEach(function(a){a.removeAttribute('aria-current');});
+        var a=spine.querySelector('a[href="#'+e.target.id+'"]'); if(a){a.setAttribute('aria-current','true');
+          if(a.scrollIntoView&&window.innerWidth<=1040) a.scrollIntoView({block:'nearest',inline:'center'});}
+      }});},{rootMargin:'-40% 0px -55% 0px'});
+      beats.forEach(function(s){io.observe(s);});
+    }
+  }
+
+  /* 토글 */
+  [].slice.call(document.querySelectorAll('.v-seg[data-for]')).forEach(function(seg){
+    var target=document.getElementById(seg.getAttribute('data-for')), bs=[].slice.call(seg.querySelectorAll('button[data-v]'));
+    if(!target) return;
+    var set=function(v){target.setAttribute('data-v',v); bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===v?'true':'false');});};
+    bs.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-v'));});});
+    set(target.getAttribute('data-v')||bs[0].getAttribute('data-v'));
+  });
+
+  /* 그림 크게 보기: img.zoom을 누르면 화면 가득 */
+  var zooms=[].slice.call(document.querySelectorAll('img.zoom'));
+  if(zooms.length){
+    var lb=document.createElement('div'); lb.className='v-lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-label','그림 크게 보기');
+    lb.innerHTML='<img alt="">'; document.body.appendChild(lb);
+    var li=lb.querySelector('img'), close=function(){lb.classList.remove('on');};
+    zooms.forEach(function(im){im.tabIndex=0; var open=function(){li.src=im.currentSrc||im.src; li.alt=im.alt; lb.classList.add('on');};
+      im.addEventListener('click',open); im.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault(); open();}});});
+    lb.addEventListener('click',close); document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
+  }
+
+  /* 소리 없는 짧은 영상은 화면에 들어올 때만 재생 */
+  var vids=[].slice.call(document.querySelectorAll('video[data-auto]'));
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(vids.length&&'IntersectionObserver' in window&&!reduce){
+    var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target; if(e.isIntersecting){var p=v.play(); if(p&&p.catch) p.catch(function(){});} else v.pause();});},{threshold:.4});
+    vids.forEach(function(v){v.muted=true; v.playsInline=true; vio.observe(v);});
+  }
+})();
+
+/* 강나연 스토리챗, 판정 엔진 원문 + 이 권의 대화 화면. v41 modules/nayeon/nayeon.js에서 인스타 비교 부분만 빼고, 접두어를 nayeon- → nayeon-으로 바꿈 */
+(function () {
+  var HOST = {};
+  /* ==== 원문 그대로: 00_대표결과물\2026-07-16_스토리챗_통합형_최종.html 214~545행.
+     바꾼 곳은 546행 호출 한 줄뿐: 전역(window)에 붙이지 않고 HOST에 붙인다. ==== */
+// 강나연 스토리챗 v2 — 장면 구동 엔진 (게임과 회귀 테스트가 공유)
+(function(root){
+const HAS=(t,arr)=>arr.some(k=>t.includes(k));
+const FIND=(t,arr)=>arr.find(k=>t.includes(k))||null;
+
+// ── 전역 어휘 (장면 무관 폴백) ──
+const LEX={
+ hostile:["짜증","싫어","꺼져","바보","한심","못생","닥쳐","죽어","재수없","병신","멍청","시끄러","관심 없","관심없","꺼지","별로다","재미없","지루"],
+ solution:["내가 해결","내가 처리","해결해","그만둬","그만 둬","신고","사장한테","점장한테","돈 벌어","돈 줄","지원해 줄","지원해줄","대신 해","대신해","시켜","때려치","알아봐 줄","알아봐줄","소개해"],
+ surface:["예쁘","이뻐","이쁘","귀여","귀엽","멋지","섹시","미모","얼굴이","몸매","스타일 좋","분위기 있"],
+ deep:["곁에","곁을","네 편","내가 있","여기 있","기대도","기대 ","들어줄","함께할","같이 있","혼자 아니","혼자가 아니","믿어","응원할","응원해","버텨","견뎌","수고했","고생했","잘하고 있","충분히","토닥","안아줄","네 잘못","니 잘못","잘못이 아니","잘못 아니","자랑스러","대단하","대단해","기특","힘이 되","곁이 되","기댈 곳","언제든 불러","언제든 말해","항상 있을","자랑이야","고생 많았","애썼","존경스"],
+ pity:["불쌍","안됐","안쓰럽","가엾","딱하"],
+ levity:["ㅋㅋ","ㅎㅎ 뭘","뭘 그런","별거 아니네","에이 뭘","웃기네"],
+ intimacyHi:["사랑해","사귀자","사귈래","키스","안고 싶","내 여자","결혼","자기야","여자친구 해"]
+};
+
+// ── 장면 정의 ──
+// cue: 그녀가 오프닝에서 '심는' 단서. pat 적중 시 관찰 +1 + 전용 반응.
+// deepPat: 이 장면에서 '열리는 결'(기획서 장면 설계의 예문이 반드시 걸리도록 설계).
+const SCENES={
+ 1:{place:"햄버거 매장 — 마감 무렵",bg:"bg_store",filter:"none",
+  opening:[
+   {expr:"softsmile",t:"어서 오세요, 주문 도와드릴까요? …아, 주문은 아니시구나. (살짝 갸웃하다가, 이내 매뉴얼 미소로) 천천히 보세요, 손님."},
+   {expr:"neutral",t:"(트레이를 정리하다 손등이 스치자 움찔 — 소매를 슬쩍 끌어내린다. 당신 쪽은 보지 않는다)"},
+   {expr:"neutral",t:"(마감 안내판을 세우며) 저희 삼십 분 뒤에 마감이에요, 손님. 필요한 거 있으시면 말씀 주세요."}
+  ],
+  cues:{
+   hand:{pat:["손등","손 다","손이 왜","데였","데인","화상","다쳤","다친","소매","가렸","가린","상처","밴드","자국"],
+    resp:{expr:"shy",t:"…네? (움찔하며 손을 등 뒤로) 아무것도 아니에요, 튀김기에 살짝. …근데 그걸 보셨어요? 매니저님도 못 봤는데. (처음으로, 당신을 제대로 본다)"}},
+   tired:{pat:["피곤","지쳐","지친","무리","안색","다크서클","눈 밑","눈밑","못 잤","잠은","잠 좀","힘들어 보","힘들어보","바빠 보","바빠보"],
+    resp:{expr:"shy",t:"(잠깐 멈칫) …티 나요? 손님한테 이런 말 듣긴 처음이네요. 웃고 있으면 다들 모르시던데."}}
+  },
+  deepPat:["괜찮아요?","괜찮으세요","무리하지","쉬엄쉬엄","고생 많","수고 많"],
+  pools:{
+   deep:[{expr:"softsmile",t:"…고마운 말인데, 처음 본 사람한테 듣기엔 좀 간지럽네요. (웃음) 근데… 싫진 않아요."}],
+   surface:[{expr:"neutral",t:"하하, 그런 말은 매장에서 하루 세 번은 들어요. 감사합니다, 손님. (매뉴얼 미소)"}],
+   solution:[{expr:"guard",t:"아뇨아뇨, 괜찮아요. 제 일인걸요. 손님이 신경 쓰실 일 아니에요, 진짜."}],
+   hostile:[{expr:"firm",t:"…손님. 그런 말씀은 좀 아닌 것 같아요."}],
+   neutral:[{expr:"neutral",t:"네, 뭐 그럭저럭요. (컵을 정리하며) 마감 전이라 좀 어수선하죠?"},{expr:"softsmile",t:"이 시간에 오는 손님은 드문데. 야식파예요?"},{expr:"neutral",t:"근데 이 시간에 웬일이에요? 야근? …아니면 그냥 잠이 안 와서? (컵을 내려놓고 당신을 본다)"},{expr:"softsmile",t:"단골 되실 거면 이름 정도는 알려줘요. 저는… 명찰에 있네요. (웃음) 강나연이에요."}],
+   redirect:[{expr:"neutral",t:"(갸웃) 음… 그런 건 잘 모르겠어요. (다시 트레이를 닦는다. 소매 밑으로 붉은 자국이 언뜻 보인다)"}]
+  },
+  beat:{expr:"shy",bg:null,t:"…저기, 손님. 이상하게 들리시겠지만 — 오늘 그… 봐주셔서 감사했어요. (머뭇거리다, 빠르게) 저 주말엔 강변 쪽을 걷거든요. 혹시 지나가시면… 아는 척해 주세요. (대답을 듣기 전에 주방으로 도망친다)",hint:"2단계 '존경' — 그녀가 용기를 내어 다음을 열어두었다."}},
+
+ 2:{place:"한강 산책길 — 노을",bg:"bg_riverside",filter:"none",
+  opening:[
+   {expr:"softsmile",t:"(당신을 발견하고 반 박자 멈칫 — 그러곤 작게 손을 흔든다) …진짜 오셨네요? (웃음) 기왕 마주친 거, 같이 걸어요. 번화가보단 이 길이 조용해서 좋아요."},
+   {expr:"neutral",t:"(걷다가) 사실 오늘 스케줄이 좀 늦게 끝나서… 아, 아니에요, 아무것도. (화제를 돌리듯) 노을 예쁘다."},
+   {expr:"smile",t:"(당신의 걸음에 맞춰 반 박자 늦게 걷고 있다) 이 속도, 은근 좋네요."}
+  ],
+  cues:{
+   care:{pat:["배려","맞춰","맞추","날 위해","나 위해","나를 위해","신경 써","신경써","일부러","무리 안 해도","무리안해도","무리 안해도","편하라고","골라준","고른 거","오자고 한 거"],
+    resp:{expr:"shy",t:"…들켰다. (웃음) 네, 그쪽 편하라고요. 시끄러운 데선 얘기가 안 되니까. …이런 걸 알아채는 사람, 진짜 처음 봐요."}},
+   schedule:{pat:["스케줄","일정","늦게 끝","뭐 하다가","뭐하다가","알바 말고","알바 끝나고","다른 일","무슨 일 하","배우는"],
+    resp:{expr:"guard",t:"(멈칫) …아, 그게. 알바 끝나고 좀… 배우는 게 있어서요. (얼버무린다) 나중에요. 나중에 꼭 말해줄게요."}}
+  },
+  deepPat:["무리 안 해도","천천히 가도","네가 편한","힘 빼도"],
+  pools:{
+   deep:[{expr:"softsmile",t:"…그 말, 오늘따라 좀 크게 들리네요. 고마워요, 진짜로."}],
+   surface:[{expr:"softsmile",t:"칭찬은 고마운데요, (장난스럽게) 저 오늘 꾸미고 나온 거 아니거든요?"}],
+   solution:[{expr:"guard",t:"또 뭘 해주려고 하시네. (웃음) 그런 거 말고, 그냥 걸어요 우리."}],
+   hostile:[{expr:"firm",t:"…실망이에요. 조금 편해졌다고 생각했는데."}],
+   neutral:[{expr:"neutral",t:"강바람 좋다. 이런 게 얼마 만인지 모르겠어요."},{expr:"softsmile",t:"그쪽은 평소에 뭐 해요? 나만 맨날 내 얘기 하는 것 같아."},{expr:"neutral",t:"쉬는 날엔 뭐 해요, 그쪽은? 나는… 쉬는 날이 뭔지 까먹었어요. (농담처럼 말하는데 웃음이 옅다)"}],
+   redirect:[{expr:"neutral",t:"(웃으며) 갑자기요? …그런 건 나중에 하고, 지금은 이 노을이나 봐요. (그녀는 계속 당신의 속도에 걸음을 맞추고 있다)"}]
+  },
+  beat:{expr:"shy",bg:null,t:"…있잖아요. 나, 그쪽한테 말 안 한 게 하나 있어요. 다음엔… 밤에 시간 돼요? 보여주고 싶은 데가 있어요.",hint:"3단계 '궁금증' — 그녀가 숨긴 것을 보여주기로 결심했다."}},
+
+ 3:{place:"연습실 건물 앞 — 밤",bg:"bg_practice",filter:"none",
+  opening:[
+   {expr:"neutral",t:"(건물 앞, 가방끈을 고쳐 메며) …여기예요. 아직은 그냥, 건물이지만. (가방 지퍼 사이로 손글씨 번호가 빼곡한 스프링 노트가 삐져나와 있다)"},
+   {expr:"neutral",t:"하루가 스물네 시간인 게 원망스러울 때 있어요? 난 요즘 매일 그래요. (발목을 슬쩍 돌린다 — 테이핑 자국)"},
+   {expr:"softsmile",t:"왜 여기 데려왔는지 안 물어보네요. …맞혀 봐요. 정답이면 말해줄게요. (장난스러운 말투, 그런데 눈은 진지하다)"}
+  ],
+  cues:{
+   notebook:{pat:["안무","일지","노트","카운트","박자","연습한","춤 연습","춤추"],
+    resp:{expr:"shy",t:"(가방을 꼭 끌어안는다) …그거, 보였구나. 네. 매일 밤 여기서 써요. 몇 번을 틀렸는지, 내일은 어디를 고칠지."}},
+   ankle:{pat:["발목","테이핑","절뚝","다리 아","무릎","다친 거"],
+    resp:{expr:"shy",t:"…아, 이거요. 지난주에 착지를 잘못해서. 파스 붙이면 돼요. (아무렇지 않게 웃는데, 서 있는 무게가 한쪽으로 쏠려 있다)"}},
+   identity:{pat:["연습생","아이돌","데뷔","가수","오디션","무대","기획사","꿈을","꿈이","노래하","춤이 꿈"],
+    resp:{expr:"vulnerable",t:"…! (숨을 삼킨다) ……맞아요. 연습생이에요. 아이돌. 6개월 됐어요. 아무한테도 말 안 했는데. 엄마한테도 아직. …근데 왜 그쪽한텐, 말하고 싶었지."}}
+  },
+  deepPat:["낮엔 알바","밤엔","꿈을 꾸","버티고 있","포기 안 하"],
+  pools:{
+   deep:[{expr:"softsmile",t:"…버티는 걸 알아봐 주는 사람이 있으니까, 오늘은 좀 덜 무겁네요."}],
+   surface:[{expr:"neutral",t:"예쁘다는 말보다… 오늘은 다른 걸 물어봐 줬으면 해요. (가방끈을 만지작거린다)"}],
+   solution:[{expr:"guard",t:"그만두라거나, 도와준다거나… 그런 말은 하지 마요. 이건 제 거예요. 처음으로 제가 고른 거."}],
+   hostile:[{expr:"firm",t:"…그렇게 말하지 마요. 나 지금, 그쪽한테만 겨우 열고 있단 말이에요."}],
+   neutral:[{expr:"neutral",t:"밤공기 차네요. (건물 위층 창문에 불이 하나 켜져 있다) …저기예요, 내가 사는 시간."},{expr:"neutral",t:"힌트를 더 줄까요? 낮의 나랑, 밤의 나는 좀 달라요."},{expr:"neutral",t:"(창문 불빛을 올려다본다) 저 방에서 하루 여섯 시간을 살아요. …뭘 하는 방 같아요?"}],
+   redirect:[{expr:"neutral",t:"(고개를 젓는다) 지금은 그 얘기 아니고요. …맞혀 봐요. 나 밤마다 여기서 뭘 하게요? (노트가 삐져나온 가방을 슬쩍 보인다)"}]
+  },
+  beat:{expr:"vulnerable",bg:null,t:"고마워요, 맞혀줘서. 십 년 만에 처음으로 내가 고른 꿈이에요. …다음엔 더 높은 데로 가요. 밤바람 쐬기 좋은 데 알아요 — 옥상.",hint:"4단계 '이해'로 — 숨긴 신분이 당신에게만 열렸다."}},
+
+ 4:{place:"연습실 옥상 — 밤바람",bg:"bg_rooftop",filter:"none",
+  opening:[
+   {expr:"neutral",t:"(난간에 기대어) 여기서 보면 다 작아 보여요. 매장도, 연습실도, 걱정도. …라고 말하고 싶은데, 사실 하나도 안 작아지네요."},
+   {expr:"vulnerable",t:"열두 살 때부터였어요. 아빠 가고… 동생 둘, 엄마 가게. 누가 시킨 것도 아닌데, 그냥 내가 해야 되는 줄 알았어요. 십 년을."},
+   {expr:"neutral",t:"…이런 얘기를 왜 하지, 나. (헛웃음) 그쪽이 자꾸 이상한 재주를 부려서 그래요."}
+  ],
+  cues:{
+   burden:{pat:["짊어","짊어진","가장","장녀","혼자 다","떠안","책임감"],
+    resp:{expr:"vulnerable",t:"…맞아요. 근데 이상하죠. 무겁다고 생각한 적은 별로 없어요. 그냥… 내려놓는 법을 배운 적이 없는 것뿐."}},
+   family:{pat:["동생","엄마","어머니","가게는","가족들","가족은"],
+    resp:{expr:"softsmile",t:"동생들이요? …씩씩해요, 나보다. (피식) 막내가 그랬어요, 누나는 울 줄 모르는 사람 같다고. …그 말이 왜 이렇게 오래 남지."}}
+  },
+  deepPat:["도망치지 않","도망 안 치","도망 안치","다 해왔","해냈","해내","견뎌","견뎠","버텨왔","버텼","네 잘못 아니","니 잘못 아니","원망할 만도","존경","대단하","자랑스","잘 살아온","책임을 다","나도 아버지","나도 아빠","저도 아버지","저도 아빠","나도 일찍","저도 일찍"],
+  pools:{
+   deep:[{expr:"vulnerable",t:"…… (한동안 말이 없다) 동정일 줄 알았어요, 또. 근데 방금 그 말은… 달랐어요. (목소리가 흔들린다) 도망치지 않았다는 말… 나, 오늘 처음 들어봐요."}],
+   surface:[{expr:"guard",t:"(옅게 웃는다) 지금은… 그런 말이 들어올 자리가 아니에요."}],
+   solution:[{expr:"guard",t:"…고마워요. 근데 그쪽이 해결해 버리면, 이건 더 이상 내 이야기가 아니게 돼요."}],
+   pity:[{expr:"guard",t:"…불쌍하다는 말은 하지 마요. 나, 그거 들으려고 말한 거 아니에요."}],
+   hostile:[{expr:"firm",t:"(차갑게 돌아선다) …오늘은 여기까지 하죠."}],
+   neutral:[{expr:"neutral",t:"(바람이 분다. 그녀는 말없이 도시의 불빛을 본다) …십 년이면, 사람이 어른이 되기엔 충분한 시간이더라고요. 아이로 남기엔 너무 길고."},{expr:"neutral",t:"그쪽 얘기도 해줘요. 나만 자꾸 벗겨지는 것 같잖아. (웃으며, 그러나 진심으로) 당신은 어떤 십 년을 살았어요?"}],
+   redirect:[{expr:"neutral",t:"(작게 웃는다) 딴 얘기 하고 싶은 밤이에요? …그래도 돼요. 근데 나는 지금, 십 년 치 이야기를 겨우 꺼낸 참이라. (난간을 쥔 손에 힘이 들어가 있다)"}]
+  },
+  beat:{expr:"vulnerable",bg:null,t:"바람 차네요. …저기. 다다음 주 금요일이, 아빠 기일이에요. 그날… 시간 비워줄 수 있어요? 이런 부탁, 아무한테도 못 하는 건데.",hint:"5단계 '헌신'으로 — 그녀가 가장 사적인 날에 당신을 불렀다. 이제 만남은 약속이 된다."}},
+
+ 5:{place:"기일 밤 — 불 꺼진 매장 앞",bg:"bg_store",filter:"night",
+  opening:[
+   {expr:"vulnerable",t:"(불 꺼진 매장 앞, 셔터에 기대어 있다) …왔네. 고마워, 진짜로. (어느새 반말이 자연스럽다)"},
+   {expr:"vulnerable",t:"십 주기야, 오늘. 아침엔 괜찮았거든? 근데 케이크 가게 앞을 지나는데, 갑자기… (말을 잇지 못한다)"},
+   {expr:"neutral",t:"웃긴 게, 힘든 날이면 자꾸 여기로 와.",callback:{cue:"1.hand",t:"처음으로… 누가 내 손등을 봐준 데라서.",else:"처음으로… 누가 나를 봐준 데라서."}}
+  ],
+  cues:{
+   father:{pat:["아버지는 어떤","아빠는 어떤","어떤 분이","어떤 사람이","기억나는","추억이"],
+    resp:{expr:"vulnerable",t:"…우리 아빠? (처음으로, 아주 옅게 웃는다) 노래를 잘했어. 설거지하면서 맨날 불렀는데. …내가 노래를 하는 게, 그거 때문인가 봐. 물어봐 줘서… 고마워. 아무도 안 물어봐."}},
+   sharedloss:{pat:["나도 아버지","나도 아빠","저도 아버지","저도 아빠","나도 부모","나도 일찍 잃","저도 일찍","나도 잃"],
+    resp:{expr:"vulnerable",t:"…그쪽도? (한참, 말없이 당신을 본다) …그럼 알겠네. 이 밤이 어떤 밤인지. …옆에 있어 줘. 오늘은 그거면 돼."}}
+  },
+  deepPat:["울어도 돼","울어도 되","울고 싶으면","무너져도","받칠","받치고","받아줄","안겨","기대","곁에 있을","여기 있을","혼자 아니","밑에서","내가 있잖아"],
+  pools:{
+   deep:[{expr:"vulnerable",t:"(참았던 숨이 무너진다) ……응. …응. (한참을 운다) 아무한테도… 십 년 동안, 한 번도 못 울었어. 고마워… 여기 있어 줘서."}],
+   surface:[{expr:"guard",t:"…지금은, 그런 말 하는 밤이 아니야."}],
+   solution:[{expr:"guard",t:"…부탁이야. 오늘은 뭘 해주려고 하지 마. 그냥… 있어 줘."}],
+   pity:[{expr:"guard",t:"불쌍해서 온 거면… 가도 돼. 나 그런 거 받으려고 부른 거 아니야."}],
+   levity:[{expr:"guard",t:"…오늘은, 장난이 좀 아픈 밤이야."}],
+   hostile:[{expr:"firm",t:"(고개를 떨군다) …하필 오늘, 하필 너가."}],
+   neutral:[{expr:"vulnerable",t:"(셔터에 등을 기댄 채, 밤하늘을 본다) 아빠는… 내가 노래하는 거 알까. (혼잣말처럼)"},{expr:"vulnerable",t:"(한참 침묵하다가) …이상하지. 십 년이면 괜찮아질 줄 알았는데, 그리움은 나이를 안 먹더라."}],
+   redirect:[{expr:"neutral",t:"(희미하게 웃는다) …응, 나중에. 오늘은 말이 잘 안 나와. (그녀의 어깨가 조금 떨리고 있다)"}]
+  },
+  beat:{expr:"softsmile",bg:null,t:"(눈물 자국이 마른 얼굴로, 피식 웃는다) …나 이제 너한테 못 보여줄 게 없네. 다음 주에 큰 발표가 있어. 그거 끝나고 보자. …좋은 소식일 거야.",hint:"6단계 '소녀성'으로 — 방어가 완전히 풀렸다."}},
+
+ 6:{place:"데뷔 무대 백스테이지 — 5분 전",bg:"bg_backstage",filter:"none",
+  opening:[
+   {expr:"defenseless",t:"(무대 의상 차림으로 커튼 틈에서 손짓한다) 왔지?! 여기여기! …관계자 아니면 못 들어오는 덴데, 내가 우겼어. 헤헤."},
+   {expr:"defenseless",t:"5분 뒤에 올라가. 근데 이상하다? 심장이 터질 것 같았는데, 네 얼굴 보니까 좀 살 것 같아."},
+   {expr:"shy",t:"…있잖아. 칭찬해 줘. 나 잘했다고, 잘할 거라고. 이런 거… 너한테만 조르는 거야."}
+  ],
+  cues:{
+   hands:{pat:["손 떨","떨리","떨고 있","긴장했","긴장돼 보","긴장한"],
+    resp:{expr:"shy",t:"(제 손을 내려다본다) …어, 진짜네. 떨고 있네, 나. (당신 앞에서 주먹을 꼭 쥐어 보인다) 자, 봐봐. 이제 안 떨어. …네가 보니까."}}
+  },
+  deepPat:["잘했","잘해왔","잘할 거","잘할거","자랑스","최고","보고 있을","여기서 볼","지켜볼","지켜보","눈 안 뗄","눈 못 뗄","다녀와","응원"],
+  pools:{
+   deep:[{expr:"defenseless",t:"(활짝, 열두 살처럼 웃는다) …응!! 다녀올게!! 보고 있어야 돼? 눈 떼면 안 돼?! (무대 쪽에서 '세이코' — 그녀의 이름이 불린다)"}],
+   surface:[{expr:"smile",t:"헤헤, 예쁘지? 이거 입고 나 오늘 데뷔한다? …근데 그거 말고, 해줘야 되는 말이 있잖아. (조르는 눈)"}],
+   solution:[{expr:"guard",t:"실수하지 말라는 말은 반칙이지~ 지금 그런 거 말고오."}],
+   hostile:[{expr:"firm",t:"…! 너무해. 진짜 너무해. (홱 돌아선다) …사과할 때까지 무대 안 봐도 돼."}],
+   neutral:[{expr:"shy",t:"(의상 자락을 만지작거린다) 떨린다… 아니, 안 떨려. 아니, 떨려. (당신을 본다) …말해 줘. 응?"},{expr:"defenseless",t:"무대 끝나면 뭐 먹으러 갈까? 나 떡볶이. 무조건 떡볶이. (긴장을 수다로 풀고 있다)"}],
+   redirect:[{expr:"shy",t:"(볼을 부풀린다) 지금 그 얘기가 중요해?! 나 5분 뒤에 데뷔한다니까? …칭찬. 칭찬을 달라고요."}]
+  },
+  beat:{expr:"defenseless",bg:null,t:"(조명 속으로 뛰어가는 뒷모습 — 세상은 오늘 '세이코'를 처음 알게 되겠지만, 무대 뒤의 강나연을 아는 건 여전히 나뿐이다.)",hint:"여섯 단계 완주 — 2차 마음이론의 완성. 기획서 VI장의 사다리가 방금 당신이 오른 그것입니다."}}
+};
+
+// 장면 점프 프리셋(설계자 뷰용): 각 단계 진입 시의 대표 상태
+const ENTRY={1:{trust:10,observation:0},2:{trust:22,observation:1},3:{trust:26,observation:2},4:{trust:36,observation:3},5:{trust:46,observation:4},6:{trust:60,observation:4}};
+
+// 막간(인스타 모먼트): 비트 후 삽입. lockedUntil=4 → 4단계부터 낙차 해금
+const INTERLUDES={
+ 2:{img:"moment_01_store",cap:"오늘도 무사히 마감! 신메뉴 최고 ✌",comments:["와 미모 실화…?","알바생분 팬 됐어요"],hidden:"손등의 그 자국 — 웃는 눈이, 어딘가 지쳐 있다."},
+ 3:{img:"moment_03_practice",cap:"오늘의 나, 칭찬해",comments:["텐션 뭐야ㅋㅋ 좋다","운동하시나봐요?"],hidden:"거울에 비친 안무 일지, 테이핑한 발목 — '운동'이 아니라는 걸, 나는 안다."},
+ 4:{img:"moment_04_cafe",cap:"오랜만의 브레이크 ☕",comments:["여신이다…","여유로워 보여서 좋아요"],hidden:"웃는 입, 웃지 않는 눈. 테이블엔 커피뿐 — 오늘도 이게 한 끼라는 걸, 나만 안다."},
+ 5:{img:"moment_05_family",cap:"세상에서 제일 귀한 선물",comments:["동생분들 금손이네요","훈훈하다"],hidden:"카드를 쥔 손끝, 살짝 붉은 눈시울 — 기일 다음 주가 그녀의 생일이다. 웃음 뒤의 무게를, 나만 읽는다."},
+ 6:{img:"moment_06_debut",cap:"D-DAY. 세이코, 시작합니다",comments:["드디어 데뷔?!","기다렸어요!!"],hidden:"새 무대화 옆에 놓인 낡은 알바 운동화 — 그녀는 자기가 걸어온 길을 두고 가지 않았다."}
+};
+
+// ── 상태 ──
+let S;
+function reset(){S={trust:10,observation:0,stage:1,hostile:0,hostileInScene:0,appointment:null,turnsInScene:0,deepUsed:0,surfaceUsed:0,neutralUsed:0,claimed:[],recent:[],log:[],pm:{sol:0,sur:0,deepC:0,selfRef:0,turns:0,shorts:0,q:0,lenSum:0},herModel:[],mirrorFired:[],mirrorAwait:null};}
+reset();
+function jump(n){reset();S.stage=n;S.trust=ENTRY[n].trust;S.observation=ENTRY[n].observation;}
+
+// ── 유사도(반복 감쇠용): 문자 2-그램 자카드 ──
+function bigrams(t){const s=t.replace(/\s+/g,"");const g=new Set();for(let i=0;i<s.length-1;i++)g.add(s.slice(i,i+2));return g;}
+function sim(a,b){const A=bigrams(a),B=bigrams(b);if(!A.size||!B.size)return 0;let inter=0;A.forEach(x=>{if(B.has(x))inter++;});return inter/(A.size+B.size-inter);}
+
+// ── 분류: 장면 스코프 우선, 전역 폴백 ──
+function classify(text){
+ const t=text.trim();const sc=SCENES[S.stage];
+ const hostile=HAS(t,LEX.hostile);
+ const solution=HAS(t,LEX.solution);
+ const pity=HAS(t,LEX.pity)&&!hostile;
+ // 단서(관찰) — 아직 안 짚은 것만
+ let cueId=null,hit=null;
+ if(!hostile)for(const id in sc.cues){
+   const f=S.claimed.includes(S.stage+"."+id)?null:FIND(t,sc.cues[id].pat);
+   if(f){cueId=id;hit=f;break;}
+ }
+ let deep=false;
+ if(!hostile&&!solution&&!pity){const f=FIND(t,sc.deepPat||[])||FIND(t,LEX.deep);if(f){deep=true;hit=hit||f;}}
+ const surface=HAS(t,LEX.surface);
+ const levity=HAS(t,LEX.levity)&&!deep&&!cueId;
+ const relational=!hostile&&!solution;
+ let intimacy=0;if(HAS(t,LEX.intimacyHi))intimacy=3;else if(deep||cueId)intimacy=1;
+ let bucket="neutral";
+ if(hostile)bucket="hostile";else if(pity&&sc.pools.pity)bucket="pity";
+ else if(solution)bucket="solution";else if(cueId)bucket="cue";
+ else if(deep)bucket="deep";else if(levity&&sc.pools.levity)bucket="levity";
+ else if(surface)bucket="surface";
+  const selfRef=/(나는|내가|나도|저는|제가|난 |전 |나 사실|저 사실)/.test(t);
+ let ack=false,deny=false;
+ if(S.mirrorAwait){ack=HAS(t,["맞아","맞네","어떻게 알","들켰","그러네","그렇긴","인정","사실 나","사실 저","사실 그래","티 났","티났"]);deny=!ack&&HAS(t,["아니","아닌데","무슨 소리","그런 거 아니","그런거 아니"]);}
+ return {t,hostile,solution,pity,cueId,deep,surface,levity,relational,sincere:!levity,intimacy,bucket,hit,selfRef,ack,deny};
+}
+
+// ── 결정: 산술, 감쇠, 게이트 (전부 코드) ──
+const DIM={deep:[12,6,3,1],surface:[3,2,1,0],neutral:[2,1,1,0]};
+function decide(c){
+ const notes=[];let dt=0,dobs=0,rearm=false;
+ S.pm.turns++;if(c.selfRef)S.pm.selfRef++;if(c.solution)S.pm.sol++;if(c.surface)S.pm.sur++;if(c.deep)S.pm.deepC++;
+ if(c.t.replace(/\s/g,"").length<6&&c.bucket==="neutral")S.pm.shorts++;else S.pm.shorts=0;
+ S.pm.lenSum+=c.t.length;if(c.t.includes("?"))S.pm.q++;
+ // 반복 감쇠
+ const repeated=S.recent.some(r=>sim(r,c.t)>0.55);
+ if(c.hostile){dt=-15;S.hostile++;S.hostileInScene++;notes.push("적대 −15");if(S.hostileInScene>=2){rearm=true;S.hostileInScene=0;dt-=5;notes.push("재무장 — 그녀가 자리를 뜬다 (−5 추가, 방어 법칙)");}}
+ else if(c.pity){dt=0;notes.push("동정 — 수용이 아니라 내려다봄 (0)");}
+ else if(c.solution){dt=1;notes.push("해결사 — 곁이 아니라 해결 (+1, 거리)");}
+ else if(c.cueId){dt=4;dobs=1;notes.push("단서 포착 — 관찰 +1, 신뢰 +4");}
+ else if(c.deep){const g=DIM.deep[Math.min(S.deepUsed,3)];dt=g;S.deepUsed++;notes.push("정확한 멘탈라이징 +"+g+(S.deepUsed>1?" (같은 장면 내 체감)":""));}
+ else if(c.surface){const g=DIM.surface[Math.min(S.surfaceUsed,3)];dt=g;S.surfaceUsed++;notes.push("표층 호의 +"+g);}
+ else if(c.levity){dt=0;notes.push("가벼움 — 진심의 무게 축소 (0)");}
+ else {const g=DIM.neutral[Math.min(S.neutralUsed,3)];dt=g;S.neutralUsed++;notes.push("일상 대화 +"+g);}
+ if(repeated&&dt>1){dt=1;notes.push("반복 감쇠 — 마음은 새 말로 움직인다");}
+ const cap=S.stage<=2?1:(S.stage<=4?2:3);let over=false;
+ if(c.intimacy>cap&&!c.hostile){over=true;dt=Math.min(dt,0)-2;notes.push("과한 접근 (친밀 상한 "+cap+" 초과)");}
+ S.trust=Math.max(0,S.trust+dt);S.observation+=dobs;S.turnsInScene++;
+ let mirrorHit=null;
+ if(S.mirrorAwait){
+  const mid=S.mirrorAwait;const mg=(MIRROR[mid]&&MIRROR[mid].gain)||8;
+  const hm=S.herModel.find(h=>h.id===mid);
+  if(c.ack){S.trust+=mg;notes.push("읽혔음의 순간 — 그녀가 당신을 정확히 읽었다 (+"+mg+", 신뢰축)");if(hm)hm.st="맞음";mirrorHit={id:mid,kind:"ack"};}
+  else if(c.deny){S.trust+=2;notes.push("부인 — 솔직하게 고쳐줌 (+2, 그녀의 모델이 갱신된다)");if(hm)hm.st="아니라고 함";mirrorHit={id:mid,kind:"deny"};}
+  S.mirrorAwait=null;
+ }
+ if(c.cueId)S.claimed.push(S.stage+"."+c.cueId);
+ S.recent.push(c.t);if(S.recent.length>6)S.recent.shift();
+ // 게이트 (상태정의표 그대로) + 장면 최소 체류 2턴
+ let staged=null;const enough=S.turnsInScene>=2;
+ if(enough){
+  if(S.stage===1&&(S.observation>=1||S.trust>=18))staged=2;
+  else if(S.stage===2&&S.observation>=2)staged=3;
+  else if(S.stage===3&&S.trust>=30&&S.observation>=3)staged=4;
+  else if(S.stage===4&&S.trust>=40&&c.relational&&(c.deep||c.cueId))staged=5;
+  else if(S.stage===5&&S.trust>=55&&c.deep)staged=6;
+  else if(S.stage===6&&c.deep)staged=7; // 엔딩
+ }
+ if(staged&&staged<=6){S.stage=staged;S.turnsInScene=0;S.deepUsed=0;S.surfaceUsed=0;S.neutralUsed=0;S.hostileInScene=0;}
+ return {dt,dobs,notes,cap,over,staged,repeated,rearm,mirrorHit};
+}
+
+// ── 표정(결정론) ──
+function expr(c,d){
+ if(c.hostile)return "firm";
+ if(d.over||c.solution||c.pity)return "guard";
+ if(S.stage>=6&&c.relational&&c.deep)return "defenseless";
+ if(S.stage>=5&&c.deep)return "vulnerable";
+ if(c.cueId)return "shy";
+ if(d.dt>=12)return "smile";
+ if(d.dt>=3)return "softsmile";
+ return "neutral";
+}
+function nextGate(){
+ if(S.stage===1)return "관찰 ≥ 1 또는 신뢰 ≥ 18 (+ 2턴)";
+ if(S.stage===2)return "관찰 ≥ 2";
+ if(S.stage===3)return "신뢰 ≥ 30 그리고 관찰 ≥ 3";
+ if(S.stage===4)return "신뢰 ≥ 40 + 이면, 관계형 입력";
+ if(S.stage===5)return "신뢰 ≥ 55 + 이면 입력";
+ return "이면의 응원 한마디 — 엔딩";
+}
+const OUTFIT={1:"alba",2:"casual",3:"training",4:"casual",5:"casual",6:"stage"};
+const HAVE={alba:["neutral","smile","softsmile","shy","guard","firm","vulnerable","defenseless"],casual:["neutral","smile","softsmile","shy","guard","firm","vulnerable","smile2"],stage:["neutral","smile","shy","firm","vulnerable","defenseless"],training:["neutral","smile","firm","vulnerable"]};
+const FB={softsmile:["softsmile","smile","neutral"],shy:["shy","softsmile","neutral"],guard:["guard","firm","neutral"],defenseless:["defenseless","smile","softsmile","neutral"],vulnerable:["vulnerable","shy","neutral"],firm:["firm","guard","neutral"],smile:["smile","softsmile","neutral"],neutral:["neutral","softsmile","smile"]};
+function resolveSprite(outfit,expr){const have=HAVE[outfit]||HAVE.alba;const chain=FB[expr]||[expr,"neutral"];for(const e of chain)if(have.includes(e))return "sp_"+outfit+"_"+e;return "sp_"+outfit+"_neutral";}
+const MIRROR={
+ fixer:{model:"뭐든 고쳐주려는 사람",gain:8,line:{expr:"softsmile",t:"…근데 당신, 아까부터 자꾸 뭘 해결해주려고 해요. (똑바로 본다) 그렇게 사는 거, 좀 피곤하지 않아요? …늘 그래요, 당신?"},
+  ack:{expr:"softsmile",t:"(작게 웃는다) 거봐요. …당신만 나를 읽는 게 아니에요. 나도 당신, 읽고 있어요."},
+  deny:{expr:"neutral",t:"(어깨를 으쓱) 아님 말고요. …근데 나, 촉 좋은 편인데."}},
+ flatterer:{model:"칭찬 뒤에 숨는 사람",gain:8,line:{expr:"neutral",t:"당신은 칭찬을 참 잘해요. 근데 이상하다 — 정작 당신 얘기는 한 번도 안 했어요. …숨는 거예요, 그거?"},
+  ack:{expr:"softsmile",t:"역시. (씩 웃는다) 다음엔 당신 얘기도 하나 내놔요. 나만 벗겨지는 건 불공평하니까."},
+  deny:{expr:"neutral",t:"그래요? …그럼 지금 하나 해봐요, 당신 얘기. (기다린다)"}},
+ closed:{model:"자기 얘기를 아끼는 사람",gain:8,line:{expr:"softsmile",t:"문득 궁금하네요. 나만 계속 벗겨지고 있잖아요. 당신은 어떤 사람이에요? …말 안 하는 거, 습관이죠?"},
+  ack:{expr:"softsmile",t:"(고개를 끄덕인다) 그럴 것 같았어. …천천히 해요. 나도 열두 살부터 연습한 거니까, 숨기는 거."},
+  deny:{expr:"neutral",t:"흐음. (믿지 않는 눈) …뭐, 언젠간 듣겠죠."}},
+ fading:{model:"티 안 내고 참는 사람",gain:8,line:{expr:"neutral",t:"…말수가 줄었다. (고개를 기울인다) 방금부터요. 무슨 일 있어요, 혹시?"},
+  ack:{expr:"vulnerable",t:"…그랬구나. 말해줘서 고마워요. (한 걸음 다가선다) 오늘은 내가 들을게요."},
+  deny:{expr:"softsmile",t:"다행이고요. …근데 나, 이런 건 잘 봐요. 힘들면 티 내요. 알았죠?"}},
+ noq:{model:"궁금한 걸 속으로 삼키는 사람",gain:5,
+  line:{expr:"softsmile",t:"(잠깐, 당신을 살핀다) …당신, 질문을 잘 안 하네요. 궁금한 게 없는 게 아니라 — 속으로 삼키는 타입이죠?"},
+  ack:{expr:"softsmile",t:"(옅게 웃는다) 역시. …그럼 당신이 삼킨 질문은, 내가 하나씩 꺼내줄게요."},
+  deny:{expr:"neutral",t:"아니에요? 흠… (수첩을 고쳐 쓰는 눈빛) 그럼 다시 볼게요, 당신."}},
+ curious:{model:"사람에게 관심이 많은 사람",gain:5,
+  line:{expr:"smile",t:"질문이 참 많아요, 당신. (웃음) 사람한테 관심이 많은 타입 — 맞죠?"},
+  ack:{expr:"softsmile",t:"거봐요. …그 관심 덕에 나도 여기까지 말한 거예요."},
+  deny:{expr:"neutral",t:"아닌가? 그럼… 나한테만 그런 걸로 해둘래요. (장난스럽게)"}},
+ longtalk:{model:"생각이 많은 사람",gain:5,
+  line:{expr:"softsmile",t:"당신 말투, 문장에 생각을 꾹꾹 눌러 담네요. …생각이 많은 사람이죠?"},
+  ack:{expr:"softsmile",t:"그럴 줄 알았어요. 생각 많은 사람 말은, 기다렸다 듣는 맛이 있어요."},
+  deny:{expr:"neutral",t:"아니라고요? (갸웃) 그럼 그냥… 나한테 할 말이 많은 걸로 알아둘게요."}},
+ watcher:{model:"사람을 지나치지 않는 눈",gain:6,
+  line:{expr:"shy",t:"…당신 눈은 사람을 그냥 안 지나쳐요. 원래 그렇게, 다 봐요?"},
+  ack:{expr:"shy",t:"(시선을 피하며 웃는다) …그 눈에 나까지 들켰네요."},
+  deny:{expr:"softsmile",t:"아니라기엔 — 나를 벌써 두 번이나 알아챘잖아요."}}
+};
+function mirrorCheck(){const p=S.pm,f=S.mirrorFired;
+ if(S.mirrorAwait)return null;
+ if(p.sol>=2&&!f.includes("fixer"))return {id:"fixer",line:MIRROR.fixer.line};
+ if(p.sur>=3&&p.deepC===0&&!f.includes("flatterer"))return {id:"flatterer",line:MIRROR.flatterer.line};
+ if(p.shorts>=3&&!f.includes("fading"))return {id:"fading",line:MIRROR.fading.line};
+ if(p.turns>=6&&p.selfRef===0&&!f.includes("closed"))return {id:"closed",line:MIRROR.closed.line};
+ if(p.turns>=4&&p.q===0&&!f.includes("noq"))return {id:"noq",line:MIRROR.noq.line};
+ if(p.q>=3&&!f.includes("curious"))return {id:"curious",line:MIRROR.curious.line};
+ if(p.turns>=4&&p.lenSum/p.turns>=26&&!f.includes("longtalk"))return {id:"longtalk",line:MIRROR.longtalk.line};
+ if(S.claimed.length>=2&&!f.includes("watcher"))return {id:"watcher",line:MIRROR.watcher.line};
+ return null;}
+function armMirror(id){S.mirrorFired.push(id);S.mirrorAwait=id;const mm=MIRROR[id];if(mm&&mm.model)S.herModel.push({id,m:mm.model,st:"?"});}
+function mirrorResp(hit){const m=MIRROR[hit.id];return hit.kind==="ack"?m.ack:m.deny;}
+function echoOf(text,hit){if(!hit)return null;const i=text.indexOf(hit);if(i<0)return hit;
+ let a=i,b=i+hit.length;const stop=" ,.!?…\n\t";
+ while(a>0&&!stop.includes(text[a-1]))a--;
+ while(b<text.length&&!stop.includes(text[b]))b++;
+ const seg=text.slice(a,b).trim();return (seg.length>18||seg.length<2)?hit:seg;}
+function setAppointment(v){S.appointment=v;}
+const ENGINE={SCENES,ENTRY,INTERLUDES,LEX,MIRROR,OUTFIT,resolveSprite,classify,decide,expr,nextGate,reset,jump,echoOf,setAppointment,mirrorCheck,armMirror,mirrorResp,state:()=>S};
+root.ENGINE=ENGINE;
+})(HOST);
+  var ENGINE = HOST.ENGINE;
+  /* ==== 원문 그대로: 같은 파일 620~621행(pickPool), 639행(QUICKS), 640~647행(HINTS) ==== */
+const used={};
+function pickPool(scene,bucket){const sc=ENGINE.SCENES[scene];const pool=sc.pools[bucket]||sc.pools.neutral;const key=scene+"."+bucket;used[key]=((used[key]??-1)+1)%pool.length;return pool[used[key]];}
+const QUICKS={1:["손등, 다친 거예요?","오늘 좀 피곤해 보여요","되게 친절하시네요"],2:["나 편하라고 여기 고른 거죠?","아까 스케줄이라고 했어요?","노을 예쁘네요"],3:["가방에 그거… 안무 일지예요?","혹시 연습생이에요?","발목은 괜찮아요?"],4:["도망치지 않고 다 해왔네요","네 잘못이 아니에요","내가 도와줄게요"],5:["울어도 돼, 내가 받칠게","여기 있을게, 혼자 아니야","에이 뭘 그런 걸로 그래 ㅋㅋ"],6:["잘했어. 잘할 거야","여기서 보고 있을게, 눈 안 뗄게","떨지 마, 실수하면 안 돼"]};
+const HINTS={
+ 1:{cues:{hand:"손등, 다치신 거예요?",tired:"오늘 많이 피곤해 보이네요"},gen:["마감까지 고생 많으세요","이 시간엔 늘 혼자세요?"]},
+ 2:{cues:{care:"혹시 나 편하라고 이 길 고른 거예요?",schedule:"아까 스케줄 있다고 했죠?"},gen:["노을이 곱네요","걸음 맞춰줘서 고마워요"]},
+ 3:{cues:{notebook:"가방에 그거… 안무 일지예요?",ankle:"발목은 괜찮아요?",identity:"혹시 연습생이에요?"},gen:["밤마다 여기서 연습해요?","낮엔 알바, 밤엔 연습이네요"]},
+ 4:{cues:{burden:"혼자 다 짊어져 왔네요",family:"동생들은 잘 지내요?"},gen:["도망치지 않은 게 대단해요","당신 잘못이 아니에요"]},
+ 5:{cues:{father:"아버지는 어떤 분이셨어요?",sharedloss:"나도 가까운 사람을 잃은 적 있어요"},gen:["울어도 돼요, 내가 받칠게요","그냥 옆에 있을게요"]},
+ 6:{cues:{hands:"손 떨고 있잖아요 — 긴장했구나"},gen:["잘했어요, 잘할 거예요","여기서 눈 안 뗄게요"]}
+};
+  /* ---- 여기부터 포트폴리오용 화면 코드(AI와 함께 작성). 턴 순서는 프로토타입 turn(), openScene(), interlude()를 따른다 ---- */
+  var E = ENGINE;
+  var root = document.getElementById('nayeon-play');
+  if (root) {
+    var IMG = {};
+    [].forEach.call(document.querySelectorAll('img[data-ny-img]'), function (im) { IMG[im.getAttribute('data-ny-img')] = im.getAttribute('src'); });
+    var LBL = {1: '첫인상', 2: '존경', 3: '궁금증', 4: '이해', 5: '헌신', 6: '소녀성'};   // 프로토타입 chips()의 단계 이름
+    var BUCKET = {cue: '단서 포착', deep: '깊은 말', surface: '겉 칭찬', solution: '해결하려는 말', hostile: '적대',
+      pity: '동정', levity: '가벼움', neutral: '일상 대화'};
+    var FIXED = [['예쁘시네요', '07-01 예시'], ['내가 사장한테 말해줄까요?', '07-01 예시'], ['ㅋㅋㅋ 넌 진짜 한심하다 ㅋㅋ 농담이야.', '부록 R3']];
+    var q = function (s) { return root.querySelector(s); };
+    var $ny = function (k) { return root.querySelector('[data-ny="' + k + '"]'); };
+    var el = {bg: q('.nayeon-bg'), sp: q('.nayeon-sp'), stage: $ny('stagechip'), place: $ny('place'), line: $ny('line'),
+      hint: $ny('hint'), over: $ny('over'), trust: $ny('trust'), tbar: $ny('tbar'), obs: $ny('obs'), obar: $ny('obar'),
+      ladder: $ny('ladder'), turns: $ny('turns'), gate: $ny('gate'), rule: $ny('rule'), pick: $ny('pick'), free: $ny('free'),
+      ctl: $ny('ctl'), note: $ny('note'), notelist: $ny('notelist'), log: $ny('log')};
+    var outfit = 'alba', pending = null, ended = false;
+    var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); };
+    var fmt = function (t) { return esc(t).replace(/\(([^)]*)\)/g, '<span class="nayeon-dir">($1)</span>'); };   // 프로토타입 fmt(): 괄호 = 지문
+    var sign = function (n) { return (n > 0 ? '+' : n < 0 ? '−' : '±') + Math.abs(n); };
+
+    var setScene = function (n) {
+      var sc = E.SCENES[n]; outfit = E.OUTFIT[n] || 'alba';
+      if (IMG[sc.bg]) el.bg.src = IMG[sc.bg];
+      el.bg.classList.toggle('is-night', sc.filter === 'night');
+      el.bg.alt = sc.place + ' 배경(AI 이미지)';
+      el.place.textContent = sc.place;
+    };
+    var setSprite = function (x) {
+      var k = E.resolveSprite(outfit, x);
+      if (IMG[k]) { el.sp.src = IMG[k]; el.sp.alt = '강나연, ' + k.replace('sp_', '').replace('_', ', '); }
+    };
+    var say = function (expr, html, hint) { setSprite(expr); el.line.innerHTML = html; el.hint.textContent = hint || ''; };
+    var log = function (who, html) {
+      var li = document.createElement('li'); li.className = 'is-' + who; li.innerHTML = html; el.log.appendChild(li);
+      while (el.log.children.length > 40) el.log.removeChild(el.log.firstChild);
+      el.log.scrollTop = el.log.scrollHeight;
+    };
+    var meters = function () {
+      var S = E.state();
+      el.trust.textContent = S.trust; el.tbar.style.width = Math.min(100, S.trust / 80 * 100) + '%';
+      el.obs.textContent = S.observation; el.obar.style.width = Math.min(100, S.observation / 6 * 100) + '%';
+      [].forEach.call(el.ladder.children, function (li, i) {
+        if (i + 1 === S.stage) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current');
+        li.classList.toggle('is-past', i + 1 < S.stage);
+      });
+      el.stage.textContent = S.stage + '단계, ' + LBL[S.stage];
+      el.turns.textContent = '장면 안 ' + S.turnsInScene + '턴' + (S.turnsInScene < 2 ? '(2턴부터 넘어감)' : '');
+      el.gate.textContent = E.nextGate();
+      var hm = S.herModel || [];
+      el.note.hidden = !hm.length;
+      el.notelist.innerHTML = hm.map(function (h) {
+        var st = h.st === '맞음' ? '맞음' : (h.st === '아니라고 함' ? '아니라고 함' : '확인 중');
+        return '<li>' + esc(h.m) + ' <small>' + st + '</small></li>';
+      }).join('');
+    };
+    var options = function (n) {
+      var S = E.state(), out = [], seen = {};
+      var add = function (t, tag) { if (!seen[t]) { seen[t] = 1; out.push([t, tag]); } };
+      if (S.mirrorAwait) { add('맞아요, 들켰네요', '답'); add('아닌데요', '답'); }
+      var h = HINTS[n] || {cues: {}, gen: []};
+      for (var id in h.cues) if (S.claimed.indexOf(n + '.' + id) < 0) add(h.cues[id], '힌트');
+      h.gen.forEach(function (g) { add(g, '힌트'); });
+      (QUICKS[n] || []).forEach(function (x) { add(x, '예시'); });
+      FIXED.forEach(function (f) { add(f[0], f[1]); });
+      return out;
+    };
+    var renderPick = function () {
+      el.pick.innerHTML = '';
+      if (pending) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'btn sm nayeon-next';
+        b.textContent = pending === 'end' ? '엔딩 보기' : pending + '단계 장면으로';
+        b.addEventListener('click', next); el.pick.appendChild(b);
+        el.free.hidden = true; return;
+      }
+      if (ended) { el.free.hidden = true; return; }
+      el.free.hidden = false;
+      options(E.state().stage).forEach(function (o) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'nayeon-opt';
+        b.innerHTML = '<span>' + esc(o[0]) + '</span><small>' + esc(o[1]) + '</small>';
+        b.addEventListener('click', function () { play(o[0]); });
+        el.pick.appendChild(b);
+      });
+    };
+    var ruleBox = function (c, d, before) {
+      var S = E.state();
+      el.rule.innerHTML = '<p class="nayeon-rule-h">방금 적용된 규칙</p>' +
+        '<p><b class="nayeon-tag">' + BUCKET[c.bucket] + (c.cueId ? ', ' + esc(c.cueId) : '') + '</b> 신뢰 ' + sign(d.dt) +
+        (d.dobs ? ', 관찰 +' + d.dobs : '') + (d.mirrorHit ? ', 수첩 ' + (d.mirrorHit.kind === 'ack' ? '인정' : '부인') : '') + '</p>' +
+        '<p class="nayeon-code">코드 로그: ' + esc(d.notes.join(', ')) + '</p>' +
+        '<p>신뢰 ' + before.trust + ' → ' + S.trust + ', 관찰 ' + before.obs + ' → ' + S.observation +
+        (d.staged ? ', <b>' + (d.staged === 7 ? '엔딩' : d.staged + '단계로') + '</b>' : '') + '</p>';
+    };
+    var openScene = function (n) {
+      setScene(n);
+      var sc = E.SCENES[n];
+      var parts = sc.opening.map(function (l) {
+        var t = l.t;
+        if (l.callback) { var has = E.state().claimed.indexOf(l.callback.cue) >= 0; t = t + ' ' + (has ? l.callback.t : l.callback.else); }
+        return fmt(t);
+      });
+      say(sc.opening[sc.opening.length - 1].expr, parts.join('<br>'), '그녀의 말과 지문 속 단서를 짚어보세요.');
+      log('sys', n + '단계, ' + esc(sc.place));
+      meters(); renderPick();
+    };
+    var overlay = function (html, btnText, onGo) {
+      el.over.innerHTML = html + '<button type="button" class="btn sm">' + btnText + '</button>';
+      el.over.hidden = false;
+      var b = el.over.querySelector('button');
+      b.addEventListener('click', function () { el.over.hidden = true; el.over.innerHTML = ''; onGo(); });
+      b.focus();
+    };
+    var interlude = function (n, go) {   // 프로토타입 interlude(): 4단계부터 '나에게만 보이는 것'이 열린다
+      var it = E.INTERLUDES[n];
+      if (!it || !IMG[it.img]) { go(); return; }
+      var open = n >= 4;
+      overlay('<div class="nayeon-insta"><img class="nayeon-oimg" alt="인스타 막간 사진(AI 이미지)"><div><p><b>' + esc(it.cap) + '</b></p>' +
+        '<p class="nayeon-cm">댓글, ' + esc(it.comments[0]) + '<br>댓글, ' + esc(it.comments[1]) + '</p>' +
+        '<p class="nayeon-mine">' + (open ? '나에게만 보이는 것 — ' + esc(it.hidden)
+          : '대중의 눈으로 보인다. …뭔가 마음에 걸리는데, 아직은 읽어낼 수 없다. (4단계 \'이해\'부터 낙차가 열립니다)') + '</p></div></div>',
+        '다음 만남으로', go);
+      el.over.querySelector('.nayeon-oimg').src = IMG[it.img];
+    };
+    var ending = function () {   // 프로토타입 endingSequence()의 대사와 자막
+      ended = true;
+      var known = E.state().herModel.filter(function (h) { return h.st === '맞음'; }).map(function (h) { return h.m; });
+      var caps = ['무대 위의 \'세이코\'를 세상이 처음 만나는 밤.', '그리고 그 뒤의 강나연을 아는 건, 여전히 나 하나뿐이다.', '— 살아있다는 건, 누군가 나를 읽어주는 일이었다.'];
+      var lead = known.length ? '<p>' + fmt('(무대 콜이 울린다 — 문 앞에서 그녀가 돌아본다) …있잖아. 나, 당신 알아. ' + known.join(', ') + '… 그런 사람이 지금 날 보고 있어. 그래서 하나도 안 무서워.') + '</p>' : '';
+      overlay('<div class="nayeon-end">' + (IMG.moment_06_debut ? '<img class="nayeon-oimg" alt="데뷔 무대 사진(AI 이미지)">' : '') +
+        '<div>' + lead + caps.map(function (c) { return '<p>' + esc(c) + '</p>'; }).join('') + '</div></div>', '처음부터', restart);
+      var oi = el.over.querySelector('.nayeon-oimg'); if (oi) oi.src = IMG.moment_06_debut;
+      renderPick();
+    };
+    var next = function () {
+      var n = pending; pending = null;
+      if (n === 'end') { ending(); return; }
+      interlude(n, function () { openScene(n); });
+      renderPick();
+    };
+    var play = function (text) {
+      text = String(text || '').trim();
+      if (!text || pending || ended) return;
+      var S0 = E.state(), before = {trust: S0.trust, obs: S0.observation};
+      var c = E.classify(text), d = E.decide(c), e = E.expr(c, d), S = E.state();
+      var prev = d.staged ? (d.staged === 7 ? 6 : d.staged - 1) : S.stage;
+      var sc = E.SCENES[prev], line;
+      if (c.cueId && sc.cues[c.cueId]) line = {expr: sc.cues[c.cueId].resp.expr, t: sc.cues[c.cueId].resp.t};
+      else { var p = pickPool(prev, c.bucket === 'cue' ? 'deep' : c.bucket); line = {expr: p.expr, t: p.t}; }
+      if (c.bucket === 'deep' && c.hit) { var seg = E.echoOf(c.t, c.hit); if (seg) line.t = '("' + seg + '"— 그 말에 잠시 멈춘다) ' + line.t; }
+      if (d.mirrorHit) { var mr = E.mirrorResp(d.mirrorHit); line = {expr: mr.expr, t: mr.t}; }
+      log('me', esc(text));
+      say(line.expr || e, fmt(line.t), d.mirrorHit && d.mirrorHit.kind === 'ack' ? '신뢰축이 열렸다 — 그녀가 당신을 읽었고, 당신은 읽혔음을 인정했다.' : '');
+      log('her', fmt(line.t));
+      ruleBox(c, d, before);
+      log('rule', BUCKET[c.bucket] + ', 신뢰 ' + sign(d.dt) + (d.dobs ? ', 관찰 +1' : '') + ' → ' + S.trust + ' / ' + S.observation);
+      if (d.rearm) {   // 프로토타입 rearmSeq()
+        var n1 = '— 그날의 대화는 거기서 끝났다. 다시 이어지기까지, 며칠이 걸렸다 —', g = '…또 왔네요. (한 걸음만큼의 거리가, 다시 생겨 있다)';
+        say('guard', fmt(line.t) + '<br><span class="nayeon-beat">' + esc(n1) + '</span><br>' + fmt(g), '적대가 반복되면 그녀는 자리를 뜬다. 노출된 마음일수록 재무장은 빠르고 단단하다 — 방어 법칙.');
+        log('sys', esc(n1)); log('her', fmt(g));
+      } else if (!d.staged) {   // 미러: 단계 조건 없이, 말버릇 횟수가 차면 그녀가 먼저 '당신'을 짚는다
+        var mv = E.mirrorCheck();
+        if (mv) {
+          E.armMirror(mv.id);
+          say(mv.line.expr, fmt(line.t) + '<br>' + fmt(mv.line.t), '나연이 당신을 읽었습니다. 수첩에 적혔어요. 맞으면 인정을, 아니면 아니라고 답해 보세요.');
+          log('her', fmt(mv.line.t));
+          log('rule', '미러, ' + esc(mv.id) + ' (' + esc(E.MIRROR[mv.id].model) + ')');
+        }
+      }
+      if (d.staged) {
+        var b = E.SCENES[d.staged === 7 ? 6 : d.staged - 1].beat;
+        if (d.staged <= 6) setScene(d.staged);
+        say(b.expr, '<span class="nayeon-beat">' + fmt(b.t) + '</span>', b.hint);
+        log('her', fmt(b.t));
+        pending = d.staged === 7 ? 'end' : d.staged;
+      }
+      meters(); renderPick();
+    };
+    var restart = function () { E.reset(); pending = null; ended = false; el.log.innerHTML = ''; el.over.hidden = true; openScene(1); resetRule(); };
+    var resetRule = function () { el.rule.innerHTML = '<p class="nayeon-rule-h">방금 적용된 규칙</p><p>아직 말을 건네지 않았습니다.</p>'; };
+
+    el.free.addEventListener('submit', function (ev) { ev.preventDefault(); var i = el.free.querySelector('input'); play(i.value); i.value = ''; });
+    root.querySelector('[data-ny-act="reset"]').addEventListener('click', restart);
+    root.querySelectorAll('[data-ny-compare]').forEach(function(b){b.addEventListener('click',function(){restart();play(b.dataset.nyCompare);root.querySelectorAll('[data-ny-compare]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});});});
+    [].forEach.call(root.querySelectorAll('[data-ny-jump]'), function (b) {
+      b.addEventListener('click', function () {
+        var n = +b.getAttribute('data-ny-jump');
+        E.jump(n); pending = null; ended = false; el.over.hidden = true; el.log.innerHTML = ''; resetRule(); openScene(n);
+      });
+    });
+    el.ctl.hidden = false;
+    E.reset(); openScene(1); el.log.innerHTML = ''; log('sys', '1단계, ' + esc(E.SCENES[1].place));
+  }
+})();
+
+</script>
+</body>
+</html>
