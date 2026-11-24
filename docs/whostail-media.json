@@ -67,6 +67,90 @@
       "mode": "봇 참여 플레이"
     },
     {
+      "id": "lobby",
+      "title": "로비에서 첫 발걸음까지",
+      "caption": "메인 메뉴 → 방 만들기 → 닉네임·인원 설정 → 6명 대기실 → 로딩 → 게임과 전체 지도. 같은 녹화의 입장 흐름을 순서대로 연결했습니다. 대기실 참가자는 호스트와 봇입니다.",
+      "tags": [
+        "로비",
+        "방 만들기",
+        "대기실",
+        "로딩",
+        "게임 진입"
+      ],
+      "posterSource": [
+        "S08",
+        38
+      ],
+      "segments": [
+        {
+          "source": "S08",
+          "start": 22,
+          "end": 35.5,
+          "label": "로비 · 방을 만들고 닉네임과 인원을 정한다"
+        },
+        {
+          "source": "S08",
+          "start": 35.5,
+          "end": 42,
+          "label": "대기실 · 참가자를 확인하고 게임을 시작한다"
+        },
+        {
+          "source": "S08",
+          "start": 42,
+          "end": 46,
+          "label": "로딩 · 대기실에서 게임으로"
+        },
+        {
+          "source": "S08",
+          "start": 46,
+          "end": 50.5,
+          "label": "게임 진입 · HUD와 전체 지도를 확인한다"
+        }
+      ],
+      "durationSeconds": 28.5,
+      "path": "assets/whostail-20261124-lobby.mp4",
+      "poster": "assets/whostail-20261124-lobby.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "로비 · 봇 참여 플레이"
+    },
+    {
+      "id": "customize",
+      "title": "입장 전 UI | 캐릭터 꾸미기와 설정",
+      "caption": "머리 장식·의상·신발 탭과 캐릭터 미리보기, 설정 화면을 발췌했습니다. 로비에서 플레이 준비 화면으로 이어지는 UI를 보여줍니다.",
+      "tags": [
+        "로비",
+        "캐릭터 꾸미기",
+        "설정"
+      ],
+      "posterSource": [
+        "S08",
+        10.5
+      ],
+      "segments": [
+        {
+          "source": "S08",
+          "start": 5.5,
+          "end": 15.5,
+          "label": "캐릭터 꾸미기 · 머리, 의상, 신발을 살펴본다"
+        },
+        {
+          "source": "S08",
+          "start": 15.5,
+          "end": 18.5,
+          "label": "설정 · 게임과 조작 옵션을 확인한다"
+        }
+      ],
+      "durationSeconds": 13.0,
+      "path": "assets/whostail-20261124-customize.mp4",
+      "poster": "assets/whostail-20261124-customize.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "로비"
+    },
+    {
       "id": "tutorial",
       "title": "튜토리얼 | 읽기에서 직접 잡기까지",
       "caption": "단서 두 장 획득 → 단서 읽기 → 이름표·꼬리색 배치 → 추격 → 세 가지 QTE → 연습 완료. 안내와 실제 입력이 이어지는 구간을 순서대로 보존했습니다.",
@@ -167,6 +251,227 @@
       "durationSeconds": 26.9,
       "path": "assets/whostail-20261124-phone.mp4",
       "poster": "assets/whostail-20261124-phone.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "call",
+      "title": "휴대폰 연락처에서 통화 연결까지",
+      "caption": "휴대폰 홈에서 연락처를 열고 Bot 7에게 전화를 걸면 얼굴 영상·통화 시간·마이크와 끊기 버튼이 나타납니다. 봇 상대의 연결 UI이며, 사람 간 음성 송수신을 입증하는 영상은 아닙니다.",
+      "tags": [
+        "휴대폰",
+        "연락처",
+        "전화",
+        "얼굴 영상"
+      ],
+      "posterSource": [
+        "S09",
+        29
+      ],
+      "segments": [
+        {
+          "source": "S09",
+          "start": 21.2,
+          "end": 26.2,
+          "label": "휴대폰 · 연락처에서 상대를 고른다"
+        },
+        {
+          "source": "S09",
+          "start": 26.2,
+          "end": 31.5,
+          "label": "통화 연결 · 상대 얼굴과 통화 상태가 나타난다"
+        }
+      ],
+      "durationSeconds": 10.3,
+      "path": "assets/whostail-20261124-call.mp4",
+      "poster": "assets/whostail-20261124-call.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "phonebooth",
+      "title": "전화부스 | 위치를 알아내고 타깃을 잡다",
+      "caption": "전화부스 접근 → 타깃 위치 조회 → 전체 지도 표시 → Bot 10 추격 → 연타 QTE → 탈락 알림과 다음 타깃. 같은 경기의 연속 구간을 보존해, 얻은 정보가 실제 행동으로 이어지는 과정을 담았습니다.",
+      "tags": [
+        "전화부스",
+        "타깃 위치",
+        "전체 지도",
+        "추격",
+        "QTE",
+        "탈락",
+        "다음 타깃"
+      ],
+      "posterSource": [
+        "S09",
+        217
+      ],
+      "segments": [
+        {
+          "source": "S09",
+          "start": 202,
+          "end": 209,
+          "label": "전화부스 · 활성화된 부스에 접근한다"
+        },
+        {
+          "source": "S09",
+          "start": 209,
+          "end": 216.3,
+          "label": "정보 선택 · 나의 타깃 위치를 조회한다"
+        },
+        {
+          "source": "S09",
+          "start": 216.3,
+          "end": 220.5,
+          "label": "위치 확인 · 지도에 표시된 타깃을 찾는다"
+        },
+        {
+          "source": "S09",
+          "start": 220.5,
+          "end": 228,
+          "label": "추격 · 표시를 보고 거리를 좁힌다"
+        },
+        {
+          "source": "S09",
+          "start": 228,
+          "end": 236.5,
+          "label": "힘겨루기 · 연타로 겨루고 생존 인원이 줄어든다"
+        },
+        {
+          "source": "S09",
+          "start": 236.5,
+          "end": 243,
+          "label": "결과 · Bot 10 탈락 후 다음 타깃으로 이어진다"
+        }
+      ],
+      "durationSeconds": 41.0,
+      "path": "assets/whostail-20261124-phonebooth.mp4",
+      "poster": "assets/whostail-20261124-phonebooth.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "umbrella",
+      "title": "옥상 우산 활공 | 건물 위에서 시장까지",
+      "caption": "건물 옥상에서 뛰어내려 우산을 펼치고, 시장 천막 위를 길게 활공한 뒤 도로에 착지합니다. 출발 높이와 활공 경로, 내려오는 순간을 함께 담은 16초 장면입니다.",
+      "tags": [
+        "우산",
+        "건물 옥상",
+        "활공",
+        "착지",
+        "입체 이동"
+      ],
+      "posterSource": [
+        "S07",
+        249
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 242,
+          "end": 246,
+          "label": "이동 경로 · 옥상에서 뛰어내린다"
+        },
+        {
+          "source": "S07",
+          "start": 246,
+          "end": 258,
+          "label": "우산 · 시장 위를 활공해 내려간다"
+        }
+      ],
+      "durationSeconds": 16,
+      "path": "assets/whostail-20261124-umbrella.mp4",
+      "poster": "assets/whostail-20261124-umbrella.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "umbrella-escape",
+      "title": "우산 | 상대가 붙은 계단에서 이탈하기",
+      "caption": "상대가 가까이 붙은 계단에서 옆으로 뛰고 우산을 펼쳐 거리로 내려갑니다. 높이 차로 경로를 바꾸는 장면이며, 이후 추격이 완전히 종료되는 과정까지는 이 구간에 담겨 있지 않습니다.",
+      "tags": [
+        "우산",
+        "추격 회피",
+        "계단",
+        "경로 변경"
+      ],
+      "posterSource": [
+        "S07",
+        74
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 69.8,
+          "end": 73,
+          "label": "추격 회피 · 상대가 가까워지면 계단 옆으로"
+        },
+        {
+          "source": "S07",
+          "start": 73,
+          "end": 75.3,
+          "label": "우산 · 옆으로 뛰어 도로에 내려간다"
+        },
+        {
+          "source": "S07",
+          "start": 75.3,
+          "end": 78.3,
+          "label": "경로 변경 · 착지 후 거리로 빠져나간다"
+        }
+      ],
+      "durationSeconds": 8.5,
+      "path": "assets/whostail-20261124-umbrella-escape.mp4",
+      "poster": "assets/whostail-20261124-umbrella-escape.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "item-use",
+      "title": "아이템 | 획득·선택·사용과 남은 효과",
+      "caption": "구르기 강화 획득과 사용, 다른 경기의 대시 사용 장면을 묶었습니다. 슬롯의 아이콘 변화, 사용 알림, 효과 시간이 실제 이동과 함께 표시됩니다.",
+      "tags": [
+        "아이템",
+        "슬롯",
+        "구르기 강화",
+        "대시",
+        "지속 시간"
+      ],
+      "posterSource": [
+        "S07",
+        23
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 19.5,
+          "end": 23,
+          "label": "아이템 획득 · 슬롯에 들어온 구르기 강화를 선택한다"
+        },
+        {
+          "source": "S07",
+          "start": 23,
+          "end": 27,
+          "label": "사용 피드백 · 알림과 남은 효과 시간이 나타난다"
+        },
+        {
+          "source": "S09",
+          "start": 149,
+          "end": 157,
+          "label": "대시 · 아이템을 쓰고 옥상에서 이동한다"
+        }
+      ],
+      "durationSeconds": 15.5,
+      "path": "assets/whostail-20261124-item-use.mp4",
+      "poster": "assets/whostail-20261124-item-use.jpg",
       "date": "2026-11-24",
       "recordedBy": "이재민",
       "type": "user-recorded-final-build-edit",
@@ -309,42 +614,6 @@
       "mode": "봇 참여 플레이"
     },
     {
-      "id": "umbrella",
-      "title": "우산 | 옥상에서 시장까지 활공",
-      "caption": "옥상에서 뛰어내린 뒤 우산을 펼쳐 도로와 시장 위를 이동하고 내려오는 장면입니다. 아이템이 이동 경로를 바꾸는 모습을 보여줍니다.",
-      "tags": [
-        "아이템",
-        "우산",
-        "활공",
-        "입체 이동"
-      ],
-      "posterSource": [
-        "S07",
-        249
-      ],
-      "segments": [
-        {
-          "source": "S07",
-          "start": 242,
-          "end": 246,
-          "label": "이동 경로 · 옥상에서 뛰어내린다"
-        },
-        {
-          "source": "S07",
-          "start": 246,
-          "end": 258,
-          "label": "우산 · 시장 위를 활공해 내려간다"
-        }
-      ],
-      "durationSeconds": 16,
-      "path": "assets/whostail-20261124-umbrella.mp4",
-      "poster": "assets/whostail-20261124-umbrella.jpg",
-      "date": "2026-11-24",
-      "recordedBy": "이재민",
-      "type": "user-recorded-final-build-edit",
-      "mode": "봇 참여 플레이"
-    },
-    {
       "id": "events",
       "title": "폐쇄·발자국·지도 | 바뀌는 플레이 환경",
       "caption": "구역 폐쇄 알림, 발자국 이벤트 예고와 시작, 전체 지도와 이벤트 기록을 발췌했습니다. 각 장면은 같은 플레이의 서로 다른 시간대입니다.",
@@ -382,6 +651,120 @@
       "durationSeconds": 25.5,
       "path": "assets/whostail-20261124-events.mp4",
       "poster": "assets/whostail-20261124-events.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "wanted-clear",
+      "title": "위치 노출 | 안내를 보고 표식 지우기",
+      "caption": "위치가 노출되는 이벤트의 안내를 읽고 표식 제거 시설에 도착합니다. G를 누르는 진행 표시와 제거 후 머리 위 표식이 사라진 모습을 이어 붙였습니다. 이동 중간의 단서 정리 구간은 생략했습니다.",
+      "tags": [
+        "이벤트",
+        "위치 노출",
+        "표식 제거",
+        "상호작용"
+      ],
+      "posterSource": [
+        "S09",
+        144
+      ],
+      "segments": [
+        {
+          "source": "S09",
+          "start": 124.5,
+          "end": 129,
+          "label": "위치 노출 · 표식 제거 장소를 찾는다"
+        },
+        {
+          "source": "S09",
+          "start": 140,
+          "end": 145.5,
+          "label": "상호작용 · G를 눌러 표식을 제거한다"
+        },
+        {
+          "source": "S09",
+          "start": 145.5,
+          "end": 149,
+          "label": "결과 · 머리 위 표식이 사라지고 다시 이동한다"
+        }
+      ],
+      "durationSeconds": 13.5,
+      "path": "assets/whostail-20261124-wanted-clear.mp4",
+      "poster": "assets/whostail-20261124-wanted-clear.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "tail-growth",
+      "title": "꼬리가 길어졌어 | 예고에서 실제 변화까지",
+      "caption": "노란 이벤트 알림으로 예고한 뒤 꼬리 길이가 달라지는 장면입니다. 종료까지의 전체 이벤트가 아닌 예고와 발동 구간을 담았습니다. 꼬리색·관계를 바꾸는 셔플과는 다른 이벤트입니다.",
+      "tags": [
+        "이벤트",
+        "예고",
+        "꼬리 길이",
+        "이동"
+      ],
+      "posterSource": [
+        "S07",
+        302
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 289,
+          "end": 294,
+          "label": "이벤트 예고 · 꼬리 길이 변화가 시작되기 전"
+        },
+        {
+          "source": "S07",
+          "start": 294,
+          "end": 303,
+          "label": "이벤트 발동 · 길어진 꼬리로 계속 이동한다"
+        }
+      ],
+      "durationSeconds": 14,
+      "path": "assets/whostail-20261124-tail-growth.mp4",
+      "poster": "assets/whostail-20261124-tail-growth.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "traffic",
+      "title": "전차와 마주치면 | 튕겨 나가는 돌발 상황",
+      "caption": "도로에서 다가오는 전차와 부딪혀 공중으로 튕겨 나간 뒤 다시 움직이는 짧은 장면입니다. 탑승이나 운전 장면으로 분류하지 않았습니다.",
+      "tags": [
+        "전차",
+        "충돌",
+        "돌발 상황",
+        "실패의 재미"
+      ],
+      "posterSource": [
+        "S09",
+        165
+      ],
+      "segments": [
+        {
+          "source": "S09",
+          "start": 162.5,
+          "end": 165,
+          "label": "도로의 돌발 상황 · 전차와 마주친다"
+        },
+        {
+          "source": "S09",
+          "start": 165,
+          "end": 170,
+          "label": "충돌 · 공중으로 튕겨 나갔다가 다시 움직인다"
+        }
+      ],
+      "durationSeconds": 7.5,
+      "path": "assets/whostail-20261124-traffic.mp4",
+      "poster": "assets/whostail-20261124-traffic.jpg",
       "date": "2026-11-24",
       "recordedBy": "이재민",
       "type": "user-recorded-final-build-edit",
@@ -431,16 +814,246 @@
   ],
   "nextCapturePlan": [
     {
-      "shot": "휴대폰 정보 연결",
-      "seconds": "15–20",
-      "action": "메시지 배너 수신 → 클릭 → 해당 대화 배지만 사라짐. 추리 색 적용 → 연락처에 같은 색 표시."
+      "priority": 1,
+      "shot": "친구와 메시지·통화·추격",
+      "duration": "30–60초",
+      "action": "친구가 들어온 대기실에서 시작. 메시지 수신 배너를 클릭해 답장한 뒤 통화하고, 서로 추격하는 장면까지.",
+      "reason": "현재 영상에서 가장 부족한 실제 멀티플레이 관계 행동을 보완."
     },
     {
-      "shot": "관전자·이벤트",
-      "seconds": "10–15",
-      "action": "탈락 → 관전 대상/중개자 선택. 별도 장면에서 셔플 10초 예고와 진행 카드."
+      "priority": 1,
+      "shot": "탈락 → 관전 → 중개자",
+      "duration": "30–45초",
+      "action": "내가 잡히기 5초 전부터 녹화. 관전 진입과 대상 변경, 가능하면 중개자 참여·종료까지.",
+      "reason": "관전자 UI 작업을 실제 입력과 결과로 보여주기."
+    },
+    {
+      "priority": 1,
+      "shot": "꼬리셔플 전후",
+      "duration": "30–45초",
+      "action": "셔플 발생 직전부터 연출 전체와 새 타깃·꼬리색, 휴대폰 추리 변화까지 연속으로.",
+      "reason": "관계가 뒤집히는 이벤트의 차별성을 보여주기. 꼬리 길이 이벤트로 대체하지 않음."
+    },
+    {
+      "priority": 1,
+      "shot": "승리 결과 → 한 판 더",
+      "duration": "25–40초",
+      "action": "마지막 QTE 직전부터 결과·순위 화면을 3초 이상 유지하고 다음 판으로 이동.",
+      "reason": "게임 전체 흐름의 끝과 반복 플레이를 완성."
+    },
+    {
+      "priority": 2,
+      "shot": "우산으로 실제 추격을 끊는 결과",
+      "duration": "15–25초",
+      "action": "친구가 바로 뒤에서 따라오는 상태로 옥상 출발. 우산으로 다른 경로 착지 후, 친구가 놓치는 모습까지. 가능하면 친구 시점도 함께.",
+      "reason": "옥상 활공과 계단 이탈 영상은 확보. 완전히 따돌렸다는 결과만 추가하면 됨."
+    },
+    {
+      "priority": 2,
+      "shot": "차량·다른 아이템·사건",
+      "duration": "항목당 15–30초",
+      "action": "택시 운전/하차, 전차 탑승, 연막으로 시야 가리기, 가짜꼬리에 속는 상대, 록온 반응, 강도·고블린·오락실의 결과 중 잘 나오는 것부터.",
+      "reason": "이동과 방해, 우연한 사고가 만드는 플레이 변주 보완."
     }
   ],
-  "verification": "사용자 직접 녹화 영상의 원본 프레임을 분석·분류하고 8편을 편집. 최종 편집본 재생·시각 검수와 사이트 확인은 사용자 담당. 테스트·게임 실행·빌드·컴파일 미실행.",
-  "sourceCatalog": "docs/whostail-video-catalog.json"
+  "verification": "사용자 직접 녹화 원본 9개의 프레임을 해석·분류하고 총 17편으로 편집. 최종 편집본 재생·시각 검수와 사이트 확인은 사용자 담당. 테스트·게임 실행·빌드·컴파일 미실행.",
+  "sourceCatalog": "docs/whostail-video-catalog.json",
+  "coverage": [
+    {
+      "feature": "로비 → 방 만들기 → 대기실 → 로딩 → 게임",
+      "status": "영상 확보",
+      "evidence": "S08 00:22–00:50",
+      "clips": [
+        "lobby"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "캐릭터 꾸미기·설정",
+      "status": "영상 확보",
+      "evidence": "S08 00:05–00:18",
+      "clips": [
+        "customize"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "직접 배우는 튜토리얼",
+      "status": "영상 확보",
+      "evidence": "S01 00:09–00:57",
+      "clips": [
+        "tutorial"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "단서 획득·비교·추리 색 지정",
+      "status": "영상 확보",
+      "evidence": "S02·S07·S09의 휴대폰 조작",
+      "clips": [
+        "phone",
+        "play"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "전화부스로 타깃 위치 확인 → 추격 → 탈락",
+      "status": "영상 확보",
+      "evidence": "S09 03:22–04:03 연속 구간",
+      "clips": [
+        "phonebooth"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "연락처 → 얼굴 통화 UI",
+      "status": "화면 확보 · 실제 대화 미확보",
+      "evidence": "S09 00:21–00:31 Bot 7 연결",
+      "clips": [
+        "call"
+      ],
+      "nextShot": "사람 둘이 실제로 통화하고 연결·종료 상태를 양쪽에서 촬영"
+    },
+    {
+      "feature": "우산으로 계단 옆 이탈",
+      "status": "부분 확보",
+      "evidence": "S07 01:09–01:18",
+      "clips": [
+        "umbrella-escape"
+      ],
+      "nextShot": "추격자가 따라오는 출발 → 우산으로 다른 길 선택 → 추격자가 놓치는 결과를 연속 촬영"
+    },
+    {
+      "feature": "건물 옥상에서 우산 활공·착지",
+      "status": "영상 확보",
+      "evidence": "S07 04:02–04:18",
+      "clips": [
+        "umbrella"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "아이템 획득·사용·슬롯·남은 시간",
+      "status": "영상 확보",
+      "evidence": "구르기 강화·대시, 낚싯대 사용 뒤 QTE",
+      "clips": [
+        "item-use",
+        "timing"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "연타·순서 입력·원형 타이밍 QTE",
+      "status": "영상 확보",
+      "evidence": "세 방식의 입력·점수·오입력·결과",
+      "clips": [
+        "mash",
+        "sequence",
+        "timing"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "오인 공격과 위치 노출",
+      "status": "영상 확보",
+      "evidence": "QTE 종료 뒤 오인 공격 알림",
+      "clips": [
+        "sequence",
+        "timing"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "위치 노출 표식 제거",
+      "status": "영상 확보",
+      "evidence": "S09 02:04–02:29 중 안내·제거 진행·완료",
+      "clips": [
+        "wanted-clear"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "구역 폐쇄·발자국·전체 지도",
+      "status": "영상 확보",
+      "evidence": "S07 폐쇄 예고/발동·발자국·지도",
+      "clips": [
+        "events"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "꼬리 길이 이벤트",
+      "status": "영상 확보",
+      "evidence": "S07 04:49–05:03 예고·발동",
+      "clips": [
+        "tail-growth"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "전차 충돌과 넉백",
+      "status": "영상 확보",
+      "evidence": "S09 02:42–02:50",
+      "clips": [
+        "traffic"
+      ],
+      "nextShot": ""
+    },
+    {
+      "feature": "메시지 수신 배너·배지·대화방",
+      "status": "미확보",
+      "evidence": "S09에는 비어 있는 메시지 목록만 있음",
+      "clips": [],
+      "nextShot": "친구가 메시지 전송 → 우측 위 배너 → 클릭해 대화방 → 홈 배지/읽음 변화, 20–30초"
+    },
+    {
+      "feature": "관전자 시점·대상 전환·중개자",
+      "status": "미확보",
+      "evidence": "현재 녹화는 본인 생존 상태. 관전 관련 소스는 존재",
+      "clips": [],
+      "nextShot": "내 탈락 직전부터 관전 시작, 대상 전환, 자유 시점, 중개자 참여까지 30–45초"
+    },
+    {
+      "feature": "꼬리셔플 연출·관계와 색 재편",
+      "status": "미확보",
+      "evidence": "꼬리 길이 이벤트와 별개. 셔플 안내/연출 소스는 존재",
+      "clips": [],
+      "nextShot": "발동 전 10초부터 연출, 색·타깃 변경, 휴대폰 단서/추리 갱신까지 30–45초"
+    },
+    {
+      "feature": "최종 승리·순위·다음 판",
+      "status": "미확보",
+      "evidence": "탈락 1명까지의 영상만 확보. 라운드 결과 소스는 존재",
+      "clips": [],
+      "nextShot": "마지막 대결 → 승리/결과 화면 → 로비나 다음 판 대기실까지 25–40초"
+    },
+    {
+      "feature": "사람끼리의 심리전·방 입장·실제 음성",
+      "status": "미확보",
+      "evidence": "봇 참여 경기와 봇 통화 UI 중심",
+      "clips": [],
+      "nextShot": "친구 2명 이상 입장 → 단서 교환/속이기 → 추격 또는 역공을 연결해서 촬영"
+    },
+    {
+      "feature": "택시 운전·전차 탑승",
+      "status": "미확보",
+      "evidence": "전차 충돌만 있음. 차량/전차 연결 문서는 존재",
+      "clips": [],
+      "nextShot": "탑승 안내 → 실제 탑승·운전 HUD → 이동 → 하차, 각각 15–25초"
+    },
+    {
+      "feature": "연막·가짜꼬리·록온 등 다른 아이템의 대결 효과",
+      "status": "부분 확보",
+      "evidence": "획득/사용 표시는 일부 있으나 상대에게 미치는 결과가 불명확",
+      "clips": [],
+      "nextShot": "아이템 사용 전 상대 위치와 사용 후 반응을 한 화면에 남기기"
+    },
+    {
+      "feature": "강도·고블린·오락실 등 다른 사건",
+      "status": "미확보",
+      "evidence": "관련 이벤트·중개자 소스와 기존 프로젝트 설명에 있음",
+      "clips": [],
+      "nextShot": "이벤트 등장 → 참여/선택 → 보상 또는 방해 결과, 항목별 20–30초"
+    }
+  ]
 }
