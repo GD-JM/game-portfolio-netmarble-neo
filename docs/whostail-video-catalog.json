@@ -1,0 +1,1239 @@
+{
+  "recordingDate": "2026-11-24",
+  "basis": "사용자가 최종 제출 빌드로 직접 녹화한 Xbox Game Bar 영상 7개",
+  "method": "3~5초 간격 원본 프레임과 주요 장면의 1~4초 간격 추가 프레임을 읽어 분류. 짧은 장면 경계는 대략적인 탐색 범위이며, 자막은 편집 구간에 맞춰 작성.",
+  "originalPolicy": "원본 수정·삭제 없음. 대화 음성 전사 및 전체 음성 청취는 수행하지 않았으며 원본 오디오를 편집 구간과 함께 보존.",
+  "contentLimitations": [
+    "튜토리얼과 봇 참여 플레이를 구분함. 사람 간 온라인 대결 영상으로 표시하지 않음.",
+    "QTE 득점과 올바른 타깃 탈락은 별도 판정. 오인 공격 장면의 결과를 보존함.",
+    "메시지 송수신·연락처 색 연동·실제 관전자 조작·셔플 10초 예고는 이 녹화에서 편집 근거를 확보하지 못해 새 영상에 포함하지 않음."
+  ],
+  "sourceCount": 7,
+  "sourceDurationSeconds": 714.11,
+  "sources": [
+    {
+      "id": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "duration": 64.85,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "duration": 70.11,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "S03",
+      "filename": "TailMap 2026-11-24 17-22-52.mp4",
+      "duration": 19.78,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "S04",
+      "filename": "TailMap 2026-11-24 17-23-13.mp4",
+      "duration": 22.05,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "S05",
+      "filename": "TailMap 2026-11-24 17-23-38.mp4",
+      "duration": 3.04,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "S06",
+      "filename": "TailMap 2026-11-24 17-23-43.mp4",
+      "duration": 16.82,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "duration": 517.46,
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "scenes": [
+    {
+      "source": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "start": 0,
+      "end": 9,
+      "scene": "메뉴·튜토리얼 로딩",
+      "tags": [
+        "메뉴",
+        "로딩"
+      ],
+      "decision": "편집 제외",
+      "mode": "튜토리얼"
+    },
+    {
+      "source": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "start": 9,
+      "end": 16,
+      "scene": "단서 두 장 획득",
+      "tags": [
+        "튜토리얼",
+        "단서"
+      ],
+      "decision": "사용",
+      "mode": "튜토리얼"
+    },
+    {
+      "source": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "start": 16,
+      "end": 27,
+      "scene": "단서 읽기와 앱 이동",
+      "tags": [
+        "튜토리얼",
+        "휴대폰"
+      ],
+      "decision": "사용",
+      "mode": "튜토리얼"
+    },
+    {
+      "source": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "start": 27,
+      "end": 38.5,
+      "scene": "이름표 드래그·색 지정·표적 배치",
+      "tags": [
+        "튜토리얼",
+        "꼬리색",
+        "드래그"
+      ],
+      "decision": "사용",
+      "mode": "튜토리얼"
+    },
+    {
+      "source": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "start": 38.5,
+      "end": 42.2,
+      "scene": "표적 추격",
+      "tags": [
+        "튜토리얼",
+        "추격"
+      ],
+      "decision": "사용",
+      "mode": "튜토리얼"
+    },
+    {
+      "source": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "start": 42.2,
+      "end": 55.7,
+      "scene": "연타·순서·원형 QTE 연습",
+      "tags": [
+        "튜토리얼",
+        "QTE"
+      ],
+      "decision": "사용",
+      "mode": "튜토리얼"
+    },
+    {
+      "source": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "start": 55.7,
+      "end": 57.1,
+      "scene": "연습 완료",
+      "tags": [
+        "튜토리얼",
+        "완료"
+      ],
+      "decision": "사용",
+      "mode": "튜토리얼"
+    },
+    {
+      "source": "S01",
+      "filename": "TailMap 2026-11-24 17-19-56.mp4",
+      "start": 57.1,
+      "end": 64.85,
+      "scene": "실전 안내 페이지와 메뉴 복귀",
+      "tags": [
+        "튜토리얼",
+        "안내"
+      ],
+      "decision": "보관",
+      "mode": "튜토리얼"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 0,
+      "end": 21,
+      "scene": "메뉴·닉네임 입력·봇 방 생성·로딩",
+      "tags": [
+        "메뉴",
+        "대기실"
+      ],
+      "decision": "편집 제외",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 21,
+      "end": 28,
+      "scene": "플레이 진입과 휴대폰 열기",
+      "tags": [
+        "이동",
+        "휴대폰"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 28,
+      "end": 36.7,
+      "scene": "단서 획득과 이동 중 추리 배치",
+      "tags": [
+        "단서",
+        "휴대폰",
+        "드래그"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 36.7,
+      "end": 47.8,
+      "scene": "도로 탐색",
+      "tags": [
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 47.8,
+      "end": 56,
+      "scene": "단서 비교와 꼬리색 배치",
+      "tags": [
+        "단서",
+        "휴대폰",
+        "꼬리색"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 56,
+      "end": 57.7,
+      "scene": "공원 추격",
+      "tags": [
+        "추격"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 57.7,
+      "end": 64.8,
+      "scene": "순서 입력 QTE와 점수 상승",
+      "tags": [
+        "QTE",
+        "순서 입력"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 64.8,
+      "end": 67.8,
+      "scene": "배정된 타깃이 아니라는 알림",
+      "tags": [
+        "오인 공격",
+        "알림"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S02",
+      "filename": "TailMap 2026-11-24 17-21-36.mp4",
+      "start": 67.8,
+      "end": 70.11,
+      "scene": "다음 이동",
+      "tags": [
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S03",
+      "filename": "TailMap 2026-11-24 17-22-52.mp4",
+      "start": 0,
+      "end": 6,
+      "scene": "도로 이동",
+      "tags": [
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S03",
+      "filename": "TailMap 2026-11-24 17-22-52.mp4",
+      "start": 6,
+      "end": 11,
+      "scene": "우산 획득과 접근",
+      "tags": [
+        "아이템",
+        "우산"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S03",
+      "filename": "TailMap 2026-11-24 17-22-52.mp4",
+      "start": 11,
+      "end": 19.78,
+      "scene": "골목에서 봇 추격",
+      "tags": [
+        "추격",
+        "골목"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S04",
+      "filename": "TailMap 2026-11-24 17-23-13.mp4",
+      "start": 0,
+      "end": 12,
+      "scene": "골목 추격·휴대폰 열기",
+      "tags": [
+        "추격",
+        "휴대폰"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S04",
+      "filename": "TailMap 2026-11-24 17-23-13.mp4",
+      "start": 12,
+      "end": 19,
+      "scene": "원형 QTE",
+      "tags": [
+        "QTE",
+        "원형 타이밍"
+      ],
+      "decision": "보관: 더 선명한 S07 사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S04",
+      "filename": "TailMap 2026-11-24 17-23-13.mp4",
+      "start": 19,
+      "end": 22.05,
+      "scene": "놓쳤다 표시와 이탈",
+      "tags": [
+        "실패",
+        "결과"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S05",
+      "filename": "TailMap 2026-11-24 17-23-38.mp4",
+      "start": 0,
+      "end": 3.04,
+      "scene": "교차로 이동의 짧은 조각",
+      "tags": [
+        "이동"
+      ],
+      "decision": "편집 제외: 단독 의미 약함",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S06",
+      "filename": "TailMap 2026-11-24 17-23-43.mp4",
+      "start": 0,
+      "end": 8,
+      "scene": "도로 추격",
+      "tags": [
+        "추격"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S06",
+      "filename": "TailMap 2026-11-24 17-23-43.mp4",
+      "start": 8,
+      "end": 15,
+      "scene": "원형 QTE 점수·판정 변화",
+      "tags": [
+        "QTE",
+        "원형 타이밍"
+      ],
+      "decision": "보관: S07 사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S06",
+      "filename": "TailMap 2026-11-24 17-23-43.mp4",
+      "start": 15,
+      "end": 16.82,
+      "scene": "놓쳤다 결과",
+      "tags": [
+        "실패",
+        "결과"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 0,
+      "end": 8,
+      "scene": "연타 QTE와 오인 공격 알림",
+      "tags": [
+        "QTE",
+        "연타",
+        "오인 공격"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 8,
+      "end": 20.5,
+      "scene": "위치 노출·전화부스 알림과 이동",
+      "tags": [
+        "이벤트",
+        "알림",
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 20.5,
+      "end": 34,
+      "scene": "아이템 사용·우산 이동·단서 획득",
+      "tags": [
+        "아이템",
+        "우산",
+        "단서"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 34,
+      "end": 42,
+      "scene": "순서 QTE 교전",
+      "tags": [
+        "QTE",
+        "순서 입력"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 42,
+      "end": 51.5,
+      "scene": "옥상 탐색",
+      "tags": [
+        "이동",
+        "옥상"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 51.5,
+      "end": 60,
+      "scene": "폐쇄 알림과 수직 이동",
+      "tags": [
+        "구역 폐쇄",
+        "알림"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 60,
+      "end": 83,
+      "scene": "낚싯대 획득·우산·전력질주",
+      "tags": [
+        "아이템",
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 83,
+      "end": 93,
+      "scene": "순서 QTE 오입력·오인 공격",
+      "tags": [
+        "QTE",
+        "오입력",
+        "오인 공격"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 93,
+      "end": 99.5,
+      "scene": "단서 수신과 휴대폰",
+      "tags": [
+        "단서",
+        "휴대폰"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 99.5,
+      "end": 110,
+      "scene": "발자국 이벤트 예고·시작",
+      "tags": [
+        "이벤트",
+        "발자국"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 110,
+      "end": 166,
+      "scene": "발자국·단서 비교·이동 중 추리",
+      "tags": [
+        "이벤트",
+        "단서",
+        "휴대폰"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 166,
+      "end": 183,
+      "scene": "발자국 종료와 이동",
+      "tags": [
+        "이벤트",
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 183,
+      "end": 218,
+      "scene": "묶음 아이템 획득·사용·단서 정리",
+      "tags": [
+        "아이템",
+        "단서",
+        "휴대폰"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 218,
+      "end": 242,
+      "scene": "우산 이동·아이템 획득·구역 폐쇄",
+      "tags": [
+        "우산",
+        "구역 폐쇄"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 242,
+      "end": 258,
+      "scene": "옥상에서 시장 위로 활공",
+      "tags": [
+        "아이템",
+        "우산",
+        "활공"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 258,
+      "end": 266,
+      "scene": "원형 QTE 교전",
+      "tags": [
+        "QTE",
+        "원형 타이밍"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 266,
+      "end": 281,
+      "scene": "연막·신발 아이템과 순서 QTE",
+      "tags": [
+        "아이템",
+        "QTE",
+        "순서 입력"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 281,
+      "end": 304,
+      "scene": "꼬리 길이 이벤트와 옥상 이동",
+      "tags": [
+        "이벤트",
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 304,
+      "end": 329,
+      "scene": "단서 읽기·옥상 이동",
+      "tags": [
+        "단서",
+        "휴대폰",
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 329,
+      "end": 335.5,
+      "scene": "전체 지도·이벤트 기록",
+      "tags": [
+        "전체 지도",
+        "이벤트"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 335.5,
+      "end": 343.8,
+      "scene": "골목 추격",
+      "tags": [
+        "추격"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 343.8,
+      "end": 357.5,
+      "scene": "낚싯대·원형 QTE·성공과 실패·오인 공격",
+      "tags": [
+        "아이템",
+        "QTE",
+        "원형 타이밍",
+        "오인 공격"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 357.5,
+      "end": 383,
+      "scene": "가짜꼬리·전화부스·추격",
+      "tags": [
+        "아이템",
+        "전화부스",
+        "추격"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 383,
+      "end": 420,
+      "scene": "이동 중 단서와 추리 배치",
+      "tags": [
+        "단서",
+        "휴대폰",
+        "꼬리색"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 420,
+      "end": 447,
+      "scene": "새 단서·이름 배치·단서 비교",
+      "tags": [
+        "단서",
+        "휴대폰",
+        "드래그"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 447,
+      "end": 460,
+      "scene": "공원 탐색·단서 획득",
+      "tags": [
+        "단서",
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 460,
+      "end": 474,
+      "scene": "새 단서 읽기·추리 색 수정",
+      "tags": [
+        "단서",
+        "휴대폰",
+        "꼬리색"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 474,
+      "end": 488,
+      "scene": "아이템 사용과 골목 추격",
+      "tags": [
+        "추격",
+        "아이템"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 488,
+      "end": 500,
+      "scene": "순서 QTE와 오인 공격",
+      "tags": [
+        "QTE",
+        "순서 입력",
+        "오인 공격"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 500,
+      "end": 507,
+      "scene": "Bot 5 접근·꼬리잡기",
+      "tags": [
+        "추격",
+        "꼬리잡기"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 507,
+      "end": 512,
+      "scene": "연타 QTE·점수와 게이지 상승",
+      "tags": [
+        "QTE",
+        "연타",
+        "점수판"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 512,
+      "end": 516,
+      "scene": "Bot 5 탈락 알림·생존 12→11",
+      "tags": [
+        "탈락",
+        "결과"
+      ],
+      "decision": "사용",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "source": "S07",
+      "filename": "TailMap 2026-11-24 17-24-03.mp4",
+      "start": 516,
+      "end": 517.46,
+      "scene": "다음 이동",
+      "tags": [
+        "이동"
+      ],
+      "decision": "보관",
+      "mode": "봇 참여 플레이"
+    }
+  ],
+  "clips": [
+    {
+      "id": "play",
+      "title": "단서를 읽고, 추리를 기록하고, 꼬리를 잡다",
+      "caption": "11월 24일 직접 녹화한 M3 제출 빌드의 플레이 발췌입니다. 이동 중 단서 확인과 꼬리색 기록, 추격, 연타 QTE와 Bot 5 탈락까지 담았습니다. 서로 다른 시간대의 장면을 연결한 편집본이며, 봇이 참여한 플레이입니다.",
+      "tags": [
+        "대표 영상",
+        "단서",
+        "휴대폰",
+        "꼬리색",
+        "추격",
+        "연타",
+        "탈락"
+      ],
+      "posterSource": [
+        "S07",
+        466
+      ],
+      "segments": [
+        {
+          "source": "S02",
+          "start": 28,
+          "end": 36.7,
+          "label": "단서 획득 · 달리면서 이름표를 배치한다"
+        },
+        {
+          "source": "S02",
+          "start": 47.8,
+          "end": 56,
+          "label": "단서 비교 · 추리한 꼬리색을 기록한다"
+        },
+        {
+          "source": "S07",
+          "start": 460,
+          "end": 474,
+          "label": "추리 갱신 · 새 단서를 읽고 색을 다시 지정한다"
+        },
+        {
+          "source": "S07",
+          "start": 500,
+          "end": 507,
+          "label": "추격 · 거리를 좁혀 꼬리를 잡는다"
+        },
+        {
+          "source": "S07",
+          "start": 507,
+          "end": 516,
+          "label": "힘겨루기 · 연타로 겨루고 탈락 결과를 확인한다"
+        }
+      ],
+      "durationSeconds": 46.9,
+      "path": "assets/whostail-20261124-play.mp4",
+      "poster": "assets/whostail-20261124-play.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "tutorial",
+      "title": "튜토리얼 | 읽기에서 직접 잡기까지",
+      "caption": "단서 두 장 획득 → 단서 읽기 → 이름표·꼬리색 배치 → 추격 → 세 가지 QTE → 연습 완료. 안내와 실제 입력이 이어지는 구간을 순서대로 보존했습니다.",
+      "tags": [
+        "튜토리얼",
+        "단서",
+        "꼬리색",
+        "추격",
+        "연타",
+        "순서 입력",
+        "원형 타이밍"
+      ],
+      "posterSource": [
+        "S01",
+        31
+      ],
+      "segments": [
+        {
+          "source": "S01",
+          "start": 9,
+          "end": 16,
+          "label": "튜토리얼 · 움직이며 단서 두 장을 모은다"
+        },
+        {
+          "source": "S01",
+          "start": 16,
+          "end": 27,
+          "label": "단서 읽기 · 휴대폰에서 정보를 비교한다"
+        },
+        {
+          "source": "S01",
+          "start": 27,
+          "end": 38.5,
+          "label": "추리 기록 · 이름표를 놓고 꼬리색을 지정한다"
+        },
+        {
+          "source": "S01",
+          "start": 38.5,
+          "end": 42.2,
+          "label": "추격 · 움직이는 표적을 따라간다"
+        },
+        {
+          "source": "S01",
+          "start": 42.2,
+          "end": 55.7,
+          "label": "힘겨루기 연습 · 연타, 순서 입력, 원형 타이밍"
+        },
+        {
+          "source": "S01",
+          "start": 55.7,
+          "end": 57.1,
+          "label": "첫 꼬리잡기 · 연습 완료"
+        }
+      ],
+      "durationSeconds": 48.1,
+      "path": "assets/whostail-20261124-tutorial.mp4",
+      "poster": "assets/whostail-20261124-tutorial.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "튜토리얼"
+    },
+    {
+      "id": "phone",
+      "title": "이동 중에도 이어지는 휴대폰 추리",
+      "caption": "이동을 이어가면서 휴대폰을 열어 단서를 읽고 이름표와 색을 배치합니다. 뒤쪽 장면에서는 새 단서에 맞춰 기존 추리 색을 다시 바꿉니다.",
+      "tags": [
+        "휴대폰",
+        "단서",
+        "드래그",
+        "꼬리색",
+        "미니맵"
+      ],
+      "posterSource": [
+        "S07",
+        466
+      ],
+      "segments": [
+        {
+          "source": "S02",
+          "start": 28,
+          "end": 36.7,
+          "label": "휴대폰 · 달리면서 이름표를 배치한다"
+        },
+        {
+          "source": "S02",
+          "start": 47.8,
+          "end": 55.5,
+          "label": "단서 비교 · 읽은 정보를 꼬리 추리에 옮긴다"
+        },
+        {
+          "source": "S07",
+          "start": 460,
+          "end": 470.5,
+          "label": "추리 수정 · 새 정보에 맞춰 색을 바꾼다"
+        }
+      ],
+      "durationSeconds": 26.9,
+      "path": "assets/whostail-20261124-phone.mp4",
+      "poster": "assets/whostail-20261124-phone.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "mash",
+      "title": "스페이스 엔터 | 연타와 탈락 결과",
+      "caption": "접근과 꼬리잡기부터 Space·Enter 입력, 점수와 줄다리기 게이지 변화까지 담았습니다. 끝에는 Bot 5 탈락 알림과 생존 인원 12 → 11이 표시됩니다.",
+      "tags": [
+        "QTE",
+        "연타",
+        "점수판",
+        "게이지",
+        "탈락"
+      ],
+      "posterSource": [
+        "S07",
+        510
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 504,
+          "end": 507,
+          "label": "꼬리잡기 · 가까이 붙어 힘겨루기를 시작한다"
+        },
+        {
+          "source": "S07",
+          "start": 507,
+          "end": 512,
+          "label": "스페이스 엔터 · 교대로 연타하며 점수를 올린다"
+        },
+        {
+          "source": "S07",
+          "start": 512,
+          "end": 516,
+          "label": "결과 · Bot 5 탈락, 생존 인원 12 → 11"
+        }
+      ],
+      "durationSeconds": 12,
+      "path": "assets/whostail-20261124-mash.mp4",
+      "poster": "assets/whostail-20261124-mash.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "sequence",
+      "title": "아재 절단기 | 다음 키와 오입력 피드백",
+      "caption": "노란 키를 순서대로 입력하는 장면과, 다른 교전에서 빨간 키·X·다시 안내가 나타나는 장면을 묶었습니다. QTE 점수 상승과 올바른 표적 판정은 별개이며, 종료 뒤 오인 공격 알림도 남겼습니다.",
+      "tags": [
+        "QTE",
+        "순서 입력",
+        "오입력",
+        "점수판",
+        "오인 공격"
+      ],
+      "posterSource": [
+        "S02",
+        61
+      ],
+      "segments": [
+        {
+          "source": "S02",
+          "start": 57.7,
+          "end": 64.8,
+          "label": "아재 절단기 · 노란 키를 순서대로 누른다"
+        },
+        {
+          "source": "S02",
+          "start": 64.8,
+          "end": 67.8,
+          "label": "표적 판정 · 공격한 상대가 배정된 타깃인지 확인한다"
+        },
+        {
+          "source": "S07",
+          "start": 83,
+          "end": 90,
+          "label": "오입력 피드백 · 빨간 키와 다시 안내"
+        },
+        {
+          "source": "S07",
+          "start": 90,
+          "end": 93,
+          "label": "결과 · 힘겨루기와 표적 판정은 따로 적용된다"
+        }
+      ],
+      "durationSeconds": 20.1,
+      "path": "assets/whostail-20261124-sequence.mp4",
+      "poster": "assets/whostail-20261124-sequence.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "timing",
+      "title": "데바데 | 빛나는 칸을 맞추는 타이밍",
+      "caption": "낚싯대 사용 뒤 원형 QTE로 이어집니다. 점수 증가, 맞힌 조각의 변화, 초록 성공 효과와 빨간 실패 효과를 볼 수 있습니다. 종료 후에는 오인 공격으로 위치 노출 알림이 나타납니다.",
+      "tags": [
+        "QTE",
+        "원형 타이밍",
+        "다트",
+        "성공·실패",
+        "아이템",
+        "오인 공격"
+      ],
+      "posterSource": [
+        "S07",
+        351
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 343.8,
+          "end": 347,
+          "label": "아이템 활용 · 낚싯대 사용 뒤 힘겨루기로"
+        },
+        {
+          "source": "S07",
+          "start": 347,
+          "end": 354.3,
+          "label": "데바데 · 빛나는 칸에서 Space를 누른다"
+        },
+        {
+          "source": "S07",
+          "start": 354.3,
+          "end": 357.5,
+          "label": "오인 공격 · 내 위치가 지도에 드러난다"
+        }
+      ],
+      "durationSeconds": 13.7,
+      "path": "assets/whostail-20261124-timing.mp4",
+      "poster": "assets/whostail-20261124-timing.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "umbrella",
+      "title": "우산 | 옥상에서 시장까지 활공",
+      "caption": "옥상에서 뛰어내린 뒤 우산을 펼쳐 도로와 시장 위를 이동하고 내려오는 장면입니다. 아이템이 이동 경로를 바꾸는 모습을 보여줍니다.",
+      "tags": [
+        "아이템",
+        "우산",
+        "활공",
+        "입체 이동"
+      ],
+      "posterSource": [
+        "S07",
+        249
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 242,
+          "end": 246,
+          "label": "이동 경로 · 옥상에서 뛰어내린다"
+        },
+        {
+          "source": "S07",
+          "start": 246,
+          "end": 258,
+          "label": "우산 · 시장 위를 활공해 내려간다"
+        }
+      ],
+      "durationSeconds": 16,
+      "path": "assets/whostail-20261124-umbrella.mp4",
+      "poster": "assets/whostail-20261124-umbrella.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "events",
+      "title": "폐쇄·발자국·지도 | 바뀌는 플레이 환경",
+      "caption": "구역 폐쇄 알림, 발자국 이벤트 예고와 시작, 전체 지도와 이벤트 기록을 발췌했습니다. 각 장면은 같은 플레이의 서로 다른 시간대입니다.",
+      "tags": [
+        "이벤트",
+        "구역 폐쇄",
+        "발자국",
+        "전체 지도",
+        "알림"
+      ],
+      "posterSource": [
+        "S07",
+        332
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 51.5,
+          "end": 60,
+          "label": "구역 폐쇄 · 공간이 줄어드는 상황을 알린다"
+        },
+        {
+          "source": "S07",
+          "start": 99.5,
+          "end": 110,
+          "label": "발자국 이벤트 · 예고 뒤 이동 흔적이 나타난다"
+        },
+        {
+          "source": "S07",
+          "start": 329,
+          "end": 335.5,
+          "label": "전체 지도 · 폐쇄 구역과 이벤트 기록을 확인한다"
+        }
+      ],
+      "durationSeconds": 25.5,
+      "path": "assets/whostail-20261124-events.mp4",
+      "poster": "assets/whostail-20261124-events.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    }
+  ],
+  "verification": "최종 편집본 재생·시각 검수는 사용자 담당. 테스트·게임 실행·빌드 미실행."
+}
