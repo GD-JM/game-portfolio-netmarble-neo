@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Who's Tail | 이재민 게임 기획</title>
-<meta name="description" content="의도를 먼저 적고, 피드백으로 고쳐 가는 UI, 아이템 기획">
+<meta name="description" content="UI·아이템 기획부터 M3 폴리싱까지, 판단과 피드백을 연결한 작업">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%23111111'/><circle cx='8' cy='8' r='4.5' fill='%23ffffff'/></svg>">
 <style>
 /* v42 · 여러 권 공용 서식. 한 권 = 한 프로젝트 = 기획력 하나. 기본은 어둡게, 밝게로 바꿀 수 있음 */
@@ -317,6 +317,18 @@ img.zoom{cursor:zoom-in}
 .wt-ranges{display:grid;gap:20px;margin:24px 0}.wt-ranges i{display:block;width:var(--range);height:10px;background:var(--a-whostail);margin:8px 0;border-radius:5px}.wt-ranges span{font-size:14px;color:var(--ink-2)}
 @media(max-width:600px){.wt-choices{grid-template-columns:1fr;gap:16px}}
 
+
+/* M3 submission update: retain the portfolio typography and project accent. */
+.wt-update{margin:36px 0 0;padding:20px 0 20px 20px;border-left:3px solid var(--pc);font-size:16px;line-height:1.7}
+.wt-update p{margin:0 0 10px;color:var(--ink-2)}.wt-update p:first-child{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline}.wt-update b{color:var(--ink)}.wt-update span{font-size:13px;color:var(--ink-3)}.wt-update a{font-weight:700}
+.wt-game-note{font-size:16px;line-height:1.8;color:var(--ink-2);margin:20px 0 26px}.wt-game-note b{color:var(--ink)}
+.wt-phone-media{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:22px;align-items:start;margin:24px 0}.wt-phone-media figure{margin:0}.wt-phone-media img{width:100%;height:360px;object-fit:contain;background:var(--bg2)}
+.wt-decision-list{list-style:none;padding:0;margin:30px 0;display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;counter-reset:decision}.wt-decision-list li{border-top:1px solid var(--line);padding-top:16px;counter-increment:decision}.wt-decision-list h3{font-size:19px;line-height:1.5;margin:0 0 10px}.wt-decision-list h3:before{content:'0' counter(decision);color:var(--accent);font-size:14px;margin-right:10px}.wt-decision-list p,.wt-entry p{font-size:16px;line-height:1.8;margin:0;color:var(--ink-2)}
+.wt-notice-types{margin:26px 0}.wt-notice-types>div{display:grid;grid-template-columns:210px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}.wt-notice-types dt{font-size:17px;font-weight:800;line-height:1.65}.wt-notice-types dd{font-size:16px;line-height:1.8;margin:0;color:var(--ink-2)}.wt-swatch{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;border:1px solid var(--line)}.wt-swatch.yellow{background:#ffe447}.wt-swatch.paper{background:#faf8ec}.wt-swatch.navy{background:#263554}
+.wt-entry{margin-top:30px}.wt-entry h3{font-size:20px;margin:0 0 10px}.wt-entry article{padding-top:18px;border-top:2px solid var(--pc)}
+.wt-feedback-rules{margin:28px 0}.wt-feedback-rules h3{font-size:22px;margin:0 0 20px}.wt-rule-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.wt-rule-grid article{padding-top:16px;border-top:2px solid var(--pc)}.wt-rule-label{font-size:13px;color:var(--ink-3);font-weight:700}.wt-rule-grid h4{font-size:20px;line-height:1.5;margin:10px 0}.wt-rule-grid p{font-size:16px;line-height:1.8;color:var(--ink-2);margin:0}
+@media(max-width:760px){.wt-phone-media,.wt-decision-list,.wt-rule-grid{grid-template-columns:1fr}.wt-phone-media img{height:auto;max-height:480px}.wt-notice-types>div{grid-template-columns:1fr;gap:10px}}
+
 </style>
 </head>
 <body data-p="whostail">
@@ -328,8 +340,8 @@ img.zoom{cursor:zoom-in}
     <dl class="v-facts">
       <div><dt>역할</dt><dd>메인 UI, 전투, 이벤트 요소 기획</dd></div>
       <div><dt>팀</dt><dd>5인, Unity</dd></div>
-      <div><dt>기간</dt><dd>2026.09부터 개발 중</dd></div>
-      <div><dt>M2 시연 설문</dt><dd>16명 중 9명 UI 긍정</dd></div>
+      <div><dt>기간</dt><dd>2026.09–12 · 개발 진행 중</dd></div>
+      <div><dt>최근 마일스톤</dt><dd>11.23 M3 평가 제출</dd></div>
     </dl>
   </div>
 </header>
@@ -337,14 +349,16 @@ img.zoom{cursor:zoom-in}
 <div class="v-wrap">
   <aside class="v-spine" aria-label="기획의 핵심"><p>핵심만 이어 읽기</p><ol></ol></aside>
   <main class="v-main">
+    <div class="wt-update" aria-label="포트폴리오 갱신 범위">
+      <p><b>11.23 M3 평가 제출까지의 작업</b><span>2026.11.24 내용 갱신</span></p>
+      <p>휴대폰의 정보 연결, 알림 분류, 세 QTE의 피드백, 관전자 UI 폴리싱을 추가했습니다. 게임 화면은 촬영 당시 버전을 캡션에 표시했습니다.</p>
+      <a href="#wt-polish">M3에서 다듬은 부분부터 보기</a>
+    </div>
 
     <section class="v-beat" data-step="게임" data-short="쫓으면서 쫓기는 꼬리잡기">
       <h2>한 명을 쫓는 동안, <em>누가 나를 쫓는지는</em> 모릅니다</h2>
       <p class="v-sub">최대 12명이 원형 사슬로 서로를 쫓습니다. 닿기만 해서는 끝나지 않고, 뒤에서 꼬리를 잡은 뒤 힘겨루기에서 이겨야 빼앗습니다.</p>
-      <figure class="v-vis">
-        <video class="v-shot" src="../assets/426f8eecbc1ec014c64340e3.mp4" data-auto loop muted playsinline poster="../assets/80a3cefa2f344b149c80b8f9.webp" aria-label="타깃 뒤로 다가가 꼬리를 잡고 C와 V를 번갈아 눌러 힘겨루기에서 이기는 14초 영상"></video>
-        <figcaption class="v-cap">로비 튜토리얼에 들어간 14초 시연 영상, 11.05 빌드, 팀원 제작, 봇 상대</figcaption>
-      </figure>
+      <p class="wt-game-note">M3에서는 <b>단서로 판단하고, 휴대폰에 추리를 남기고, 세 가지 힘겨루기로 겨루는 흐름</b>까지 화면을 다듬었습니다. 아래의 옛 영상은 기본 꼬리잡기 규칙을 보여 주는 자료입니다.</p>
       <div class="v-flow" style="--n:4">
         <div><b>단서로 타깃 좁히기</b><span>폰 F1–F4: 연락처, 채팅, 꼬리, 단서</span></div>
         <div><b>뒤로 다가가기</b><span>접촉만으로는 탈락하지 않음</span></div>
@@ -352,13 +366,17 @@ img.zoom{cursor:zoom-in}
         <div><b>탈취, 사슬 재연결</b><span>탈락자의 타깃을 이어받아 계속 추격</span></div>
       </div>
       <ul class="v-chips wt-chips" aria-label="판을 흔드는 장치">
-        <li>전화부스, 강도 너구리, 황금 고블린, 각자 120~300초 간격</li>
-        <li>생존 60% 이하에서 1/3 확률 꼬리 셔플</li>
+        <li>전화부스·강도·고블린과 오락실 이벤트</li>
+        <li>꼬리 셔플 발생 전 10초 예고</li>
         <li>탈락하면 관전하거나 택시, 도둑 같은 중개자로 복귀</li>
       </ul>
-      <details class="v-more"><summary>규칙의 근거</summary><div class="in">
-        <p>사슬 구조, 후방 잡기, 게이지 대결은 팀 최종 컨셉 기획서 4~5절. 최대 12명 꼬리색, 이벤트 세 가지의 독립 타이머, 꼬리 셔플(시작 인원 × 0.6 반올림에 처음 도달하면 1/3로 한 번 판정)은 11.18 main 저장소의 <code>docs/MATCH_EVENT_TIMING.md</code>와 <code>TailColors.cs</code> 기준입니다.</p>
-        <p>표지 그림은 11.16 에디터 실행 화면입니다(봇 11명과 진행, 오른쪽이 F1–F4 폰).</p>
+      <details class="v-more wt-legacy-video"><summary>초기 플레이 영상 보기 · 11.05 빌드 · 14초</summary><div class="in">
+        <video class="v-shot" src="../assets/426f8eecbc1ec014c64340e3.mp4" controls preload="none" muted playsinline poster="../assets/80a3cefa2f344b149c80b8f9.webp" aria-label="11월 5일 초기 빌드: 타깃 뒤에서 꼬리를 잡고 당시 C와 V 입력으로 겨루는 영상"></video>
+        <p class="v-cap">팀원이 제작한 로비 튜토리얼용 영상, 봇 상대. 현재 소개하는 세 QTE와 입력·HUD가 다른 초기 빌드입니다. 11.23 제출 빌드의 촬영 영상은 아닙니다.</p>
+      </div></details>
+      <details class="v-more"><summary>규칙과 화면의 기준</summary><div class="in">
+        <p>사슬 구조, 후방 잡기, 게이지 대결은 팀 컨셉 기획서 4~5절을 바탕으로 설명했습니다. 후속 기능은 보존된 11.20 main 소스(<code>3ef9b2a67</code>)와 작업 인계 기록을 참고했습니다. 꼬리 셔플의 10초 예고는 실제 이벤트 진행 시간에 연결한 UI입니다. 오락실 이벤트와 네트워크 로직 등 팀원의 후속 개발은 제 개인 제작 범위에 포함하지 않았습니다.</p>
+        <p>표지는 11.16 에디터 실행 캡처입니다(봇 11명, 오른쪽 F1–F4 폰). 제출 기준은 11.23 지정한 M3 빌드이며, 각 이미지·영상은 해당 날짜의 작업 증거입니다. 최종 ZIP과 소스 커밋의 정확한 대응은 별도로 확인해야 합니다.</p>
       </div></details>
     </section>
 
@@ -369,7 +387,7 @@ img.zoom{cursor:zoom-in}
         <div class="v-panel wt-me">
           <h3>제가 한 것</h3>
           <ul class="wt-list">
-            <li><b>화면 기획</b>HUD, 지도, 알림, 메뉴, 폰의 Figma 시안과, 요소마다 붙인 기획 의도 메모</li>
+            <li><b>화면 기획과 폴리싱</b>HUD·지도·알림·메뉴·휴대폰의 Figma 시안, 정보 연결과 공통 스타일. 튜토리얼·관전 화면까지 후속 정리</li>
             <li><b>힘겨루기 QTE</b>게이지, 키캡 화면과 성공, 실패 피드백 설계</li>
             <li><b>아이템</b>우산 기획과 Blender 모델, 동작, M2 아이템 14종 재정리와 록온</li>
             <li><b>검수</b>팀 피드백, 시연 설문을 고칠 항목으로 바꾸고 Unity에서 직접 플레이로 확인</li>
@@ -390,13 +408,44 @@ img.zoom{cursor:zoom-in}
     <section class="v-beat" data-step="보여 줄 것" data-short="의도 → 피드백 → 제약 안의 완성">
       <h2>의도를 먼저 적고, 팀 피드백과 시연 설문으로 고치고, <em>제약 안에서 빠르게</em> 완성했습니다</h2>
       <p class="v-sub">의견을 판단으로 바꾼 사례부터, 화면과 아이템을 고친 과정으로 이어집니다.</p>
-      <ol class="wt-toc"><li><a href="#wt-handoff"><span>판단과 인계</span>팀 의견을 등급과 명세에 반영</a></li>
+      <ol class="wt-toc"><li><a href="#wt-polish"><span>M3 폴리싱</span>정보가 여러 화면에서 이어지도록</a></li><li><a href="#wt-handoff"><span>판단과 인계</span>팀 의견을 등급과 명세에 반영</a></li>
         <li><a href="#wt-intent"><span>기획 의도</span>Figma 메모가 최종 기획서의 문장이 되기까지</a></li>
         <li><a href="#wt-feedback"><span>피드백</span>6주 동안 HUD가 바뀐 여섯 번</a></li>
         <li><a href="#wt-umbrella"><span>아이템 ①</span>비를 막지 않는 우산</a></li>
         <li><a href="#wt-lock"><span>아이템 ②</span>추리 규칙을 지킨 록온, 26분</a></li>
-        <li><a href="#wt-qte"><span>QTE</span>레퍼런스 두 개로 글자를 지운 하루</a></li>
+        <li><a href="#wt-qte"><span>QTE</span>입력·성공·실패를 읽히게 한 피드백</a></li>
       </ol>
+    </section>
+
+    <section class="v-beat" id="wt-polish" data-step="M3 폴리싱" data-short="추리한 정보가 여러 화면에서 이어지도록">
+      <h2>화면을 꾸미는 것에서, <em>정보가 이어지게 하는 것</em>까지</h2>
+      <p class="v-sub">추리한 색을 다른 앱에서 다시 지정하거나, 메시지를 받았는데 어디서 읽는지 찾게 되는 순간을 줄이려 했습니다. 같은 사람의 정보와 읽음 상태가 화면 사이에서 이어지도록 정리했습니다.</p>
+      <div class="wt-phone-media">
+        <figure class="v-vis"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-chat-wide.png" alt="작업 중 펼친 휴대폰: 왼쪽 대화 상대 목록과 오른쪽 말풍선 대화"><figcaption class="v-cap">휴대폰 펼침 화면을 맞추던 시기의 로컬 시연 캡처. 샘플 대화이며 실제 온라인 송수신 증거는 아닙니다.</figcaption></figure>
+        <figure class="v-vis"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-contacts.png" alt="연락처의 종이 목록: 이름 오른쪽에 꼬리색 정보가 놓인 화면"><figcaption class="v-cap">연락처 스타일을 통일하던 작업 캡처. 당시 ‘미정’ 칸이 이후 추리 색과 연동되도록 수정했습니다.</figcaption></figure>
+      </div>
+      <ol class="wt-decision-list">
+        <li><h3>추리는 편집을 마칠 때 적용</h3><p>이름표를 끌어 놓고 색을 고르는 동안 미니맵이 계속 바뀌면 산만했습니다. <b>꼬리 화면에서 나올 때</b> 추리 배치와 색을 적용하고, 연락처와 상대 꼬리 표시에도 같은 정보를 연결했습니다.</p></li>
+        <li><h3>탈락 때마다 전부 다시 놓지 않기</h3><p>처음에는 정보 유출을 막으려고 전부 초기화하는 안을 검토했습니다. 탈락자 이름을 공개하는 흐름에 맞춰 <b>해당 이름표만 빼고 나머지 배치와 색을 유지</b>하도록 바꿨습니다. 추리는 보존하고, 남은 인원에 맞춰 원을 재배치합니다.</p></li>
+        <li><h3>수신·미리보기·읽음을 구분</h3><p>새 메시지는 <b>오른쪽 위 배너</b>로 즉시 알립니다. 클릭하면 보낸 사람의 대화방을 열고, 그때 해당 대화의 빨간 배지를 지웁니다. 배너를 보거나 목록만 열었을 때는 읽음으로 처리하지 않습니다.</p></li>
+        <li><h3>같은 기기 안에서 조작 규칙 유지</h3><p>연락처·채팅·통화의 헤더와 종이 표면, 홈·닫기 버튼을 맞췄습니다. 통화에서는 중복 상태 안내를 줄이고 <b>상대 얼굴과 마이크·끊기</b>를 중심으로 되돌렸습니다. 작은 폰과 펼친 폰의 높이도 맞춰 전환 흐름을 정리했습니다.</p></li>
+      </ol>
+      <details class="v-more"><summary>내 담당과 구현 근거</summary><div class="in"><p>기획 판단·화면 피드백·공통 스타일은 제가 정했고 구현 코드는 AI와 작업했습니다. 추리의 편집/적용 분리는 <code>PhoneDeductionModel</code>, 읽음과 배지는 <code>MobileChatSession</code>·<code>PhoneUnreadBadge</code>, 수신 배너는 <code>ChatPreviewBanner</code>에 연결했습니다. 위 이미지는 당시 작업 증거이며 최종 제출 ZIP을 새로 촬영한 화면은 아닙니다.</p></div></details>
+    </section>
+
+    <section class="v-beat" id="wt-notices" data-step="알림과 진입" data-short="같은 역할은 통일하고, 다른 정보는 구분">
+      <h2>모두 같은 모양보다, <em>역할이 같은 알림끼리</em> 통일했습니다</h2>
+      <p class="v-sub">처음에는 알림을 모두 노란 포스트잇으로 맞췄습니다. 하지만 메시지까지 게임 공지처럼 보여 다시 나눴습니다. 어디를 보면 어떤 종류의 정보인지 예상할 수 있게 하는 것이 기준이었습니다.</p>
+      <dl class="wt-notice-types">
+        <div><dt><span class="wt-swatch yellow" aria-hidden="true"></span>왼쪽 · 게임 / 이벤트 알림</dt><dd>아이템 획득·폐기·사용과 구역 폐쇄는 원래의 <b>노란 포스트잇</b>을 공유합니다. 이벤트는 ‘이벤트 알림’으로 제목을 구분하고, 중요 단어만 색으로 강조했습니다.</dd></div>
+        <div><dt><span class="wt-swatch paper" aria-hidden="true"></span>오른쪽 위 · 메시지 / 단서</dt><dd><b>미색 수신 배너</b>로 구분합니다. 폰을 열어도 배너 위치는 유지하고, 단서의 이름·색 단어만 강조합니다. 문장은 의미 단위로 두 줄에 나눴습니다.</dd></div>
+        <div><dt><span class="wt-swatch navy" aria-hidden="true"></span>미니맵 옆 · 진행 중 이벤트</dt><dd>별도의 작은 진행 카드에 <b>이벤트 이름·남은 시간·상태</b>를 표시합니다. 꼬리 셔플도 발생 10초 전부터 같은 형식으로 예고하고, 등장·내용 교체·퇴장에 전환 효과를 연결했습니다.</dd></div>
+      </dl>
+      <div class="v-two wt-entry">
+        <article><h3>처음 들어오는 사람</h3><p>팀의 튜토리얼 흐름에 본 게임의 폰트·종이 질감을 맞췄습니다. 종료 안내가 미니맵을 가리는 배치, 연습 인원과 원 위 점 개수가 다른 표시, 추리 색 지정 후 진행이 막히는 연결을 수정했습니다.</p></article>
+        <article><h3>탈락한 뒤에도 보는 사람</h3><p>관전과 중개자 선택에 같은 종이·버튼·폰트 규칙을 적용했습니다. 자유 시점·따라가기·대상 변경과 역할 선택을 나눠, <b>탈락 이후 가능한 행동</b>을 읽기 쉽게 정리했습니다.</p></article>
+      </div>
+      <details class="v-more"><summary>개인 작업과 팀 후속 작업의 경계</summary><div class="in"><p>튜토리얼·관전·중개자 시스템 자체는 팀 작업입니다. 제 범위는 화면 통일, 배치·입력 안내와 연결 문제의 수정이며, 관전자 UI는 11.18 PR #64(<code>dac4aad59</code>)로 통합했습니다. 11.19–20의 오락실·온라인 지연·택시 내비게이션 후속 개발은 팀 작업으로 구분합니다.</p></div></details>
     </section>
 
     <section class="v-beat" id="wt-handoff" data-step="판단과 인계" data-short="팀 의견을 반영하고, 수치와 예외까지 확정">
@@ -450,7 +499,7 @@ img.zoom{cursor:zoom-in}
           <button type="button" data-v="c"><b>10.22</b><span>빌드 검수</span></button>
           <button type="button" data-v="d"><b>11.09</b><span>원형 관계도</span></button>
           <button type="button" data-v="e"><b>11.12</b><span>원 안의 지도</span></button>
-          <button type="button" data-v="f"><b>11.16</b><span>최신 화면</span></button>
+          <button type="button" data-v="f"><b>11.16</b><span>M3 HUD</span></button>
         </div>
 
         <div data-show="a"><div class="wt-stage">
@@ -500,7 +549,7 @@ img.zoom{cursor:zoom-in}
         <div data-show="f"><div class="wt-stage">
           <figure class="v-vis"><img class="v-shot zoom" src="../assets/240d4490ef2c9296cb779cd1.webp" alt="화면 왼쪽 위의 원형 미니맵과 그 둘레의 플레이어 이름표, 노란 타깃 표시가 붙은 이름표"><figcaption class="v-cap">11.16 에디터 실행 화면에서 잘라 낸 왼쪽 위, 봇 11명과 진행</figcaption></figure>
           <div class="wt-why">
-            <p class="k">지금</p><p>원 하나에서 내 위치, 주변 지도, 남은 사람, 내 타깃 표시를 함께 읽습니다. 표지 그림이 같은 날의 전체 화면입니다.</p>
+            <p class="k">11.16에 도달한 형태</p><p>원 하나에서 내 위치, 주변 지도, 남은 사람, 내 타깃 표시를 함께 읽게 했습니다. 표지는 같은 날의 전체 화면입니다. 이후 폴리싱은 휴대폰의 추리 내용 연결과 QTE·관전 화면으로 이어졌습니다.</p>
           </div>
         </div></div>
       </div>
@@ -551,14 +600,10 @@ img.zoom{cursor:zoom-in}
         <li><time>19:29</time><p>아이템 구성과 함께 커밋 <code>ecd8d06e7</code></p></li>
       </ol>
       <div class="v-panel wt-rangebox">
-        <h3>11.03 확정, 같은 조준법, 사거리로 나눈 두 추격 아이템</h3>
-        <div class="wt-range" role="img" aria-label="0에서 12미터는 낚싯대, 12에서 20미터는 록온">
-          <div class="bar"><span class="rod">낚싯대</span><span class="lock">록온</span></div>
-          <div class="ticks"><span style="left:0">0</span><span style="left:60%">12m</span><span style="left:100%">20m</span></div>
-        </div>
-        <div class="wt-legend">
-          <p><b>낚싯대</b>12m 안의 상대를 내 앞으로 끌어온다</p>
-          <p><b>록온</b>12m 밖 20m 안의 상대를 달려서 따라붙는다</p>
+        <h3>11.03 확정, 같은 조준법, 다른 사거리와 역할</h3>
+        <div class="wt-ranges" aria-label="낚싯대 최대 12미터, 록온 최대 20미터. 두 아이템의 사용 거리 범위는 겹칩니다.">
+          <div><b>낚싯대 · 최대 12m</b><i style="--range:60%" aria-hidden="true"></i><span>보이는 상대를 내 앞으로 끌어옵니다.</span></div>
+          <div><b>록온 · 최대 20m</b><i style="--range:100%" aria-hidden="true"></i><span>고른 상대를 향해 달릴 때 가속합니다. 12m 안에서도 사용할 수 있습니다.</span></div>
         </div>
         <p class="v-note">둘 다 우클릭으로 화면에 보이는 상대를 고르고 놓아 씁니다. 은신, 연막, 벽 뒤의 상대는 고를 수 없고, 비밀 타깃의 신원은 알려 주지 않습니다.</p>
       </div>
@@ -569,17 +614,26 @@ img.zoom{cursor:zoom-in}
       </div></details>
     </section>
 
-    <section class="v-beat" id="wt-qte" data-step="QTE" data-short="글자 없이 읽히는 힘겨루기">
-      <h2>힘겨루기 QTE에서 <em>설명 글자를 빼고</em>, 익숙한 문법 두 개로 읽히게 했습니다</h2>
+    <section class="v-beat" id="wt-qte" data-step="QTE" data-short="눌러야 할 키와 성공 결과를 연결">
+      <h2>긴 설명을 줄이고, <em>입력과 성공 결과가 이어지는</em> 힘겨루기로 다듬었습니다</h2>
       <p class="v-sub">판정 로직은 팀원이 만들었고(11.16), 저는 화면과 피드백을 맡아 다음 날 하루 만에 main에 합쳤습니다.</p>
       <div class="wt-qte" id="wtqte" data-v="b">
-        <div class="v-seg" data-for="wtqte"><button type="button" data-v="a">11.17 15:21, 전</button><button type="button" data-v="b">18:30, 후</button></div>
+        <div class="v-seg" data-for="wtqte"><button type="button" data-v="a">11.17 15:21, 전</button><button type="button" data-v="b">18:30, 폴리싱 중</button></div>
         <div class="wt-q3">
           <figure><div data-show="a"><img class="v-shot zoom" src="../assets/a7e38c9b1e2f19cb6d036b61.webp" alt="Space와 Enter 키캡 아래 4.5초 숫자와 게이지"></div><div data-show="b"><img class="v-shot zoom" src="../assets/7c58ed2d194497c8fbb68e2d.webp" alt="Space와 Enter 키캡, 나 대 상대 전광판, 오른쪽 위 빨간 폭발 모양 태그"></div><figcaption class="v-cap"><b>스페이스 엔터</b>: 번갈아 연타</figcaption></figure>
           <figure><div data-show="a"><img class="v-shot zoom" src="../assets/e1f9257a0e492ea6e8670800.webp" alt="다섯 키캡 위에 앞의 키부터 입력 문구와 두 줄 설명"></div><div data-show="b"><img class="v-shot zoom" src="../assets/522bd6ecb5eb7ef146a8bf1e.webp" alt="설명 없이 첫 노란 키캡 위에 강조선, 나 대 상대 전광판, 노란 키부터 눌러 태그"></div><figcaption class="v-cap"><b>아재 절단기</b>: 노란 키부터 순서대로</figcaption></figure>
           <figure><div data-show="a"><img class="v-shot zoom" src="../assets/9ce09170757df86cfa073c7e.webp" alt="원판 칸마다 +1 +2 +3 글자와 판정폭 설명 세 줄"></div><div data-show="b"><img class="v-shot zoom" src="../assets/ac55d2b048fcb8eb4cc074fe.webp" alt="숫자 없이 색과 줄 수로 점수 칸을 구분한 다트판 모양 원판"></div><figcaption class="v-cap"><b>데바데(원형)</b>: 빛나는 칸에서 누르기</figcaption></figure>
         </div>
-        <p class="v-note"><span data-show="a">15:21에 제가 보낸 실제 화면입니다. 남은 초, 점수, 조작법을 모두 글자로 읽어야 했습니다.</span><span data-show="b">18:30에 제가 보낸 실제 화면입니다. 이후 태그 문구만 “스페이스 엔터를 연타해!”, “노란 키를 순차적으로 눌러!”, “빛나는 칸에서 스페이스를 눌러!”로 확정했습니다.</span></p>
+        <p class="v-note"><span data-show="a">15:21에 제가 보낸 실제 화면입니다. 남은 초, 점수, 조작법을 모두 글자로 읽어야 했습니다.</span><span data-show="b">18:30에 남긴 작업 중 캡처입니다. 이후 태그 문구와 위치, 차등 점수, 원형 게이지 표시, 오입력 안내를 추가로 조정했습니다. 아래는 그 후 확정한 규칙입니다.</span></p>
+      </div>
+      <div class="wt-feedback-rules">
+        <h3>세 가지 입력, 같은 결과 표시</h3>
+        <div class="wt-rule-grid">
+          <article><span class="wt-rule-label">스페이스 엔터 · 연타</span><h4>스페이스 엔터를<br>연타해!</h4><p>키캡 위 카툰 강조선과 눌림 색으로 다음 입력을 유도합니다. 성공한 입력이 점수와 줄다리기 게이지에 함께 반영되도록 연결했습니다.</p></article>
+          <article><span class="wt-rule-label">아재 절단기 · 순서</span><h4>노란 키를<br>순차적으로 눌러!</h4><p>현재 키만 노랗게 강조합니다. 틀리면 빨간 키캡·흔들림과 <b>“다시! 노란 키부터!”</b> 안내로 어느 입력부터 이어가야 하는지 알립니다.</p></article>
+          <article><span class="wt-rule-label">데바데 · 원형 타이밍</span><h4>빛나는 칸에서<br>스페이스를 눌러!</h4><p>득점할 수 있는 범위만 빛나게 하고, 색과 테두리로 등급을 나눕니다. 맞힌 조각은 떨어지고 <b>1·2·3점 차등</b>이 점수판과 게이지에 반영됩니다. 실패는 화면 흔들림 대신 은은한 색 반응으로 구분합니다.</p></article>
+        </div>
+        <p class="wt-game-note">공통 규칙: 남은 시간은 <b>초록·노랑·빨강 막대</b>로, 힘겨루기는 <b>수평 게이지와 원형 표시</b>로 읽게 했습니다. 원 주변의 짧은 반응으로 ‘지금 성공한 입력이 게이지를 움직였다’는 연결을 보강했습니다.</p>
       </div>
       <div class="wt-refs">
         <figure class="wt-ref"><img class="v-shot" src="../assets/07c3ea4ff2c23e5e20d2f462.webp" alt="다트판 사진"><figcaption class="v-cap">다트판, 레퍼런스</figcaption></figure>
@@ -601,7 +655,7 @@ img.zoom{cursor:zoom-in}
 
     <section class="v-beat" data-step="결과" data-short="시연 16명 중 9명이 UI를 좋게 봄">
       <h2>M2 시연에서 16명 중 9명이 <em>UI&nbsp;디자인, 가독성</em>을 좋은 점으로 꼽았습니다</h2>
-      <p class="v-sub">같은 설문에서 9명은 정보에 닿는 조작을 고쳐 달라고 했고, 그 답이 11월의 원형 HUD와 폰 단축키입니다.</p>
+      <p class="v-sub">같은 설문에서 9명은 정보에 닿는 조작을 고쳐 달라고 했습니다. 이를 원형 HUD, 폰 단축키와 추리 정보 연결을 다듬는 근거로 삼았습니다. 아래 수치는 M3 수정 전인 11.06 M2 설문이며, M3의 개선 효과를 측정한 수치는 아닙니다.</p>
       <div class="v-two">
         <div class="v-panel"><h3>좋았던 점, 16명 중</h3>
           <div class="v-bars">
@@ -624,7 +678,7 @@ img.zoom{cursor:zoom-in}
     </section>
   </main>
 </div>
-<nav class="v-foot" aria-label="다른 프로젝트"><a href="../index.html"><small>처음으로</small><b>프로젝트 모아 보기</b></a><a href="darkest.html"><small>이전 프로젝트</small><b>Darkest Refined</b></a><a href="kendo.html"><small>다음 프로젝트</small><b>Samurai Kendo</b></a><a href="../자료실_전체판.html"><small>근거와 원문 전체</small><b>자료실에서 이 프로젝트 보기</b></a></nav>
+<nav class="v-foot" aria-label="다른 프로젝트"><a href="../index.html"><small>처음으로</small><b>프로젝트 모아 보기</b></a><a href="darkest.html"><small>이전 프로젝트</small><b>Darkest Refined</b></a><a href="kendo.html"><small>다음 프로젝트</small><b>Samurai Kendo</b></a><a href="../docs/whostail-handoff.html"><small>이 프로젝트의 기획 근거</small><b>아이템 판단과 인계 명세 읽기</b></a></nav>
 <script>
 /* v42 공용: 테마, 진행 막대, 논지 줄(왼쪽), 토글, 화면에 들어온 영상만 재생 */
 (function(){
