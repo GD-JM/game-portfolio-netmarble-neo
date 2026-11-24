@@ -329,10 +329,24 @@ img.zoom{cursor:zoom-in}
 .wt-feedback-rules{margin:28px 0}.wt-feedback-rules h3{font-size:22px;margin:0 0 20px}.wt-rule-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.wt-rule-grid article{padding-top:16px;border-top:2px solid var(--pc)}.wt-rule-label{font-size:13px;color:var(--ink-3);font-weight:700}.wt-rule-grid h4{font-size:20px;line-height:1.5;margin:10px 0}.wt-rule-grid p{font-size:16px;line-height:1.8;color:var(--ink-2);margin:0}
 @media(max-width:760px){.wt-phone-media,.wt-decision-list,.wt-rule-grid{grid-template-columns:1fr}.wt-phone-media img{height:auto;max-height:480px}.wt-notice-types>div{grid-template-columns:1fr;gap:10px}}
 
+
+/* User-recorded M3 footage: full game viewport, editorial caption below it. */
+.wt-film-feature{margin:28px 0 32px;scroll-margin-top:90px}.wt-film-feature h3{font-size:26px;line-height:1.45;margin:0 0 12px}
+.wt-film-meta{font-size:13px;color:var(--ink-3);margin:0 0 16px;line-height:1.7}
+.wt-film-figure{margin:0}.wt-film-figure video{display:block;width:100%;height:auto;aspect-ratio:80/49;object-fit:contain;background:#121a27;border:1px solid var(--line);border-radius:5px}
+.wt-film-figure figcaption{font-size:15px;line-height:1.8;color:var(--ink-2);margin:14px 0 0;max-width:78ch}
+.wt-film-chapters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.wt-film-chapters button{font:600 14px/1.5 SUIT,sans-serif;background:var(--bg2);color:var(--ink);border:1px solid var(--line);padding:8px 12px;border-radius:4px;cursor:pointer}.wt-film-chapters button:hover{border-color:var(--accent)}
+.wt-film-nav{display:flex;flex-wrap:wrap;gap:12px 24px;margin:20px 0;font-size:15px}.wt-film-nav a,.wt-film-file{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+.wt-film-library{margin:36px 0 32px;scroll-margin-top:90px}.wt-film-library h3{font-size:24px;margin:0 0 10px}.wt-film-library>p{font-size:15px;color:var(--ink-2);line-height:1.8}
+.wt-film-detail{border-top:1px solid var(--line);scroll-margin-top:90px}.wt-film-detail:last-child{border-bottom:1px solid var(--line)}.wt-film-detail>summary{padding:19px 0;cursor:pointer;font-weight:750;line-height:1.55;font-size:18px}.wt-film-detail>summary small{display:block;font-size:13px;font-weight:500;color:var(--ink-3);margin:5px 0 0 20px}
+.wt-film-content{padding:0 0 26px}.wt-film-tags{font-size:13px;color:var(--accent);margin:0 0 12px}.wt-film-file{display:inline-block;font-size:14px;margin-top:12px}
+.wt-film-feature button:focus-visible,.wt-film-nav a:focus-visible,.wt-film-detail>summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:600px){.wt-film-feature h3{font-size:22px}.wt-film-detail>summary{font-size:17px}}
+
 </style>
 </head>
 <body data-p="whostail">
-<header class="v-top"><a class="home" href="../index.html">이재민<b>.</b></a><span class="now">Who's Tail: 의도를 먼저 적고, 피드백으로 고쳐 가는 UI, 아이템 기획</span><a class="btn" href="../자료실_전체판.html">자료실</a><button type="button" data-theme-toggle>밝게</button><span class="v-prog" aria-hidden="true"></span></header><header class="v-hero" style="--bg-img:url('../assets/52c7119fd8b842e0407cf489.webp')">
+<header class="v-top"><a class="home" href="../index.html">이재민<b>.</b></a><span class="now">Who's Tail: 의도를 먼저 적고, 피드백으로 고쳐 가는 UI, 아이템 기획</span><a class="btn" href="../자료실_전체판.html">자료실</a><button type="button" data-theme-toggle>밝게</button><span class="v-prog" aria-hidden="true"></span></header><header class="v-hero" style="--bg-img:url('../assets/whostail-20261124-play.jpg')">
   <div class="in">
     <p class="kind"><i></i>메인 프로젝트, 〈Who's Tail〉, 5인 팀</p>
     <h1>나는 한 명을 쫓고, 누군가는 나를 쫓는 꼬리잡기</h1>
@@ -351,14 +365,16 @@ img.zoom{cursor:zoom-in}
   <main class="v-main">
     <div class="wt-update" aria-label="포트폴리오 갱신 범위">
       <p><b>11.23 M3 평가 제출까지의 작업</b><span>2026.11.24 내용 갱신</span></p>
-      <p>휴대폰의 정보 연결, 알림 분류, 세 QTE의 피드백, 관전자 UI 폴리싱을 추가했습니다. 게임 화면은 촬영 당시 버전을 캡션에 표시했습니다.</p>
+      <p>휴대폰의 정보 연결, 알림 분류, 세 QTE의 피드백, 관전자 UI 폴리싱을 정리했습니다. 11.24 직접 녹화한 영상 8편과 원본 시간대별 분류표를 추가했습니다.</p>
       <a href="#wt-polish">M3에서 다듬은 부분부터 보기</a>
     </div>
 
     <section class="v-beat" data-step="게임" data-short="쫓으면서 쫓기는 꼬리잡기">
       <h2>한 명을 쫓는 동안, <em>누가 나를 쫓는지는</em> 모릅니다</h2>
       <p class="v-sub">최대 12명이 원형 사슬로 서로를 쫓습니다. 닿기만 해서는 끝나지 않고, 뒤에서 꼬리를 잡은 뒤 힘겨루기에서 이겨야 빼앗습니다.</p>
-      <p class="wt-game-note">M3에서는 <b>단서로 판단하고, 휴대폰에 추리를 남기고, 세 가지 힘겨루기로 겨루는 흐름</b>까지 화면을 다듬었습니다. 아래의 옛 영상은 기본 꼬리잡기 규칙을 보여 주는 자료입니다.</p>
+      <p class="wt-game-note">M3에서는 <b>단서로 판단하고, 휴대폰에 추리를 남기고, 세 가지 힘겨루기로 겨루는 흐름</b>까지 화면을 다듬었습니다. 11월 24일 직접 녹화한 제출 빌드의 영상으로, 실제 입력이 화면과 결과에 이어지는 모습을 담았습니다.</p>
+      <div class="wt-film-feature" id="film-play"><h3>단서를 읽고, 추리를 기록하고, 꼬리를 잡다</h3><p class="wt-film-meta">11.23 M3 제출 빌드 · 11.24 직접 녹화 · 봇 참여 플레이 · 47초 발췌</p><figure class="wt-film-figure"><video id="wt-featured" controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-play.jpg" aria-label="단서를 읽고, 추리를 기록하고, 꼬리를 잡다"><source src="../assets/whostail-20261124-play.mp4" type="video/mp4"><a href="../assets/whostail-20261124-play.mp4">영상 파일 열기</a></video><figcaption>11월 24일 직접 녹화한 M3 제출 빌드의 플레이 발췌입니다. 이동 중 단서 확인과 꼬리색 기록, 추격, 연타 QTE와 Bot 5 탈락까지 담았습니다. 서로 다른 시간대의 장면을 연결한 편집본이며, 봇이 참여한 플레이입니다.</figcaption></figure>
+<div class="wt-film-chapters" aria-label="대표 영상 장면 이동"><button type="button" data-wt-seek="0" aria-controls="wt-featured">00:00 단서 획득</button><button type="button" data-wt-seek="8.7" aria-controls="wt-featured">00:08 색 기록</button><button type="button" data-wt-seek="16.9" aria-controls="wt-featured">00:16 추리 수정</button><button type="button" data-wt-seek="30.9" aria-controls="wt-featured">00:30 추격</button><button type="button" data-wt-seek="37.9" aria-controls="wt-featured">00:37 QTE와 결과</button></div><nav class="wt-film-nav" aria-label="장면별 영상"><a href="#film-tutorial">튜토리얼</a><a href="#film-phone">휴대폰 추리</a><a href="#film-mash">QTE 3종</a><a href="#film-umbrella">우산 이동</a><a href="../docs/whostail-video-index.html">영상 분류표</a></nav></div>
       <div class="v-flow" style="--n:4">
         <div><b>단서로 타깃 좁히기</b><span>폰 F1–F4: 연락처, 채팅, 꼬리, 단서</span></div>
         <div><b>뒤로 다가가기</b><span>접촉만으로는 탈락하지 않음</span></div>
@@ -370,13 +386,14 @@ img.zoom{cursor:zoom-in}
         <li>꼬리 셔플 발생 전 10초 예고</li>
         <li>탈락하면 관전하거나 택시, 도둑 같은 중개자로 복귀</li>
       </ul>
+      <div class="wt-film-library" id="video-library"><h3>장면별로 자세히 보기</h3><p>설계한 화면이 실제 입력과 만나는 순간을 모았습니다. 영상을 펼치면 원래 게임 화면과 짧은 설명을 함께 볼 수 있습니다.</p><details class="wt-film-detail" id="film-tutorial"><summary><span>튜토리얼 | 읽기에서 직접 잡기까지</span><small>00:48 · 튜토리얼</small></summary><div class="wt-film-content"><p class="wt-film-tags">튜토리얼 · 단서 · 꼬리색 · 추격 · 연타 · 순서 입력 · 원형 타이밍</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-tutorial.jpg" aria-label="튜토리얼 | 읽기에서 직접 잡기까지"><source src="../assets/whostail-20261124-tutorial.mp4" type="video/mp4"><a href="../assets/whostail-20261124-tutorial.mp4">영상 파일 열기</a></video><figcaption>단서 두 장 획득 → 단서 읽기 → 이름표·꼬리색 배치 → 추격 → 세 가지 QTE → 연습 완료. 안내와 실제 입력이 이어지는 구간을 순서대로 보존했습니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-tutorial.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-phone"><summary><span>이동 중에도 이어지는 휴대폰 추리</span><small>00:26 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">휴대폰 · 단서 · 드래그 · 꼬리색 · 미니맵</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-phone.jpg" aria-label="이동 중에도 이어지는 휴대폰 추리"><source src="../assets/whostail-20261124-phone.mp4" type="video/mp4"><a href="../assets/whostail-20261124-phone.mp4">영상 파일 열기</a></video><figcaption>이동을 이어가면서 휴대폰을 열어 단서를 읽고 이름표와 색을 배치합니다. 뒤쪽 장면에서는 새 단서에 맞춰 기존 추리 색을 다시 바꿉니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-phone.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-mash"><summary><span>스페이스 엔터 | 연타와 탈락 결과</span><small>00:12 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">QTE · 연타 · 점수판 · 게이지 · 탈락</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-mash.jpg" aria-label="스페이스 엔터 | 연타와 탈락 결과"><source src="../assets/whostail-20261124-mash.mp4" type="video/mp4"><a href="../assets/whostail-20261124-mash.mp4">영상 파일 열기</a></video><figcaption>접근과 꼬리잡기부터 Space·Enter 입력, 점수와 줄다리기 게이지 변화까지 담았습니다. 끝에는 Bot 5 탈락 알림과 생존 인원 12 → 11이 표시됩니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-mash.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-sequence"><summary><span>아재 절단기 | 다음 키와 오입력 피드백</span><small>00:20 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">QTE · 순서 입력 · 오입력 · 점수판 · 오인 공격</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-sequence.jpg" aria-label="아재 절단기 | 다음 키와 오입력 피드백"><source src="../assets/whostail-20261124-sequence.mp4" type="video/mp4"><a href="../assets/whostail-20261124-sequence.mp4">영상 파일 열기</a></video><figcaption>노란 키를 순서대로 입력하는 장면과, 다른 교전에서 빨간 키·X·다시 안내가 나타나는 장면을 묶었습니다. QTE 점수 상승과 올바른 표적 판정은 별개이며, 종료 뒤 오인 공격 알림도 남겼습니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-sequence.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-timing"><summary><span>데바데 | 빛나는 칸을 맞추는 타이밍</span><small>00:13 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">QTE · 원형 타이밍 · 다트 · 성공·실패 · 아이템 · 오인 공격</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-timing.jpg" aria-label="데바데 | 빛나는 칸을 맞추는 타이밍"><source src="../assets/whostail-20261124-timing.mp4" type="video/mp4"><a href="../assets/whostail-20261124-timing.mp4">영상 파일 열기</a></video><figcaption>낚싯대 사용 뒤 원형 QTE로 이어집니다. 점수 증가, 맞힌 조각의 변화, 초록 성공 효과와 빨간 실패 효과를 볼 수 있습니다. 종료 후에는 오인 공격으로 위치 노출 알림이 나타납니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-timing.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-umbrella"><summary><span>우산 | 옥상에서 시장까지 활공</span><small>00:16 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">아이템 · 우산 · 활공 · 입체 이동</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-umbrella.jpg" aria-label="우산 | 옥상에서 시장까지 활공"><source src="../assets/whostail-20261124-umbrella.mp4" type="video/mp4"><a href="../assets/whostail-20261124-umbrella.mp4">영상 파일 열기</a></video><figcaption>옥상에서 뛰어내린 뒤 우산을 펼쳐 도로와 시장 위를 이동하고 내려오는 장면입니다. 아이템이 이동 경로를 바꾸는 모습을 보여줍니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-umbrella.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-events"><summary><span>폐쇄·발자국·지도 | 바뀌는 플레이 환경</span><small>00:25 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">이벤트 · 구역 폐쇄 · 발자국 · 전체 지도 · 알림</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-events.jpg" aria-label="폐쇄·발자국·지도 | 바뀌는 플레이 환경"><source src="../assets/whostail-20261124-events.mp4" type="video/mp4"><a href="../assets/whostail-20261124-events.mp4">영상 파일 열기</a></video><figcaption>구역 폐쇄 알림, 발자국 이벤트 예고와 시작, 전체 지도와 이벤트 기록을 발췌했습니다. 각 장면은 같은 플레이의 서로 다른 시간대입니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-events.mp4">영상 파일로 열기</a></div></details></div>
       <details class="v-more wt-legacy-video"><summary>초기 플레이 영상 보기 · 11.05 빌드 · 14초</summary><div class="in">
         <video class="v-shot" src="../assets/426f8eecbc1ec014c64340e3.mp4" controls preload="none" muted playsinline poster="../assets/80a3cefa2f344b149c80b8f9.webp" aria-label="11월 5일 초기 빌드: 타깃 뒤에서 꼬리를 잡고 당시 C와 V 입력으로 겨루는 영상"></video>
         <p class="v-cap">팀원이 제작한 로비 튜토리얼용 영상, 봇 상대. 현재 소개하는 세 QTE와 입력·HUD가 다른 초기 빌드입니다. 11.23 제출 빌드의 촬영 영상은 아닙니다.</p>
       </div></details>
       <details class="v-more"><summary>규칙과 화면의 기준</summary><div class="in">
         <p>사슬 구조, 후방 잡기, 게이지 대결은 팀 컨셉 기획서 4~5절을 바탕으로 설명했습니다. 후속 기능은 보존된 11.20 main 소스(<code>3ef9b2a67</code>)와 작업 인계 기록을 참고했습니다. 꼬리 셔플의 10초 예고는 실제 이벤트 진행 시간에 연결한 UI입니다. 오락실 이벤트와 네트워크 로직 등 팀원의 후속 개발은 제 개인 제작 범위에 포함하지 않았습니다.</p>
-        <p>표지는 11.16 에디터 실행 캡처입니다(봇 11명, 오른쪽 F1–F4 폰). 제출 기준은 11.23 지정한 M3 빌드이며, 각 이미지·영상은 해당 날짜의 작업 증거입니다. 최종 ZIP과 소스 커밋의 정확한 대응은 별도로 확인해야 합니다.</p>
+        <p>표지와 새 영상 8편은 11.23 지정한 M3 제출 빌드를 11.24 직접 녹화한 자료입니다. 튜토리얼과 봇 참여 플레이를 구분했습니다. 이전 제작 과정 이미지는 당시 날짜의 작업 증거로 보존했습니다. 최종 ZIP과 소스 커밋의 정확한 대응은 별도로 확인해야 합니다.</p>
       </div></details>
     </section>
 
@@ -399,7 +416,7 @@ img.zoom{cursor:zoom-in}
             <li><b>팀원 A(팀장)</b>최종 기획 결정, 프로젝트 관리, 개발</li>
             <li><b>팀원 B</b>컨셉, 맵, 레벨 디자인, 개발</li>
             <li><b>팀원 C, D</b>사운드, 서브 UI / 이벤트 요소, 이동 수단</li>
-            <li><b>AI</b>제 이름으로 올린 커밋의 코드와 Figma, Blender 조작은 Codex, Claude Code가 작성. QTE 판정 로직과 튜토리얼 영상은 팀원 작업</li>
+            <li><b>AI</b>제 이름으로 올린 커밋의 코드와 Figma, Blender 조작은 Codex, Claude Code가 작성. QTE 판정 로직과 게임 안에 쓰인 안내 영상은 팀원 작업. 이 페이지의 11.24 플레이 녹화는 제가 촬영하고 AI와 편집</li>
           </ul>
         </div>
       </div>
@@ -752,5 +769,10 @@ img.zoom{cursor:zoom-in}
 
 
 </script>
+<script>
+(()=>{const v=document.getElementById('wt-featured');document.querySelectorAll('[data-wt-seek]').forEach(b=>b.addEventListener('click',()=>{const t=Number(b.dataset.wtSeek);if(v.readyState<1){v.addEventListener('loadedmetadata',()=>{v.currentTime=t},{once:true});v.load()}else v.currentTime=t;v.play().catch(()=>{})}));
+const reveal=()=>{const id=location.hash.slice(1);const el=document.getElementById(id);if(el&&el.matches('details.wt-film-detail'))el.open=true};window.addEventListener('hashchange',reveal);document.querySelectorAll('.wt-film-nav a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{const el=document.getElementById(a.hash.slice(1));if(el&&el.matches('details'))el.open=true}));reveal();
+document.querySelectorAll('.wt-film-figure video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('.wt-film-figure video').forEach(other=>{if(other!==v)other.pause()})));
+})();</script>
 </body>
 </html>

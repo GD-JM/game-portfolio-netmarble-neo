@@ -10,10 +10,388 @@
   },
   "media": [
     {
+      "id": "play",
+      "title": "단서를 읽고, 추리를 기록하고, 꼬리를 잡다",
+      "caption": "11월 24일 직접 녹화한 M3 제출 빌드의 플레이 발췌입니다. 이동 중 단서 확인과 꼬리색 기록, 추격, 연타 QTE와 Bot 5 탈락까지 담았습니다. 서로 다른 시간대의 장면을 연결한 편집본이며, 봇이 참여한 플레이입니다.",
+      "tags": [
+        "대표 영상",
+        "단서",
+        "휴대폰",
+        "꼬리색",
+        "추격",
+        "연타",
+        "탈락"
+      ],
+      "posterSource": [
+        "S07",
+        466
+      ],
+      "segments": [
+        {
+          "source": "S02",
+          "start": 28,
+          "end": 36.7,
+          "label": "단서 획득 · 달리면서 이름표를 배치한다"
+        },
+        {
+          "source": "S02",
+          "start": 47.8,
+          "end": 56,
+          "label": "단서 비교 · 추리한 꼬리색을 기록한다"
+        },
+        {
+          "source": "S07",
+          "start": 460,
+          "end": 474,
+          "label": "추리 갱신 · 새 단서를 읽고 색을 다시 지정한다"
+        },
+        {
+          "source": "S07",
+          "start": 500,
+          "end": 507,
+          "label": "추격 · 거리를 좁혀 꼬리를 잡는다"
+        },
+        {
+          "source": "S07",
+          "start": 507,
+          "end": 516,
+          "label": "힘겨루기 · 연타로 겨루고 탈락 결과를 확인한다"
+        }
+      ],
+      "durationSeconds": 46.9,
+      "path": "assets/whostail-20261124-play.mp4",
+      "poster": "assets/whostail-20261124-play.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "tutorial",
+      "title": "튜토리얼 | 읽기에서 직접 잡기까지",
+      "caption": "단서 두 장 획득 → 단서 읽기 → 이름표·꼬리색 배치 → 추격 → 세 가지 QTE → 연습 완료. 안내와 실제 입력이 이어지는 구간을 순서대로 보존했습니다.",
+      "tags": [
+        "튜토리얼",
+        "단서",
+        "꼬리색",
+        "추격",
+        "연타",
+        "순서 입력",
+        "원형 타이밍"
+      ],
+      "posterSource": [
+        "S01",
+        31
+      ],
+      "segments": [
+        {
+          "source": "S01",
+          "start": 9,
+          "end": 16,
+          "label": "튜토리얼 · 움직이며 단서 두 장을 모은다"
+        },
+        {
+          "source": "S01",
+          "start": 16,
+          "end": 27,
+          "label": "단서 읽기 · 휴대폰에서 정보를 비교한다"
+        },
+        {
+          "source": "S01",
+          "start": 27,
+          "end": 38.5,
+          "label": "추리 기록 · 이름표를 놓고 꼬리색을 지정한다"
+        },
+        {
+          "source": "S01",
+          "start": 38.5,
+          "end": 42.2,
+          "label": "추격 · 움직이는 표적을 따라간다"
+        },
+        {
+          "source": "S01",
+          "start": 42.2,
+          "end": 55.7,
+          "label": "힘겨루기 연습 · 연타, 순서 입력, 원형 타이밍"
+        },
+        {
+          "source": "S01",
+          "start": 55.7,
+          "end": 57.1,
+          "label": "첫 꼬리잡기 · 연습 완료"
+        }
+      ],
+      "durationSeconds": 48.1,
+      "path": "assets/whostail-20261124-tutorial.mp4",
+      "poster": "assets/whostail-20261124-tutorial.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "튜토리얼"
+    },
+    {
+      "id": "phone",
+      "title": "이동 중에도 이어지는 휴대폰 추리",
+      "caption": "이동을 이어가면서 휴대폰을 열어 단서를 읽고 이름표와 색을 배치합니다. 뒤쪽 장면에서는 새 단서에 맞춰 기존 추리 색을 다시 바꿉니다.",
+      "tags": [
+        "휴대폰",
+        "단서",
+        "드래그",
+        "꼬리색",
+        "미니맵"
+      ],
+      "posterSource": [
+        "S07",
+        466
+      ],
+      "segments": [
+        {
+          "source": "S02",
+          "start": 28,
+          "end": 36.7,
+          "label": "휴대폰 · 달리면서 이름표를 배치한다"
+        },
+        {
+          "source": "S02",
+          "start": 47.8,
+          "end": 55.5,
+          "label": "단서 비교 · 읽은 정보를 꼬리 추리에 옮긴다"
+        },
+        {
+          "source": "S07",
+          "start": 460,
+          "end": 470.5,
+          "label": "추리 수정 · 새 정보에 맞춰 색을 바꾼다"
+        }
+      ],
+      "durationSeconds": 26.9,
+      "path": "assets/whostail-20261124-phone.mp4",
+      "poster": "assets/whostail-20261124-phone.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "mash",
+      "title": "스페이스 엔터 | 연타와 탈락 결과",
+      "caption": "접근과 꼬리잡기부터 Space·Enter 입력, 점수와 줄다리기 게이지 변화까지 담았습니다. 끝에는 Bot 5 탈락 알림과 생존 인원 12 → 11이 표시됩니다.",
+      "tags": [
+        "QTE",
+        "연타",
+        "점수판",
+        "게이지",
+        "탈락"
+      ],
+      "posterSource": [
+        "S07",
+        510
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 504,
+          "end": 507,
+          "label": "꼬리잡기 · 가까이 붙어 힘겨루기를 시작한다"
+        },
+        {
+          "source": "S07",
+          "start": 507,
+          "end": 512,
+          "label": "스페이스 엔터 · 교대로 연타하며 점수를 올린다"
+        },
+        {
+          "source": "S07",
+          "start": 512,
+          "end": 516,
+          "label": "결과 · Bot 5 탈락, 생존 인원 12 → 11"
+        }
+      ],
+      "durationSeconds": 12,
+      "path": "assets/whostail-20261124-mash.mp4",
+      "poster": "assets/whostail-20261124-mash.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "sequence",
+      "title": "아재 절단기 | 다음 키와 오입력 피드백",
+      "caption": "노란 키를 순서대로 입력하는 장면과, 다른 교전에서 빨간 키·X·다시 안내가 나타나는 장면을 묶었습니다. QTE 점수 상승과 올바른 표적 판정은 별개이며, 종료 뒤 오인 공격 알림도 남겼습니다.",
+      "tags": [
+        "QTE",
+        "순서 입력",
+        "오입력",
+        "점수판",
+        "오인 공격"
+      ],
+      "posterSource": [
+        "S02",
+        61
+      ],
+      "segments": [
+        {
+          "source": "S02",
+          "start": 57.7,
+          "end": 64.8,
+          "label": "아재 절단기 · 노란 키를 순서대로 누른다"
+        },
+        {
+          "source": "S02",
+          "start": 64.8,
+          "end": 67.8,
+          "label": "표적 판정 · 공격한 상대가 배정된 타깃인지 확인한다"
+        },
+        {
+          "source": "S07",
+          "start": 83,
+          "end": 90,
+          "label": "오입력 피드백 · 빨간 키와 다시 안내"
+        },
+        {
+          "source": "S07",
+          "start": 90,
+          "end": 93,
+          "label": "결과 · 힘겨루기와 표적 판정은 따로 적용된다"
+        }
+      ],
+      "durationSeconds": 20.1,
+      "path": "assets/whostail-20261124-sequence.mp4",
+      "poster": "assets/whostail-20261124-sequence.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "timing",
+      "title": "데바데 | 빛나는 칸을 맞추는 타이밍",
+      "caption": "낚싯대 사용 뒤 원형 QTE로 이어집니다. 점수 증가, 맞힌 조각의 변화, 초록 성공 효과와 빨간 실패 효과를 볼 수 있습니다. 종료 후에는 오인 공격으로 위치 노출 알림이 나타납니다.",
+      "tags": [
+        "QTE",
+        "원형 타이밍",
+        "다트",
+        "성공·실패",
+        "아이템",
+        "오인 공격"
+      ],
+      "posterSource": [
+        "S07",
+        351
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 343.8,
+          "end": 347,
+          "label": "아이템 활용 · 낚싯대 사용 뒤 힘겨루기로"
+        },
+        {
+          "source": "S07",
+          "start": 347,
+          "end": 354.3,
+          "label": "데바데 · 빛나는 칸에서 Space를 누른다"
+        },
+        {
+          "source": "S07",
+          "start": 354.3,
+          "end": 357.5,
+          "label": "오인 공격 · 내 위치가 지도에 드러난다"
+        }
+      ],
+      "durationSeconds": 13.7,
+      "path": "assets/whostail-20261124-timing.mp4",
+      "poster": "assets/whostail-20261124-timing.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "umbrella",
+      "title": "우산 | 옥상에서 시장까지 활공",
+      "caption": "옥상에서 뛰어내린 뒤 우산을 펼쳐 도로와 시장 위를 이동하고 내려오는 장면입니다. 아이템이 이동 경로를 바꾸는 모습을 보여줍니다.",
+      "tags": [
+        "아이템",
+        "우산",
+        "활공",
+        "입체 이동"
+      ],
+      "posterSource": [
+        "S07",
+        249
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 242,
+          "end": 246,
+          "label": "이동 경로 · 옥상에서 뛰어내린다"
+        },
+        {
+          "source": "S07",
+          "start": 246,
+          "end": 258,
+          "label": "우산 · 시장 위를 활공해 내려간다"
+        }
+      ],
+      "durationSeconds": 16,
+      "path": "assets/whostail-20261124-umbrella.mp4",
+      "poster": "assets/whostail-20261124-umbrella.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "events",
+      "title": "폐쇄·발자국·지도 | 바뀌는 플레이 환경",
+      "caption": "구역 폐쇄 알림, 발자국 이벤트 예고와 시작, 전체 지도와 이벤트 기록을 발췌했습니다. 각 장면은 같은 플레이의 서로 다른 시간대입니다.",
+      "tags": [
+        "이벤트",
+        "구역 폐쇄",
+        "발자국",
+        "전체 지도",
+        "알림"
+      ],
+      "posterSource": [
+        "S07",
+        332
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 51.5,
+          "end": 60,
+          "label": "구역 폐쇄 · 공간이 줄어드는 상황을 알린다"
+        },
+        {
+          "source": "S07",
+          "start": 99.5,
+          "end": 110,
+          "label": "발자국 이벤트 · 예고 뒤 이동 흔적이 나타난다"
+        },
+        {
+          "source": "S07",
+          "start": 329,
+          "end": 335.5,
+          "label": "전체 지도 · 폐쇄 구역과 이벤트 기록을 확인한다"
+        }
+      ],
+      "durationSeconds": 25.5,
+      "path": "assets/whostail-20261124-events.mp4",
+      "poster": "assets/whostail-20261124-events.jpg",
+      "date": "2026-11-24",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
       "path": "assets/52c7119fd8b842e0407cf489.webp",
       "type": "editor-capture",
       "date": "2026-11-16",
-      "usage": "표지·홈 카드",
+      "usage": "과거 에디터 캡처 보존; 새 표지로 교체",
       "note": "봇과 진행한 에디터 캡처. 11.23 최종 빌드 캡처로 표시하지 않음."
     },
     {
@@ -53,17 +431,6 @@
   ],
   "nextCapturePlan": [
     {
-      "shot": "최종 빌드 기본 루프",
-      "seconds": "20–30",
-      "action": "단서 획득 → 꼬리 추리에 이름·색 배치 → 닫기 → 추격·꼬리 잡기",
-      "replace": "11.05 초기 영상을 대표 영상으로 복구하지 말고, 새 대표 영상으로 교체. 옛 영상은 제작 과정에 보존."
-    },
-    {
-      "shot": "QTE 3종",
-      "seconds": "각 8–12",
-      "action": "눌러야 할 키 → 성공 → 실패 → 점수·게이지 변화를 한 흐름으로. 원형은 1·2·3점 차이를 포함."
-    },
-    {
       "shot": "휴대폰 정보 연결",
       "seconds": "15–20",
       "action": "메시지 배너 수신 → 클릭 → 해당 대화 배지만 사라짐. 추리 색 적용 → 연락처에 같은 색 표시."
@@ -74,5 +441,6 @@
       "action": "탈락 → 관전 대상/중개자 선택. 별도 장면에서 셔플 10초 예고와 진행 카드."
     }
   ],
-  "verification": "이번 편집에서는 사이트 실행·시각 검수·게임 플레이·빌드 테스트를 수행하지 않음. 사용자 검수."
+  "verification": "사용자 직접 녹화 영상의 원본 프레임을 분석·분류하고 8편을 편집. 최종 편집본 재생·시각 검수와 사이트 확인은 사용자 담당. 테스트·게임 실행·빌드·컴파일 미실행.",
+  "sourceCatalog": "docs/whostail-video-catalog.json"
 }
