@@ -411,6 +411,10 @@ img.zoom{cursor:zoom-in}
 @media(max-width:760px){.wt-memos{columns:1}.wt-workflow,.wt-ver-pane{grid-template-columns:minmax(0,1fr)}.wt-ver-pane figure{height:240px}.wt-ver-pane figure img{max-height:240px}
 .wt-tiers>div{grid-template-columns:1fr 48px 48px 60px;}.wt-tiers>div>span:last-child{grid-column:1/-1;font-size:13.5px}}
 @media(max-width:560px){.wt-uses,.wt-outline{grid-template-columns:minmax(0,1fr)}}
+/* 3차: 설문 문항, 작업 도구 링크 */
+.wt-qlist{margin:6px 0 10px;padding-left:22px;font-size:14.5px;line-height:1.75;color:var(--ink-2)}.wt-qlist li{margin:4px 0}
+.wt-formlink{font-size:14px}.wt-formlink small{display:block;color:var(--ink-3);font-size:12.5px}
+.wt-worklinks{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 0;font-size:14.5px}.wt-worklinks a{color:var(--accent);font-weight:700}
 </style>
 </head>
 <body data-p="whostail">
@@ -485,7 +489,7 @@ img.zoom{cursor:zoom-in}
         <li><b>Figma에서 Unity로</b>1920×1080 화면에 8배수 좌표로 배치하고 레이어 이름을 Unity 오브젝트 이름과 맞췄습니다. 그래픽이 늦게 와도 구조는 두고 그림만 바꿔 끼웁니다</li>
         <li><b>기획 문서</b>우산 아이템과 시스템, M2 아이템, UI 작업 파이프라인을 팀 문서로 정리</li>
         <li><b>설문</b>M1부터 M3까지 시연 설문을 설계해 Google Forms로 받고, 응답을 주제별로 묶어 팀에 공유</li>
-      </ul>
+      </ul><p class="wt-worklinks"><a href="https://nangman.atlassian.net/jira/software/projects/NM/boards" target="_blank" rel="noopener">Jira NM 보드</a><a href="https://nangman.atlassian.net/wiki/spaces/NM" target="_blank" rel="noopener">Confluence 팀 공간</a><a href="https://nangman.atlassian.net/wiki/spaces/NM/pages/20480002" target="_blank" rel="noopener">M1 UI 작업 문서</a><a href="https://nangman.atlassian.net/wiki/spaces/NM/pages/17596427" target="_blank" rel="noopener">우산 기획서</a><a href="https://nangman.atlassian.net/wiki/spaces/NM/pages/28114945" target="_blank" rel="noopener">M2 아이템 기획서</a></p>
     </section>
 
     <section class="v-beat" id="wt-core" data-step="핵심 세 가지" data-short="UI, 힘겨루기, 아이템">
@@ -845,7 +849,7 @@ img.zoom{cursor:zoom-in}
       </div>
       <h3 class="wt-subhead">팀에는 바로 쓸 수 있는 형태로 넘겼습니다</h3>
       <ul class="wt-left wt-share">
-        <li><b>기획서와 구현 명세</b>팀원에게 MD 파일로 전달하고, Confluence에 M2 아이템 기획서로 올림</li>
+        <li><b>기획서와 구현 명세</b>팀원에게 MD 파일로 전달하고, Confluence에 <a href="https://nangman.atlassian.net/wiki/spaces/NM/pages/28114945" target="_blank" rel="noopener">M2 아이템 기획서</a>로 올림</li>
         <li><b>리소스 제작용 문서</b>리소스를 만드는 팀원이 자기 AI에 그대로 넣어 Blender 모델링을 할 수 있게 따로 작성</li>
         <li><b>팀장과의 정리</b>아이디어를 먼저 넓게 낸 뒤 팀장과 이야기하며 뺄 것을 함께 뺌</li>
         <li><b>예외까지 명세</b>대상 없음, 사거리 이탈, 조준 취소 때 아이템을 소모하지 않는 규칙까지 정함</li>
@@ -864,7 +868,7 @@ img.zoom{cursor:zoom-in}
         <figure class="v-vis"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-umbrella-blender.webp" alt="Blender에서 렌더한 빨강과 흰 줄무늬 우산 모델"><figcaption class="v-cap">Blender 렌더, 10.12</figcaption></figure>
         <figure class="v-vis"><img class="v-shot" src="../assets/9209f219cb3267e3fe5209bf.gif" alt="빨강 흰 줄무늬 우산을 펼친 캡슐이 들썩이며 내려오는 Unity 테스트 움직임"><figcaption class="v-cap">펼침과 들썩임을 확인한 Unity 독립 테스트, 10.12</figcaption></figure>
       </div>
-      <h3 class="wt-subhead">Confluence 우산 기획서는 이렇게 짰습니다</h3>
+      <h3 class="wt-subhead"><a href="https://nangman.atlassian.net/wiki/spaces/NM/pages/17596427" target="_blank" rel="noopener">Confluence 우산 기획서</a>는 이렇게 짰습니다</h3>
       <ol class="wt-outline">
         <li><b>도입</b>분류(이동)와 분류색</li>
         <li><b>결정 과정 한눈에 보기</b>문제와 결정을 6단계로 요약</li>
@@ -923,7 +927,7 @@ img.zoom{cursor:zoom-in}
         <li><time>17:43</time><p>시제품(AI 구현): 직접 고른 상대, 6초, 최대 25% 가속, 벽이나 연막에 가리면 멈춤</p></li>
         <li class="on"><time>17:44</time><p>“상대 입장에서 록온이 예상되면 골목 안으로 들어가면 되니까 게임이 되지”</p></li>
         <li><time>19:29</time><p>아이템 구성과 함께 팀 프로젝트에 저장</p></li>
-      </ol>
+      </ol><figure class="wt-film-figure wt-qte-film"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261127-lockon.jpg" aria-label="록온을 쓰고 상대를 따라잡아 힘겨루기로 이어지는 장면"><source src="../assets/whostail-20261127-lockon.mp4" type="video/mp4"><a href="../assets/whostail-20261127-lockon.mp4">영상 파일 열기</a></video><figcaption>록온을 고른 채 앞서 가는 상대를 따라가다 사용하면, 고른 상대를 향해 달리는 동안 빨라지고 꼬리잡기와 힘겨루기로 이어집니다(19.5초, 11.27 직접 녹화).</figcaption></figure>
       <div class="v-panel wt-rangebox">
         <h3>11.03 확정, 같은 조준법, 다른 사거리와 역할</h3>
         <div class="wt-ranges" aria-label="낚싯대 최대 12미터, 록온 최대 20미터. 두 아이템의 사용 거리 범위는 겹칩니다.">
@@ -960,7 +964,7 @@ img.zoom{cursor:zoom-in}
           <li><b>응답</b>집계 중</li>
         </ul></article>
       </div>
-      <h3 class="wt-subhead">M2 설문이 M3 작업의 출발점이 됐습니다</h3>
+      <h3 class="wt-subhead">제가 쓴 설문지</h3><details class="v-more"><summary>M1 설문지 문항 7개, 10.23</summary><div class="in"><ol class="wt-qlist"><li>전반적으로 얼마나 재미있었나요?</li><li>게임에서 좋았던 점은 무엇인가요? (그래픽, 캐릭터, 분위기, 조작감 등 자유롭게 적어주세요.)</li><li>플레이하면서 가장 재미있었던 순간은 언제였나요? (기억에 남는 상황이나 친구들과 있었던 에피소드도 좋아요.)</li><li>아쉽거나 개선되었으면 하는 점은 무엇인가요? (불편한 조작, 이해하기 어려운 규칙, 버그, 추가되었으면 하는 요소 등을 적어주세요.)</li><li>다시 플레이하고 싶나요?</li><li>화면이나 메뉴(UI)를 이용하면서 불편하거나 헷갈린 점이 있었나요? (글씨 크기, 버튼 위치, 메뉴 찾기, 게임 중 정보 확인 등 떠오르는 점을 적어주세요.)</li><li>화면이나 메뉴(UI)에서 보기 좋거나 사용하기 편했던 부분은 무엇인가요? (디자인, 아이콘, 정보 배치, 버튼 반응 등 좋았던 점을 자유롭게 적어주세요.)</li></ol><p class="wt-formlink"><a href="https://docs.google.com/forms/d/e/1FAIpQLSf2dOAjoX8kLl4RQX0jNxuixMKp_uQd8MzjzwxVmegBKcR2gA/viewform" target="_blank" rel="noopener">Google Forms에서 M1 설문지 보기</a></p></div></details><details class="v-more"><summary>M2 설문지 문항 7개, 11.06</summary><div class="in"><ol class="wt-qlist"><li>정보전은 어떠셨나요?</li><li>중개자 플레이는 어떠셨나요?</li><li>UI의 완성도와 사용성은 어떠셨나요?</li><li>추가되면 좋을 이벤트나 아이템은?</li><li>게임에서 좋았던 점은?</li><li>게임에서 아쉬웠던 점은?</li><li>그 밖에 자유롭게 하고 싶은 이야기가 있나요?</li></ol><p class="wt-formlink"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdk3019EDNf64rzpxFkdx2FW1ov5nXolJfFPCoU0XgllPtzFg/viewform" target="_blank" rel="noopener">Google Forms에서 M2 설문지 보기</a></p></div></details><details class="v-more"><summary>M3 설문지 문항 11개, 11.23</summary><div class="in"><ol class="wt-qlist"><li>서버는 어땠나요? 반응 지연에 따른 문제가 없이 게임플레이가 쾌적했나요?</li><li>새롭게 추가된 튜토리얼을 통해 게임 시스템이 잘 인지되었나요?</li><li>각종 정보와 단서와 이벤트를 포함한 꼬리잡기의 방식이 재미있게 느껴지셨나요?</li><li>새로 추가된 꼬리잡기 대결의 QTE에 대한 의견을 들려주세요</li><li>새로운 지역에 스폰되는 인형뽑기 이벤트에 대한 의견을 들려주세요!</li><li>게임 화면에서 필요한 정보를 찾기 쉬웠나요? 휴대폰 메시지, 수첩의 타깃, 지도 속 폐쇄 구역 중 잘 보이거나 놓친 정보가 있었나요?</li><li>단축키 배치는 쓰기 편했나요? T로 이동하거나 F1~F4, Tab을 눌러 본 적이 있나요? 자주 쓴 키와 손이 잘 가지 않았던 키, 그 이유를 알려주세요.</li><li>꼬리잡기 대결은 어떤 방식이 가장 기억에 남나요? 연타, 순서 입력, 타이밍 맞추기 중 해본 방식 하나와, 재미있거나 어렵게 느낀 이유를 알려주세요.</li><li>M2에 비해서 좋아진 점은 무엇인가요?</li><li>기존 결과물에 비해 나빠진 점은 무엇인가요?</li><li>가장 먼저 개선했으면 하는 점 그 밖에 남기고 싶은 이야기은 무엇인가요? 원하는 대로 되지 않았던 장면과, 그때 기대했던 동작을 들려주세요.</li></ol><p class="wt-formlink"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeJzYhqUQCfbBjaiZ_ZUmIH-lS6YIiVKaokuhjvwynl7urYWA/viewform" target="_blank" rel="noopener">Google Forms에서 M3 설문지 보기</a> <small>최종 폼 화면 대신 제가 쓴 문항 원문 기준입니다.</small></p></div></details><h3 class="wt-subhead">M2 설문이 M3 작업의 출발점이 됐습니다</h3>
       <div class="v-two">
         <div class="v-panel"><h3>좋았던 점, 16명 중</h3>
           <div class="v-bars">
