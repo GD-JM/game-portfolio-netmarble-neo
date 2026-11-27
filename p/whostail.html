@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Who's Tail | 이재민 게임 기획</title>
-<meta name="description" content="UI·아이템 기획부터 M3 폴리싱까지, 판단과 피드백을 연결한 작업">
+<meta name="description" content="HUD 정보 연결, 힘겨루기 QTE, 잔량형 우산까지 M3 제출 빌드로 확인한 UI, 아이템 기획">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%23111111'/><circle cx='8' cy='8' r='4.5' fill='%23ffffff'/></svg>">
 <style>
 /* v42 · 여러 권 공용 서식. 한 권 = 한 프로젝트 = 기획력 하나. 기본은 어둡게, 밝게로 바꿀 수 있음 */
@@ -299,7 +299,7 @@ img.zoom{cursor:zoom-in}
   .wt-map li::after{display:none}
   .wt-map .el,.wt-map .fig,.wt-map .doc{grid-column:1;grid-row:auto;padding-top:0}
   .wt-map .fig,.wt-map .doc{padding:12px 14px}
-  .wt-map .doc::before{content:"↓ 최종 기획서";display:block;font:800 12px/1.3 Arrows,SUIT,sans-serif;color:var(--accent);margin-bottom:6px}
+  .wt-map .doc::before{content:"↓ 최종 컨셉 기획서";display:block;font:800 12px/1.3 Arrows,SUIT,sans-serif;color:var(--accent);margin-bottom:6px}
   .wt-more-two,.wt-q3,.wt-left{grid-template-columns:minmax(0,1fr)}
   .wt-legend{grid-template-columns:minmax(0,1fr)}
   .wt-refs{grid-template-columns:minmax(0,1fr)}
@@ -337,27 +337,41 @@ img.zoom{cursor:zoom-in}
 .wt-film-figure figcaption{font-size:15px;line-height:1.8;color:var(--ink-2);margin:14px 0 0;max-width:78ch}
 .wt-film-chapters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.wt-film-chapters button{font:600 14px/1.5 SUIT,sans-serif;background:var(--bg2);color:var(--ink);border:1px solid var(--line);padding:8px 12px;border-radius:4px;cursor:pointer}.wt-film-chapters button:hover{border-color:var(--accent)}
 .wt-film-nav{display:flex;flex-wrap:wrap;gap:12px 24px;margin:20px 0;font-size:15px}.wt-film-nav a,.wt-film-file{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
-.wt-film-library{margin:36px 0 32px;scroll-margin-top:90px}.wt-film-library h3{font-size:24px;margin:0 0 10px}.wt-film-library>p{font-size:15px;color:var(--ink-2);line-height:1.8}
-.wt-film-detail{border-top:1px solid var(--line);scroll-margin-top:90px}.wt-film-detail:last-child{border-bottom:1px solid var(--line)}.wt-film-detail>summary{padding:19px 0;cursor:pointer;font-weight:750;line-height:1.55;font-size:18px}.wt-film-detail>summary small{display:block;font-size:13px;font-weight:500;color:var(--ink-3);margin:5px 0 0 20px}
-.wt-film-content{padding:0 0 26px}.wt-film-tags{font-size:13px;color:var(--accent);margin:0 0 12px}.wt-film-file{display:inline-block;font-size:14px;margin-top:12px}
-.wt-film-feature button:focus-visible,.wt-film-nav a:focus-visible,.wt-film-detail>summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
-@media(max-width:600px){.wt-film-feature h3{font-size:22px}.wt-film-detail>summary{font-size:17px}}
+.wt-film-file{display:inline-block;font-size:14px;margin-top:12px}
+.wt-film-feature button:focus-visible,.wt-film-nav a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:600px){.wt-film-feature h3{font-size:22px}}
 
 
 /* Expanded film groups keep the existing portfolio typography and colors. */
-.wt-film-group{margin:36px 0;scroll-margin-top:90px}.wt-film-group h4{margin:0 0 12px;font-size:21px;line-height:1.5}.wt-film-group h4 span{color:var(--accent);font-size:13px;letter-spacing:.08em;margin-right:10px}.wt-film-source-note{font-size:13px!important}.wt-umbrella-footage{margin:28px 0}.wt-umbrella-footage h3{font-size:22px;line-height:1.5;margin:0 0 14px}.wt-umbrella-footage .wt-film-figure{max-width:960px}
+.wt-film-source-note{font-size:13px!important}.wt-umbrella-footage{margin:28px 0}.wt-umbrella-footage h3{font-size:22px;line-height:1.5;margin:0 0 14px}.wt-umbrella-footage .wt-film-figure{max-width:960px}
+/* 2026-11-27 개편: 핵심 세 가지 구성 */
+.wt-subhead{font-size:22px;line-height:1.5;margin:44px 0 12px}
+.wt-lead{font-size:16px;line-height:1.85;color:var(--ink-2);margin:0 0 20px;max-width:78ch}.wt-lead b{color:var(--ink)}
+.wt-tools{margin-top:6px}
+.wt-phone3{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr) minmax(0,.7fr);gap:18px;align-items:start;margin:24px 0}.wt-phone3 figure{margin:0}.wt-phone3 img{width:100%;height:auto;background:var(--bg2)}
+.wt-notice-shots{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start;margin:24px 0 6px}.wt-notice-shots figure{margin:0}.wt-notice-shots img{width:100%;height:auto}
+.wt-gauge-strip{margin:10px 0 26px;max-width:760px}.wt-gauge-strip img{width:100%;height:auto;border-radius:6px}
+.wt-qte-film{margin:26px 0 8px}
+.wt-cut span{font-size:13.5px}
+.wt-toc4{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:36px}
+.wt-sources{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:0}
+.wt-sources li{font-size:14.5px;line-height:1.75;color:var(--ink-2);padding:14px 0;border-top:1px solid var(--line-soft)}
+.wt-sources b{display:block;font:800 14.5px/1.4 Arrows,SUIT,sans-serif;color:var(--ink);margin-bottom:3px}
+@media(max-width:1040px){.wt-cut,.wt-toc4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.wt-toc4{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.wt-phone3,.wt-notice-shots{grid-template-columns:minmax(0,1fr)}.wt-phone3 figure{max-width:460px}.wt-cut{grid-template-columns:minmax(0,1fr)}.wt-cut>div::after{display:none}}
 </style>
 </head>
 <body data-p="whostail">
-<header class="v-top"><a class="home" href="../index.html">이재민<b>.</b></a><span class="now">Who's Tail: 의도를 먼저 적고, 피드백으로 고쳐 가는 UI, 아이템 기획</span><a class="btn" href="../자료실_전체판.html">자료실</a><button type="button" data-theme-toggle>밝게</button><span class="v-prog" aria-hidden="true"></span></header><header class="v-hero" style="--bg-img:url('../assets/whostail-20261124-play.jpg')">
+<header class="v-top"><a class="home" href="../index.html">이재민<b>.</b></a><span class="now">Who's Tail: 정보가 이어지는 HUD, 손으로 겨루는 QTE, 추격을 끊는 우산</span><a class="btn" href="../자료실_전체판.html">자료실</a><button type="button" data-theme-toggle>밝게</button><span class="v-prog" aria-hidden="true"></span></header><header class="v-hero" style="--bg-img:url('../assets/whostail-20261124-play.jpg')">
   <div class="in">
     <p class="kind"><i></i>메인 프로젝트, 〈Who's Tail〉, 5인 팀</p>
     <h1>나는 한 명을 쫓고, 누군가는 나를 쫓는 꼬리잡기</h1>
     <p class="lead">도시를 무대로, 정해진 타깃의 꼬리를 뒤에서 잡아 빼앗는 3D 멀티플레이 추격 게임입니다. 누가 나를 쫓는지는 꼬리를 잡히기 직전까지 모릅니다.</p>
     <dl class="v-facts">
-      <div><dt>역할</dt><dd>메인 UI, 전투, 이벤트 요소 기획</dd></div>
+      <div><dt>역할</dt><dd>메인 UI, QTE, 아이템 기획</dd></div>
       <div><dt>팀</dt><dd>5인, Unity</dd></div>
-      <div><dt>기간</dt><dd>2026.09–12 · 개발 진행 중</dd></div>
+      <div><dt>기간</dt><dd>2026.09.22 ~ 12.03</dd></div>
       <div><dt>최근 마일스톤</dt><dd>11.23 M3 평가 제출</dd></div>
     </dl>
   </div>
@@ -367,17 +381,17 @@ img.zoom{cursor:zoom-in}
   <aside class="v-spine" aria-label="기획의 핵심"><p>핵심만 이어 읽기</p><ol></ol></aside>
   <main class="v-main">
     <div class="wt-update" aria-label="포트폴리오 갱신 범위">
-      <p><b>11.23 M3 평가 제출까지의 작업</b><span>2026.11.24 내용 갱신</span></p>
-      <p>휴대폰의 정보 연결, 알림 분류, 세 QTE의 피드백, 관전자 UI 폴리싱을 정리했습니다. 11.24 직접 녹화한 영상 17편과 원본 시간대별 분류표를 추가했습니다.</p>
-      <a href="#wt-polish">M3에서 다듬은 부분부터 보기</a>
+      <p><b>11.23 M3 평가 제출까지의 작업</b><span>2026.11.27 내용 갱신</span></p>
+      <p>HUD와 휴대폰의 정보 연결, 힘겨루기 QTE, 우산과 록온 세 가지를 중심으로 다시 묶었습니다. 11.24 직접 녹화한 영상 19편과 원본 시간대별 분류표는 <a href="../docs/whostail-video-index.html">영상 페이지</a>에 모았습니다.</p>
+      <a href="#wt-core">핵심 세 가지부터 보기</a>
     </div>
 
     <section class="v-beat" data-step="게임" data-short="쫓으면서 쫓기는 꼬리잡기">
       <h2>한 명을 쫓는 동안, <em>누가 나를 쫓는지는</em> 모릅니다</h2>
       <p class="v-sub">최대 12명이 원형 사슬로 서로를 쫓습니다. 닿기만 해서는 끝나지 않고, 뒤에서 꼬리를 잡은 뒤 힘겨루기에서 이겨야 빼앗습니다.</p>
-      <p class="wt-game-note">M3에서는 <b>단서로 판단하고, 휴대폰에 추리를 남기고, 세 가지 힘겨루기로 겨루는 흐름</b>까지 화면을 다듬었습니다. 11월 24일 직접 녹화한 제출 빌드의 영상으로, 실제 입력이 화면과 결과에 이어지는 모습을 담았습니다.</p>
-      <div class="wt-film-feature" id="film-play"><h3>단서를 읽고, 추리를 기록하고, 꼬리를 잡다</h3><p class="wt-film-meta">11.23 M3 제출 빌드 · 11.24 직접 녹화 · 봇 참여 플레이 · 47초 발췌</p><figure class="wt-film-figure"><video id="wt-featured" controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-play.jpg" aria-label="단서를 읽고, 추리를 기록하고, 꼬리를 잡다"><source src="../assets/whostail-20261124-play.mp4" type="video/mp4"><a href="../assets/whostail-20261124-play.mp4">영상 파일 열기</a></video><figcaption>11월 24일 직접 녹화한 M3 제출 빌드의 플레이 발췌입니다. 이동 중 단서 확인과 꼬리색 기록, 추격, 연타 QTE와 Bot 5 탈락까지 담았습니다. 서로 다른 시간대의 장면을 연결한 편집본이며, 봇이 참여한 플레이입니다.</figcaption></figure>
-<div class="wt-film-chapters" aria-label="대표 영상 장면 이동"><button type="button" data-wt-seek="0" aria-controls="wt-featured">00:00 단서 획득</button><button type="button" data-wt-seek="8.7" aria-controls="wt-featured">00:08 색 기록</button><button type="button" data-wt-seek="16.9" aria-controls="wt-featured">00:16 추리 수정</button><button type="button" data-wt-seek="30.9" aria-controls="wt-featured">00:30 추격</button><button type="button" data-wt-seek="37.9" aria-controls="wt-featured">00:37 QTE와 결과</button></div><nav class="wt-film-nav" aria-label="장면별 영상"><a href="#film-lobby">로비부터 게임까지</a><a href="#film-phonebooth">전화부스 → 타깃 포획</a><a href="#film-umbrella">옥상 우산 활공</a><a href="#film-umbrella-escape">우산으로 이탈</a><a href="#film-tutorial">튜토리얼</a><a href="#film-mash">QTE 3종</a><a href="../docs/whostail-video-index.html">전체 영상·촬영 목록</a></nav></div>
+      <p class="wt-game-note">M3에서는 <b>단서로 판단하고, 휴대폰에 추리를 남기고, 세 가지 힘겨루기로 겨루는 흐름</b>까지 화면을 다듬었습니다. 아래는 11월 24일 제출 빌드를 직접 녹화한 장면입니다.</p>
+      <div class="wt-film-feature" id="film-play"><h3>단서를 읽고, 추리를 기록하고, 꼬리를 잡다</h3><p class="wt-film-meta">11.23 M3 제출 빌드, 11.24 직접 녹화, 봇 참여 플레이, 47초 발췌</p><figure class="wt-film-figure"><video id="wt-featured" controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-play.jpg" aria-label="단서를 읽고, 추리를 기록하고, 꼬리를 잡다"><source src="../assets/whostail-20261124-play.mp4" type="video/mp4"><a href="../assets/whostail-20261124-play.mp4">영상 파일 열기</a></video><figcaption>이동 중 단서 확인과 꼬리색 기록, 추격, 연타 QTE와 Bot 5 탈락까지 담았습니다. 서로 다른 시간대의 장면을 이은 편집본입니다.</figcaption></figure>
+<div class="wt-film-chapters" aria-label="대표 영상 장면 이동"><button type="button" data-wt-seek="0" aria-controls="wt-featured">00:00 단서 획득</button><button type="button" data-wt-seek="8.7" aria-controls="wt-featured">00:08 색 기록</button><button type="button" data-wt-seek="16.9" aria-controls="wt-featured">00:16 추리 수정</button><button type="button" data-wt-seek="30.9" aria-controls="wt-featured">00:30 추격</button><button type="button" data-wt-seek="37.9" aria-controls="wt-featured">00:37 QTE와 결과</button></div><nav class="wt-film-nav" aria-label="전체 영상"><a href="../docs/whostail-video-index.html">장면별 영상 19편과 촬영 목록 보기</a></nav><p class="wt-film-source-note">플레이 영상은 팀 전체의 게임 화면입니다. 제가 맡은 범위는 아래 기획과 UI 설명에서 구분했습니다.</p></div>
       <div class="v-flow" style="--n:4">
         <div><b>단서로 타깃 좁히기</b><span>폰 F1–F4: 연락처, 채팅, 꼬리, 단서</span></div>
         <div><b>뒤로 다가가기</b><span>접촉만으로는 탈락하지 않음</span></div>
@@ -385,32 +399,23 @@ img.zoom{cursor:zoom-in}
         <div><b>탈취, 사슬 재연결</b><span>탈락자의 타깃을 이어받아 계속 추격</span></div>
       </div>
       <ul class="v-chips wt-chips" aria-label="판을 흔드는 장치">
-        <li>전화부스·강도·고블린과 오락실 이벤트</li>
+        <li>전화부스, 강도, 고블린과 오락실 이벤트</li>
         <li>꼬리 셔플 발생 전 10초 예고</li>
         <li>탈락하면 관전하거나 택시, 도둑 같은 중개자로 복귀</li>
       </ul>
-      <div class="wt-film-library" id="video-library"><h3>입장에서 다음 추격까지, 장면별로 보기</h3><p>직접 촬영한 원본 9개에서 17편으로 편집했습니다. 입력 전의 상황과 입력 후의 결과를 함께 담고, 영상은 필요한 장면만 펼쳐 볼 수 있게 묶었습니다.</p><nav class="wt-film-nav" aria-label="영상 주제"><a href="#film-group-0">입장과 학습</a><a href="#film-group-1">정보를 행동으로</a><a href="#film-group-2">추격과 아이템</a><a href="#film-group-3">사건에 대응하기</a></nav><section class="wt-film-group" id="film-group-0" aria-labelledby="film-heading-0"><h4 id="film-heading-0"><span>01</span> 입장과 학습</h4><details class="wt-film-detail" id="film-lobby"><summary><span>로비에서 첫 발걸음까지</span><small>00:28 · 로비 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">로비 · 방 만들기 · 대기실 · 로딩 · 게임 진입</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-lobby.jpg" aria-label="로비에서 첫 발걸음까지"><source src="../assets/whostail-20261124-lobby.mp4" type="video/mp4"><a href="../assets/whostail-20261124-lobby.mp4">영상 파일 열기</a></video><figcaption>메인 메뉴 → 방 만들기 → 닉네임·인원 설정 → 6명 대기실 → 로딩 → 게임과 전체 지도. 같은 녹화의 입장 흐름을 순서대로 연결했습니다. 대기실 참가자는 호스트와 봇입니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-lobby.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-customize"><summary><span>입장 전 UI | 캐릭터 꾸미기와 설정</span><small>00:13 · 로비</small></summary><div class="wt-film-content"><p class="wt-film-tags">로비 · 캐릭터 꾸미기 · 설정</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-customize.jpg" aria-label="입장 전 UI | 캐릭터 꾸미기와 설정"><source src="../assets/whostail-20261124-customize.mp4" type="video/mp4"><a href="../assets/whostail-20261124-customize.mp4">영상 파일 열기</a></video><figcaption>머리 장식·의상·신발 탭과 캐릭터 미리보기, 설정 화면을 발췌했습니다. 로비에서 플레이 준비 화면으로 이어지는 UI를 보여줍니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-customize.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-tutorial"><summary><span>튜토리얼 | 읽기에서 직접 잡기까지</span><small>00:48 · 튜토리얼</small></summary><div class="wt-film-content"><p class="wt-film-tags">튜토리얼 · 단서 · 꼬리색 · 추격 · 연타 · 순서 입력 · 원형 타이밍</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-tutorial.jpg" aria-label="튜토리얼 | 읽기에서 직접 잡기까지"><source src="../assets/whostail-20261124-tutorial.mp4" type="video/mp4"><a href="../assets/whostail-20261124-tutorial.mp4">영상 파일 열기</a></video><figcaption>단서 두 장 획득 → 단서 읽기 → 이름표·꼬리색 배치 → 추격 → 세 가지 QTE → 연습 완료. 안내와 실제 입력이 이어지는 구간을 순서대로 보존했습니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-tutorial.mp4">영상 파일로 열기</a></div></details></section><section class="wt-film-group" id="film-group-1" aria-labelledby="film-heading-1"><h4 id="film-heading-1"><span>02</span> 정보를 행동으로</h4><details class="wt-film-detail" id="film-phone"><summary><span>이동 중에도 이어지는 휴대폰 추리</span><small>00:26 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">휴대폰 · 단서 · 드래그 · 꼬리색 · 미니맵</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-phone.jpg" aria-label="이동 중에도 이어지는 휴대폰 추리"><source src="../assets/whostail-20261124-phone.mp4" type="video/mp4"><a href="../assets/whostail-20261124-phone.mp4">영상 파일 열기</a></video><figcaption>이동을 이어가면서 휴대폰을 열어 단서를 읽고 이름표와 색을 배치합니다. 뒤쪽 장면에서는 새 단서에 맞춰 기존 추리 색을 다시 바꿉니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-phone.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-call"><summary><span>휴대폰 연락처에서 통화 연결까지</span><small>00:10 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">휴대폰 · 연락처 · 전화 · 얼굴 영상</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-call.jpg" aria-label="휴대폰 연락처에서 통화 연결까지"><source src="../assets/whostail-20261124-call.mp4" type="video/mp4"><a href="../assets/whostail-20261124-call.mp4">영상 파일 열기</a></video><figcaption>휴대폰 홈에서 연락처를 열고 Bot 7에게 전화를 걸면 얼굴 영상·통화 시간·마이크와 끊기 버튼이 나타납니다. 봇 상대의 연결 UI이며, 사람 간 음성 송수신을 입증하는 영상은 아닙니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-call.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-phonebooth"><summary><span>전화부스 | 위치를 알아내고 타깃을 잡다</span><small>00:41 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">전화부스 · 타깃 위치 · 전체 지도 · 추격 · QTE · 탈락 · 다음 타깃</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-phonebooth.jpg" aria-label="전화부스 | 위치를 알아내고 타깃을 잡다"><source src="../assets/whostail-20261124-phonebooth.mp4" type="video/mp4"><a href="../assets/whostail-20261124-phonebooth.mp4">영상 파일 열기</a></video><figcaption>전화부스 접근 → 타깃 위치 조회 → 전체 지도 표시 → Bot 10 추격 → 연타 QTE → 탈락 알림과 다음 타깃. 같은 경기의 연속 구간을 보존해, 얻은 정보가 실제 행동으로 이어지는 과정을 담았습니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-phonebooth.mp4">영상 파일로 열기</a></div></details></section><section class="wt-film-group" id="film-group-2" aria-labelledby="film-heading-2"><h4 id="film-heading-2"><span>03</span> 추격과 아이템</h4><details class="wt-film-detail" id="film-umbrella"><summary><span>옥상 우산 활공 | 건물 위에서 시장까지</span><small>00:16 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">우산 · 건물 옥상 · 활공 · 착지 · 입체 이동</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-umbrella.jpg" aria-label="옥상 우산 활공 | 건물 위에서 시장까지"><source src="../assets/whostail-20261124-umbrella.mp4" type="video/mp4"><a href="../assets/whostail-20261124-umbrella.mp4">영상 파일 열기</a></video><figcaption>건물 옥상에서 뛰어내려 우산을 펼치고, 시장 천막 위를 길게 활공한 뒤 도로에 착지합니다. 출발 높이와 활공 경로, 내려오는 순간을 함께 담은 16초 장면입니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-umbrella.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-umbrella-escape"><summary><span>우산 | 상대가 붙은 계단에서 이탈하기</span><small>00:08 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">우산 · 추격 회피 · 계단 · 경로 변경</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-umbrella-escape.jpg" aria-label="우산 | 상대가 붙은 계단에서 이탈하기"><source src="../assets/whostail-20261124-umbrella-escape.mp4" type="video/mp4"><a href="../assets/whostail-20261124-umbrella-escape.mp4">영상 파일 열기</a></video><figcaption>상대가 가까이 붙은 계단에서 옆으로 뛰고 우산을 펼쳐 거리로 내려갑니다. 높이 차로 경로를 바꾸는 장면이며, 이후 추격이 완전히 종료되는 과정까지는 이 구간에 담겨 있지 않습니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-umbrella-escape.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-item-use"><summary><span>아이템 | 획득·선택·사용과 남은 효과</span><small>00:15 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">아이템 · 슬롯 · 구르기 강화 · 대시 · 지속 시간</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-item-use.jpg" aria-label="아이템 | 획득·선택·사용과 남은 효과"><source src="../assets/whostail-20261124-item-use.mp4" type="video/mp4"><a href="../assets/whostail-20261124-item-use.mp4">영상 파일 열기</a></video><figcaption>구르기 강화 획득과 사용, 다른 경기의 대시 사용 장면을 묶었습니다. 슬롯의 아이콘 변화, 사용 알림, 효과 시간이 실제 이동과 함께 표시됩니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-item-use.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-mash"><summary><span>스페이스 엔터 | 연타와 탈락 결과</span><small>00:12 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">QTE · 연타 · 점수판 · 게이지 · 탈락</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-mash.jpg" aria-label="스페이스 엔터 | 연타와 탈락 결과"><source src="../assets/whostail-20261124-mash.mp4" type="video/mp4"><a href="../assets/whostail-20261124-mash.mp4">영상 파일 열기</a></video><figcaption>접근과 꼬리잡기부터 Space·Enter 입력, 점수와 줄다리기 게이지 변화까지 담았습니다. 끝에는 Bot 5 탈락 알림과 생존 인원 12 → 11이 표시됩니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-mash.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-sequence"><summary><span>아재 절단기 | 다음 키와 오입력 피드백</span><small>00:20 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">QTE · 순서 입력 · 오입력 · 점수판 · 오인 공격</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-sequence.jpg" aria-label="아재 절단기 | 다음 키와 오입력 피드백"><source src="../assets/whostail-20261124-sequence.mp4" type="video/mp4"><a href="../assets/whostail-20261124-sequence.mp4">영상 파일 열기</a></video><figcaption>노란 키를 순서대로 입력하는 장면과, 다른 교전에서 빨간 키·X·다시 안내가 나타나는 장면을 묶었습니다. QTE 점수 상승과 올바른 표적 판정은 별개이며, 종료 뒤 오인 공격 알림도 남겼습니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-sequence.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-timing"><summary><span>데바데 | 빛나는 칸을 맞추는 타이밍</span><small>00:13 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">QTE · 원형 타이밍 · 다트 · 성공·실패 · 아이템 · 오인 공격</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-timing.jpg" aria-label="데바데 | 빛나는 칸을 맞추는 타이밍"><source src="../assets/whostail-20261124-timing.mp4" type="video/mp4"><a href="../assets/whostail-20261124-timing.mp4">영상 파일 열기</a></video><figcaption>낚싯대 사용 뒤 원형 QTE로 이어집니다. 점수 증가, 맞힌 조각의 변화, 초록 성공 효과와 빨간 실패 효과를 볼 수 있습니다. 종료 후에는 오인 공격으로 위치 노출 알림이 나타납니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-timing.mp4">영상 파일로 열기</a></div></details></section><section class="wt-film-group" id="film-group-3" aria-labelledby="film-heading-3"><h4 id="film-heading-3"><span>04</span> 사건에 대응하기</h4><details class="wt-film-detail" id="film-events"><summary><span>폐쇄·발자국·지도 | 바뀌는 플레이 환경</span><small>00:25 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">이벤트 · 구역 폐쇄 · 발자국 · 전체 지도 · 알림</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-events.jpg" aria-label="폐쇄·발자국·지도 | 바뀌는 플레이 환경"><source src="../assets/whostail-20261124-events.mp4" type="video/mp4"><a href="../assets/whostail-20261124-events.mp4">영상 파일 열기</a></video><figcaption>구역 폐쇄 알림, 발자국 이벤트 예고와 시작, 전체 지도와 이벤트 기록을 발췌했습니다. 각 장면은 같은 플레이의 서로 다른 시간대입니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-events.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-wanted-clear"><summary><span>위치 노출 | 안내를 보고 표식 지우기</span><small>00:13 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">이벤트 · 위치 노출 · 표식 제거 · 상호작용</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-wanted-clear.jpg" aria-label="위치 노출 | 안내를 보고 표식 지우기"><source src="../assets/whostail-20261124-wanted-clear.mp4" type="video/mp4"><a href="../assets/whostail-20261124-wanted-clear.mp4">영상 파일 열기</a></video><figcaption>위치가 노출되는 이벤트의 안내를 읽고 표식 제거 시설에 도착합니다. G를 누르는 진행 표시와 제거 후 머리 위 표식이 사라진 모습을 이어 붙였습니다. 이동 중간의 단서 정리 구간은 생략했습니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-wanted-clear.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-tail-growth"><summary><span>꼬리가 길어졌어 | 예고에서 실제 변화까지</span><small>00:14 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">이벤트 · 예고 · 꼬리 길이 · 이동</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-tail-growth.jpg" aria-label="꼬리가 길어졌어 | 예고에서 실제 변화까지"><source src="../assets/whostail-20261124-tail-growth.mp4" type="video/mp4"><a href="../assets/whostail-20261124-tail-growth.mp4">영상 파일 열기</a></video><figcaption>노란 이벤트 알림으로 예고한 뒤 꼬리 길이가 달라지는 장면입니다. 종료까지의 전체 이벤트가 아닌 예고와 발동 구간을 담았습니다. 꼬리색·관계를 바꾸는 셔플과는 다른 이벤트입니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-tail-growth.mp4">영상 파일로 열기</a></div></details><details class="wt-film-detail" id="film-traffic"><summary><span>전차와 마주치면 | 튕겨 나가는 돌발 상황</span><small>00:07 · 봇 참여 플레이</small></summary><div class="wt-film-content"><p class="wt-film-tags">전차 · 충돌 · 돌발 상황 · 실패의 재미</p><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-traffic.jpg" aria-label="전차와 마주치면 | 튕겨 나가는 돌발 상황"><source src="../assets/whostail-20261124-traffic.mp4" type="video/mp4"><a href="../assets/whostail-20261124-traffic.mp4">영상 파일 열기</a></video><figcaption>도로에서 다가오는 전차와 부딪혀 공중으로 튕겨 나간 뒤 다시 움직이는 짧은 장면입니다. 탑승이나 운전 장면으로 분류하지 않았습니다.</figcaption></figure><a class="wt-film-file" href="../assets/whostail-20261124-traffic.mp4">영상 파일로 열기</a></div></details></section><p class="wt-film-source-note">플레이 영상은 게임 전체의 화면을 보여주는 자료입니다. 개인 기여 범위는 아래 기획·UI 설명에서 구분했습니다. <a href="../docs/whostail-video-index.html#coverage">촬영 범위와 추가 촬영 목록</a></p></div>
-      <details class="v-more wt-legacy-video"><summary>초기 플레이 영상 보기 · 11.05 빌드 · 14초</summary><div class="in">
-        <video class="v-shot" src="../assets/426f8eecbc1ec014c64340e3.mp4" controls preload="none" muted playsinline poster="../assets/80a3cefa2f344b149c80b8f9.webp" aria-label="11월 5일 초기 빌드: 타깃 뒤에서 꼬리를 잡고 당시 C와 V 입력으로 겨루는 영상"></video>
-        <p class="v-cap">팀원이 제작한 로비 튜토리얼용 영상, 봇 상대. 현재 소개하는 세 QTE와 입력·HUD가 다른 초기 빌드입니다. 11.23 제출 빌드의 촬영 영상은 아닙니다.</p>
-      </div></details>
-      <details class="v-more"><summary>규칙과 화면의 기준</summary><div class="in">
-        <p>사슬 구조, 후방 잡기, 게이지 대결은 팀 컨셉 기획서 4~5절을 바탕으로 설명했습니다. 후속 기능은 보존된 11.20 main 소스(<code>3ef9b2a67</code>)와 작업 인계 기록을 참고했습니다. 꼬리 셔플의 10초 예고는 실제 이벤트 진행 시간에 연결한 UI입니다. 오락실 이벤트와 네트워크 로직 등 팀원의 후속 개발은 제 개인 제작 범위에 포함하지 않았습니다.</p>
-        <p>표지와 새 영상 17편은 11.23 지정한 M3 제출 빌드를 11.24 직접 녹화한 자료입니다. 튜토리얼과 봇 참여 플레이를 구분했습니다. 이전 제작 과정 이미지는 당시 날짜의 작업 증거로 보존했습니다. 최종 ZIP과 소스 커밋의 정확한 대응은 별도로 확인해야 합니다.</p>
-      </div></details>
     </section>
 
-    <section class="v-beat" data-step="역할" data-short="메인 UI, 전투, 이벤트 기획">
-      <h2>저는 <em>메인 UI</em>와 전투, 이벤트 요소 기획을 맡았습니다</h2>
-      <p class="v-sub">팀 최종 기획서의 담당 칸 그대로입니다. 코드는 AI와 함께 만들었고, 기획 판단과 플레이 검수는 제가 했습니다.</p>
+    <section class="v-beat" data-step="역할" data-short="메인 UI, QTE, 아이템 기획">
+      <h2>저는 <em>메인 UI</em>와 QTE, 아이템을 기획했습니다</h2>
+      <p class="v-sub">팀 최종 컨셉 기획서의 담당 칸에는 ‘메인 UI 기획, 전투 및 이벤트 요소 기획’으로 적혀 있습니다. 이 페이지는 그중 제가 직접 기획하고 검수한 화면, 힘겨루기, 아이템을 다룹니다. 코드는 AI와 함께 만들었고, 기획 판단과 플레이 검수는 제가 했습니다.</p>
       <div class="v-two">
         <div class="v-panel wt-me">
           <h3>제가 한 것</h3>
           <ul class="wt-list">
-            <li><b>화면 기획과 폴리싱</b>HUD·지도·알림·메뉴·휴대폰의 Figma 시안, 정보 연결과 공통 스타일. 튜토리얼·관전 화면까지 후속 정리</li>
-            <li><b>힘겨루기 QTE</b>게이지, 키캡 화면과 성공, 실패 피드백 설계</li>
-            <li><b>아이템</b>우산 기획과 Blender 모델, 동작, M2 아이템 14종 재정리와 록온</li>
-            <li><b>검수</b>팀 피드백, 시연 설문을 고칠 항목으로 바꾸고 Unity에서 직접 플레이로 확인</li>
+            <li><b>화면 기획과 폴리싱</b>HUD, 지도, 알림, 메뉴, 휴대폰의 Figma 시안과 정보 연결, 공통 스타일. 튜토리얼과 관전 화면까지 후속 정리</li>
+            <li><b>힘겨루기 QTE</b>Space, Enter 연타 제안, 게이지와 키캡 화면, 성공과 실패 피드백 설계</li>
+            <li><b>아이템</b>우산 기획과 Blender 모델, 동작, M2 아이템을 21종에서 14종으로 재정리, 록온 제안</li>
+            <li><b>검수</b>팀 피드백과 시연 설문을 고칠 항목으로 바꾸고, Unity에서 직접 플레이하며 확인</li>
           </ul>
         </div>
         <div class="v-panel">
@@ -419,99 +424,76 @@ img.zoom{cursor:zoom-in}
             <li><b>팀원 A(팀장)</b>최종 기획 결정, 프로젝트 관리, 개발</li>
             <li><b>팀원 B</b>컨셉, 맵, 레벨 디자인, 개발</li>
             <li><b>팀원 C, D</b>사운드, 서브 UI / 이벤트 요소, 이동 수단</li>
-            <li><b>AI</b>제 이름으로 올린 커밋의 코드와 Figma, Blender 조작은 Codex, Claude Code가 작성. QTE 판정 로직과 게임 안에 쓰인 안내 영상은 팀원 작업. 이 페이지의 11.24 플레이 녹화는 제가 촬영하고 AI와 편집</li>
+            <li><b>AI</b>제 이름으로 올린 코드와 Figma, Blender 조작은 Codex와 Claude Code가 작성. 힘겨루기 판정 로직과 게임 안 안내 영상은 팀원 작업. 이 페이지의 11.24 플레이 녹화는 제가 촬영하고 AI와 편집</li>
           </ul>
         </div>
       </div>
+      <h3 class="wt-subhead">일하는 방식</h3>
+      <ul class="wt-left wt-tools">
+        <li><b>Jira</b>팀 이슈 112건 중 제 담당 32건. 11.23 기준 완료 25건, 진행 중 3건, 할 일 4건</li>
+        <li><b>Figma에서 Unity로</b>1920×1080 화면에 8배수 좌표로 배치하고 레이어 이름을 Unity 오브젝트 이름과 맞췄습니다. 그래픽이 늦게 와도 구조는 두고 그림만 바꿔 끼웁니다</li>
+        <li><b>기획 문서</b>우산 아이템과 시스템, M2 아이템, UI 작업 파이프라인을 팀 문서로 정리</li>
+        <li><b>설문</b>M2 시연 설문 16명의 서술형 응답을 주제별로 묶어 팀에 공유하고, M3 설문은 11문항으로 설계</li>
+      </ul>
     </section>
 
-    <section class="v-beat" data-step="보여 줄 것" data-short="의도 → 피드백 → 제약 안의 완성">
-      <h2>의도를 먼저 적고, 팀 피드백과 시연 설문으로 고치고, <em>제약 안에서 빠르게</em> 완성했습니다</h2>
-      <p class="v-sub">의견을 판단으로 바꾼 사례부터, 화면과 아이템을 고친 과정으로 이어집니다.</p>
-      <ol class="wt-toc"><li><a href="#wt-polish"><span>M3 폴리싱</span>정보가 여러 화면에서 이어지도록</a></li><li><a href="#wt-handoff"><span>판단과 인계</span>팀 의견을 등급과 명세에 반영</a></li>
-        <li><a href="#wt-intent"><span>기획 의도</span>Figma 메모가 최종 기획서의 문장이 되기까지</a></li>
-        <li><a href="#wt-feedback"><span>피드백</span>6주 동안 HUD가 바뀐 여섯 번</a></li>
-        <li><a href="#wt-umbrella"><span>아이템 ①</span>비를 막지 않는 우산</a></li>
-        <li><a href="#wt-lock"><span>아이템 ②</span>추리 규칙을 지킨 록온, 26분</a></li>
-        <li><a href="#wt-qte"><span>QTE</span>입력·성공·실패를 읽히게 한 피드백</a></li>
+    <section class="v-beat" id="wt-core" data-step="핵심 세 가지" data-short="M2 설문에서 고칠 곳을 찾고">
+      <h2>M2 시연 설문에서 고칠 곳을 찾고, <em>세 가지</em>를 중심으로 다듬었습니다</h2>
+      <p class="v-sub">11.06 M2 시연 뒤 16명에게 받은 설문입니다. UI 디자인과 가독성을 좋게 본 사람이 9명이었지만, 정보에 닿는 조작을 고쳐 달라는 사람도 9명이었습니다. 이후 M3 작업은 이 의견에서 출발했습니다.</p>
+      <div class="v-two">
+        <div class="v-panel"><h3>좋았던 점, 16명 중</h3>
+          <div class="v-bars">
+            <div class="r"><span class="l">UI 디자인, 가독성, 직관성</span><span class="t"><i style="--a:56.3%"></i></span><b>9</b></div>
+            <div class="r"><span class="l">꼬리잡기, 추격, 난투</span><span class="t"><i class="dim" style="--a:43.8%"></i></span><b>7</b></div>
+            <div class="r"><span class="l">단서 탐색, 추리</span><span class="t"><i class="dim" style="--a:31.3%"></i></span><b>5</b></div>
+          </div></div>
+        <div class="v-panel"><h3>고쳐 달라는 점, 16명 중</h3>
+          <div class="v-bars">
+            <div class="r"><span class="l">렉, 끊김 등 성능</span><span class="t"><i class="dim" style="--a:75%"></i></span><b>12</b></div>
+            <div class="r"><span class="l">단서 활용, 추리 흐름</span><span class="t"><i class="dim" style="--a:62.5%"></i></span><b>10</b></div>
+            <div class="r"><span class="l">UI 조작, 정보 접근</span><span class="t"><i style="--a:56.3%"></i></span><b>9</b></div>
+            <div class="r"><span class="l">조작감, 잡기 판정</span><span class="t"><i class="dim" style="--a:50%"></i></span><b>8</b></div>
+          </div></div>
+      </div>
+      <p class="v-note">가장 많이 나온 성능 문제(12명)는 제 담당 범위 밖입니다. 서술형 응답을 주제로 나눴고, 한 사람이 여러 주제에 들어갈 수 있습니다.</p>
+      <ol class="wt-toc wt-toc4">
+        <li><a href="#wt-hud"><span>HUD와 휴대폰</span>추리한 정보가 화면 사이에서 이어지게</a></li>
+        <li><a href="#wt-qte"><span>힘겨루기</span>오락실 연타에서 세 가지 입력으로</a></li>
+        <li><a href="#wt-items"><span>아이템</span>21종에서 14종으로, 우산과 록온</a></li>
+        <li><a href="#wt-retro"><span>결과와 회고</span>제출 빌드를 다시 플레이하며 찾은 것</a></li>
       </ol>
     </section>
 
-    <section class="v-beat" id="wt-polish" data-step="M3 폴리싱" data-short="추리한 정보가 여러 화면에서 이어지도록">
-      <h2>화면을 꾸미는 것에서, <em>정보가 이어지게 하는 것</em>까지</h2>
-      <p class="v-sub">추리한 색을 다른 앱에서 다시 지정하거나, 메시지를 받았는데 어디서 읽는지 찾게 되는 순간을 줄이려 했습니다. 같은 사람의 정보와 읽음 상태가 화면 사이에서 이어지도록 정리했습니다.</p>
-      <div class="wt-phone-media">
-        <figure class="v-vis"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-chat-wide.png" alt="작업 중 펼친 휴대폰: 왼쪽 대화 상대 목록과 오른쪽 말풍선 대화"><figcaption class="v-cap">휴대폰 펼침 화면을 맞추던 시기의 로컬 시연 캡처. 샘플 대화이며 실제 온라인 송수신 증거는 아닙니다.</figcaption></figure>
-        <figure class="v-vis"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-contacts.png" alt="연락처의 종이 목록: 이름 오른쪽에 꼬리색 정보가 놓인 화면"><figcaption class="v-cap">연락처 스타일을 통일하던 작업 캡처. 당시 ‘미정’ 칸이 이후 추리 색과 연동되도록 수정했습니다.</figcaption></figure>
-      </div>
-      <ol class="wt-decision-list">
-        <li><h3>추리는 편집을 마칠 때 적용</h3><p>이름표를 끌어 놓고 색을 고르는 동안 미니맵이 계속 바뀌면 산만했습니다. <b>꼬리 화면에서 나올 때</b> 추리 배치와 색을 적용하고, 연락처와 상대 꼬리 표시에도 같은 정보를 연결했습니다.</p></li>
-        <li><h3>탈락 때마다 전부 다시 놓지 않기</h3><p>처음에는 정보 유출을 막으려고 전부 초기화하는 안을 검토했습니다. 탈락자 이름을 공개하는 흐름에 맞춰 <b>해당 이름표만 빼고 나머지 배치와 색을 유지</b>하도록 바꿨습니다. 추리는 보존하고, 남은 인원에 맞춰 원을 재배치합니다.</p></li>
-        <li><h3>수신·미리보기·읽음을 구분</h3><p>새 메시지는 <b>오른쪽 위 배너</b>로 즉시 알립니다. 클릭하면 보낸 사람의 대화방을 열고, 그때 해당 대화의 빨간 배지를 지웁니다. 배너를 보거나 목록만 열었을 때는 읽음으로 처리하지 않습니다.</p></li>
-        <li><h3>같은 기기 안에서 조작 규칙 유지</h3><p>연락처·채팅·통화의 헤더와 종이 표면, 홈·닫기 버튼을 맞췄습니다. 통화에서는 중복 상태 안내를 줄이고 <b>상대 얼굴과 마이크·끊기</b>를 중심으로 되돌렸습니다. 작은 폰과 펼친 폰의 높이도 맞춰 전환 흐름을 정리했습니다.</p></li>
-      </ol>
-      <details class="v-more"><summary>내 담당과 구현 근거</summary><div class="in"><p>기획 판단·화면 피드백·공통 스타일은 제가 정했고 구현 코드는 AI와 작업했습니다. 추리의 편집/적용 분리는 <code>PhoneDeductionModel</code>, 읽음과 배지는 <code>MobileChatSession</code>·<code>PhoneUnreadBadge</code>, 수신 배너는 <code>ChatPreviewBanner</code>에 연결했습니다. 위 이미지는 당시 작업 증거이며 최종 제출 ZIP을 새로 촬영한 화면은 아닙니다.</p></div></details>
-    </section>
-
-    <section class="v-beat" id="wt-notices" data-step="알림과 진입" data-short="같은 역할은 통일하고, 다른 정보는 구분">
-      <h2>모두 같은 모양보다, <em>역할이 같은 알림끼리</em> 통일했습니다</h2>
-      <p class="v-sub">처음에는 알림을 모두 노란 포스트잇으로 맞췄습니다. 하지만 메시지까지 게임 공지처럼 보여 다시 나눴습니다. 어디를 보면 어떤 종류의 정보인지 예상할 수 있게 하는 것이 기준이었습니다.</p>
-      <dl class="wt-notice-types">
-        <div><dt><span class="wt-swatch yellow" aria-hidden="true"></span>왼쪽 · 게임 / 이벤트 알림</dt><dd>아이템 획득·폐기·사용과 구역 폐쇄는 원래의 <b>노란 포스트잇</b>을 공유합니다. 이벤트는 ‘이벤트 알림’으로 제목을 구분하고, 중요 단어만 색으로 강조했습니다.</dd></div>
-        <div><dt><span class="wt-swatch paper" aria-hidden="true"></span>오른쪽 위 · 메시지 / 단서</dt><dd><b>미색 수신 배너</b>로 구분합니다. 폰을 열어도 배너 위치는 유지하고, 단서의 이름·색 단어만 강조합니다. 문장은 의미 단위로 두 줄에 나눴습니다.</dd></div>
-        <div><dt><span class="wt-swatch navy" aria-hidden="true"></span>미니맵 옆 · 진행 중 이벤트</dt><dd>별도의 작은 진행 카드에 <b>이벤트 이름·남은 시간·상태</b>를 표시합니다. 꼬리 셔플도 발생 10초 전부터 같은 형식으로 예고하고, 등장·내용 교체·퇴장에 전환 효과를 연결했습니다.</dd></div>
-      </dl>
-      <div class="v-two wt-entry">
-        <article><h3>처음 들어오는 사람</h3><p>팀의 튜토리얼 흐름에 본 게임의 폰트·종이 질감을 맞췄습니다. 종료 안내가 미니맵을 가리는 배치, 연습 인원과 원 위 점 개수가 다른 표시, 추리 색 지정 후 진행이 막히는 연결을 수정했습니다.</p></article>
-        <article><h3>탈락한 뒤에도 보는 사람</h3><p>관전과 중개자 선택에 같은 종이·버튼·폰트 규칙을 적용했습니다. 자유 시점·따라가기·대상 변경과 역할 선택을 나눠, <b>탈락 이후 가능한 행동</b>을 읽기 쉽게 정리했습니다.</p></article>
-      </div>
-      <details class="v-more"><summary>개인 작업과 팀 후속 작업의 경계</summary><div class="in"><p>튜토리얼·관전·중개자 시스템 자체는 팀 작업입니다. 제 범위는 화면 통일, 배치·입력 안내와 연결 문제의 수정이며, 관전자 UI는 11.18 PR #64(<code>dac4aad59</code>)로 통합했습니다. 11.19–20의 오락실·온라인 지연·택시 내비게이션 후속 개발은 팀 작업으로 구분합니다.</p></div></details>
-    </section>
-
-    <section class="v-beat" id="wt-handoff" data-step="판단과 인계" data-short="팀 의견을 반영하고, 수치와 예외까지 확정">
-<h2>‘더 자주 쓰면 재미있겠다’는 의견을<br><em>아이템 등급과 명세</em>에 반영했습니다</h2>
-<p class="v-sub">우산을 자주 쓰게 하자는 팀장 의견을 받아 일반 아이템으로 옮겼습니다. 반대로 은신은 너무 자주 나오면 플레이를 혼란스럽게 할 수 있어 특수로 두었습니다.</p>
-<figure class="v-vis"><img class="v-shot zoom" src="../assets/94e191147e75348ee8e4b581.webp" alt="M2 아이템 확정안, 일반 10종과 특수 4종"><figcaption class="v-cap">11월 3일 대화에서 최신 확정안으로 지정한 아이템 구성입니다. 일반 10종, 특수 4종.</figcaption></figure>
-<div class="wt-choices"><div><span>팀장 의견 수용</span><h3>우산 → 일반</h3><p>사용감이 재미있으니 더 자주 쓸 수 있게 했습니다.</p></div><div><span>성능 관계 판단</span><h3>섬광 → 일반</h3><p>상위 역할의 나무 해머와 등급을 나눴습니다.</p></div><div><span>본인 판단</span><h3>클로킹 → 특수</h3><p>은신의 다른 경험은 살리고 남발은 줄이려 했습니다.</p></div></div>
-<details class="v-more"><summary>직접 검수한 뒤, 구현자가 받을 명세까지</summary><div class="in">
-<blockquote class="v-quote">“낚싯대 12m 록온 20m 이제 수치 확정하고 친구한테 아이템 넘길거야”<footer>2026.11.03, 검수 뒤 본인이 남긴 원문 발췌</footer></blockquote>
-<div class="wt-ranges"><div><b>낚싯대 12m</b><i style="--range:60%"></i><span>보이는 상대를 당깁니다</span></div><div><b>록온 20m</b><i style="--range:100%"></i><span>보이는 상대를 추적합니다</span></div></div>
-<p>거리만 넘기지 않았습니다. 우클릭 유지 → 조준 → 놓아 발동하는 공통 입력과, 대상 없음, 사거리 이탈, 조준 취소 시 <b>소모하지 않는 예외</b>까지 확정했습니다.</p>
-<a href="../docs/whostail-handoff.html">당시 판단 원문과 구현 명세 발췌 읽기 →</a>
-</div></details></section>
-<section class="v-beat" id="wt-intent" data-step="기획 의도" data-short="Figma 메모가 기획서 문장으로">
-      <h2>첫 HUD 시안에 적은 기획 의도가, <em>팀 최종 기획서의 문장</em>이 됐습니다</h2>
-      <p class="v-sub">9월 말 Figma에 첫 화면을 그리면서, 요소마다 ‘왜 이만큼만 보여 주는지’를 메모로 붙였습니다.</p>
+    <section class="v-beat" id="wt-hud" data-step="① HUD" data-short="첫 시안의 의도와 여섯 번의 변화">
+      <h2>첫 HUD 시안에 적은 의도는 지키고, <em>피드백을 받을 때마다</em> 화면을 바꿨습니다</h2>
+      <p class="v-sub">9월 말 Figma에 첫 화면을 그리면서 요소마다 ‘왜 이만큼만 보여 주는지’를 메모로 붙였습니다. 이 메모는 팀 최종 컨셉 기획서의 문장이 됐고, 화면은 팀 피드백과 시연 설문에 맞춰 여섯 번 바뀌었습니다.</p>
       <figure class="v-vis">
         <img class="v-shot zoom" src="../assets/c8869ec050c31fc7c9c4473c.webp" alt="Figma 첫 인게임 HUD 시안. 왼쪽 위 타깃 카드, 위 가운데 시간과 이벤트 문구, 오른쪽 위 미니맵, 아래 아이템 네 칸과 잡기 버튼">
         <figcaption class="v-cap">Figma ‘재민_UI’ 페이지의 01_HUD_InGame 첫 시안, 10.01 캡처, 타깃 이름 칸의 팀원 이름은 가림</figcaption>
       </figure>
-      <ol class="wt-map" aria-label="Figma 메모와 최종 기획서 문장 비교">
+      <ol class="wt-map" aria-label="Figma 메모와 최종 컨셉 기획서 문장 비교">
         <li><p class="el">미니맵</p>
           <blockquote class="fig">길을 잃지 않을 만큼만 알려 준다. 상대의 위치는 지도가 아니라 <b>눈과 귀로 찾게 한다.</b><cite>Figma 메모, 01_HUD_InGame</cite></blockquote>
-          <blockquote class="doc">지도는 길과 구역을 파악하는 도구이지 상대를 찾아 주는 도구가 아니다. 상대의 위치는 <b>눈과 귀로 찾게 한다.</b><cite>최종 기획서 6.2 위치 정보 원칙</cite></blockquote></li>
+          <blockquote class="doc">지도는 길과 구역을 파악하는 도구이지 상대를 찾아 주는 도구가 아니다. 상대의 위치는 <b>눈과 귀로 찾게 한다.</b><cite>최종 컨셉 기획서 6.2 위치 정보 원칙</cite></blockquote></li>
         <li><p class="el">플레이어 카드</p>
           <blockquote class="fig"><b>위치는 숨기</b>지만 누가 남았는지는 알려 준다. <b>남은 사람이 줄수록 긴장</b>감이 오른다.<cite>Figma 메모, 02_HUD_FullMap_M</cite></blockquote>
-          <blockquote class="doc">좌우 플레이어 카드로 누가 남았는지 보여 준다. <b>위치는 숨기</b>되 생존 현황은 알려 주어, <b>남은 사람이 줄수록 긴장</b>이 오르게 한다.<cite>최종 기획서 13.4 전체 지도</cite></blockquote></li>
+          <blockquote class="doc">좌우 플레이어 카드로 누가 남았는지 보여 준다. <b>위치는 숨기</b>되 생존 현황은 알려 주어, <b>남은 사람이 줄수록 긴장</b>이 오르게 한다.<cite>최종 컨셉 기획서 13.4 전체 지도</cite></blockquote></li>
         <li><p class="el">아이템 칸</p>
           <blockquote class="fig"><b>추격 중에도 손을 떼지 않고 숫자키만으로 바로 쓸 수 있게 한다.</b> 아이템 스택이 가능해야 초반 조우 이전에 파밍 페이즈의 실질적인 의미가 생김.<cite>Figma 메모, 01_HUD_InGame</cite></blockquote>
-          <blockquote class="doc">같은 아이템을 쌓을 수 있어야 첫 조우 이전의 수집 구간이 의미를 갖기 때문에 종류에 비해 칸을 넉넉히 둔다. <b>추격 중에도 손을 떼지 않고 숫자 키만으로 바로 쓸 수 있게 한다.</b><cite>최종 기획서 7.3 획득과 슬롯</cite></blockquote></li>
+          <blockquote class="doc">같은 아이템을 쌓을 수 있어야 첫 조우 이전의 수집 구간이 의미를 갖기 때문에 종류에 비해 칸을 넉넉히 둔다. <b>추격 중에도 손을 떼지 않고 숫자 키만으로 바로 쓸 수 있게 한다.</b><cite>최종 컨셉 기획서 7.3 획득과 슬롯</cite></blockquote></li>
         <li><p class="el">힘겨루기</p>
           <blockquote class="fig">추격의 마지막 순간을 손으로 직접 겨루게 해서 잡는 쪽과 도망치는 쪽 모두 끝까지 긴장하게 만든다. <b>누가 이기고 있는지를 색의 넓이로</b> 한눈에 보여 준다.<cite>Figma 메모, 06_HUD_TailTug_QTE</cite></blockquote>
-          <blockquote class="doc">공격자와 방어자가 같은 게이지와 같은 키를 본다. 게이지는 양쪽의 꼬리 색으로 채워 <b>누가 이기고 있는지를 색의 넓이로</b> 보여 준다.<cite>최종 기획서 5.3 포획 단계</cite></blockquote></li>
+          <blockquote class="doc">공격자와 방어자가 같은 게이지와 같은 키를 본다. 게이지는 양쪽의 꼬리 색으로 채워 <b>누가 이기고 있는지를 색의 넓이로</b> 보여 준다.<cite>최종 컨셉 기획서 5.3 포획 단계</cite></blockquote></li>
       </ol>
-      <details class="v-more"><summary>메모가 붙은 Figma 페이지와 출처</summary><div class="in wt-more-two">
+      <details class="v-more"><summary>메모가 붙은 Figma 페이지</summary><div class="in wt-more-two">
         <img class="v-shot zoom" src="../assets/ac4195c6c315a88a09365698.webp" alt="Figma 페이지 캡처. HUD 시안과 힘겨루기 상태 화면 옆에 기획 의도 메모가 선으로 이어져 있다">
         <div>
-          <p>왼쪽은 10.01 Figma 페이지 캡처의 일부입니다(오른쪽에 있던 타사 게임 레퍼런스 화면은 잘라 냈습니다). 메모 원문은 2026.11.18에 저장한 Figma 레이어 구조(<code>1-2-재민_UI.xml</code>)에서 그대로 옮겼습니다.</p>
-          <p>스태미나 메모(“추격과 도망을 무한 달리기로 끝내지 못하게 한다”)도 최종 기획서 5.5절에 같은 문장으로 들어갔습니다. 기획서의 담당 칸에는 “메인 UI 기획, 전투 및 이벤트 요소 기획”으로 적혀 있습니다.</p>
+          <p>10.01 Figma 페이지 캡처의 일부입니다. 오른쪽에 있던 타사 게임 레퍼런스 화면은 잘라 냈습니다. 메모 원문은 11.18에 저장한 Figma 레이어 구조에서 그대로 옮겼습니다.</p>
+          <p>스태미나 메모(“추격과 도망을 무한 달리기로 끝내지 못하게 한다”)도 최종 컨셉 기획서 5.5절에 같은 문장으로 들어갔습니다.</p>
         </div>
       </div></details>
-    </section>
-
-    <section class="v-beat" id="wt-feedback" data-step="피드백" data-short="피드백마다 바뀐 HUD">
-      <h2>HUD는 팀 피드백과 시연 설문을 받을 때마다 <em>한 단계씩</em> 바뀌었습니다</h2>
-      <p class="v-sub">날짜를 누르면 그때 받은 의견과 바뀐 화면이 나옵니다.</p>
+      <h3 class="wt-subhead">여섯 번 바뀐 HUD</h3>
+      <p class="wt-lead">날짜를 누르면 그때 받은 의견과 바뀐 화면이 나옵니다.</p>
       <div class="wt-steps" id="wthud" data-v="f">
         <div class="v-seg wt-seg" data-for="wthud" role="group" aria-label="HUD가 바뀐 날짜">
           <button type="button" data-v="a"><b>10.06</b><span>무도 자막</span></button>
@@ -543,7 +525,7 @@ img.zoom{cursor:zoom-in}
         </div></div>
 
         <div data-show="c"><div class="wt-stage">
-          <figure class="v-vis"><img class="v-shot zoom" src="../assets/e3eb818ed5dd4ee681d0d5f8.webp" alt="아이템 네 칸 위에 달릴 힘 게이지가 있고, 노란 선택 칸의 아이콘은 남색, 나머지는 흰색으로 표시된 렌더"><figcaption class="v-cap">10.22 수정 후, 저장된 Unity Canvas 렌더(회색 배경은 격리 검수용)</figcaption></figure>
+          <figure class="v-vis"><img class="v-shot zoom" src="../assets/e3eb818ed5dd4ee681d0d5f8.webp" alt="아이템 네 칸 위에 달릴 힘 게이지가 있고, 노란 선택 칸의 아이콘은 남색, 나머지는 흰색으로 표시된 렌더"><figcaption class="v-cap">10.22 수정 후, Unity에서 따로 렌더한 HUD(회색 배경은 검수용)</figcaption></figure>
           <div class="wt-why">
             <p class="k">받은 의견, 10.22 빌드 검수</p><p>아이템이 배경에 묻히고, 노랑으로 선택해도 아이콘과 글자가 잘 구분되지 않는다. 알림 본문 글꼴만 다른 HUD와 다르다.</p>
             <p class="k">바꾼 것</p><p>미선택 칸은 흰 전경, 선택 칸은 남색 전경으로 바꾸고 스태미나를 칸 바로 위로 옮겼습니다. 알림 글꼴을 HUD와 맞춘 뒤 M1 배포본에 넣었습니다.</p>
@@ -569,16 +551,108 @@ img.zoom{cursor:zoom-in}
         <div data-show="f"><div class="wt-stage">
           <figure class="v-vis"><img class="v-shot zoom" src="../assets/240d4490ef2c9296cb779cd1.webp" alt="화면 왼쪽 위의 원형 미니맵과 그 둘레의 플레이어 이름표, 노란 타깃 표시가 붙은 이름표"><figcaption class="v-cap">11.16 에디터 실행 화면에서 잘라 낸 왼쪽 위, 봇 11명과 진행</figcaption></figure>
           <div class="wt-why">
-            <p class="k">11.16에 도달한 형태</p><p>원 하나에서 내 위치, 주변 지도, 남은 사람, 내 타깃 표시를 함께 읽게 했습니다. 표지는 같은 날의 전체 화면입니다. 이후 폴리싱은 휴대폰의 추리 내용 연결과 QTE·관전 화면으로 이어졌습니다.</p>
+            <p class="k">11.16에 도달한 형태</p><p>원 하나에서 내 위치, 주변 지도, 남은 사람, 내 타깃 표시를 함께 읽게 했습니다. 표지는 같은 날의 전체 화면입니다. 이후 폴리싱은 휴대폰의 추리 내용 연결과 QTE, 관전 화면으로 이어졌습니다.</p>
           </div>
         </div></div>
       </div>
-      <details class="v-more"><summary>날짜와 출처</summary><div class="in">
-        <p>10월 의견은 제 업무 메모(10.06, 10.07)와 M1 진행 기록 PDF(10.24, 20쪽)에서 가져왔습니다. 팀원 이름은 빼고 의견만 남겼습니다. 11월 단계는 Codex 대화 원문(11.09, 11.12)과 커밋 <code>67f4a7df2</code>(11.11 원형 HUD 통합), <code>3aea27bfa</code>(11.12 원형 미니맵) 기준입니다.</p>
+    </section>
+
+    <section class="v-beat" id="wt-phone" data-step="① M3 휴대폰" data-short="추리한 정보가 화면 사이에서 이어지게">
+      <h2>M3에서는 꾸미는 것보다, <em>추리한 정보가 이어지게</em> 했습니다</h2>
+      <p class="v-sub">설문에서 많이 나온 ‘단서 활용, 추리 흐름’(10명)과 ‘UI 조작, 정보 접근’(9명)을 휴대폰에서 풀었습니다. 추리한 색을 다른 앱에서 다시 지정하거나, 받은 메시지를 어디서 읽는지 찾는 순간을 줄였습니다.</p>
+      <div class="wt-phone3">
+        <figure class="v-vis"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-tail-deduction.webp" width="628" height="604" alt="꼬리 추리 화면: 원 위에 이름표와 꼬리색이 놓이고, 가운데 생존 12명, 아래에 아직 놓지 않은 이름표와 탈락자 버튼"><figcaption class="v-cap">꼬리 추리 화면, 11.23 평가 제출 자료</figcaption></figure>
+        <figure class="v-vis"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-chat-masked.webp" width="656" height="582" alt="펼친 휴대폰의 메시지 화면: 왼쪽 대화 목록과 안 읽은 수 배지, 오른쪽 말풍선 대화"><figcaption class="v-cap">메시지 화면, 로컬 전송 테스트. 대화 상대 이름은 가림</figcaption></figure>
+        <figure class="v-vis"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-call-masked.webp" width="420" height="520" alt="통화 화면: 상대 캐릭터 얼굴, 통화 시간, 마이크 끄기와 끊기 버튼"><figcaption class="v-cap">통화 화면, 이름은 가림</figcaption></figure>
+      </div>
+      <ol class="wt-decision-list">
+        <li><h3>추리는 편집을 마칠 때 적용</h3><p>이름표를 끌어 놓고 색을 고르는 동안 미니맵이 계속 바뀌면 산만했습니다. <b>꼬리 화면에서 나올 때</b> 추리 배치와 색을 적용하고, 연락처와 상대 꼬리 표시에도 같은 정보를 연결했습니다.</p></li>
+        <li><h3>탈락 때마다 전부 다시 놓지 않기</h3><p>처음에는 정보 유출을 막으려고 전부 초기화하는 안을 검토했습니다. 탈락자 이름을 공개하는 흐름에 맞춰 <b>해당 이름표만 빼고 나머지 배치와 색을 유지</b>하도록 바꿨습니다. 추리는 보존하고, 남은 인원에 맞춰 원을 재배치합니다.</p></li>
+        <li><h3>수신, 미리보기, 읽음을 구분</h3><p>새 메시지는 <b>오른쪽 위 배너</b>로 즉시 알립니다. 클릭하면 보낸 사람의 대화방을 열고, 그때 해당 대화의 빨간 배지를 지웁니다. 배너를 보거나 목록만 열었을 때는 읽음으로 처리하지 않습니다.</p></li>
+        <li><h3>같은 기기 안에서 조작 규칙 유지</h3><p>연락처, 채팅, 통화의 헤더와 종이 표면, 홈, 닫기 버튼을 맞췄습니다. 통화에서는 중복 상태 안내를 줄이고 <b>상대 얼굴과 마이크, 끊기</b>를 중심으로 되돌렸습니다. 작은 폰과 펼친 폰의 높이도 맞춰 전환 흐름을 정리했습니다.</p></li>
+      </ol>
+    </section>
+
+    <section class="v-beat" id="wt-notices" data-step="① 알림과 관전" data-short="같은 역할의 알림끼리 통일">
+      <h2>모두 같은 모양보다, <em>역할이 같은 알림끼리</em> 통일했습니다</h2>
+      <p class="v-sub">처음에는 알림을 모두 노란 포스트잇으로 맞췄습니다. 그랬더니 메시지까지 게임 공지처럼 보여 다시 나눴습니다. 어디를 보면 어떤 종류의 정보인지 예상할 수 있게 하는 것이 기준이었습니다.</p>
+      <div class="wt-notice-shots">
+        <figure class="v-vis"><img class="v-shot" loading="lazy" src="../assets/whostail-m3-notice-before.webp" width="520" height="190" alt="노란 포스트잇에 제목 없이 ‘주웠어! 우산, 2번 칸’이라고 적힌 이전 알림"><figcaption class="v-cap">이전: 무슨 종류의 알림인지 제목이 없음</figcaption></figure>
+        <figure class="v-vis"><img class="v-shot" loading="lazy" src="../assets/whostail-m3-notice-after.webp" width="520" height="586" alt="노란 포스트잇 세 장: 아이템 사용, 게임 알림, 이벤트 알림 제목 아래 록온, 04 구역, 폐쇄 같은 중요한 단어만 색으로 강조"><figcaption class="v-cap">제출 빌드(11.24 녹화): 아이템 사용, 게임 알림, 이벤트 알림으로 제목을 나누고 중요한 단어만 색으로 강조</figcaption></figure>
+      </div>
+      <dl class="wt-notice-types">
+        <div><dt><span class="wt-swatch yellow" aria-hidden="true"></span>왼쪽: 게임, 이벤트 알림</dt><dd>아이템 획득, 폐기, 사용과 구역 폐쇄는 원래의 <b>노란 포스트잇</b>을 공유합니다. 이벤트는 ‘이벤트 알림’으로 제목을 구분하고, 중요 단어만 색으로 강조했습니다.</dd></div>
+        <div><dt><span class="wt-swatch paper" aria-hidden="true"></span>오른쪽 위: 메시지, 단서</dt><dd><b>미색 수신 배너</b>로 구분합니다. 폰을 열어도 배너 위치는 유지하고, 단서의 이름, 색 단어만 강조합니다. 문장은 의미 단위로 두 줄에 나눴습니다.</dd></div>
+        <div><dt><span class="wt-swatch navy" aria-hidden="true"></span>미니맵 옆: 진행 중 이벤트</dt><dd>별도의 작은 진행 카드에 <b>이벤트 이름, 남은 시간, 상태</b>를 표시합니다. 꼬리 셔플도 발생 10초 전부터 같은 형식으로 예고하고, 등장, 내용 교체, 퇴장에 전환 효과를 연결했습니다.</dd></div>
+      </dl>
+      <div class="v-two wt-entry">
+        <article><h3>처음 들어오는 사람</h3><p>팀의 튜토리얼 흐름에 본 게임의 폰트와 종이 질감을 맞췄습니다. 종료 안내가 미니맵을 가리는 배치, 연습 인원과 원 위 점 개수가 다른 표시, 추리 색을 정한 뒤 진행이 막히는 연결을 고쳤습니다.</p></article>
+        <article><h3>탈락한 뒤에도 보는 사람</h3><p>M2 설문에서 16명 중 12명이 중개자를 해 보지 못했거나 역할을 몰랐다고 답했습니다. 관전과 중개자 선택에 같은 종이, 버튼, 폰트 규칙을 적용하고 자유 시점, 따라가기, 대상 변경과 역할 선택을 나눠 <b>탈락 이후 할 수 있는 행동</b>을 읽기 쉽게 정리했습니다.</p></article>
+      </div>
+    </section>
+
+    <section class="v-beat" id="wt-qte" data-step="② 힘겨루기" data-short="오락실 연타에서 세 가지 입력으로">
+      <h2>오락실 연타의 손맛에서 출발해, <em>입력과 결과가 바로 이어지는</em> 힘겨루기로 다듬었습니다</h2>
+      <p class="v-sub">10.26 M1 회고에서 C, V 대신 무작위 키를 쓰자는 의견이 나왔고, 저는 오락실 연타 게임처럼 Space와 Enter를 두드리는 손맛을 재미의 원형으로 냈습니다. 팀은 두 안을 모두 시험하기로 했고, Space와 Enter 쪽 구현을 제가 맡았습니다.</p>
+      <ol class="wt-clock" aria-label="힘겨루기가 바뀐 순서">
+        <li><time>10.26</time><p>M1 회고: 무작위 키 안과 Space, Enter 연타 안을 함께 시험하기로 결정</p></li>
+        <li class="on"><time>11.04</time><p>화면에는 Space, Enter로 보이지만 실제 입력은 C, V였던 불일치를 바로잡아 실제 키를 Space, Enter로 연결</p></li>
+        <li><time>11.16</time><p>팀원이 연타, 순서 입력, 원형 타이밍 세 가지의 판정 로직을 올림</p></li>
+        <li class="on"><time>11.17</time><p>화면과 피드백을 맡아 하루 만에 다듬고 팀 프로젝트에 합침</p></li>
+        <li><time>11.23</time><p>제출 빌드에 Space, Enter 연타와 무작위 키 순서 입력이 함께 들어감</p></li>
+      </ol>
+      <figure class="wt-film-figure wt-qte-film"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-qte3.jpg" aria-label="힘겨루기 세 가지: 연타, 순서 입력, 원형 타이밍"><source src="../assets/whostail-20261124-qte3.mp4" type="video/mp4"><a href="../assets/whostail-20261124-qte3.mp4">영상 파일 열기</a></video><figcaption>11.24 직접 녹화한 제출 빌드에서 세 가지 힘겨루기를 이어 붙였습니다(24초). 순서 입력에서 틀렸을 때 나오는 빨간 키와 ‘다시! 노란 키부터!’ 안내도 담았습니다.</figcaption></figure>
+      <h3 class="wt-subhead">글을 읽어야 하던 화면에서, 보고 바로 누르는 화면으로</h3>
+      <div class="wt-qte" id="wtqte" data-v="b">
+        <div class="v-seg" data-for="wtqte"><button type="button" data-v="a">11.17 15:21, 고치기 전</button><button type="button" data-v="b">제출 빌드, 11.24 녹화</button></div>
+        <div class="wt-q3">
+          <figure><div data-show="a"><img class="v-shot zoom" src="../assets/a7e38c9b1e2f19cb6d036b61.webp" alt="Space와 Enter 키캡 아래 4.5초 숫자와 게이지"></div><div data-show="b"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-qte-mash.webp" alt="‘스페이스 엔터를 연타해!’ 사선 태그, 나 20 대 상대 14 점수판, 노랗게 눌린 Space와 Enter 키캡, 파랑과 빨강으로 나뉜 게이지"></div><figcaption class="v-cap"><b>연타</b>: Space와 Enter를 번갈아</figcaption></figure>
+          <figure><div data-show="a"><img class="v-shot zoom" src="../assets/e1f9257a0e492ea6e8670800.webp" alt="다섯 키캡 위에 앞의 키부터 입력 문구와 두 줄 설명"></div><div data-show="b"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-qte-sequence.webp" alt="‘노란 키를 순차적으로 눌러!’ 태그, 첫 키 Q만 노랗게 강조된 다섯 키캡과 점수판"></div><figcaption class="v-cap"><b>순서 입력</b>: 노란 키부터 차례로</figcaption></figure>
+          <figure><div data-show="a"><img class="v-shot zoom" src="../assets/9ce09170757df86cfa073c7e.webp" alt="원판 칸마다 +1 +2 +3 글자와 판정폭 설명 세 줄"></div><div data-show="b"><img class="v-shot zoom" loading="lazy" src="../assets/whostail-m3-qte-timing.webp" alt="‘빛나는 칸에서 스페이스를 눌러!’ 태그, 다트판 모양 원판에서 초록으로 빛나는 칸과 1/2 표시, Space 키캡 아래 체크 표시"></div><figcaption class="v-cap"><b>원형 타이밍</b>: 빛나는 칸에서 Space</figcaption></figure>
+        </div>
+        <p class="v-note"><span data-show="a">15:21에 제가 보낸 실제 화면입니다. 남은 초, 점수, 조작법을 모두 글자로 읽어야 했습니다.</span><span data-show="b">11.24 녹화한 제출 빌드입니다. 명령형 태그 하나, 나 대 상대 점수판, 지금 누를 키만 남겼습니다.</span></p>
+      </div>
+      <div class="wt-feedback-rules">
+        <h3>세 가지 입력, 같은 결과 표시</h3>
+        <div class="wt-rule-grid">
+          <article><span class="wt-rule-label">연타</span><h4>스페이스 엔터를<br>연타해!</h4><p>키캡 위 카툰 강조선과 눌림 색으로 다음 입력을 유도합니다. 성공한 입력이 점수와 줄다리기 게이지에 함께 반영되도록 연결했습니다.</p></article>
+          <article><span class="wt-rule-label">순서 입력</span><h4>노란 키를<br>순차적으로 눌러!</h4><p>현재 키만 노랗게 강조합니다. 틀리면 빨간 키캡, 흔들림과 <b>“다시! 노란 키부터!”</b> 안내로 어느 입력부터 이어가야 하는지 알립니다.</p></article>
+          <article><span class="wt-rule-label">원형 타이밍</span><h4>빛나는 칸에서<br>스페이스를 눌러!</h4><p>득점할 수 있는 범위만 빛나게 하고, 색과 테두리로 등급을 나눕니다. 맞힌 조각은 떨어지고 <b>1, 2, 3점 차등</b>이 점수판과 게이지에 반영됩니다. 실패는 화면 흔들림 대신 은은한 색 반응으로 구분합니다.</p></article>
+        </div>
+        <p class="wt-game-note">공통 규칙: 남은 시간은 <b>초록, 노랑, 빨강 막대</b>로, 힘겨루기는 <b>수평 게이지와 원형 표시</b>로 읽게 했습니다. 원 주변의 짧은 반응으로 ‘지금 성공한 입력이 게이지를 움직였다’는 연결을 보강했습니다.</p>
+      </div>
+      <div class="wt-refs">
+        <figure class="wt-ref"><img class="v-shot" src="../assets/07c3ea4ff2c23e5e20d2f462.webp" alt="다트판 사진"><figcaption class="v-cap">다트판, 레퍼런스</figcaption></figure>
+        <blockquote class="v-quote">“다트가 이미 문법으로 사람들한테 친숙하게 깔려 있기에 더 텍스트가 필요 없잖아.”<footer>원판 QTE를 다시 디자인하자며, 16:04</footer></blockquote>
+        <figure class="wt-ref wide"><img class="v-shot" src="../assets/0827145dc94fae2edc9d065b.webp" alt="방송 자막의 빨간 폭발 모양 태그 네 개"><figcaption class="v-cap">사선 태그 레퍼런스, 출처: SBS 〈런닝맨〉 방송 화면, 레퍼런스로만 사용</figcaption></figure>
+      </div>
+      <ol class="wt-clock wt-day" aria-label="11월 17일 QTE 작업 순서">
+        <li><time>15:21</time><p>설명 문구를 모두 빼고, 성공, 실패를 색과 흔들림으로 바로 알 수 있게</p></li>
+        <li class="on"><time>16:04</time><p>원판을 다트판 문법으로 다시 디자인, 점수 숫자 대신 색과 줄 수</p></li>
+        <li><time>17:02</time><p>맞힌 조각이 원판 밖으로 떨어짐, 남은 시간은 숫자 대신 스태미나처럼 초록→노랑→빨강 막대</p></li>
+        <li class="on"><time>17:51</time><p>클립을 떼고 런닝맨 자막 같은 사선 태그로 “무엇을 할지” 명령형 안내, 나 : 상대 전광판</p></li>
+        <li><time>18:30</time><p>태그 문구를 직접 정하고, 원판 1, 2, 3점 차등을 전광판 점수에 반영</p></li>
+        <li><time>19:01</time><p>팀 프로젝트에 합침</p></li>
+      </ol>
+      <details class="v-more"><summary>나눈 일</summary><div class="in">
+        <p>세 가지 판정 로직은 팀원이 11.16에 만들었습니다. 화면 코드는 AI(Codex)가 작성했고, 문구, 레퍼런스, 색 규칙과 연습 화면에서의 플레이 검수는 제가 했습니다. 15:21 수정 중 바꾸지 말았어야 할 연타 키까지 바뀌어 직전 버전으로 되돌린 일도 있었습니다.</p>
       </div></details>
     </section>
 
-    <section class="v-beat" id="wt-umbrella" data-step="아이템 ①" data-short="2층에서 추격을 끊는 우산">
+    <section class="v-beat" id="wt-items" data-step="③ 아이템 구성" data-short="21종에서 14종으로 줄인 기준">
+      <h2>아이템은 <em>21종에서 14종으로</em> 줄이고, 등급은 써 본 감각으로 나눴습니다</h2>
+      <p class="v-sub">M2 시연을 나흘 앞둔 11.02에 아이템을 다시 짰습니다. 기존 모션을 쓸 수 있어도 맵에서 꺼낼 이유가 약하거나, 다른 아이템과 하는 일이 겹치면 뺐습니다.</p>
+      <div class="v-flow wt-cut" style="--n:4">
+        <div><b>21종 → 18종</b><span>맵에서 쓸 이유가 약한 것부터. 포대 썰매는 탈 계단이 적고 달리는 편이 빨랐습니다</span></div>
+        <div><b>18종 → 15종</b><span>고무줄 총은 낚싯대처럼 상대를 겨눴고, 구름 스프레이는 더블 점프로 넘을 단차에 설치 절차만 늘었습니다. 껌방울탄은 시제품까지 확인하고 뺐습니다</span></div>
+        <div><b>15종 → 14종</b><span>비행 망토는 별도 천 모델과 자세가 필요했습니다</span></div>
+        <div><b>11.03 등급</b><span>일반 9종, 특수 5종을 일반 10종, 특수 4종으로</span></div>
+      </div>
+      <figure class="v-vis wt-items"><img class="v-shot zoom" src="../assets/94e191147e75348ee8e4b581.webp" alt="M2 아이템 기획 확정안. 일반 10종에 우산과 록온이 있고 특수 4종은 클로킹, 조작 반전, 나무 해머, 대나무 헬리콥터"><figcaption class="v-cap">11.03 M2 아이템 확정안, 일반 10종, 특수 4종</figcaption></figure>
+      <div class="wt-choices"><div><span>팀장 의견 수용</span><h3>우산 → 일반</h3><p>사용감이 재미있으니 더 자주 쓸 수 있게 했습니다.</p></div><div><span>성능 관계 판단</span><h3>섬광 → 일반</h3><p>상위 역할의 나무 해머와 등급을 나눴습니다.</p></div><div><span>본인 판단</span><h3>클로킹 → 특수</h3><p>은신의 다른 경험은 살리고 남발은 줄이려 했습니다.</p></div></div>
+    </section>
+
+    <section class="v-beat" id="wt-umbrella" data-step="③ 우산" data-short="2층에서 추격을 끊는 우산">
       <h2>우산은 비가 아니라, <em>2층에서 추격을 끊는 도구</em>로 만들었습니다</h2>
       <p class="v-sub">데모 빌드에서 건물 위로 올라갈 수 있는 것을 보고, 높은 곳에서 내려오는 길을 도망자의 선택지로 바꿨습니다.</p>
       <blockquote class="v-quote">“비 막는 용도의 우산이 아니잖아. 그래서 우산의 용도는 2층이나 높은 곳에서 떨어질 때 낙하산 느낌의 기능이야.”<footer>Blender 모델 제작을 지시하며 쓴 말, 10.12</footer></blockquote>
@@ -586,11 +660,17 @@ img.zoom{cursor:zoom-in}
         <figure class="v-vis"><img class="v-shot zoom" src="../assets/656d7080e274de666c0c7918.webp" alt="M1 지도 위에 일반 점프로 올라설 수 있는 면을 높이별 색으로 표시한 분석도"><figcaption class="v-cap">M1 지도에서 일반 점프로 닿는 발판을 높이별로 표시한 분석, 10월 우산 기획 때 AI와 함께 계산</figcaption></figure>
         <figure class="v-vis"><img class="v-shot" src="../assets/9209f219cb3267e3fe5209bf.gif" alt="빨강 흰 줄무늬 우산을 펼친 캡슐이 들썩이며 내려오는 Unity 테스트 움직임"><figcaption class="v-cap">펼침과 들썩임을 확인한 Unity 독립 테스트, 10.12</figcaption></figure>
       </div>
-<div class="wt-umbrella-footage"><h3>최종 빌드에서는 이렇게 이동합니다</h3><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-umbrella.jpg" aria-label="옥상 우산 활공 | 건물 위에서 시장까지"><source src="../assets/whostail-20261124-umbrella.mp4" type="video/mp4"><a href="../assets/whostail-20261124-umbrella.mp4">영상 파일 열기</a></video><figcaption>건물 옥상에서 뛰어내려 우산을 펼치고, 시장 천막 위를 길게 활공한 뒤 도로에 착지합니다. 출발 높이와 활공 경로, 내려오는 순간을 함께 담은 16초 장면입니다.</figcaption></figure><nav class="wt-film-nav" aria-label="우산의 다른 쓰임"><a href="#film-umbrella-escape">상대가 붙은 계단에서 이탈하는 장면도 보기</a></nav></div>
+      <h3 class="wt-subhead">착지 스턴은 맵을 재서 기준을 세웠습니다</h3>
+      <p class="wt-lead">10.13에 맵 약 310×310m를 0.5m 간격으로 나눠 여러 층의 바닥을 찾았습니다. 기준은 <b>높은 곳에서 실제로 떨어질 때만</b> 엉덩방아를 찧게 하는 것이었습니다. 우산 기획서에서는 낙차 6m 이상이고 떨어지는 속도가 8m/s를 넘을 때만 스턴이 걸리게 했고, 길이는 제가 상한을 3초로 줄이자고 해 다시 계산했습니다. 하강 속도 후보는 낙차 다섯 가지, 점프 세 가지, 속도 다섯 가지를 묶은 75개 경우로 비교했습니다.</p>
+      <h3 class="wt-subhead">제출 빌드: 펼친 시간만큼 줄고, 남은 양은 저장됩니다</h3>
+      <p class="wt-lead">우산은 한 번에 다 쓰고 사라지는 아이템이 아닙니다. 펼쳐 공중에 있는 시간만큼 잔량이 줄고, 접으면 남은 양이 그대로 남아 다음에 이어 씁니다. 잔량은 아이콘 안에서 <b>위쪽부터 시계 방향으로 어두워지는 음영</b>으로 보여, 쿨타임 시계처럼 얼마나 남았는지 읽힙니다. 잔량이 0이 되면 칸에서 사라집니다. 칸마다 누적 30초를 따로 저장하는 규칙은 10.16에 제가 정했습니다.</p>
+      <figure class="v-vis wt-gauge-strip"><img class="v-shot" loading="lazy" src="../assets/whostail-m3-umbrella-gauge-strip.webp" width="1008" height="200" alt="노란 우산 아이콘 다섯 개. 왼쪽부터 오른쪽으로 갈수록 아이콘 위쪽에서 시계 방향으로 어두운 부분이 넓어진다"><figcaption class="v-cap">11.24 녹화한 한 판에서 1번 칸의 우산 아이콘을 시간 순서로 잘랐습니다(0:09, 1:42, 4:00, 5:00, 7:30). 펼칠 때마다 어두운 부분이 넓어집니다.</figcaption></figure>
+      <div class="wt-umbrella-footage"><figure class="wt-film-figure"><video controls playsinline preload="none" width="1280" height="784" poster="../assets/whostail-20261124-umbrella-gauge.jpg" aria-label="우산 활공과 잔량 표시"><source src="../assets/whostail-20261124-umbrella-gauge.mp4" type="video/mp4"><a href="../assets/whostail-20261124-umbrella-gauge.mp4">영상 파일 열기</a></video><figcaption>옥상에서 뛰어내려 시장 위를 활공합니다. 오른쪽 위에 1번 칸을 확대해, 펼친 동안 잔량이 줄어드는 모습을 함께 담았습니다(17초).</figcaption></figure><nav class="wt-film-nav" aria-label="우산의 다른 쓰임"><a href="../assets/whostail-20261124-umbrella-escape.mp4">상대가 붙은 계단에서 이탈하는 장면도 보기 (8초 영상)</a></nav></div>
       <ol class="wt-clock" aria-label="우산의 변화">
         <li><time>10.12</time><p>빨강 줄무늬 낙하산 같은 외형으로 Blender 모델과 접힘, 펼침 동작 제작</p></li>
-        <li><time>10.13</time><p>“2층을 갔을 때 상대의 추격을 저지할 수 있는 아이템”, 낙하산은 사람보다 느리니 하강 속도는 걷기와 비슷하게</p></li>
+        <li><time>10.13</time><p>“2층을 갔을 때 상대의 추격을 저지할 수 있는 아이템”, 낙하산은 사람보다 느리니 하강 속도는 걷기와 비슷하게. 같은 날 맵 높이 조사</p></li>
         <li><time>10.15</time><p>“너무 바깥쪽으로 벌어진” 그립을 몸 앞쪽으로 고침</p></li>
+        <li class="on"><time>10.16</time><p>칸마다 누적 30초 잔량을 저장하고, 다 쓴 아이템만 사라지며, 음영은 위쪽부터 시계 방향으로</p></li>
         <li><time>11.03</time><p>팀원 A(팀장)의 “사용감이 재밌어 자주 썼으면 좋겠다”는 의견을 받아 특수에서 일반 등급으로</p></li>
       </ol>
       <details class="v-more"><summary>그립 수정 전후와 만든 방식</summary><div class="in">
@@ -598,13 +678,13 @@ img.zoom{cursor:zoom-in}
           <figure><img class="v-shot zoom" src="../assets/fb9875bdefcf7c67de888647.webp" alt="우산을 몸 바깥으로 벌려 든 여우 캐릭터"><figcaption class="v-cap">전, 몸 바깥으로 벌어짐</figcaption></figure>
           <figure><img class="v-shot zoom" src="../assets/1b076b2dcfc4c33cc2151dfa.webp" alt="우산을 몸 앞쪽 가운데로 모아 든 여우 캐릭터"><figcaption class="v-cap">후, 정면과 몸 중앙 쪽</figcaption></figure>
         </div>
-        <p>모델, 동작은 Codex로 Blender를 조작해 만들었고, 외형, 쓰임새, 동작 검수는 제가 했습니다. 11.06 M2 시연 설문에서는 2명이 아이템 활용(더블 점프, 우산)을 좋았던 점으로 꼽았습니다.</p>
+        <p>모델과 동작은 Codex로 Blender를 조작해 만들었고, 외형, 쓰임새, 동작 검수는 제가 했습니다. 맵 높이 계산도 AI와 함께 했습니다. M2 시연 설문에서는 2명이 아이템 활용(더블 점프, 우산)을 좋았던 점으로 꼽았습니다.</p>
       </div></details>
     </section>
 
-    <section class="v-beat" id="wt-lock" data-step="아이템 ②" data-short="추리 규칙을 지킨 록온, 26분">
-      <h2>록온: 추리 규칙은 그대로 두고, 추격 아이템을 <em>26분 만에</em> 시제품으로 만들었습니다</h2>
-      <p class="v-sub">M2 시연을 나흘 앞둔 11.02, 아이템을 다시 짜고 보니 추격자 쪽 아이템이 낚싯대 하나뿐이었습니다.</p>
+    <section class="v-beat" id="wt-lock" data-step="③ 록온" data-short="정답 타깃을 알려 주지 않는 추격 아이템">
+      <h2>록온: <em>정답 타깃을 알려 주지 않는</em> 추격 아이템</h2>
+      <p class="v-sub">11.02 아이템을 다시 짜고 보니 추격자 쪽 아이템이 낚싯대 하나뿐이었습니다. 추리 규칙을 해치지 않는 조건을 먼저 정했고, 제안에서 시제품까지는 26분이 걸렸습니다.</p>
       <ul class="v-chips" aria-label="지켜야 했던 조건">
         <li class="on">정답 타깃은 알려 주지 않는다</li>
         <li class="on">추리는 정보 시스템이 맡는다, 위치 핑과 가짜 꼬리의 색 위장은 뺐다</li>
@@ -618,84 +698,65 @@ img.zoom{cursor:zoom-in}
         <li class="on"><time>17:17</time><p>제안: 록온, 숄더뷰로 바꾸고, 고른 상대를 쫓을 때만 빨라지게</p></li>
         <li><time>17:43</time><p>시제품(AI 구현): 직접 고른 상대, 6초, 최대 25% 가속, 벽이나 연막에 가리면 멈춤</p></li>
         <li class="on"><time>17:44</time><p>“상대 입장에서 록온이 예상되면 골목 안으로 들어가면 되니까 게임이 되지”</p></li>
-        <li><time>19:29</time><p>아이템 구성과 함께 커밋 <code>ecd8d06e7</code></p></li>
+        <li><time>19:29</time><p>아이템 구성과 함께 팀 프로젝트에 저장</p></li>
       </ol>
       <div class="v-panel wt-rangebox">
         <h3>11.03 확정, 같은 조준법, 다른 사거리와 역할</h3>
         <div class="wt-ranges" aria-label="낚싯대 최대 12미터, 록온 최대 20미터. 두 아이템의 사용 거리 범위는 겹칩니다.">
-          <div><b>낚싯대 · 최대 12m</b><i style="--range:60%" aria-hidden="true"></i><span>보이는 상대를 내 앞으로 끌어옵니다.</span></div>
-          <div><b>록온 · 최대 20m</b><i style="--range:100%" aria-hidden="true"></i><span>고른 상대를 향해 달릴 때 가속합니다. 12m 안에서도 사용할 수 있습니다.</span></div>
+          <div><b>낚싯대, 최대 12m</b><i style="--range:60%" aria-hidden="true"></i><span>보이는 상대를 내 앞으로 끌어옵니다.</span></div>
+          <div><b>록온, 최대 20m</b><i style="--range:100%" aria-hidden="true"></i><span>고른 상대를 향해 달릴 때 가속합니다. 12m 안에서도 사용할 수 있습니다.</span></div>
         </div>
         <p class="v-note">둘 다 우클릭으로 화면에 보이는 상대를 고르고 놓아 씁니다. 은신, 연막, 벽 뒤의 상대는 고를 수 없고, 비밀 타깃의 신원은 알려 주지 않습니다.</p>
       </div>
-      <figure class="v-vis wt-items"><img class="v-shot zoom" src="../assets/94e191147e75348ee8e4b581.webp" alt="M2 아이템 기획 확정안. 일반 10종에 우산과 록온이 있고 특수 4종은 클로킹 조작 반전 나무 해머 대나무 헬리콥터"><figcaption class="v-cap">11.03 M2 아이템 확정안, 일반 10종, 특수 4종, 우산과 록온은 일반</figcaption></figure>
       <details class="v-more"><summary>11.03 사거리를 세 번 고친 순서</summary><div class="in">
-        <p>18:30 록온 사거리를 낚싯대 최대 거리와 같게 → 18:55 15m → 19:10 록온 25m, 낚싯대 15m, 낚싯대도 록온과 같은 조준 방식으로 → 19:18 “낚싯대 12m 록온 20m” 확정. 팀원에게 넘길 기획서, 구현 명세를 만들고 작업을 커밋했습니다(<code>d01f87e2f</code>, <code>M2_ITEM_SPEC_FINAL.md</code>).</p>
-        <p>시제품과 수치 반영 코드는 AI(Codex)가 작성했고, 저는 검수 씬에서 직접 써 보며 수치를 정했습니다.</p>
+        <blockquote class="v-quote">“낚싯대 12m 록온 20m 이제 수치 확정하고 친구한테 아이템 넘길거야”<footer>2026.11.03, 검수 뒤 남긴 원문 발췌</footer></blockquote>
+        <p>18:30 록온 사거리를 낚싯대 최대 거리와 같게 → 18:55 15m → 19:10 록온 25m, 낚싯대 15m, 낚싯대도 록온과 같은 조준 방식으로 → 19:18 “낚싯대 12m 록온 20m” 확정.</p>
+        <p>거리만 넘기지 않았습니다. 우클릭 유지, 조준, 놓아 발동하는 공통 입력과, 대상 없음, 사거리 이탈, 조준 취소 때 <b>아이템을 소모하지 않는 예외</b>까지 정해 팀원이 받을 기획서와 구현 명세로 만들었습니다. 시제품과 수치 반영 코드는 AI(Codex)가 작성했고, 저는 검수 씬에서 직접 써 보며 수치를 정했습니다.</p>
+        <a href="../docs/whostail-handoff.html">당시 판단 원문과 구현 명세 발췌 읽기 →</a>
       </div></details>
     </section>
 
-    <section class="v-beat" id="wt-qte" data-step="QTE" data-short="눌러야 할 키와 성공 결과를 연결">
-      <h2>긴 설명을 줄이고, <em>입력과 성공 결과가 이어지는</em> 힘겨루기로 다듬었습니다</h2>
-      <p class="v-sub">판정 로직은 팀원이 만들었고(11.16), 저는 화면과 피드백을 맡아 다음 날 하루 만에 main에 합쳤습니다.</p>
-      <div class="wt-qte" id="wtqte" data-v="b">
-        <div class="v-seg" data-for="wtqte"><button type="button" data-v="a">11.17 15:21, 전</button><button type="button" data-v="b">18:30, 폴리싱 중</button></div>
-        <div class="wt-q3">
-          <figure><div data-show="a"><img class="v-shot zoom" src="../assets/a7e38c9b1e2f19cb6d036b61.webp" alt="Space와 Enter 키캡 아래 4.5초 숫자와 게이지"></div><div data-show="b"><img class="v-shot zoom" src="../assets/7c58ed2d194497c8fbb68e2d.webp" alt="Space와 Enter 키캡, 나 대 상대 전광판, 오른쪽 위 빨간 폭발 모양 태그"></div><figcaption class="v-cap"><b>스페이스 엔터</b>: 번갈아 연타</figcaption></figure>
-          <figure><div data-show="a"><img class="v-shot zoom" src="../assets/e1f9257a0e492ea6e8670800.webp" alt="다섯 키캡 위에 앞의 키부터 입력 문구와 두 줄 설명"></div><div data-show="b"><img class="v-shot zoom" src="../assets/522bd6ecb5eb7ef146a8bf1e.webp" alt="설명 없이 첫 노란 키캡 위에 강조선, 나 대 상대 전광판, 노란 키부터 눌러 태그"></div><figcaption class="v-cap"><b>아재 절단기</b>: 노란 키부터 순서대로</figcaption></figure>
-          <figure><div data-show="a"><img class="v-shot zoom" src="../assets/9ce09170757df86cfa073c7e.webp" alt="원판 칸마다 +1 +2 +3 글자와 판정폭 설명 세 줄"></div><div data-show="b"><img class="v-shot zoom" src="../assets/ac55d2b048fcb8eb4cc074fe.webp" alt="숫자 없이 색과 줄 수로 점수 칸을 구분한 다트판 모양 원판"></div><figcaption class="v-cap"><b>데바데(원형)</b>: 빛나는 칸에서 누르기</figcaption></figure>
-        </div>
-        <p class="v-note"><span data-show="a">15:21에 제가 보낸 실제 화면입니다. 남은 초, 점수, 조작법을 모두 글자로 읽어야 했습니다.</span><span data-show="b">18:30에 남긴 작업 중 캡처입니다. 이후 태그 문구와 위치, 차등 점수, 원형 게이지 표시, 오입력 안내를 추가로 조정했습니다. 아래는 그 후 확정한 규칙입니다.</span></p>
-      </div>
-      <div class="wt-feedback-rules">
-        <h3>세 가지 입력, 같은 결과 표시</h3>
-        <div class="wt-rule-grid">
-          <article><span class="wt-rule-label">스페이스 엔터 · 연타</span><h4>스페이스 엔터를<br>연타해!</h4><p>키캡 위 카툰 강조선과 눌림 색으로 다음 입력을 유도합니다. 성공한 입력이 점수와 줄다리기 게이지에 함께 반영되도록 연결했습니다.</p></article>
-          <article><span class="wt-rule-label">아재 절단기 · 순서</span><h4>노란 키를<br>순차적으로 눌러!</h4><p>현재 키만 노랗게 강조합니다. 틀리면 빨간 키캡·흔들림과 <b>“다시! 노란 키부터!”</b> 안내로 어느 입력부터 이어가야 하는지 알립니다.</p></article>
-          <article><span class="wt-rule-label">데바데 · 원형 타이밍</span><h4>빛나는 칸에서<br>스페이스를 눌러!</h4><p>득점할 수 있는 범위만 빛나게 하고, 색과 테두리로 등급을 나눕니다. 맞힌 조각은 떨어지고 <b>1·2·3점 차등</b>이 점수판과 게이지에 반영됩니다. 실패는 화면 흔들림 대신 은은한 색 반응으로 구분합니다.</p></article>
-        </div>
-        <p class="wt-game-note">공통 규칙: 남은 시간은 <b>초록·노랑·빨강 막대</b>로, 힘겨루기는 <b>수평 게이지와 원형 표시</b>로 읽게 했습니다. 원 주변의 짧은 반응으로 ‘지금 성공한 입력이 게이지를 움직였다’는 연결을 보강했습니다.</p>
-      </div>
-      <div class="wt-refs">
-        <figure class="wt-ref"><img class="v-shot" src="../assets/07c3ea4ff2c23e5e20d2f462.webp" alt="다트판 사진"><figcaption class="v-cap">다트판, 레퍼런스</figcaption></figure>
-        <blockquote class="v-quote">“다트가 이미 문법으로 사람들한테 친숙하게 깔려 있기에 더 텍스트가 필요 없잖아.”<footer>원판 QTE를 다시 디자인하자며, 16:04</footer></blockquote>
-        <figure class="wt-ref wide"><img class="v-shot" src="../assets/0827145dc94fae2edc9d065b.webp" alt="방송 자막의 빨간 폭발 모양 태그 네 개"><figcaption class="v-cap">사선 태그 레퍼런스, 출처: SBS 〈런닝맨〉 방송 화면, 레퍼런스로만 사용</figcaption></figure>
-      </div>
-      <ol class="wt-clock wt-day" aria-label="11월 17일 QTE 작업 순서">
-        <li><time>15:21</time><p>설명 문구를 모두 빼고, 성공, 실패를 색과 흔들림으로 바로 알 수 있게</p></li>
-        <li class="on"><time>16:04</time><p>원판을 다트판 문법으로 다시 디자인, 점수 숫자 대신 색과 줄 수</p></li>
-        <li><time>17:02</time><p>맞힌 조각이 원판 밖으로 떨어짐, 남은 시간은 숫자 대신 스태미나처럼 초록→노랑→빨강 막대</p></li>
-        <li class="on"><time>17:51</time><p>클립을 떼고 런닝맨 자막 같은 사선 태그로 “무엇을 할지” 명령형 안내, 나 : 상대 전광판</p></li>
-        <li><time>18:30</time><p>태그 문구를 직접 정하고, 원판 1, 2, 3점 차등을 전광판 점수에 반영</p></li>
-        <li><time>19:01</time><p>18:56 커밋 <code>71a3b6fab</code> → PR #61로 main 병합</p></li>
-      </ol>
-      <details class="v-more"><summary>나눈 일과 확인 범위</summary><div class="in">
-        <p>세 QTE의 판정 로직은 팀원이 11.16에 올린 커밋(<code>cb1e63e8f</code>)입니다. 화면 코드는 AI(Codex)가 작성했고, 문구, 레퍼런스, 색 규칙과 F10 연습창에서의 플레이 검수는 제가 했습니다. 15:21 수정 중 바꾸지 말았어야 할 스페이스 엔터까지 바뀌어 직전 버전으로 되돌린 일도 있었습니다.</p>
-      </div></details>
-    </section>
-
-    <section class="v-beat" data-step="결과" data-short="시연 16명 중 9명이 UI를 좋게 봄">
-      <h2>M2 시연에서 16명 중 9명이 <em>UI&nbsp;디자인, 가독성</em>을 좋은 점으로 꼽았습니다</h2>
-      <p class="v-sub">같은 설문에서 9명은 정보에 닿는 조작을 고쳐 달라고 했습니다. 이를 원형 HUD, 폰 단축키와 추리 정보 연결을 다듬는 근거로 삼았습니다. 아래 수치는 M3 수정 전인 11.06 M2 설문이며, M3의 개선 효과를 측정한 수치는 아닙니다.</p>
+    <section class="v-beat" id="wt-retro" data-step="결과와 회고" data-short="제출 빌드를 다시 플레이하며 찾은 것">
+      <h2>제출한 빌드를 다시 플레이하고, <em>남은 문제</em>까지 적었습니다</h2>
+      <p class="v-sub">11.23 M3 평가에 제출한 빌드를 다음 날 직접 녹화하면서, 처음 하는 사람의 눈으로 다시 확인했습니다. 프로젝트는 12.03까지 이어집니다.</p>
       <div class="v-two">
-        <div class="v-panel"><h3>좋았던 점, 16명 중</h3>
-          <div class="v-bars">
-            <div class="r"><span class="l">UI 디자인, 가독성, 직관성</span><span class="t"><i style="--a:56.3%"></i></span><b>9</b></div>
-            <div class="r"><span class="l">꼬리잡기, 추격, 난투</span><span class="t"><i class="dim" style="--a:43.8%"></i></span><b>7</b></div>
-            <div class="r"><span class="l">단서 탐색, 추리</span><span class="t"><i class="dim" style="--a:31.3%"></i></span><b>5</b></div>
-          </div></div>
-        <div class="v-panel"><h3>고쳐 달라는 점, 16명 중</h3>
-          <div class="v-bars">
-            <div class="r"><span class="l">렉, 끊김 등 성능</span><span class="t"><i class="dim" style="--a:75%"></i></span><b>12</b></div>
-            <div class="r"><span class="l">단서 활용, 추리 흐름</span><span class="t"><i class="dim" style="--a:62.5%"></i></span><b>10</b></div>
-            <div class="r"><span class="l">UI 조작, 정보 접근</span><span class="t"><i style="--a:56.3%"></i></span><b>9</b></div>
-            <div class="r"><span class="l">조작감, 잡기 판정</span><span class="t"><i class="dim" style="--a:50%"></i></span><b>8</b></div>
-          </div></div>
+        <div class="v-panel">
+          <h3>M3 제출 빌드에 들어간 것</h3>
+          <ul class="wt-list">
+            <li><b>원형 HUD와 휴대폰 추리 연결</b>내 위치, 남은 사람, 타깃을 원 하나에서 읽고, 추리한 색이 연락처와 상대 꼬리 표시로 이어짐</li>
+            <li><b>알림 세 분류와 관전, 중개자 화면</b>제목으로 종류를 나눈 포스트잇, 수신 배너, 진행 중 이벤트 카드</li>
+            <li><b>힘겨루기 세 가지</b>연타, 순서 입력, 원형 타이밍의 같은 점수판과 게이지, 틀렸을 때의 안내</li>
+            <li><b>잔량형 우산과 록온</b>칸마다 저장되는 우산 잔량, 정답 타깃을 알려 주지 않는 추격 아이템</li>
+          </ul>
+        </div>
+        <div class="v-panel wt-me">
+          <h3>다시 플레이하며 찾은 것</h3>
+          <ul class="wt-list">
+            <li><b>꼬리와 단서 화면 사이의 이동 안내가 없음</b>휴대폰에서 꼬리(3)와 단서(4)를 오갈 수 있는지 화면에 보이지 않았습니다. 꼬리 화면에 ‘4 단서 보기’, 단서 화면에 ‘3 꼬리 추리’ 버튼을 제안했지만, 제출 빌드와 같은 소스를 확보하지 못해 반영하지 못했습니다. 11.13에 하단의 단축키 나열을 지운 결정도 다시 볼 이유가 생겼습니다.</li>
+            <li><b>긴 알림의 줄바꿈</b>‘사용했습니/다’처럼 단어 중간에서 줄이 바뀌는 알림이 남아 있었습니다.</li>
+            <li><b>M3 설문</b>단축키 배치가 쓰기 편했는지 묻는 문항을 넣어 11문항으로 만들었습니다. 응답 집계는 아직 이 페이지에 넣지 않았습니다.</li>
+          </ul>
+        </div>
       </div>
-      <p class="v-note">가장 많이 나온 성능 문제(12명)는 제가 맡은 UI, 아이템 범위 밖입니다.</p>
-      <details class="v-more"><summary>설문 집계 방식</summary><div class="in">
-        <p>2026.11.06 M2 시연 뒤 받은 설문(16명, 7문항)입니다. 서술형 응답을 주제로 나눴고, 같은 사람이 여러 문항에서 같은 주제를 말하면 한 번으로 셌습니다. 한 사람이 여러 주제에 들어갈 수 있습니다.</p>
-      </div></details>
+      <h3 class="wt-subhead">회고</h3>
+      <div class="v-two wt-entry">
+        <article><h3>이어 갈 것</h3><p>원본 폰트, 종이 리소스, 키캡처럼 이미 게임에 맞는 요소를 다시 쓴 것이 화면 사이의 통일감을 만들었습니다.</p></article>
+        <article><h3>다르게 할 것</h3><p>통일을 넓게 해석하다 메시지가 포스트잇처럼 보이고 통화 화면의 얼굴이 작아진 적이 있습니다. 다음에는 공통 부품과 화면마다의 목적을 먼저 나눠 정하고, 새 효과를 넣을 때 어떤 입력과 상태가 계기인지 함께 적겠습니다.</p></article>
+      </div>
+    </section>
+
+    <section class="v-beat" id="wt-sources" data-step="출처" data-short="자료 출처와 확인 범위">
+      <h2>자료 출처와 확인 범위</h2>
+      <p class="v-sub">장면마다 붙어 있던 확인 범위를 이곳에 모았습니다.</p>
+      <ul class="wt-sources">
+        <li><b>영상</b>11.23 M3 평가에 제출한 빌드를 11.24 직접 녹화했습니다. 튜토리얼과 봇이 참여한 플레이이며, 사람끼리의 온라인 대결이나 메시지 송수신 증거는 아닙니다. 서로 다른 시간대를 이은 편집본은 캡션에 적었습니다.</li>
+        <li><b>이미지</b>시안은 Figma, 작업 중 화면은 Unity 에디터, ‘제출 빌드’라고 적은 화면은 11.24 녹화나 11.23 평가 제출 자료입니다. 팀원 이름은 가렸습니다.</li>
+        <li><b>규칙 설명</b>사슬 구조, 후방 잡기, 게이지 대결은 팀 최종 컨셉 기획서 4~5절을, 후속 기능은 11.20 소스와 작업 인계 기록을 참고했습니다. 꼬리 셔플의 10초 예고는 실제 이벤트 진행 시간에 연결한 UI입니다.</li>
+        <li><b>HUD 의견</b>10월 의견은 업무 메모(10.06, 10.07)와 M1 진행 기록(10.24)에서, 11월 단계는 작업 대화 원문(11.09, 11.12)에서 가져왔습니다.</li>
+        <li><b>팀 작업과의 경계</b>튜토리얼, 관전, 중개자 시스템 자체와 오락실, 온라인 지연, 택시 내비게이션 후속 개발은 팀 작업입니다. 제 범위는 화면 통일, 배치와 입력 안내, 연결 문제의 수정입니다. 힘겨루기 판정 로직도 팀원 작업입니다.</li>
+        <li><b>구현 기록</b>기획 판단, 화면 피드백, 공통 스타일은 제가 정했고 구현 코드는 AI(Codex, Claude Code)와 작업했습니다. 주요 커밋: 원형 HUD <code>67f4a7df2</code>, 원형 미니맵 <code>3aea27bfa</code>, 아이템 구성 <code>ecd8d06e7</code>, 아이템 명세 <code>d01f87e2f</code>, 힘겨루기 화면 <code>71a3b6fab</code>, 관전자 UI <code>dac4aad59</code>.</li>
+        <li><b>확인하지 못한 것</b>최종 제출 ZIP과 정확히 같은 소스 커밋, 제출 빌드의 우산 하강 속도와 스턴 수치, M3 설문 응답.</li>
+      </ul>
     </section>
   </main>
 </div>
@@ -775,7 +836,6 @@ img.zoom{cursor:zoom-in}
 </script>
 <script>
 (()=>{const v=document.getElementById('wt-featured');document.querySelectorAll('[data-wt-seek]').forEach(b=>b.addEventListener('click',()=>{const t=Number(b.dataset.wtSeek);if(v.readyState<1){v.addEventListener('loadedmetadata',()=>{v.currentTime=t},{once:true});v.load()}else v.currentTime=t;v.play().catch(()=>{})}));
-const reveal=()=>{const id=location.hash.slice(1);const el=document.getElementById(id);if(el&&el.matches('details.wt-film-detail'))el.open=true};window.addEventListener('hashchange',reveal);document.querySelectorAll('.wt-film-nav a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{const el=document.getElementById(a.hash.slice(1));if(el&&el.matches('details'))el.open=true}));reveal();
 document.querySelectorAll('.wt-film-figure video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('.wt-film-figure video').forEach(other=>{if(other!==v)other.pause()})));
 })();</script>
 </body>

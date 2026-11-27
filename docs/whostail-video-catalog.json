@@ -2122,6 +2122,85 @@
       "recordedBy": "이재민",
       "type": "user-recorded-final-build-edit",
       "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "qte3",
+      "title": "힘겨루기 세 가지 | 연타, 순서 입력, 원형 타이밍",
+      "caption": "연타, 순서 입력, 원형 타이밍을 차례로 이은 편집본입니다. 순서 입력에서 틀렸을 때의 안내도 담았습니다.",
+      "tags": [
+        "QTE",
+        "연타",
+        "순서 입력",
+        "오입력",
+        "원형 타이밍"
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 506.5,
+          "end": 512.0,
+          "label": "연타 | Space와 Enter를 번갈아 눌러 게이지를 민다"
+        },
+        {
+          "source": "S02",
+          "start": 57.7,
+          "end": 64.8,
+          "label": "순서 입력 | 노란 키 하나만 강조해 다음 키를 알려 준다"
+        },
+        {
+          "source": "S07",
+          "start": 86.0,
+          "end": 90.0,
+          "label": "순서 입력 | 틀리면 빨간 키와 '다시! 노란 키부터!'"
+        },
+        {
+          "source": "S07",
+          "start": 347.0,
+          "end": 354.3,
+          "label": "원형 타이밍 | 빛나는 칸에서 Space, 맞힌 조각은 떨어진다"
+        }
+      ],
+      "durationSeconds": 23.9,
+      "path": "assets/whostail-20261124-qte3.mp4",
+      "poster": "assets/whostail-20261124-qte3.jpg",
+      "date": "2026-11-24",
+      "edited": "2026-11-27",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
+    },
+    {
+      "id": "umbrella-gauge",
+      "title": "우산 | 펼친 시간만큼 줄어드는 잔량",
+      "caption": "옥상에서 시장 위로 활공하는 장면에 1번 칸 우산 아이콘을 확대해 넣었습니다. 펼친 동안 잔량 음영이 시계 방향으로 넓어집니다.",
+      "tags": [
+        "아이템",
+        "우산",
+        "잔량",
+        "활공"
+      ],
+      "segments": [
+        {
+          "source": "S07",
+          "start": 241.5,
+          "end": 246.0,
+          "label": "우산 | 옥상에서 뛰어내려 우산을 편다"
+        },
+        {
+          "source": "S07",
+          "start": 246.0,
+          "end": 258.0,
+          "label": "잔량 | 펼친 동안 아이콘의 밝은 부분이 시계 방향으로 줄어든다"
+        }
+      ],
+      "durationSeconds": 16.5,
+      "path": "assets/whostail-20261124-umbrella-gauge.mp4",
+      "poster": "assets/whostail-20261124-umbrella-gauge.jpg",
+      "date": "2026-11-24",
+      "edited": "2026-11-27",
+      "recordedBy": "이재민",
+      "type": "user-recorded-final-build-edit",
+      "mode": "봇 참여 플레이"
     }
   ],
   "verification": "최종 편집본 재생·시각 검수는 사용자 담당. 테스트·게임 실행·빌드 미실행.",
