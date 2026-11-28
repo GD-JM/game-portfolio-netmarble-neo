@@ -414,6 +414,9 @@ img.zoom{cursor:zoom-in}
 /* 3차: 설문 문항, 작업 도구 링크 */
 .wt-qlist{margin:6px 0 10px;padding-left:22px;font-size:14.5px;line-height:1.75;color:var(--ink-2)}.wt-qlist li{margin:4px 0}
 .wt-formlink{font-size:14px}.wt-formlink small{display:block;color:var(--ink-3);font-size:12.5px}
+
+/* 2026-11-28 Jira, Confluence 사본 링크 */
+.wt-worklinks{display:flex;flex-wrap:wrap;gap:6px 18px;margin:16px 0 0;font-size:14.5px}.wt-worklinks a{color:var(--accent);font-weight:700}.wt-worklinks a::after{content:" \2192";font-family:Arrows,sans-serif}.wt-worklinks span{flex-basis:100%;font-size:12.5px;color:var(--ink-3)}
 </style>
 </head>
 <body data-p="whostail">
@@ -459,7 +462,7 @@ img.zoom{cursor:zoom-in}
       </ul>
     </section>
 
-    <section class="v-beat" data-step="역할" data-short="메인 UI, QTE, 아이템 기획">
+    <section class="v-beat" id="wt-role" data-step="역할" data-short="메인 UI, QTE, 아이템 기획">
       <h2>저는 <em>메인 UI</em>와 QTE, 아이템을 기획했습니다</h2>
       <p class="v-sub">팀 최종 컨셉 기획서의 담당 칸에는 ‘메인 UI 기획, 전투 및 이벤트 요소 기획’으로 적혀 있습니다. 이 페이지는 그중 제가 직접 기획하고 검수한 화면, 힘겨루기, 아이템을 다룹니다. 코드는 AI와 함께 만들었고, 기획 판단과 플레이 검수는 제가 했습니다.</p>
       <div class="v-two">
@@ -488,7 +491,7 @@ img.zoom{cursor:zoom-in}
         <li><b>Figma에서 Unity로</b>1920×1080 화면에 8배수 좌표로 배치하고 레이어 이름을 Unity 오브젝트 이름과 맞췄습니다. 그래픽이 늦게 와도 구조는 두고 그림만 바꿔 끼웁니다</li>
         <li><b>기획 문서</b>우산 아이템과 시스템, M2 아이템, UI 작업 파이프라인을 팀 문서로 정리</li>
         <li><b>설문</b>M1부터 M3까지 시연 설문을 설계해 Google Forms로 받고, 응답을 주제별로 묶어 팀에 공유</li>
-      </ul>
+      </ul><p class="wt-worklinks"><a href="../docs/nangman-jira.html">Jira 이슈 30개 사본</a><a href="../docs/nangman-confluence.html">Confluence 기획 문서 8개 사본</a><span>팀 Jira와 Confluence는 무료 플랜이라 외부 공개가 되지 않아, 제 담당분을 옮겨 두었습니다.</span></p>
     </section>
 
     <section class="v-beat" id="wt-core" data-step="핵심 세 가지" data-short="UI, 힘겨루기, 아이템">
